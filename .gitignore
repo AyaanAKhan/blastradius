@@ -31,10 +31,4 @@ Thumbs.db
 .vscode
 
 # Local design-tool state
-.impeccable/config.local.json
-.impeccable/hook.cache.json
-.impeccable/hook.pending.json
-.impeccable/*.png
-.impeccable/review
-.impeccable/questions
-.impeccable/live
+.impeccable/

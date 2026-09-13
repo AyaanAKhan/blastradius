@@ -156,12 +156,9 @@ public/                      Product favicon and social card
 
 ## Documentation
 
-- [Product boundaries](PRODUCT.md)
-- [Design system](DESIGN.md)
 - [Architecture](docs/architecture.md)
 - [Scoring model](docs/scoring-model.md)
 - [Contributing](CONTRIBUTING.md)
-- [Security policy](SECURITY.md)
 
 ## License
 
