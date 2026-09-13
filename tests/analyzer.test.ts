@@ -6,6 +6,7 @@ import {
   applyAlias,
   classifySpecifier,
   parseUnifiedDiff,
+  testMatchesSource,
   type RepositoryFile,
 } from "../lib/analyzer.ts";
 
@@ -198,4 +199,29 @@ test("external packages do not count as unresolved imports", () => {
 
 test("applyAlias expands the longest matching prefix", () => {
   assert.equal(applyAlias("@/lib/analyzer", { "@/": "./", "@/lib/": "src/core/" }), "src/core/analyzer");
+});
+
+test("test matching accepts exact names and rejects substring collisions", () => {
+  assert.equal(testMatchesSource("src/api/session.test.ts", "src/api/session.ts"), true);
+  assert.equal(testMatchesSource("tests/test_ledger.py", "src/ledger.py"), true);
+  assert.equal(testMatchesSource("tests/dbdriver-unrelated.test.ts", "src/db.ts"), false);
+  assert.equal(testMatchesSource("src/api/session.test.ts", "src/a.ts"), false);
+  assert.equal(testMatchesSource("src/index.test.ts", "src/index.ts"), false);
+});
+
+test("substring collisions never invent test coverage", () => {
+  const files: RepositoryFile[] = [
+    { path: "src/db.ts", imports: [], isTest: false, isSurface: false },
+    { path: "tests/dbdriver-unrelated.test.ts", imports: [], isTest: true, isSurface: false },
+  ];
+  const change = `diff --git a/src/db.ts b/src/db.ts
+--- a/src/db.ts
++++ b/src/db.ts
+@@ -1 +1 @@
+-export const ready = false
++export const ready = true`;
+  const result = analyzeChange(change, files);
+
+  assert.equal(result.stats.impactedTests, 0);
+  assert.equal(result.verificationPlan.includes("Run tests/dbdriver-unrelated.test.ts"), false);
 });

@@ -325,12 +325,13 @@ function resolveImport(
   return { kind, target: undefined };
 }
 
-function testMatchesSource(testPath: string, sourcePath: string) {
+export function testMatchesSource(testPath: string, sourcePath: string) {
   const testName = withoutExtension(basename(testPath))
     .replace(/\.(test|spec)$/, "")
     .replace(/^test_/, "");
   const sourceName = withoutExtension(basename(sourcePath));
-  return testName === sourceName || testPath.includes(sourceName);
+  if (!sourceName || sourceName === "index") return false;
+  return testName === sourceName;
 }
 
 function isTestPath(path: string) {
