@@ -81,33 +81,88 @@ function ImpactMap({ analysis }: { analysis: AnalysisResult }) {
     ["Surfaces", analysis.nodes.filter((node) => node.kind === "surface")],
     ["Tests", analysis.nodes.filter((node) => node.kind === "test")],
   ] as const;
+  const displayedColumns = columns.map(([title, nodes]) => [title, nodes.slice(0, 5)] as const);
+  const columnX = [20, 260, 500, 740];
+  const nodeWidth = 200;
+  const nodeHeight = 48;
+  const rowHeight = 64;
+  const graphHeight = Math.max(170, 72 + Math.max(...displayedColumns.map(([, nodes]) => nodes.length)) * rowHeight);
+  const positions = new Map<string, { x: number; y: number }>();
+  displayedColumns.forEach(([, nodes], columnIndex) => {
+    nodes.forEach((node, rowIndex) => {
+      positions.set(node.id, { x: columnX[columnIndex], y: 52 + rowIndex * rowHeight });
+    });
+  });
+  const visibleEdges = analysis.edges.filter(
+    (edge) => positions.has(edge.from) && positions.has(edge.to),
+  );
+  const compact = (value: string, length: number) =>
+    value.length > length ? `${value.slice(0, length - 1)}…` : value;
 
   return (
     <div className="impact-map">
-      <div className="impact-grid">
-        {columns.map(([title, nodes], index) => (
-          <section className="impact-stage" key={title}>
-            <header className="stage-heading">
-              <span>{String(index + 1).padStart(2, "0")} / {title}</span>
-              {index < columns.length - 1 ? <b aria-hidden="true">→</b> : null}
-            </header>
-            <div className="stage-nodes">
-              {nodes.length ? nodes.slice(0, 5).map((node) => (
-                <div className="impact-node" data-kind={node.kind} key={node.id}>
-                  <div className="node-line">
-                    <span className="node-marker" aria-hidden="true" />
-                    <strong>{node.label}</strong>
-                    <span>hop {node.depth}</span>
-                  </div>
-                  <p title={node.path}>{node.path}</p>
-                </div>
-              )) : <p className="empty-evidence">No evidence found</p>}
-            </div>
-          </section>
-        ))}
+      <div className="impact-graph-scroll">
+        <svg
+          className="impact-graph"
+          viewBox={`0 0 960 ${graphHeight}`}
+          role="img"
+          aria-labelledby="impact-graph-title impact-graph-description"
+        >
+          <title id="impact-graph-title">Dependency impact graph</title>
+          <desc id="impact-graph-description">
+            Directed import paths from changed files through dependents to exposed surfaces and related tests.
+          </desc>
+          <defs>
+            <marker id="edge-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 8 4 L 0 8 z" />
+            </marker>
+          </defs>
+          {displayedColumns.map(([title], index) => (
+            <text className="graph-stage-label" x={columnX[index]} y="24" key={title}>
+              {String(index + 1).padStart(2, "0")} / {title.toUpperCase()}
+            </text>
+          ))}
+          {visibleEdges.map((edge, index) => {
+            const from = positions.get(edge.from)!;
+            const to = positions.get(edge.to)!;
+            const startX = from.x + nodeWidth;
+            const startY = from.y + nodeHeight / 2;
+            const endX = to.x;
+            const endY = to.y + nodeHeight / 2;
+            const bend = Math.max(24, (endX - startX) / 2);
+            return (
+              <path
+                className="graph-edge"
+                d={`M ${startX} ${startY} C ${startX + bend} ${startY}, ${endX - bend} ${endY}, ${endX} ${endY}`}
+                markerEnd="url(#edge-arrow)"
+                key={`${edge.from}-${edge.to}-${index}`}
+              >
+                <title>{edge.evidence}</title>
+              </path>
+            );
+          })}
+          {displayedColumns.flatMap(([, nodes]) => nodes.map((node) => {
+            const position = positions.get(node.id)!;
+            return (
+              <g className="graph-node" data-kind={node.kind} key={node.id}>
+                <rect x={position.x} y={position.y} width={nodeWidth} height={nodeHeight} rx="3" />
+                <circle cx={position.x + 12} cy={position.y + 15} r="4" />
+                <text className="graph-node-label" x={position.x + 22} y={position.y + 18}>
+                  {compact(node.label, 23)}
+                </text>
+                <text className="graph-node-path" x={position.x + 12} y={position.y + 37}>
+                  {compact(node.path, 28)}
+                </text>
+                <title>{node.path}, {node.kind}, hop {node.depth}</title>
+              </g>
+            );
+          }))}
+        </svg>
       </div>
       <p className="map-caption">
-        Lines are inferred from static imports. A path without a matching test is marked for review, not declared defective.
+        {visibleEdges.length} resolved import path{visibleEdges.length === 1 ? "" : "s"} shown. Hover a line for its evidence.
+        {analysis.stats.truncatedNodes ? ` ${analysis.stats.truncatedNodes} additional impacted files are not shown.` : ""}
+        {" "}A path without a matching test is marked for review, not declared defective.
       </p>
     </div>
   );
