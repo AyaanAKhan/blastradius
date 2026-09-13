@@ -52,10 +52,38 @@ export type AnalysisResult = {
     impactedFiles: number;
     impactedSurfaces: number;
     impactedTests: number;
+    totalImports: number;
+    resolvedImports: number;
+    unresolvedImports: number;
+    ignoredExternalImports: number;
+    ignoredAssetImports: number;
+    truncatedNodes: number;
   };
 };
 
+export type AnalysisOptions = {
+  aliases?: Record<string, string>;
+  baseUrl?: string;
+  externalPackages?: string[];
+};
+
 const SOURCE_EXTENSIONS = [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".py"];
+const NON_SOURCE_EXTENSIONS = [
+  ".css",
+  ".scss",
+  ".sass",
+  ".less",
+  ".svg",
+  ".png",
+  ".jpg",
+  ".jpeg",
+  ".gif",
+  ".webp",
+  ".json",
+  ".graphql",
+  ".gql",
+  ".md",
+];
 const SENSITIVE_PARTS = [
   "auth",
   "permission",
@@ -217,9 +245,7 @@ export function parseUnifiedDiff(diff: string): ChangeFile[] {
   return [...files.values()];
 }
 
-function candidatePaths(importer: string, specifier: string) {
-  if (!specifier.startsWith(".")) return [];
-  const base = joinPath(dirname(importer), specifier);
+function candidatePaths(base: string) {
   const candidates = new Set<string>([base]);
   for (const extension of SOURCE_EXTENSIONS) {
     candidates.add(base + extension);
@@ -228,11 +254,75 @@ function candidatePaths(importer: string, specifier: string) {
   return [...candidates];
 }
 
-function resolveImport(importer: string, specifier: string, knownPaths: Set<string>) {
-  for (const candidate of candidatePaths(importer, specifier)) {
+function packageName(specifier: string) {
+  const parts = specifier.split("/");
+  return specifier.startsWith("@") ? parts.slice(0, 2).join("/") : parts[0];
+}
+
+function hasNonSourceExtension(specifier: string) {
+  const clean = specifier.split(/[?#]/, 1)[0]?.toLowerCase() ?? "";
+  return NON_SOURCE_EXTENSIONS.some((extension) => clean.endsWith(extension));
+}
+
+export function classifySpecifier(
+  specifier: string,
+  aliases: Record<string, string> = {},
+  externalPackages: string[] = [],
+): "relative" | "alias" | "external" {
+  if (specifier.startsWith(".")) return "relative";
+  const aliasPrefixes = Object.keys(aliases).sort((left, right) => right.length - left.length);
+  if (aliasPrefixes.some((prefix) => specifier === prefix || specifier.startsWith(prefix))) {
+    return "alias";
+  }
+  if (specifier.startsWith("@/") || specifier.startsWith("~/") || specifier.startsWith("#")) {
+    return "alias";
+  }
+  if (externalPackages.includes(packageName(specifier))) return "external";
+  if (specifier.startsWith("@") || !specifier.includes("/")) return "external";
+  return "alias";
+}
+
+export function applyAlias(specifier: string, aliases: Record<string, string>) {
+  const entries = Object.entries(aliases).sort(([left], [right]) => right.length - left.length);
+  for (const [prefix, target] of entries) {
+    if (specifier === prefix) return normalizePath(target);
+    if (specifier.startsWith(prefix)) {
+      return joinPath(target, specifier.slice(prefix.length));
+    }
+  }
+  return undefined;
+}
+
+function findKnownPath(base: string | undefined, knownPaths: Set<string>) {
+  if (!base) return undefined;
+  for (const candidate of candidatePaths(base)) {
     if (knownPaths.has(candidate)) return candidate;
   }
   return undefined;
+}
+
+function resolveImport(
+  importer: string,
+  specifier: string,
+  knownPaths: Set<string>,
+  options: AnalysisOptions,
+) {
+  const aliases = options.aliases ?? {};
+  const kind = classifySpecifier(specifier, aliases, options.externalPackages);
+  if (kind === "relative") {
+    return { kind, target: findKnownPath(joinPath(dirname(importer), specifier), knownPaths) };
+  }
+  if (kind === "alias") {
+    const aliasTarget = applyAlias(specifier, aliases);
+    const baseTarget = options.baseUrl ? joinPath(options.baseUrl, specifier) : undefined;
+    return {
+      kind,
+      target:
+        findKnownPath(aliasTarget, knownPaths) ??
+        findKnownPath(baseTarget, knownPaths),
+    };
+  }
+  return { kind, target: undefined };
 }
 
 function testMatchesSource(testPath: string, sourcePath: string) {
@@ -255,7 +345,11 @@ function clamp(value: number, minimum: number, maximum: number) {
   return Math.max(minimum, Math.min(maximum, value));
 }
 
-export function analyzeChange(diff: string, repositoryFiles: RepositoryFile[]): AnalysisResult {
+export function analyzeChange(
+  diff: string,
+  repositoryFiles: RepositoryFile[],
+  options: AnalysisOptions = {},
+): AnalysisResult {
   const changedFiles = parseUnifiedDiff(diff);
   const normalizedFiles = repositoryFiles.map((file) => ({
     ...file,
@@ -265,21 +359,32 @@ export function analyzeChange(diff: string, repositoryFiles: RepositoryFile[]): 
   const knownPaths = new Set(normalizedFiles.map((file) => file.path));
   const reverseGraph = new Map<string, Set<string>>();
   const resolvedEdges: ImpactEdge[] = [];
-  let unresolvedImports = 0;
+  let totalImports = 0;
+  let unresolvedRelativeImports = 0;
+  let unresolvedAliasImports = 0;
+  let ignoredExternalImports = 0;
+  let ignoredAssetImports = 0;
 
   for (const file of normalizedFiles) {
     for (const specifier of file.imports) {
-      const target = resolveImport(file.path, specifier, knownPaths);
-      if (!target) {
-        if (specifier.startsWith(".")) unresolvedImports += 1;
+      totalImports += 1;
+      if (hasNonSourceExtension(specifier)) {
+        ignoredAssetImports += 1;
         continue;
       }
-      if (!reverseGraph.has(target)) reverseGraph.set(target, new Set());
-      reverseGraph.get(target)?.add(file.path);
+      const resolution = resolveImport(file.path, specifier, knownPaths, options);
+      if (!resolution.target) {
+        if (resolution.kind === "relative") unresolvedRelativeImports += 1;
+        if (resolution.kind === "alias") unresolvedAliasImports += 1;
+        if (resolution.kind === "external") ignoredExternalImports += 1;
+        continue;
+      }
+      if (!reverseGraph.has(resolution.target)) reverseGraph.set(resolution.target, new Set());
+      reverseGraph.get(resolution.target)?.add(file.path);
       resolvedEdges.push({
-        from: target,
+        from: resolution.target,
         to: file.path,
-        evidence: `${labelFor(file.path)} imports ${labelFor(target)}`,
+        evidence: `${labelFor(file.path)} imports ${labelFor(resolution.target)}`,
       });
     }
   }
@@ -426,22 +531,38 @@ export function analyzeChange(diff: string, repositoryFiles: RepositoryFile[]): 
     score >= 80 ? "Critical" : score >= 60 ? "High" : score >= 35 ? "Moderate" : "Low";
   const mappedChanged = changedPaths.filter((path) => knownPaths.has(path)).length;
   const dynamicImports = normalizedFiles.filter((file) => file.hasDynamicImport).length;
-  const confidence = clamp(
-    0.36 +
+  const unresolvedImports = unresolvedRelativeImports + unresolvedAliasImports;
+  const unresolvedRatio = totalImports ? unresolvedImports / totalImports : 0;
+  let confidence = clamp(
+    0.3 +
       (repositoryFiles.length ? 0.2 : 0) +
-      (changedPaths.length ? (mappedChanged / changedPaths.length) * 0.24 : 0) +
-      (resolvedEdges.length ? 0.12 : 0) -
-      Math.min(0.16, unresolvedImports * 0.01) -
+      (changedPaths.length ? (mappedChanged / changedPaths.length) * 0.25 : 0) +
+      (resolvedEdges.length ? 0.15 : 0) -
+      Math.min(0.3, unresolvedRatio * 0.5) -
       Math.min(0.1, dynamicImports * 0.02),
     0.2,
-    0.94,
+    0.9,
   );
+  if (repositoryFiles.length > 5 && resolvedEdges.length === 0) {
+    confidence = Math.min(confidence, 0.35);
+  }
+  if (!changedFiles.length) confidence = 0.2;
 
   const unknowns: string[] = [];
+  if (!changedFiles.length) unknowns.push("The diff could not be parsed; no repository path was invented.");
   if (!repositoryFiles.length) unknowns.push("No repository map was supplied; downstream impact is incomplete.");
-  if (unresolvedImports) unknowns.push(`${unresolvedImports} relative import${unresolvedImports === 1 ? "" : "s"} could not be resolved.`);
+  if (unresolvedRelativeImports) {
+    unknowns.push(`${unresolvedRelativeImports} relative import${unresolvedRelativeImports === 1 ? "" : "s"} could not be resolved.`);
+  }
+  if (unresolvedAliasImports) {
+    unknowns.push(
+      `${unresolvedAliasImports} of ${totalImports} import specifier${totalImports === 1 ? "" : "s"} used an unrecognized path alias and were not followed. The downstream graph is incomplete.`,
+    );
+  }
+  if (repositoryFiles.length > 5 && resolvedEdges.length === 0) {
+    unknowns.push("The repository map produced no dependency edges, so confidence is capped at 0.35.");
+  }
   if (dynamicImports) unknowns.push(`${dynamicImports} file${dynamicImports === 1 ? "" : "s"} use dynamic imports that static mapping may miss.`);
-  unknowns.push("Runtime traces and historical incident labels are not included in this MVP.");
 
   const highestRisk = nodes.find((node) => node.kind === "risk");
   const firstSurface = impactedSurfaces[0];
@@ -481,6 +602,12 @@ export function analyzeChange(diff: string, repositoryFiles: RepositoryFile[]): 
       impactedFiles: discovered.size,
       impactedSurfaces: impactedSurfaces.length,
       impactedTests: matchedTests.length,
+      totalImports,
+      resolvedImports: resolvedEdges.length,
+      unresolvedImports,
+      ignoredExternalImports,
+      ignoredAssetImports,
+      truncatedNodes: Math.max(0, nodes.length - 24),
     },
   };
 }

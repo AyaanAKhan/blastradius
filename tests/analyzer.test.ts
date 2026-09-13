@@ -1,7 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { analyzeChange, parseUnifiedDiff, type RepositoryFile } from "../lib/analyzer.ts";
+import {
+  analyzeChange,
+  applyAlias,
+  classifySpecifier,
+  parseUnifiedDiff,
+  type RepositoryFile,
+} from "../lib/analyzer.ts";
 
 const diff = `diff --git a/src/core/auth.ts b/src/core/auth.ts
 --- a/src/core/auth.ts
@@ -142,4 +148,54 @@ test("configuration changes contribute explicit review evidence", () => {
 
 test("the same evidence always produces the same result", () => {
   assert.deepEqual(analyzeChange(diff, repository), analyzeChange(diff, repository));
+});
+
+test("configured aliases resolve into the dependency graph", () => {
+  const files: RepositoryFile[] = [
+    { path: "lib/core.ts", imports: [], isTest: false, isSurface: false },
+    { path: "app/page.tsx", imports: ["@/lib/core"], isTest: false, isSurface: true },
+  ];
+  const change = `diff --git a/lib/core.ts b/lib/core.ts
+--- a/lib/core.ts
++++ b/lib/core.ts
+@@ -1 +1 @@
+-export const value = 1
++export const value = 2`;
+  const result = analyzeChange(change, files, { aliases: { "@/": "./" } });
+
+  assert.ok(result.edges.some((edge) => edge.from === "lib/core.ts" && edge.to === "app/page.tsx"));
+  assert.equal(result.stats.unresolvedImports, 0);
+});
+
+test("an unconfigured alias is visible and caps an empty graph confidence", () => {
+  const files: RepositoryFile[] = [
+    { path: "lib/core.ts", imports: [], isTest: false, isSurface: false },
+    ...Array.from({ length: 6 }, (_, index): RepositoryFile => ({
+      path: `app/page-${index}.tsx`,
+      imports: ["@/lib/core"],
+      isTest: false,
+      isSurface: true,
+    })),
+  ];
+  const result = analyzeChange(diff.replaceAll("src/core/auth.ts", "lib/core.ts"), files);
+
+  assert.ok(result.unknowns.some((unknown) => unknown.includes("unrecognized path alias")));
+  assert.ok(result.unknowns.some((unknown) => unknown.includes("confidence is capped")));
+  assert.ok(result.confidence <= 0.35);
+});
+
+test("external packages do not count as unresolved imports", () => {
+  const files: RepositoryFile[] = [
+    { path: "src/core/auth.ts", imports: ["react", "@next/font/google"], isTest: false, isSurface: false },
+  ];
+  const result = analyzeChange(diff, files);
+
+  assert.equal(classifySpecifier("react"), "external");
+  assert.equal(classifySpecifier("@next/font/google"), "external");
+  assert.equal(result.stats.unresolvedImports, 0);
+  assert.equal(result.stats.ignoredExternalImports, 2);
+});
+
+test("applyAlias expands the longest matching prefix", () => {
+  assert.equal(applyAlias("@/lib/analyzer", { "@/": "./", "@/lib/": "src/core/" }), "src/core/analyzer");
 });
