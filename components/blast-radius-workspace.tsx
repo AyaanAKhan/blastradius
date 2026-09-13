@@ -1,0 +1,450 @@
+"use client";
+
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type InputHTMLAttributes,
+} from "react";
+
+import {
+  analyzeChange,
+  type AnalysisResult,
+  type RepositoryFile,
+} from "@/lib/analyzer";
+
+const starterDiff = `diff --git a/src/pricing/discount.ts b/src/pricing/discount.ts
+--- a/src/pricing/discount.ts
++++ b/src/pricing/discount.ts
+@@ -18,4 +18,7 @@ export function calculateDiscount(order) {
+-  return order.total * rules.baseRate
++  const rate = rules[order.customer.tier] ?? rules.baseRate
++  return order.total * rate
+ }
+
+diff --git a/src/api/checkout.ts b/src/api/checkout.ts
+--- a/src/api/checkout.ts
++++ b/src/api/checkout.ts
+@@ -42,2 +42,3 @@
++  audit.record("discount_applied", discount)`;
+
+const sampleRepository: RepositoryFile[] = [
+  { path: "src/pricing/discount.ts", imports: ["./rules"], isTest: false, isSurface: false },
+  { path: "src/pricing/rules.ts", imports: [], isTest: false, isSurface: false },
+  { path: "src/api/checkout.ts", imports: ["../pricing/discount", "../infra/audit"], isTest: false, isSurface: false },
+  { path: "src/api/refund.ts", imports: ["../pricing/discount"], isTest: false, isSurface: false },
+  { path: "src/infra/audit.ts", imports: [], isTest: false, isSurface: false },
+  { path: "src/app/api/checkout/route.ts", imports: ["../../../api/checkout"], isTest: false, isSurface: true },
+  { path: "src/workers/refund.ts", imports: ["../api/refund"], isTest: false, isSurface: true },
+  { path: "src/api/checkout.test.ts", imports: ["./checkout"], isTest: true, isSurface: false },
+];
+
+const initialAnalysis = analyzeChange(starterDiff, sampleRepository);
+const sourcePattern = /\.(tsx?|jsx?|mjs|cjs|py)$/;
+
+function ProgressBar({ value, label }: { value: number; label: string }) {
+  const safeValue = Math.max(0, Math.min(100, value));
+  return (
+    <div
+      className="progress-track"
+      role="progressbar"
+      aria-label={label}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={Math.round(safeValue)}
+    >
+      <span style={{ width: `${safeValue}%` }} />
+    </div>
+  );
+}
+
+function extractImports(source: string, extension: string) {
+  const imports = new Set<string>();
+  if (extension === "py") {
+    for (const match of source.matchAll(/^\s*from\s+([.\w/]+)\s+import/gm)) {
+      imports.add(match[1].replace(/^\.+/, (dots) => "../".repeat(dots.length)));
+    }
+  } else {
+    const patterns = [
+      /(?:import|export)[\s\S]*?from\s*["']([^"']+)["']/g,
+      /require\(\s*["']([^"']+)["']\s*\)/g,
+      /import\(\s*["']([^"']+)["']\s*\)/g,
+    ];
+    for (const pattern of patterns) {
+      for (const match of source.matchAll(pattern)) imports.add(match[1]);
+    }
+  }
+  return [...imports].slice(0, 80);
+}
+
+function toRepositoryFile(path: string, source: string): RepositoryFile {
+  const slashPath = path.replaceAll("\\", "/");
+  const normalized = slashPath.includes("/")
+    ? slashPath.slice(slashPath.indexOf("/") + 1)
+    : slashPath;
+  const extension = normalized.split(".").pop()?.toLowerCase() ?? "";
+  return {
+    path: normalized,
+    imports: extractImports(source, extension),
+    isTest: /(^|\/)(test|tests|__tests__)(\/|$)|\.(test|spec)\./.test(normalized),
+    isSurface: /(^|\/)(route|routes|pages|app\/api|controllers?|workers?|handlers?)(\/|\.|$)/i.test(normalized),
+    hasDynamicImport: /import\(\s*[^"'\s]/.test(source),
+  };
+}
+
+function ImpactMap({ analysis }: { analysis: AnalysisResult }) {
+  const columns = [
+    ["Changed", analysis.nodes.filter((node) => node.kind === "changed")],
+    ["Dependents", analysis.nodes.filter((node) => node.kind === "dependent" || node.kind === "risk")],
+    ["Surfaces", analysis.nodes.filter((node) => node.kind === "surface")],
+    ["Tests", analysis.nodes.filter((node) => node.kind === "test")],
+  ] as const;
+
+  return (
+    <div className="impact-map">
+      <div className="impact-grid">
+        {columns.map(([title, nodes], index) => (
+          <section className="impact-stage" key={title}>
+            <header className="stage-heading">
+              <span>{String(index + 1).padStart(2, "0")} / {title}</span>
+              {index < columns.length - 1 ? <b aria-hidden="true">→</b> : null}
+            </header>
+            <div className="stage-nodes">
+              {nodes.length ? nodes.slice(0, 5).map((node) => (
+                <div className="impact-node" data-kind={node.kind} key={node.id}>
+                  <div className="node-line">
+                    <span className="node-marker" aria-hidden="true" />
+                    <strong>{node.label}</strong>
+                    <span>hop {node.depth}</span>
+                  </div>
+                  <p title={node.path}>{node.path}</p>
+                </div>
+              )) : <p className="empty-evidence">No evidence found</p>}
+            </div>
+          </section>
+        ))}
+      </div>
+      <p className="map-caption">
+        Lines are inferred from static imports. A path without a matching test is marked for review, not declared defective.
+      </p>
+    </div>
+  );
+}
+
+export function BlastRadiusWorkspace() {
+  const [diff, setDiff] = useState(starterDiff);
+  const [repository, setRepository] = useState<RepositoryFile[]>(sampleRepository);
+  const [repositoryLabel, setRepositoryLabel] = useState("Sample commerce service");
+  const [analysis, setAnalysis] = useState<AnalysisResult>(initialAnalysis);
+  const [status, setStatus] = useState<"ready" | "reading" | "running">("ready");
+  const [error, setError] = useState("");
+  const [activeTab, setActiveTab] = useState<"map" | "evidence">("map");
+  const fileInput = useRef<HTMLInputElement>(null);
+
+  const runAnalysis = useCallback(async (nextDiff = diff, nextFiles = repository) => {
+    if (!nextDiff.trim()) {
+      setError("Paste a unified diff before running the analysis.");
+      return undefined;
+    }
+    setError("");
+    setStatus("running");
+    try {
+      const response = await fetch("/api/analyze", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ diff: nextDiff, files: nextFiles }),
+      });
+      const payload = (await response.json()) as AnalysisResult & { error?: string };
+      if (!response.ok) throw new Error(payload.error ?? "Analysis failed.");
+      setAnalysis(payload);
+      return payload;
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "Analysis failed.");
+      return undefined;
+    } finally {
+      setStatus("ready");
+    }
+  }, [diff, repository]);
+
+  async function importRepository(selected: FileList | null) {
+    if (!selected?.length) return;
+    setStatus("reading");
+    setError("");
+    try {
+      const eligible = [...selected]
+        .filter((file) => sourcePattern.test(file.name) && file.size <= 256_000)
+        .slice(0, 600);
+      const mapped = await Promise.all(
+        eligible.map(async (file) =>
+          toRepositoryFile(file.webkitRelativePath || file.name, await file.text()),
+        ),
+      );
+      if (!mapped.length) throw new Error("No supported TypeScript, JavaScript, or Python files were found.");
+      setRepository(mapped);
+      setRepositoryLabel(selected[0]?.webkitRelativePath?.split("/")[0] || "Local repository");
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "The folder could not be read.");
+    } finally {
+      setStatus("ready");
+    }
+  }
+
+  function resetDemo() {
+    setDiff(starterDiff);
+    setRepository(sampleRepository);
+    setRepositoryLabel("Sample commerce service");
+    setAnalysis(initialAnalysis);
+    setError("");
+  }
+
+  useEffect(() => {
+    const context = (document as unknown as {
+      modelContext?: {
+        registerTool: (
+          tool: {
+            name: string;
+            title: string;
+            description: string;
+            inputSchema: object;
+            annotations: { readOnlyHint: boolean; untrustedContentHint: boolean };
+            execute: (input: unknown) => Promise<unknown>;
+          },
+          options: { signal: AbortSignal },
+        ) => void | Promise<void>;
+      };
+    }).modelContext;
+    if (!context?.registerTool) return;
+    const lifecycle = new AbortController();
+    void Promise.resolve(context.registerTool({
+      name: "analyze_change",
+      title: "Analyze code change",
+      description: "Analyze a unified diff against the loaded repository map and update the visible review plan.",
+      inputSchema: {
+        type: "object",
+        properties: { diff: { type: "string", minLength: 1, maxLength: 500000 } },
+        required: ["diff"],
+        additionalProperties: false,
+      },
+      annotations: { readOnlyHint: false, untrustedContentHint: true },
+      execute: async (input) => {
+        const value = input as { diff?: unknown };
+        if (typeof value.diff !== "string" || !value.diff.trim()) {
+          throw new Error("A non-empty unified diff is required.");
+        }
+        setDiff(value.diff);
+        const result = await runAnalysis(value.diff, repository);
+        if (!result) throw new Error("The change could not be analyzed.");
+        return {
+          score: result.score,
+          level: result.level,
+          confidence: result.confidence,
+          verificationPlan: result.verificationPlan,
+        };
+      },
+    }, { signal: lifecycle.signal })).catch(() => undefined);
+    return () => lifecycle.abort();
+  }, [repository, runAnalysis]);
+
+  const stats = analysis.stats;
+  const busyLabel =
+    status === "reading" ? "Mapping folder…" :
+    status === "running" ? "Tracing impact…" :
+    "Analyze change";
+
+  return (
+    <div className="analyzer-shell" id="workspace">
+      <header className="analyzer-intro">
+        <div>
+          <p className="eyebrow">WORKING MVP / LOCAL-FIRST</p>
+          <h1>Trace the change before you trust it.</h1>
+          <p>Load repository structure and paste a unified diff. BlastRadius follows downstream imports, locates exposed surfaces, and checks for matching tests.</p>
+        </div>
+        <div className="analyzer-status" aria-live="polite">
+          <span><i aria-hidden="true" />{repository.length} files mapped</span>
+          <button type="button" onClick={() => fileInput.current?.click()}>Choose folder</button>
+        </div>
+      </header>
+
+      <input
+        ref={fileInput}
+        type="file"
+        multiple
+        className="hidden"
+        aria-label="Choose a local repository folder"
+        onChange={(event) => void importRepository(event.target.files)}
+        {...({ webkitdirectory: "", directory: "" } as InputHTMLAttributes<HTMLInputElement>)}
+      />
+
+      <div className="workspace">
+        <aside className="input-column">
+          <div className="column-index">01 / Evidence input</div>
+          <button className="repository-picker" type="button" onClick={() => fileInput.current?.click()}>
+            <span className="repo-glyph" aria-hidden="true">&lt;/&gt;</span>
+            <span>
+              <strong>{repositoryLabel}</strong>
+              <small>{repository.length} supported files · extracted in browser</small>
+            </span>
+            <b aria-hidden="true">↗</b>
+          </button>
+
+          <div className="diff-heading">
+            <label htmlFor="diff">Unified diff</label>
+            <span>{analysis.changedFiles.length} files · +{stats.additions} −{stats.deletions}</span>
+          </div>
+          <textarea
+            id="diff"
+            value={diff}
+            onChange={(event) => setDiff(event.target.value)}
+            spellCheck={false}
+            className="diff-editor"
+          />
+          {error ? <p className="input-error" role="alert">{error}</p> : null}
+          <div className="input-actions">
+            <button
+              type="button"
+              onClick={() => void runAnalysis()}
+              disabled={!diff.trim() || status !== "ready"}
+              className="analyze-button"
+            >
+              <span aria-hidden="true">▶</span>
+              {busyLabel}
+            </button>
+            <button type="button" onClick={resetDemo} className="reset-button">
+              <span aria-hidden="true">↺</span>
+              Reset demo
+            </button>
+          </div>
+          <p className="privacy-note">
+            <span aria-hidden="true">✓</span>
+            The score receives paths, relationships, and counts, not repository source.
+          </p>
+        </aside>
+
+        <section className="analysis-column" aria-label="Impact analysis">
+          <div className="section-title">
+            <div>
+              <span>02 / Impact record</span>
+              <h2>Review the path, not just the patch.</h2>
+            </div>
+            <dl className="summary-counts">
+              <div><dt>Changed</dt><dd>{analysis.changedFiles.length}</dd></div>
+              <div><dt>Surfaces</dt><dd>{stats.impactedSurfaces}</dd></div>
+              <div><dt>Tests</dt><dd>{stats.impactedTests}</dd></div>
+            </dl>
+          </div>
+
+          <div className="analysis-tabs">
+            <div className="tab-list" role="tablist" aria-label="Impact analysis views">
+              <button
+                type="button"
+                role="tab"
+                id="map-tab"
+                aria-controls="map-panel"
+                aria-selected={activeTab === "map"}
+                onClick={() => setActiveTab("map")}
+              >Impact map</button>
+              <button
+                type="button"
+                role="tab"
+                id="evidence-tab"
+                aria-controls="evidence-panel"
+                aria-selected={activeTab === "evidence"}
+                onClick={() => setActiveTab("evidence")}
+              >Score evidence</button>
+            </div>
+            <div
+              id="map-panel"
+              role="tabpanel"
+              aria-labelledby="map-tab"
+              className="tab-panel"
+              hidden={activeTab !== "map"}
+            >
+              <ImpactMap analysis={analysis} />
+            </div>
+            <div
+              id="evidence-panel"
+              role="tabpanel"
+              aria-labelledby="evidence-tab"
+              className="tab-panel evidence-panel"
+              hidden={activeTab !== "evidence"}
+            >
+              {analysis.factors.map((factor) => (
+                <div className="factor-row" key={factor.label}>
+                  <div>
+                    <strong>{factor.label}</strong>
+                    <p>{factor.explanation}</p>
+                  </div>
+                  <ProgressBar value={factor.value} label={`${factor.label}: ${factor.value} percent`} />
+                  <output data-direction={factor.contribution < 0 ? "down" : "up"}>
+                    {factor.contribution > 0 ? "+" : ""}{factor.contribution}
+                  </output>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="review-grid">
+            <section className="review-section">
+              <header><span>Verification plan</span><small>{analysis.verificationPlan.length} checks</small></header>
+              <ol>
+                {analysis.verificationPlan.map((item, index) => (
+                  <li key={item}><b>{String(index + 1).padStart(2, "0")}</b><span>{item}</span></li>
+                ))}
+              </ol>
+            </section>
+            <section className="review-section">
+              <header><span>Review order</span><small>highest signal first</small></header>
+              <ol>
+                {analysis.nodes
+                  .filter((node) => node.kind === "risk" || node.kind === "surface" || node.kind === "changed")
+                  .slice(0, 4)
+                  .map((node, index) => (
+                    <li key={node.id}>
+                      <b>{String(index + 1).padStart(2, "0")}</b>
+                      <span className="path-label">{node.path}</span>
+                      <em data-kind={node.kind}>{node.kind}</em>
+                    </li>
+                  ))}
+              </ol>
+            </section>
+          </div>
+        </section>
+
+        <aside className="brief-column">
+          <div className="column-index">03 / Review brief</div>
+          <section className="score-block">
+            <span>Review attention</span>
+            <div className="score-line">
+              <strong>{analysis.score}</strong>
+              <em data-level={analysis.level.toLowerCase()}>{analysis.level}</em>
+            </div>
+            <p>Prioritization score. It does not claim that this change contains a bug.</p>
+            <div className="confidence">
+              <div><span>Evidence confidence</span><b>{analysis.confidence.toFixed(2)}</b></div>
+              <ProgressBar value={analysis.confidence * 100} label={`Evidence confidence: ${Math.round(analysis.confidence * 100)} percent`} />
+            </div>
+          </section>
+
+          <section className="brief-block">
+            <header>
+              <span>Finding</span>
+              <em>{analysis.narrativeSource === "local-model" ? "local model" : "evidence engine"}</em>
+            </header>
+            <p>{analysis.brief}</p>
+          </section>
+
+          <section className="unknowns-block">
+            <header><b aria-hidden="true">!</b><span>Known unknowns</span></header>
+            <ul>{analysis.unknowns.map((item) => <li key={item}>{item}</li>)}</ul>
+          </section>
+
+          <p className="evidence-promise">
+            <span aria-hidden="true">✓</span>
+            Every score contribution remains visible and reproducible.
+          </p>
+        </aside>
+      </div>
+    </div>
+  );
+}
