@@ -141,10 +141,12 @@ test("configuration changes contribute explicit review evidence", () => {
 +export const version = 2`;
   const result = analyzeChange(configDiff, []);
   const factor = result.factors.find((entry) => entry.label === "Configuration reach");
+  const sensitiveFactor = result.factors.find((entry) => entry.label === "Sensitive paths");
 
   assert.ok(factor);
   assert.equal(factor.contribution, 10);
   assert.match(factor.explanation, /1 configuration/);
+  assert.equal(sensitiveFactor?.contribution, 0);
 });
 
 test("the same evidence always produces the same result", () => {

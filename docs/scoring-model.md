@@ -13,6 +13,8 @@ BlastRadius produces a review-attention score from 5 to 96. The score is a triag
 | Verification added | -16 | Test files changed with the implementation |
 | Configuration reach | +20 | Configuration, lockfile, schema, or migration paths |
 
+Sensitive-path and configuration-path terms are disjoint. Schema and migration changes contribute only to configuration reach, so one path cannot collect both signals from the same filename.
+
 The base score is 14. Contributions are summed and clamped to the published range.
 
 ## Levels

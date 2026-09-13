@@ -95,8 +95,6 @@ const SENSITIVE_PARTS = [
   "token",
   "session",
   "secret",
-  "migration",
-  "schema",
 ];
 
 function normalizePath(value: string) {
