@@ -445,9 +445,23 @@ export function analyzeChange(
     });
   }
 
-  const nodePaths = new Set(nodes.map((node) => node.path));
+  const nodePriority: Record<ImpactNode["kind"], number> = {
+    risk: 0,
+    changed: 1,
+    surface: 2,
+    dependent: 3,
+    test: 4,
+  };
+  const orderedNodes = [...nodes].sort(
+    (left, right) =>
+      nodePriority[left.kind] - nodePriority[right.kind] ||
+      left.depth - right.depth ||
+      left.path.localeCompare(right.path),
+  );
+  const visibleNodes = orderedNodes.slice(0, 24);
+  const visibleNodePaths = new Set(visibleNodes.map((node) => node.path));
   const edges = resolvedEdges.filter(
-    (edge) => nodePaths.has(edge.from) && nodePaths.has(edge.to),
+    (edge) => visibleNodePaths.has(edge.from) && visibleNodePaths.has(edge.to),
   );
   for (const test of matchedTests) {
     const source = [...impactedPaths].find(
@@ -565,7 +579,7 @@ export function analyzeChange(
   }
   if (dynamicImports) unknowns.push(`${dynamicImports} file${dynamicImports === 1 ? "" : "s"} use dynamic imports that static mapping may miss.`);
 
-  const highestRisk = nodes.find((node) => node.kind === "risk");
+  const highestRisk = orderedNodes.find((node) => node.kind === "risk");
   const firstSurface = impactedSurfaces[0];
   const verificationPlan = [
     ...(matchedTests.length
@@ -590,7 +604,7 @@ export function analyzeChange(
     level,
     confidence,
     changedFiles,
-    nodes: nodes.slice(0, 24),
+    nodes: visibleNodes,
     edges: edges.slice(0, 36),
     factors,
     verificationPlan,
@@ -608,7 +622,7 @@ export function analyzeChange(
       unresolvedImports,
       ignoredExternalImports,
       ignoredAssetImports,
-      truncatedNodes: Math.max(0, nodes.length - 24),
+      truncatedNodes: Math.max(0, nodes.length - visibleNodes.length),
     },
   };
 }

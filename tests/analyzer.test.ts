@@ -225,3 +225,37 @@ test("substring collisions never invent test coverage", () => {
   assert.equal(result.stats.impactedTests, 0);
   assert.equal(result.verificationPlan.includes("Run tests/dbdriver-unrelated.test.ts"), false);
 });
+
+test("node truncation preserves the highest-priority review target", () => {
+  const files: RepositoryFile[] = [
+    { path: "src/core.ts", imports: [], isTest: false, isSurface: false },
+    ...Array.from({ length: 40 }, (_, index): RepositoryFile => ({
+      path: `src/consumer-${String(index).padStart(2, "0")}.ts`,
+      imports: ["./core"],
+      isTest: false,
+      isSurface: false,
+    })),
+    {
+      path: "src/auth-token.ts",
+      imports: ["./core"],
+      isTest: false,
+      isSurface: false,
+    },
+  ];
+  const change = `diff --git a/src/core.ts b/src/core.ts
+--- a/src/core.ts
++++ b/src/core.ts
+@@ -1 +1 @@
+-export const ready = false
++export const ready = true`;
+  const result = analyzeChange(change, files);
+
+  assert.equal(result.nodes.length, 24);
+  assert.equal(result.nodes[0]?.path, "src/auth-token.ts");
+  assert.equal(result.stats.truncatedNodes, 18);
+  assert.match(result.brief, /src\/auth-token\.ts/);
+  assert.ok(result.edges.every((edge) =>
+    result.nodes.some((node) => node.path === edge.from) &&
+    result.nodes.some((node) => node.path === edge.to),
+  ));
+});
