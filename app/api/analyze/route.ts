@@ -5,8 +5,10 @@ import {
   type AnalysisResult,
   type RepositoryFile,
 } from "@/lib/analyzer";
+import { BodyTooLargeError, readBoundedJson } from "@/lib/request-body";
 
 export const dynamic = "force-dynamic";
+const MAX_BODY_BYTES = 5_000_000;
 
 type AnalyzeBody = {
   diff?: unknown;
@@ -96,8 +98,11 @@ async function localModelBrief(result: AnalysisResult) {
 export async function POST(request: Request) {
   let body: AnalyzeBody;
   try {
-    body = (await request.json()) as AnalyzeBody;
-  } catch {
+    body = await readBoundedJson<AnalyzeBody>(request, MAX_BODY_BYTES);
+  } catch (error) {
+    if (error instanceof BodyTooLargeError) {
+      return Response.json({ error: "The analysis request is too large." }, { status: 413 });
+    }
     return Response.json({ error: "The request must be valid JSON." }, { status: 400 });
   }
 
