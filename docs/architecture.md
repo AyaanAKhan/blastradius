@@ -6,20 +6,20 @@ BlastRadius separates evidence collection, deterministic analysis, and optional 
 
 ### Browser repository mapper
 
-The browser reads a user-selected directory and extracts metadata from supported TypeScript, JavaScript, and Python files. It records paths, static import specifiers, test markers, surface markers, and dynamic-import flags. Source contents are not included in the API request.
+The browser reads a user-selected directory and extracts metadata from supported TypeScript, JavaScript, and Python files. It records paths, static import specifiers, test markers, surface markers, and dynamic-import flags. A dedicated Web Worker runs the analysis locally, so neither source contents nor the repository map cross the network.
 
 Limits:
 
-- 600 supported files
+- 5,000 supported files
 - 256 KB per file during browser extraction
 - 80 import specifiers per file
 - 400 characters per path
 
-### Analysis API
+### Optional narration API
 
-`POST /api/analyze` validates request shape and size before calling the pure analysis module. Diff input is capped at 500,000 characters. Responses are marked `no-store`.
+`POST /api/narrate` accepts at most 100 KB of already-computed evidence. It never receives the diff, repository paths, import graph, or source contents. Responses are marked `no-store`.
 
-If `OLLAMA_URL` is configured, the route may request a short local summary. The request contains summarized evidence, not repository source. A timeout or model error returns the deterministic result.
+If `OLLAMA_URL` is configured, the route may request a short local summary after the user explicitly asks for it. A timeout or model error leaves the deterministic result unchanged.
 
 ### Analysis engine
 
@@ -32,7 +32,7 @@ The engine performs six steps:
 5. Traverse downstream dependents for at most three hops.
 6. Match exposed surfaces and likely tests, then calculate score and confidence.
 
-The engine is a pure module with no network or filesystem access. This makes the scoring contract reproducible and easy to test.
+The engine is a pure module with no network or filesystem access. The Web Worker keeps graph construction off the main thread and makes the analysis contract reproducible and easy to test.
 
 ## Trust boundaries
 
@@ -40,10 +40,10 @@ The engine is a pure module with no network or filesystem access. This makes the
 flowchart TB
   U[Untrusted diff and local files]
   B[Bounded browser extraction]
-  V[API validation]
+  V[Web Worker]
   E[Pure evidence engine]
   R[Rendered result]
-  M[Optional local model]
+  M[Optional narration API and local model]
 
   U --> B
   B --> V
@@ -54,18 +54,16 @@ flowchart TB
 ```
 
 - Diff text and extracted metadata are untrusted.
-- Request validation limits input size and structure.
+- Folder filters and hard caps bound browser work.
 - React renders strings without interpreting them as markup.
-- The local model receives a constrained evidence summary.
+- The optional narration API receives only a constrained evidence summary after a user action.
 - Model output changes only the brief and is labeled by `narrativeSource`.
 
 ## Failure behavior
 
 | Failure | Behavior |
 | --- | --- |
-| Invalid JSON | HTTP 400 with a stable error message |
-| Oversized diff | HTTP 400 before analysis |
-| Invalid repository map | HTTP 400 before traversal |
+| Oversized folder | First 5,000 eligible files are mapped and the skipped count is shown |
 | Missing repository map | Diff-only result with lower confidence |
 | Unresolved import | Reported as an unknown and confidence penalty |
 | Local model unavailable | Deterministic brief remains active |

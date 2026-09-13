@@ -8,9 +8,11 @@ Pull-request impact analysis needs repeatable graph edges, visible score contrib
 
 ## Decision
 
-Diff parsing, import resolution, reverse traversal, surface matching, test matching, scoring, confidence, and verification-plan generation remain deterministic TypeScript functions.
+Diff parsing, import resolution, reverse traversal, surface matching, test matching, scoring, confidence, and verification-plan generation remain deterministic TypeScript functions executed in a browser Web Worker.
 
-A local model adapter is optional. It receives only a bounded summary of computed evidence and may replace only the short narrative brief. The response records whether the brief came from the evidence engine or local model.
+A local model adapter is optional. It receives only a bounded summary of computed evidence after an explicit user action and may replace only the short narrative brief. The response records whether the brief came from the evidence engine or local model.
+
+The web application is local-first. Repository mapping and analysis stay in the browser. The server has one narrow job: proxying the optional evidence summary to a locally configured model. This boundary can be verified from the browser network log.
 
 ## Consequences
 

@@ -641,3 +641,5 @@ export function summarizeForLocalModel(result: AnalysisResult) {
     unknowns: result.unknowns,
   };
 }
+
+export type NarrationSummary = ReturnType<typeof summarizeForLocalModel>;

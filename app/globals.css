@@ -315,6 +315,10 @@ button:focus-visible, a:focus-visible, textarea:focus-visible, [role="tab"]:focu
 .brief-block, .unknowns-block { padding: 20px 0; border-bottom: 1px solid var(--line); }
 .brief-block header { display: flex; justify-content: space-between; }
 .brief-block header em { color: var(--blue-dark); font: 700 12px/1.2 var(--mono); font-style: normal; text-transform: uppercase; }
+.brief-actions { display: flex; align-items: center; gap: 8px; }
+.brief-actions button { padding: 5px 7px; border: 1px solid var(--line-strong); border-radius: 3px; background: white; color: var(--ink-soft); cursor: pointer; font: 700 12px/1.2 var(--sans); }
+.brief-actions button:hover { border-color: var(--blue); color: var(--blue-dark); }
+.brief-actions button:disabled { cursor: not-allowed; opacity: .55; }
 .brief-block p { margin: 12px 0 0; color: var(--ink-soft); font-size: 13px; }
 .unknowns-block header { display: flex; align-items: center; gap: 8px; color: var(--red); }
 .unknowns-block header b { width: 19px; height: 19px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; font: 700 12px/1.2 var(--mono); }

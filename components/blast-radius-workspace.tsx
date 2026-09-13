@@ -10,6 +10,7 @@ import {
 
 import {
   analyzeChange,
+  summarizeForLocalModel,
   type AnalysisOptions,
   type AnalysisResult,
   type RepositoryFile,
@@ -57,6 +58,31 @@ type IngestionSummary = {
   oversized: number;
   capped: number;
 };
+
+function analyzeInWorker(
+  diff: string,
+  files: RepositoryFile[],
+  options: AnalysisOptions,
+) {
+  if (typeof Worker === "undefined") return Promise.resolve(analyzeChange(diff, files, options));
+  return new Promise<AnalysisResult>((resolve, reject) => {
+    const worker = new Worker(new URL("../workers/analyzer.worker.ts", import.meta.url), {
+      type: "module",
+    });
+    const id = Date.now();
+    worker.onmessage = (event: MessageEvent<{ id: number; result?: AnalysisResult; error?: string }>) => {
+      if (event.data.id !== id) return;
+      worker.terminate();
+      if (event.data.result) resolve(event.data.result);
+      else reject(new Error(event.data.error ?? "The analysis worker failed."));
+    };
+    worker.onerror = () => {
+      worker.terminate();
+      reject(new Error("The analysis worker failed."));
+    };
+    worker.postMessage({ id, diff, files, options });
+  });
+}
 
 function ProgressBar({ value, label }: { value: number; label: string }) {
   const safeValue = Math.max(0, Math.min(100, value));
@@ -180,7 +206,7 @@ export function BlastRadiusWorkspace() {
   });
   const [repositoryLabel, setRepositoryLabel] = useState("Sample commerce service");
   const [analysis, setAnalysis] = useState<AnalysisResult>(initialAnalysis);
-  const [status, setStatus] = useState<"ready" | "reading" | "running">("ready");
+  const [status, setStatus] = useState<"ready" | "reading" | "running" | "narrating">("ready");
   const [error, setError] = useState("");
   const [activeTab, setActiveTab] = useState<"map" | "evidence">("map");
   const fileInput = useRef<HTMLInputElement>(null);
@@ -197,15 +223,9 @@ export function BlastRadiusWorkspace() {
     setError("");
     setStatus("running");
     try {
-      const response = await fetch("/api/analyze", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ diff: nextDiff, files: nextFiles, options: nextOptions }),
-      });
-      const payload = (await response.json()) as AnalysisResult & { error?: string };
-      if (!response.ok) throw new Error(payload.error ?? "Analysis failed.");
-      setAnalysis(payload);
-      return payload;
+      const result = await analyzeInWorker(nextDiff, nextFiles, nextOptions);
+      setAnalysis(result);
+      return result;
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "Analysis failed.");
       return undefined;
@@ -213,6 +233,31 @@ export function BlastRadiusWorkspace() {
       setStatus("ready");
     }
   }, [analysisOptions, diff, repository]);
+
+  async function narrateAnalysis() {
+    setError("");
+    setStatus("narrating");
+    try {
+      const response = await fetch("/api/narrate", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ summary: summarizeForLocalModel(analysis) }),
+      });
+      const payload = (await response.json()) as { brief?: string; error?: string };
+      if (!response.ok || !payload.brief) {
+        throw new Error(payload.error ?? "The local model did not return a summary.");
+      }
+      setAnalysis((current) => ({
+        ...current,
+        brief: payload.brief!,
+        narrativeSource: "local-model",
+      }));
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "The local model is unavailable.");
+    } finally {
+      setStatus("ready");
+    }
+  }
 
   async function importRepository(selected: FileList | null) {
     if (!selected?.length) return;
@@ -324,6 +369,7 @@ export function BlastRadiusWorkspace() {
   const busyLabel =
     status === "reading" ? "Mapping folder…" :
     status === "running" ? "Tracing impact…" :
+    status === "narrating" ? "Writing summary…" :
     "Analyze change";
 
   return (
@@ -394,7 +440,7 @@ export function BlastRadiusWorkspace() {
           </div>
           <p className="privacy-note">
             <span aria-hidden="true">✓</span>
-            The score receives paths, relationships, and counts, not repository source.
+            Analysis runs in this browser. Repository metadata is not sent to the server.
           </p>
         </aside>
 
@@ -506,7 +552,12 @@ export function BlastRadiusWorkspace() {
           <section className="brief-block">
             <header>
               <span>Finding</span>
-              <em>{analysis.narrativeSource === "local-model" ? "local model" : "evidence engine"}</em>
+              <span className="brief-actions">
+                <em>{analysis.narrativeSource === "local-model" ? "local model" : "evidence engine"}</em>
+                <button type="button" onClick={() => void narrateAnalysis()} disabled={status !== "ready"}>
+                  Summarize locally
+                </button>
+              </span>
             </header>
             <p>{analysis.brief}</p>
           </section>
