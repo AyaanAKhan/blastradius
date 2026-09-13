@@ -10,6 +10,7 @@ export type ChangeFile = {
   path: string;
   additions: number;
   deletions: number;
+  changeType: "modified" | "added" | "deleted" | "renamed" | "binary";
 };
 
 export type ImpactNode = {
@@ -99,39 +100,120 @@ function joinPath(left: string, right: string) {
   return normalizePath(left ? `${left}/${right}` : right);
 }
 
+function ensureChange(
+  files: Map<string, ChangeFile>,
+  path: string,
+  changeType: ChangeFile["changeType"] = "modified",
+) {
+  const normalized = normalizePath(path);
+  const existing = files.get(normalized);
+  if (existing) {
+    if (changeType !== "modified") existing.changeType = changeType;
+    return existing;
+  }
+  const change: ChangeFile = {
+    path: normalized,
+    additions: 0,
+    deletions: 0,
+    changeType,
+  };
+  files.set(normalized, change);
+  return change;
+}
+
+function markerPath(value: string) {
+  const path = value.split("\t", 1)[0]?.trim().replace(/^"|"$/g, "") ?? "";
+  return path.replace(/^[ab]\//, "");
+}
+
+function gitHeaderPaths(line: string) {
+  const body = line.slice("diff --git ".length);
+  const quoted = body.match(/^"a\/(.+)" "b\/(.+)"$/);
+  if (quoted) return { oldPath: quoted[1], newPath: quoted[2] };
+  const plain = body.match(/^a\/(.+) b\/(.+)$/);
+  if (plain) return { oldPath: plain[1], newPath: plain[2] };
+  return undefined;
+}
+
 export function parseUnifiedDiff(diff: string): ChangeFile[] {
   const files = new Map<string, ChangeFile>();
   let active: ChangeFile | undefined;
+  let oldPath: string | undefined;
+  let oldLinesLeft = 0;
+  let newLinesLeft = 0;
 
   for (const line of diff.replaceAll("\r\n", "\n").split("\n")) {
-    const match = line.match(/^diff --git "?a\/(.+?)"? "?b\/(.+?)"?$/);
-    if (match) {
-      const path = normalizePath(match[2]);
-      active = files.get(path) ?? { path, additions: 0, deletions: 0 };
-      files.set(path, active);
+    if (oldLinesLeft > 0 || newLinesLeft > 0) {
+      if (line.startsWith("\\")) continue;
+      if (line.startsWith("+")) {
+        if (active) active.additions += 1;
+        newLinesLeft = Math.max(0, newLinesLeft - 1);
+        continue;
+      }
+      if (line.startsWith("-")) {
+        if (active) active.deletions += 1;
+        oldLinesLeft = Math.max(0, oldLinesLeft - 1);
+        continue;
+      }
+      oldLinesLeft = Math.max(0, oldLinesLeft - 1);
+      newLinesLeft = Math.max(0, newLinesLeft - 1);
       continue;
     }
-    if (!active) {
-      const plusFile = line.match(/^\+\+\+ b\/(.+)$/);
-      if (plusFile) {
-        const path = normalizePath(plusFile[1]);
-        active = files.get(path) ?? { path, additions: 0, deletions: 0 };
-        files.set(path, active);
+
+    if (line.startsWith("diff --git ")) {
+      const paths = gitHeaderPaths(line);
+      oldPath = paths?.oldPath;
+      active = paths ? ensureChange(files, paths.newPath) : undefined;
+      continue;
+    }
+    if (line.startsWith("new file mode ")) {
+      if (active) active.changeType = "added";
+      continue;
+    }
+    if (line.startsWith("deleted file mode ")) {
+      if (active) active.changeType = "deleted";
+      continue;
+    }
+    if (line.startsWith("rename from ")) {
+      oldPath = normalizePath(line.slice("rename from ".length));
+      continue;
+    }
+    if (line.startsWith("rename to ")) {
+      const path = normalizePath(line.slice("rename to ".length));
+      if (active && files.get(active.path) === active && active.path !== path) {
+        files.delete(active.path);
+      }
+      active = ensureChange(files, path, "renamed");
+      continue;
+    }
+    if (line.startsWith("Binary files ") || line.startsWith("GIT binary patch")) {
+      if (active) active.changeType = "binary";
+      continue;
+    }
+    if (line.startsWith("--- ")) {
+      const path = markerPath(line.slice(4));
+      oldPath = path === "/dev/null" ? undefined : path;
+      continue;
+    }
+    if (line.startsWith("+++ ")) {
+      const nextPath = markerPath(line.slice(4));
+      const target = nextPath === "/dev/null" ? oldPath : nextPath;
+      if (target && target !== "/dev/null") {
+        active = ensureChange(
+          files,
+          target,
+          nextPath === "/dev/null" ? "deleted" : oldPath ? active?.changeType : "added",
+        );
       }
       continue;
     }
-    if (line.startsWith("+++") || line.startsWith("---")) continue;
-    if (line.startsWith("+")) active.additions += 1;
-    if (line.startsWith("-")) active.deletions += 1;
+    const hunk = line.match(/^@@ -\d+(?:,(\d+))? \+\d+(?:,(\d+))? @@/);
+    if (hunk) {
+      oldLinesLeft = hunk[1] === undefined ? 1 : Number(hunk[1]);
+      newLinesLeft = hunk[2] === undefined ? 1 : Number(hunk[2]);
+    }
   }
 
-  if (files.size === 0 && diff.trim()) {
-    files.set("unresolved-change", {
-      path: "unresolved-change",
-      additions: diff.split("\n").filter((line) => line.startsWith("+")).length,
-      deletions: diff.split("\n").filter((line) => line.startsWith("-")).length,
-    });
-  }
   return [...files.values()];
 }
 

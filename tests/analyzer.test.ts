@@ -20,8 +20,46 @@ const repository: RepositoryFile[] = [
 
 test("parseUnifiedDiff counts changed lines without counting file markers", () => {
   assert.deepEqual(parseUnifiedDiff(diff), [
-    { path: "src/core/auth.ts", additions: 2, deletions: 1 },
+    { path: "src/core/auth.ts", additions: 2, deletions: 1, changeType: "modified" },
   ]);
+});
+
+test("parseUnifiedDiff handles no-prefix patches", () => {
+  const patch = `--- src/a.ts
++++ src/a.ts
+@@ -1 +1 @@
+-old
++new`;
+  assert.deepEqual(parseUnifiedDiff(patch), [
+    { path: "src/a.ts", additions: 1, deletions: 1, changeType: "modified" },
+  ]);
+});
+
+test("parseUnifiedDiff counts content beginning with three plus signs", () => {
+  const patch = `diff --git a/notes.md b/notes.md
+--- a/notes.md
++++ b/notes.md
+@@ -0,0 +1 @@
++++ content, not a file marker`;
+  assert.equal(parseUnifiedDiff(patch)[0]?.additions, 1);
+});
+
+test("parseUnifiedDiff labels renames and binary changes", () => {
+  const rename = `diff --git a/src/old.ts b/src/new.ts
+similarity index 100%
+rename from src/old.ts
+rename to src/new.ts`;
+  const binary = `diff --git a/public/old.png b/public/new.png
+index 123..456 100644
+Binary files a/public/old.png and b/public/new.png differ`;
+
+  assert.equal(parseUnifiedDiff(rename)[0]?.changeType, "renamed");
+  assert.equal(parseUnifiedDiff(rename)[0]?.path, "src/new.ts");
+  assert.equal(parseUnifiedDiff(binary)[0]?.changeType, "binary");
+});
+
+test("parseUnifiedDiff returns no invented file when parsing fails", () => {
+  assert.deepEqual(parseUnifiedDiff("not a unified diff"), []);
 });
 
 test("analysis follows reverse imports to a surface and related test", () => {
