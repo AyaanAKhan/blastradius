@@ -259,3 +259,21 @@ test("node truncation preserves the highest-priority review target", () => {
     result.nodes.some((node) => node.path === edge.to),
   ));
 });
+
+test("dependency cycles do not count changed files as downstream impact", () => {
+  const files: RepositoryFile[] = [
+    { path: "src/a.ts", imports: ["./b"], isTest: false, isSurface: false },
+    { path: "src/b.ts", imports: ["./a"], isTest: false, isSurface: false },
+  ];
+  const change = `diff --git a/src/a.ts b/src/a.ts
+--- a/src/a.ts
++++ b/src/a.ts
+@@ -1 +1 @@
+-export const a = 1
++export const a = 2`;
+  const result = analyzeChange(change, files);
+
+  assert.equal(result.stats.impactedFiles, 1);
+  assert.match(result.brief, /reach 1 downstream module/);
+  assert.equal(result.nodes.filter((node) => node.path === "src/a.ts").length, 1);
+});

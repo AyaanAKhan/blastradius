@@ -391,6 +391,7 @@ export function analyzeChange(
   }
 
   const changedPaths = changedFiles.map((file) => normalizePath(file.path));
+  const changedPathSet = new Set(changedPaths);
   const discovered = new Map<string, number>();
   const queue: Array<{ path: string; depth: number }> = changedPaths.map((path) => ({ path, depth: 0 }));
 
@@ -398,6 +399,7 @@ export function analyzeChange(
     const current = queue.shift();
     if (!current || current.depth >= 3) continue;
     for (const dependent of reverseGraph.get(current.path) ?? []) {
+      if (changedPathSet.has(dependent)) continue;
       const nextDepth = current.depth + 1;
       const previousDepth = discovered.get(dependent);
       if (previousDepth === undefined || nextDepth < previousDepth) {
