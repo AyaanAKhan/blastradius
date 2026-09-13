@@ -10,9 +10,17 @@ import {
 
 import {
   analyzeChange,
+  type AnalysisOptions,
   type AnalysisResult,
   type RepositoryFile,
 } from "@/lib/analyzer";
+import {
+  extractRepositoryOptions,
+  IGNORED_DIRECTORY_PATTERN,
+  repositoryRelativePath,
+  SOURCE_FILE_PATTERN,
+  toRepositoryFile,
+} from "@/lib/repository-mapper";
 
 const starterDiff = `diff --git a/src/pricing/discount.ts b/src/pricing/discount.ts
 --- a/src/pricing/discount.ts
@@ -41,7 +49,14 @@ const sampleRepository: RepositoryFile[] = [
 ];
 
 const initialAnalysis = analyzeChange(starterDiff, sampleRepository);
-const sourcePattern = /\.(tsx?|jsx?|mjs|cjs|py)$/;
+const sampleOptions: AnalysisOptions = { aliases: {}, externalPackages: [] };
+
+type IngestionSummary = {
+  mapped: number;
+  ignored: number;
+  oversized: number;
+  capped: number;
+};
 
 function ProgressBar({ value, label }: { value: number; label: string }) {
   const safeValue = Math.max(0, Math.min(100, value));
@@ -57,40 +72,6 @@ function ProgressBar({ value, label }: { value: number; label: string }) {
       <span style={{ width: `${safeValue}%` }} />
     </div>
   );
-}
-
-function extractImports(source: string, extension: string) {
-  const imports = new Set<string>();
-  if (extension === "py") {
-    for (const match of source.matchAll(/^\s*from\s+([.\w/]+)\s+import/gm)) {
-      imports.add(match[1].replace(/^\.+/, (dots) => "../".repeat(dots.length)));
-    }
-  } else {
-    const patterns = [
-      /(?:import|export)[\s\S]*?from\s*["']([^"']+)["']/g,
-      /require\(\s*["']([^"']+)["']\s*\)/g,
-      /import\(\s*["']([^"']+)["']\s*\)/g,
-    ];
-    for (const pattern of patterns) {
-      for (const match of source.matchAll(pattern)) imports.add(match[1]);
-    }
-  }
-  return [...imports].slice(0, 80);
-}
-
-function toRepositoryFile(path: string, source: string): RepositoryFile {
-  const slashPath = path.replaceAll("\\", "/");
-  const normalized = slashPath.includes("/")
-    ? slashPath.slice(slashPath.indexOf("/") + 1)
-    : slashPath;
-  const extension = normalized.split(".").pop()?.toLowerCase() ?? "";
-  return {
-    path: normalized,
-    imports: extractImports(source, extension),
-    isTest: /(^|\/)(test|tests|__tests__)(\/|$)|\.(test|spec)\./.test(normalized),
-    isSurface: /(^|\/)(route|routes|pages|app\/api|controllers?|workers?|handlers?)(\/|\.|$)/i.test(normalized),
-    hasDynamicImport: /import\(\s*[^"'\s]/.test(source),
-  };
 }
 
 function ImpactMap({ analysis }: { analysis: AnalysisResult }) {
@@ -135,6 +116,13 @@ function ImpactMap({ analysis }: { analysis: AnalysisResult }) {
 export function BlastRadiusWorkspace() {
   const [diff, setDiff] = useState(starterDiff);
   const [repository, setRepository] = useState<RepositoryFile[]>(sampleRepository);
+  const [analysisOptions, setAnalysisOptions] = useState<AnalysisOptions>(sampleOptions);
+  const [ingestionSummary, setIngestionSummary] = useState<IngestionSummary>({
+    mapped: sampleRepository.length,
+    ignored: 0,
+    oversized: 0,
+    capped: 0,
+  });
   const [repositoryLabel, setRepositoryLabel] = useState("Sample commerce service");
   const [analysis, setAnalysis] = useState<AnalysisResult>(initialAnalysis);
   const [status, setStatus] = useState<"ready" | "reading" | "running">("ready");
@@ -142,7 +130,11 @@ export function BlastRadiusWorkspace() {
   const [activeTab, setActiveTab] = useState<"map" | "evidence">("map");
   const fileInput = useRef<HTMLInputElement>(null);
 
-  const runAnalysis = useCallback(async (nextDiff = diff, nextFiles = repository) => {
+  const runAnalysis = useCallback(async (
+    nextDiff = diff,
+    nextFiles = repository,
+    nextOptions = analysisOptions,
+  ) => {
     if (!nextDiff.trim()) {
       setError("Paste a unified diff before running the analysis.");
       return undefined;
@@ -153,7 +145,7 @@ export function BlastRadiusWorkspace() {
       const response = await fetch("/api/analyze", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ diff: nextDiff, files: nextFiles }),
+        body: JSON.stringify({ diff: nextDiff, files: nextFiles, options: nextOptions }),
       });
       const payload = (await response.json()) as AnalysisResult & { error?: string };
       if (!response.ok) throw new Error(payload.error ?? "Analysis failed.");
@@ -165,23 +157,48 @@ export function BlastRadiusWorkspace() {
     } finally {
       setStatus("ready");
     }
-  }, [diff, repository]);
+  }, [analysisOptions, diff, repository]);
 
   async function importRepository(selected: FileList | null) {
     if (!selected?.length) return;
     setStatus("reading");
     setError("");
     try {
-      const eligible = [...selected]
-        .filter((file) => sourcePattern.test(file.name) && file.size <= 256_000)
-        .slice(0, 600);
+      const files = [...selected];
+      const pathFor = (file: File) => file.webkitRelativePath || file.name;
+      const ignored = files.filter((file) => IGNORED_DIRECTORY_PATTERN.test(pathFor(file)));
+      const supported = files.filter(
+        (file) => !IGNORED_DIRECTORY_PATTERN.test(pathFor(file)) && SOURCE_FILE_PATTERN.test(file.name),
+      );
+      const oversized = supported.filter((file) => file.size > 256_000);
+      const withinLimit = supported.filter((file) => file.size <= 256_000);
+      const eligible = withinLimit.slice(0, 5_000);
+      const configFiles = files.filter((file) => {
+        const path = repositoryRelativePath(pathFor(file));
+        return (
+          file.size <= 256_000 &&
+          !IGNORED_DIRECTORY_PATTERN.test(pathFor(file)) &&
+          (path === "package.json" || /(^|\/)(tsconfig|jsconfig)\.json$/i.test(path))
+        );
+      });
+      const configSources = await Promise.all(
+        configFiles.map(async (file) => ({ path: pathFor(file), source: await file.text() })),
+      );
+      const nextOptions = extractRepositoryOptions(configSources);
       const mapped = await Promise.all(
         eligible.map(async (file) =>
-          toRepositoryFile(file.webkitRelativePath || file.name, await file.text()),
+          toRepositoryFile(pathFor(file), await file.text()),
         ),
       );
       if (!mapped.length) throw new Error("No supported TypeScript, JavaScript, or Python files were found.");
       setRepository(mapped);
+      setAnalysisOptions(nextOptions);
+      setIngestionSummary({
+        mapped: mapped.length,
+        ignored: ignored.length,
+        oversized: oversized.length,
+        capped: Math.max(0, withinLimit.length - eligible.length),
+      });
       setRepositoryLabel(selected[0]?.webkitRelativePath?.split("/")[0] || "Local repository");
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "The folder could not be read.");
@@ -193,6 +210,8 @@ export function BlastRadiusWorkspace() {
   function resetDemo() {
     setDiff(starterDiff);
     setRepository(sampleRepository);
+    setAnalysisOptions(sampleOptions);
+    setIngestionSummary({ mapped: sampleRepository.length, ignored: 0, oversized: 0, capped: 0 });
     setRepositoryLabel("Sample commerce service");
     setAnalysis(initialAnalysis);
     setError("");
@@ -233,7 +252,7 @@ export function BlastRadiusWorkspace() {
           throw new Error("A non-empty unified diff is required.");
         }
         setDiff(value.diff);
-        const result = await runAnalysis(value.diff, repository);
+        const result = await runAnalysis(value.diff, repository, analysisOptions);
         if (!result) throw new Error("The change could not be analyzed.");
         return {
           score: result.score,
@@ -244,7 +263,7 @@ export function BlastRadiusWorkspace() {
       },
     }, { signal: lifecycle.signal })).catch(() => undefined);
     return () => lifecycle.abort();
-  }, [repository, runAnalysis]);
+  }, [analysisOptions, repository, runAnalysis]);
 
   const stats = analysis.stats;
   const busyLabel =
@@ -283,7 +302,10 @@ export function BlastRadiusWorkspace() {
             <span className="repo-glyph" aria-hidden="true">&lt;/&gt;</span>
             <span>
               <strong>{repositoryLabel}</strong>
-              <small>{repository.length} supported files · extracted in browser</small>
+              <small>
+                {ingestionSummary.mapped} mapped · {ingestionSummary.ignored} ignored · {ingestionSummary.oversized} oversized
+                {ingestionSummary.capped ? ` · ${ingestionSummary.capped} beyond cap` : ""}
+              </small>
             </span>
             <b aria-hidden="true">↗</b>
           </button>

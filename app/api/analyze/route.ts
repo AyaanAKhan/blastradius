@@ -1,6 +1,7 @@
 import {
   analyzeChange,
   summarizeForLocalModel,
+  type AnalysisOptions,
   type AnalysisResult,
   type RepositoryFile,
 } from "@/lib/analyzer";
@@ -10,12 +11,13 @@ export const dynamic = "force-dynamic";
 type AnalyzeBody = {
   diff?: unknown;
   files?: unknown;
+  options?: unknown;
 };
 
 function validFiles(value: unknown): value is RepositoryFile[] {
   return (
     Array.isArray(value) &&
-    value.length <= 600 &&
+    value.length <= 5_000 &&
     value.every(
       (file) =>
         file &&
@@ -26,9 +28,38 @@ function validFiles(value: unknown): value is RepositoryFile[] {
         file.imports.length <= 80 &&
         file.imports.every((entry: unknown) => typeof entry === "string" && entry.length <= 300) &&
         typeof file.isTest === "boolean" &&
-        typeof file.isSurface === "boolean",
+        typeof file.isSurface === "boolean" &&
+        (file.hasDynamicImport === undefined || typeof file.hasDynamicImport === "boolean"),
     )
   );
+}
+
+function validOptions(value: unknown): value is AnalysisOptions {
+  if (value === undefined) return true;
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const options = value as Record<string, unknown>;
+  if (options.baseUrl !== undefined && (typeof options.baseUrl !== "string" || options.baseUrl.length > 300)) {
+    return false;
+  }
+  if (options.aliases !== undefined) {
+    if (!options.aliases || typeof options.aliases !== "object" || Array.isArray(options.aliases)) return false;
+    const aliases = Object.entries(options.aliases);
+    if (
+      aliases.length > 100 ||
+      aliases.some(([prefix, target]) => prefix.length > 200 || typeof target !== "string" || target.length > 300)
+    ) {
+      return false;
+    }
+  }
+  if (
+    options.externalPackages !== undefined &&
+    (!Array.isArray(options.externalPackages) ||
+      options.externalPackages.length > 2_000 ||
+      options.externalPackages.some((name) => typeof name !== "string" || name.length > 214))
+  ) {
+    return false;
+  }
+  return true;
 }
 
 async function localModelBrief(result: AnalysisResult) {
@@ -80,8 +111,11 @@ export async function POST(request: Request) {
   if (!validFiles(files)) {
     return Response.json({ error: "The repository map is invalid or too large." }, { status: 400 });
   }
+  if (!validOptions(body.options)) {
+    return Response.json({ error: "The repository configuration is invalid or too large." }, { status: 400 });
+  }
 
-  const result = analyzeChange(body.diff, files);
+  const result = analyzeChange(body.diff, files, body.options);
   try {
     const brief = await localModelBrief(result);
     if (brief) {
