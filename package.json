@@ -1,6 +1,6 @@
 {
   "name": "blastradius",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Explainable pull-request impact analysis for engineering teams.",
   "private": true,
   "bin": {
@@ -21,6 +21,8 @@
     "fixtures:update": "npm run build:cli && node scripts/update-golden.mjs",
     "fixtures:refresh": "npm run build:cli && node scripts/refresh-golden.mjs",
     "evaluate": "npm run build:cli && node scripts/evaluate.mjs",
+    "pages:build": "node scripts/build-pages.mjs",
+    "audit:site": "node scripts/audit-site.mjs",
     "check": "npm run test && npm run typecheck && npm run lint && npm run build:cli && npm run build"
   },
   "dependencies": {

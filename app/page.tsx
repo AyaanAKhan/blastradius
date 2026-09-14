@@ -70,7 +70,7 @@ export default function Home() {
             <article>
               <span>03</span>
               <h3>Source stays local</h3>
-              <p>The browser extracts file paths and import relationships, then a Web Worker analyzes them locally. Only an optional evidence summary can reach the narration endpoint.</p>
+              <p>The browser extracts file paths and import relationships, then a Web Worker analyzes them locally. Optional narration talks directly to a loopback model only in local development.</p>
             </article>
           </div>
         </section>
@@ -78,13 +78,13 @@ export default function Home() {
         <section className="section-wrap build-proof">
           <div className="section-heading compact">
             <p className="eyebrow">BUILT TO BE INTERROGATED</p>
-            <h2>A portfolio project with engineering seams worth discussing.</h2>
+            <h2>An engineering tool designed to survive scrutiny.</h2>
           </div>
           <div className="proof-layout">
             <div className="proof-list">
               <div><b>Client</b><span>Folder ingestion, bounded parsing, accessible interaction</span></div>
               <div><b>Analysis</b><span>Diff parser, import resolver, reverse graph traversal</span></div>
-              <div><b>Boundary</b><span>Browser worker, metadata stays local, opt-in narration</span></div>
+              <div><b>Boundary</b><span>Browser worker, no hosted analysis API, opt-in local narration</span></div>
               <div><b>Quality</b><span>Unit fixtures, visible assumptions, measured bundle boundaries</span></div>
             </div>
             <blockquote>

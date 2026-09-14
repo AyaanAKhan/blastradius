@@ -38,7 +38,7 @@ export function HomeSchema() {
           "Reverse dependency traversal",
           "Affected surface identification",
           "Related test matching",
-          "Transparent review-attention scoring",
+          "Versioned ordinal review ranking",
           "Optional local-model narration",
         ],
         provider: { "@id": `${absoluteUrl("/")}#organization` },

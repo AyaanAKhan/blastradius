@@ -5,9 +5,16 @@ export const SITE_DESCRIPTION =
   "Trace a pull request through downstream modules, exposed surfaces, and related tests, then get an evidence-backed review plan.";
 export const SITE_ORIGIN =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "http://localhost:3000";
+export const SITE_BASE_PATH =
+  process.env.NEXT_PUBLIC_BASE_PATH?.replace(/\/$/, "") ?? "";
 
 export function absoluteUrl(path = "/") {
-  return new URL(path, SITE_ORIGIN).toString();
+  let normalized = path.startsWith("/") ? path : `/${path}`;
+  const finalSegment = normalized.split("/").at(-1) ?? "";
+  if (normalized !== "/" && !normalized.endsWith("/") && !finalSegment.includes(".")) {
+    normalized += "/";
+  }
+  return new URL(`${SITE_BASE_PATH}${normalized}`, `${SITE_ORIGIN}/`).toString();
 }
 
 export function pageMetadata({
@@ -22,16 +29,16 @@ export function pageMetadata({
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: { canonical: absoluteUrl(path) },
     openGraph: {
       title,
       description,
-      url: path,
+      url: absoluteUrl(path),
       siteName: SITE_NAME,
       type: "website",
       images: [
         {
-          url: "/og.png",
+          url: absoluteUrl("/og.png"),
           width: 1200,
           height: 630,
           alt: `${SITE_NAME} pull-request impact map and review plan`,
@@ -42,7 +49,7 @@ export function pageMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["/og.png"],
+      images: [absoluteUrl("/og.png")],
     },
   };
 }

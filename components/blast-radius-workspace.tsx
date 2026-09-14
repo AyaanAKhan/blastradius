@@ -180,7 +180,7 @@ function ImpactMap({ analysis }: { analysis: AnalysisResult }) {
                 <text className="graph-node-path" x={position.x + 12} y={position.y + 37}>
                   {compact(node.path, 28)}
                 </text>
-                <title>{node.path}, {node.kind}, hop {node.depth}</title>
+                <title>{`${node.path}, ${node.kind}, hop ${node.depth}`}</title>
               </g>
             );
           }))}
@@ -239,18 +239,39 @@ export function BlastRadiusWorkspace() {
     setError("");
     setStatus("narrating");
     try {
-      const response = await fetch("/api/narrate", {
+      if (!["localhost", "127.0.0.1", "::1"].includes(window.location.hostname)) {
+        throw new Error("Local narration is available when BlastRadius is run on your machine.");
+      }
+      const baseUrl = (process.env.NEXT_PUBLIC_OLLAMA_URL ?? "http://127.0.0.1:11434").replace(/\/$/, "");
+      const response = await fetch(`${baseUrl}/api/chat`, {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ summary: summarizeForLocalModel(analysis) }),
+        signal: AbortSignal.timeout(4_500),
+        body: JSON.stringify({
+          model: process.env.NEXT_PUBLIC_OLLAMA_MODEL ?? "qwen2.5:3b",
+          stream: false,
+          options: { temperature: 0.1 },
+          messages: [
+            {
+              role: "system",
+              content:
+                "Write at most 70 words for a cautious code reviewer. Identify the best review target using only supplied evidence. Mention uncertainty and never claim a bug was found.",
+            },
+            {
+              role: "user",
+              content: JSON.stringify(summarizeForLocalModel(analysis)),
+            },
+          ],
+        }),
       });
-      const payload = (await response.json()) as { brief?: string; error?: string };
-      if (!response.ok || !payload.brief) {
-        throw new Error(payload.error ?? "The local model did not return a summary.");
+      const payload = (await response.json()) as { message?: { content?: string } };
+      const brief = payload.message?.content?.trim().slice(0, 900);
+      if (!response.ok || !brief) {
+        throw new Error("The local model did not return a summary.");
       }
       setAnalysis((current) => ({
         ...current,
-        brief: payload.brief!,
+        brief,
         narrativeSource: "local-model",
       }));
     } catch (caught) {
@@ -441,7 +462,7 @@ export function BlastRadiusWorkspace() {
           </div>
           <p className="privacy-note">
             <span aria-hidden="true">✓</span>
-            Analysis runs in this browser. Repository metadata is not sent to the server.
+            Analysis runs in this browser. Repository metadata never leaves this page.
           </p>
         </aside>
 

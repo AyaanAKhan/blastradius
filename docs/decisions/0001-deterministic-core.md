@@ -10,9 +10,9 @@ Pull-request impact analysis needs repeatable graph edges, visible ranking reaso
 
 Diff parsing, import resolution, reverse traversal, surface matching, test matching, ranking, confidence, and verification-plan generation remain deterministic TypeScript functions executed in a browser Web Worker.
 
-A local model adapter is optional. It receives only a bounded summary of computed evidence after an explicit user action and may replace only the short narrative brief. The response records whether the brief came from the evidence engine or local model.
+A local model adapter is optional. It receives only a bounded summary of computed evidence after an explicit user action and may replace only the short narrative brief. The result records whether the brief came from the evidence engine or local model.
 
-The web application is local-first. Repository mapping and analysis stay in the browser. The server has one narrow job: proxying the optional evidence summary to a locally configured model. This boundary can be verified from the browser network log.
+The web application is local-first. Repository mapping and analysis stay in a browser Web Worker, and the hosted build has no analysis API. Optional narration calls a loopback model directly and is available only when the app runs locally. This boundary can be verified from the browser network log.
 
 ## Consequences
 
@@ -25,8 +25,8 @@ Benefits:
 
 Costs:
 
-- Regex-based extraction misses language semantics.
+- Lightweight browser extraction misses some language semantics.
 - Ranking rules require explicit policy maintenance.
-- More capable parsing needs compiler or syntax-tree adapters.
+- Compiler-backed mapping costs more CPU and is therefore reserved for the CLI and automation path.
 
-These costs are acceptable for the MVP because they are visible, bounded, and replaceable without changing the product contract.
+These costs are acceptable because they are visible, bounded, measured, and replaceable without changing the core result contract.

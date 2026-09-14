@@ -17,7 +17,7 @@ Keep changes small enough to review. Explain the behavior change, tests, tradeof
 
 ## Analyzer changes
 
-- Keep parsing and scoring functions deterministic.
+- Keep parsing and ranking functions deterministic.
 - Add fixtures for new syntax or graph behavior.
 - Bound new traversal and input work.
 - Surface unresolved evidence instead of silently discarding it.

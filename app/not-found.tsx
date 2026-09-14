@@ -3,10 +3,12 @@ import Link from "next/link";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Page not found",
   description: "The requested BlastRadius route does not exist.",
+  alternates: { canonical: absoluteUrl("/404") },
   robots: { index: false, follow: false },
 };
 
