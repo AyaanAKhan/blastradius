@@ -166,6 +166,7 @@ test("rank-v1 orders review targets by evidence instead of a numeric score", () 
     result.reviewOrder.map((_, index) => index + 1),
   );
   assert.ok(result.factors.every((factor) => ["attention", "mitigation", "context"].includes(factor.signal)));
+  assert.ok(result.brief.includes(result.reviewOrder[0]?.path ?? ""));
 });
 
 test("review order uses downstream reach before churn within a policy tier", () => {
@@ -192,6 +193,7 @@ diff --git a/src/reached.ts b/src/reached.ts
 
   assert.equal(result.reviewOrder[0]?.path, "src/reached.ts");
   assert.ok(result.reviewOrder[0]?.reasons.some((reason) => reason.includes("downstream file")));
+  assert.match(result.brief, /src\/reached\.ts/);
 });
 
 test("configured aliases resolve into the dependency graph", () => {

@@ -753,7 +753,7 @@ export function analyzeChange(
     ...(configChanged ? ["Validate configuration and schema compatibility"] : []),
   ].slice(0, 4);
 
-  const focus = highestRisk?.path ?? firstSurface?.path ?? changedPaths[0] ?? "the change";
+  const focus = reviewOrder[0]?.path ?? highestRisk?.path ?? firstSurface?.path ?? changedPaths[0] ?? "the change";
   const brief =
     `${changedFiles.length} changed file${changedFiles.length === 1 ? "" : "s"} reach ${discovered.size} downstream module${discovered.size === 1 ? "" : "s"} and ${impactedSurfaces.length} user-facing surface${impactedSurfaces.length === 1 ? "" : "s"}. ` +
     (highestRisk

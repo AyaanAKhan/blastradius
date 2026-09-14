@@ -1,6 +1,6 @@
 {
   "policyVersion": "rank-v1",
-  "sha256": "d1f88a0f39e0cec1f7d842f9e3d2d4e6e418c0a0a5ad4dfee42dd8d2b8d64964",
+  "sha256": "f7642d3e28ac9e9237323000b07795a5bd1b783784759f4652adf6c4cef6e3bb",
   "result": {
     "policyVersion": "rank-v1",
     "confidence": 0.6476984126984127,
@@ -532,7 +532,7 @@
       "Run packages/vite/src/node/__tests__/utils.spec.ts",
       "Verify the user-facing behavior at packages/vite/src/node/plugins/worker.ts"
     ],
-    "brief": "2 changed files reach 22 downstream modules and 1 user-facing surface. Start with packages/vite/src/node/plugins/worker.ts; related test evidence exists, but the impact path still needs human confirmation.",
+    "brief": "2 changed files reach 22 downstream modules and 1 user-facing surface. Start with packages/vite/src/node/utils.ts; related test evidence exists, but the impact path still needs human confirmation.",
     "narrativeSource": "evidence-engine",
     "unknowns": [
       "184 relative imports could not be resolved.",
