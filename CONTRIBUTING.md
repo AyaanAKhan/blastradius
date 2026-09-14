@@ -13,7 +13,7 @@ Thank you for helping improve BlastRadius. Changes should preserve the central c
 
 ## Pull requests
 
-Keep changes small enough to review. Explain the behavior change, tests, tradeoffs, and any new limitations. Include screenshots for visible interface changes. Avoid claims that a score predicts defects unless the claim is supported by a documented evaluation dataset.
+Keep changes small enough to review. Explain the behavior change, tests, tradeoffs, and any new limitations. Include screenshots for visible interface changes. Avoid claims that a ranking predicts defects unless the claim is supported by a documented evaluation dataset.
 
 ## Analyzer changes
 
@@ -21,7 +21,7 @@ Keep changes small enough to review. Explain the behavior change, tests, tradeof
 - Add fixtures for new syntax or graph behavior.
 - Bound new traversal and input work.
 - Surface unresolved evidence instead of silently discarding it.
-- Document score-policy changes in `docs/scoring-model.md`.
+- Document ranking-policy changes in `docs/ranking-model.md`.
 
 ## Commit style
 

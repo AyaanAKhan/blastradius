@@ -12,4 +12,4 @@ Describe the behavior change and why it belongs in BlastRadius.
 
 ## Risk and limitations
 
-Describe score-policy changes, new trust boundaries, performance effects, and anything the implementation cannot prove.
+Describe ranking-policy changes, new trust boundaries, performance effects, and anything the implementation cannot prove.

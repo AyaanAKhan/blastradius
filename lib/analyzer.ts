@@ -29,19 +29,25 @@ export type ImpactEdge = {
 
 export type EvidenceFactor = {
   label: string;
-  value: number;
-  contribution: number;
+  signal: "attention" | "mitigation" | "context";
   explanation: string;
 };
 
+export type ReviewTarget = {
+  rank: number;
+  path: string;
+  kind: ImpactNode["kind"];
+  reasons: string[];
+};
+
 export type AnalysisResult = {
-  score: number;
-  level: "Low" | "Moderate" | "High" | "Critical";
+  policyVersion: "rank-v1";
   confidence: number;
   changedFiles: ChangeFile[];
   nodes: ImpactNode[];
   edges: ImpactEdge[];
   factors: EvidenceFactor[];
+  reviewOrder: ReviewTarget[];
   verificationPlan: string[];
   brief: string;
   narrativeSource: "evidence-engine" | "local-model";
@@ -493,57 +499,50 @@ export function analyzeChange(
   const factors: EvidenceFactor[] = [
     {
       label: "Change size",
-      value: clamp(Math.round(Math.log2(churn + 1) * 18), 0, 100),
-      contribution: clamp(Math.round(Math.log2(churn + 1) * 3), 0, 18),
+      signal: churn > 200 ? "attention" : "context",
       explanation: `${churn} changed lines across ${changedFiles.length} file${changedFiles.length === 1 ? "" : "s"}`,
     },
     {
       label: "Dependency fan-out",
-      value: clamp(discovered.size * 16, 0, 100),
-      contribution: clamp(discovered.size * 4, 0, 24),
+      signal: discovered.size > 4 ? "attention" : "context",
       explanation: `${discovered.size} downstream file${discovered.size === 1 ? "" : "s"} within three hops`,
     },
     {
       label: "Sensitive paths",
-      value: clamp(sensitiveChanged * 40, 0, 100),
-      contribution: clamp(sensitiveChanged * 12, 0, 24),
+      signal: sensitiveChanged ? "attention" : "context",
       explanation: sensitiveChanged
         ? `${sensitiveChanged} changed path${sensitiveChanged === 1 ? "" : "s"} matched review-sensitive domains`
         : "No changed paths matched the configured sensitive domains",
     },
     {
-      label: "Coverage gaps",
-      value: clamp(uncoveredImpact * 34 + (matchedTests.length ? 0 : 25), 0, 100),
-      contribution: clamp(uncoveredImpact * 9 + (matchedTests.length ? 0 : 8), 0, 26),
+      label: "Related tests",
+      signal: matchedTests.length ? "mitigation" : "attention",
       explanation: matchedTests.length
-        ? `${matchedTests.length} related test${matchedTests.length === 1 ? "" : "s"} found; ${uncoveredImpact} sensitive dependent${uncoveredImpact === 1 ? "" : "s"} unpaired`
+        ? `${matchedTests.length} related test${matchedTests.length === 1 ? "" : "s"} found by import or exact filename evidence`
         : "No related tests were found in the supplied repository map",
     },
     {
+      label: "Sensitive dependents without tests",
+      signal: uncoveredImpact ? "attention" : "context",
+      explanation: uncoveredImpact
+        ? `${uncoveredImpact} sensitive downstream file${uncoveredImpact === 1 ? "" : "s"} had no matching test evidence`
+        : "No sensitive downstream files lacked matching test evidence",
+    },
+    {
       label: "Verification added",
-      value: clamp(testsChanged * 50, 0, 100),
-      contribution: clamp(testsChanged * -8, -16, 0),
+      signal: testsChanged ? "mitigation" : "context",
       explanation: testsChanged
         ? `${testsChanged} test file${testsChanged === 1 ? "" : "s"} changed with the implementation`
         : "The diff does not include a test change",
     },
     {
       label: "Configuration reach",
-      value: clamp(configChanged * 50, 0, 100),
-      contribution: clamp(configChanged * 10, 0, 20),
+      signal: configChanged ? "attention" : "context",
       explanation: configChanged
         ? `${configChanged} configuration, schema, or lockfile change${configChanged === 1 ? "" : "s"}`
         : "No configuration or schema changes detected",
     },
   ];
-
-  const score = clamp(
-    14 + factors.reduce((sum, factor) => sum + factor.contribution, 0),
-    5,
-    96,
-  );
-  const level: AnalysisResult["level"] =
-    score >= 80 ? "Critical" : score >= 60 ? "High" : score >= 35 ? "Moderate" : "Low";
   const mappedChanged = changedPaths.filter((path) => knownPaths.has(path)).length;
   const dynamicImports = normalizedFiles.filter((file) => file.hasDynamicImport).length;
   const unresolvedImports = unresolvedRelativeImports + unresolvedAliasImports;
@@ -581,6 +580,32 @@ export function analyzeChange(
 
   const highestRisk = orderedNodes.find((node) => node.kind === "risk");
   const firstSurface = impactedSurfaces[0];
+  const reviewOrder = [...orderedNodes]
+    .filter((node) => node.kind !== "test")
+    .sort((left, right) => {
+      const priority = (node: ImpactNode) => {
+        if (node.kind === "risk") return 0;
+        if (node.kind === "changed" && SENSITIVE_PARTS.some((part) => node.path.toLowerCase().includes(part))) return 1;
+        if (node.kind === "changed" && /(package-lock|pnpm-lock|yarn\.lock|\.env|config|schema|migration)/i.test(node.path)) return 2;
+        if (node.kind === "changed" && !isTestPath(node.path)) return 3;
+        if (node.kind === "surface") return 4;
+        if (node.kind === "dependent") return 5;
+        return 6;
+      };
+      return priority(left) - priority(right) || left.depth - right.depth || left.path.localeCompare(right.path);
+    })
+    .slice(0, 10)
+    .map((node, index): ReviewTarget => {
+      const reasons: string[] = [];
+      const change = changedFiles.find((file) => file.path === node.path);
+      if (node.kind === "risk") reasons.push("Sensitive downstream path with no matching test evidence");
+      if (node.kind === "surface") reasons.push("Exposed surface reached by the dependency graph");
+      if (node.kind === "dependent") reasons.push(`Downstream dependency at hop ${node.depth}`);
+      if (change) reasons.push(`${change.changeType} file with ${change.additions + change.deletions} changed lines`);
+      if (SENSITIVE_PARTS.some((part) => node.path.toLowerCase().includes(part))) reasons.push("Review-sensitive path term");
+      if (/(package-lock|pnpm-lock|yarn\.lock|\.env|config|schema|migration)/i.test(node.path)) reasons.push("Configuration or schema reach");
+      return { rank: index + 1, path: node.path, kind: node.kind, reasons };
+    });
   const verificationPlan = [
     ...(matchedTests.length
       ? matchedTests.slice(0, 2).map((test) => `Run ${test.path}`)
@@ -600,13 +625,13 @@ export function analyzeChange(
         : `Start with ${focus}; no related test evidence was found.`);
 
   return {
-    score,
-    level,
+    policyVersion: "rank-v1",
     confidence,
     changedFiles,
     nodes: visibleNodes,
     edges: edges.slice(0, 36),
     factors,
+    reviewOrder,
     verificationPlan,
     brief,
     narrativeSource: "evidence-engine",
@@ -629,13 +654,13 @@ export function analyzeChange(
 
 export function summarizeForLocalModel(result: AnalysisResult) {
   return {
-    score: result.score,
-    level: result.level,
+    policyVersion: result.policyVersion,
     changedFiles: result.changedFiles.map((file) => file.path),
+    reviewOrder: result.reviewOrder.slice(0, 5),
     impactedFiles: result.nodes.map((node) => ({ path: node.path, kind: node.kind })),
     factors: result.factors.map((factor) => ({
       label: factor.label,
-      contribution: factor.contribution,
+      signal: factor.signal,
       evidence: factor.explanation,
     })),
     unknowns: result.unknowns,

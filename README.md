@@ -60,7 +60,7 @@ flowchart LR
 
 The analyzer is a pure TypeScript module. The route handler validates the transport boundary and optionally calls a local model adapter. The interface renders the returned graph, score factors, verification steps, and uncertainty without hiding the underlying evidence.
 
-Read the [architecture guide](docs/architecture.md), [scoring model](docs/scoring-model.md), and [deterministic-core decision record](docs/decisions/0001-deterministic-core.md) for the deeper engineering rationale.
+Read the [architecture guide](docs/architecture.md), [ranking model](docs/ranking-model.md), and [deterministic-core decision record](docs/decisions/0001-deterministic-core.md) for the deeper engineering rationale.
 
 ## Run locally
 
@@ -157,7 +157,7 @@ public/                      Product favicon and social card
 ## Documentation
 
 - [Architecture](docs/architecture.md)
-- [Scoring model](docs/scoring-model.md)
+- [Ranking model](docs/ranking-model.md)
 - [Contributing](CONTRIBUTING.md)
 
 ## License

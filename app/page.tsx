@@ -46,7 +46,7 @@ export default function Home() {
         <section className="signal-strip" aria-label="Product capabilities">
           <p><b>01</b><span>Static reach</span><small>Three dependency hops</small></p>
           <p><b>02</b><span>Test evidence</span><small>Named, reproducible matches</small></p>
-          <p><b>03</b><span>Visible score</span><small>Every contribution exposed</small></p>
+          <p><b>03</b><span>Visible reasons</span><small>Every ranking signal exposed</small></p>
           <p><b>04</b><span>Explicit uncertainty</span><small>Unknowns remain visible</small></p>
         </section>
 
@@ -60,17 +60,17 @@ export default function Home() {
             <article>
               <span>01</span>
               <h3>Evidence before prose</h3>
-              <p>The graph and score exist without a model. Optional local narration can explain the result, but it cannot invent the result.</p>
+              <p>The graph and review order exist without a model. Optional local narration can explain the result, but it cannot invent the result.</p>
             </article>
             <article>
               <span>02</span>
               <h3>Attention, not fake certainty</h3>
-              <p>The score ranks review effort. It never claims a defect was found, and confidence falls when imports or repository context are missing.</p>
+              <p>The ordinal queue ranks review effort. It never claims a defect was found, and confidence falls when imports or repository context are missing.</p>
             </article>
             <article>
               <span>03</span>
               <h3>Source stays local</h3>
-              <p>The browser extracts file paths and import relationships. The scoring endpoint receives structure and counts rather than raw repository source.</p>
+              <p>The browser extracts file paths and import relationships, then a Web Worker analyzes them locally. Only an optional evidence summary can reach the narration endpoint.</p>
             </article>
           </div>
         </section>
@@ -84,7 +84,7 @@ export default function Home() {
             <div className="proof-list">
               <div><b>Client</b><span>Folder ingestion, bounded parsing, accessible interaction</span></div>
               <div><b>Analysis</b><span>Diff parser, import resolver, reverse graph traversal</span></div>
-              <div><b>Server</b><span>Validated API, deterministic fallback, local-model adapter</span></div>
+              <div><b>Boundary</b><span>Browser worker, metadata stays local, opt-in narration</span></div>
               <div><b>Quality</b><span>Unit fixtures, visible assumptions, measured bundle boundaries</span></div>
             </div>
             <blockquote>
@@ -96,7 +96,7 @@ export default function Home() {
 
         <section className="closing-cta">
           <p className="eyebrow">START WITH THE INCLUDED FIXTURE</p>
-          <h2>Trace the path. Challenge the score. Improve the engine.</h2>
+          <h2>Trace the path. Challenge the ranking. Improve the engine.</h2>
           <p>The sample commerce service is ready immediately, and a local folder can replace it when you want real repository structure.</p>
           <Link className="button button-light" href="/analyze">Open BlastRadius</Link>
         </section>

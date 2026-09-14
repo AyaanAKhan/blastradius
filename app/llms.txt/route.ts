@@ -5,26 +5,25 @@ export function GET() {
 
 > Evidence-backed pull-request impact analysis for software engineers.
 
-BlastRadius parses a unified diff, follows relative imports through a locally extracted repository map, identifies exposed surfaces and related tests, and produces a transparent review-attention score. It does not claim to detect defects.
+BlastRadius parses a unified diff, resolves relative and configured alias imports through a locally extracted repository map, identifies exposed surfaces and related tests, and produces a transparent ordinal review queue. It does not claim to detect defects.
 
 ## Primary pages
 
 - [Home](${absoluteUrl("/")}): Product purpose and differentiation.
 - [Analyzer](${absoluteUrl("/analyze")}): Working interactive MVP with a built-in sample.
-- [Method](${absoluteUrl("/method")}): Algorithm, score factors, architecture, and limitations.
+- [Method](${absoluteUrl("/method")}): Algorithm, ranking policy, architecture, and limitations.
 - [Sources](${absoluteUrl("/sources")}): Primary documentation behind product comparisons.
 
 ## API
 
-- POST ${absoluteUrl("/api/analyze")}
-- JSON body: { "diff": string, "files": RepositoryFile[] }
-- RepositoryFile fields: path, imports, isTest, isSurface, optional hasDynamicImport.
+- POST ${absoluteUrl("/api/narrate")}
+- The optional endpoint accepts a bounded evidence summary only after a user action.
 
 ## Important limits
 
-- Static relative-import traversal is limited to three hops.
+- Static dependency traversal is limited to three hops.
 - TypeScript, JavaScript, and Python use lightweight import extraction.
-- The score ranks review attention; it is not defect probability.
+- The rank orders review attention; it is not defect probability.
 - A local Ollama endpoint may provide narration, but deterministic analysis is always available.
 `;
 

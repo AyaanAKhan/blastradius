@@ -78,7 +78,7 @@ test("analysis follows reverse imports to a surface and related test", () => {
   assert.equal(result.stats.impactedTests, 1);
 });
 
-test("test changes lower review attention compared with implementation-only changes", () => {
+test("test changes are recorded as mitigating evidence", () => {
   const withTest = `${diff}
 
 diff --git a/src/api/session.test.ts b/src/api/session.test.ts
@@ -86,7 +86,8 @@ diff --git a/src/api/session.test.ts b/src/api/session.test.ts
 +++ b/src/api/session.test.ts
 @@ -2,0 +3,1 @@
 +expect(session.allowed).toBe(true)`;
-  assert.ok(analyzeChange(withTest, repository).score < analyzeChange(diff, repository).score);
+  const result = analyzeChange(withTest, repository);
+  assert.equal(result.factors.find((factor) => factor.label === "Verification added")?.signal, "mitigation");
 });
 
 test("analysis names missing repository context instead of hiding uncertainty", () => {
@@ -144,13 +145,27 @@ test("configuration changes contribute explicit review evidence", () => {
   const sensitiveFactor = result.factors.find((entry) => entry.label === "Sensitive paths");
 
   assert.ok(factor);
-  assert.equal(factor.contribution, 10);
+  assert.equal(factor.signal, "attention");
   assert.match(factor.explanation, /1 configuration/);
-  assert.equal(sensitiveFactor?.contribution, 0);
+  assert.equal(sensitiveFactor?.signal, "context");
 });
 
 test("the same evidence always produces the same result", () => {
   assert.deepEqual(analyzeChange(diff, repository), analyzeChange(diff, repository));
+});
+
+test("rank-v1 orders review targets by evidence instead of a numeric score", () => {
+  const result = analyzeChange(diff, repository);
+
+  assert.equal(result.policyVersion, "rank-v1");
+  assert.equal(result.reviewOrder[0]?.rank, 1);
+  assert.equal(result.reviewOrder[0]?.path, "src/core/auth.ts");
+  assert.ok(result.reviewOrder[0]?.reasons.some((reason) => reason.includes("Review-sensitive")));
+  assert.deepEqual(
+    result.reviewOrder.map((target) => target.rank),
+    result.reviewOrder.map((_, index) => index + 1),
+  );
+  assert.ok(result.factors.every((factor) => ["attention", "mitigation", "context"].includes(factor.signal)));
 });
 
 test("configured aliases resolve into the dependency graph", () => {

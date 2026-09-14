@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Analyze a pull request",
-  description: "Map a unified diff to downstream modules, exposed surfaces, related tests, and a transparent review-attention score.",
+  description: "Map a unified diff to downstream modules, exposed surfaces, related tests, and a transparent review order.",
   path: "/analyze",
 });
 

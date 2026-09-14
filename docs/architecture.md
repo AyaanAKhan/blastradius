@@ -30,7 +30,7 @@ The engine performs six steps:
 3. Resolve relative static imports against known paths.
 4. Build a reverse dependency graph.
 5. Traverse downstream dependents for at most three hops.
-6. Match exposed surfaces and likely tests, then calculate score and confidence.
+6. Match exposed surfaces and likely tests, then calculate review order and confidence.
 
 The engine is a pure module with no network or filesystem access. The Web Worker keeps graph construction off the main thread and makes the analysis contract reproducible and easy to test.
 

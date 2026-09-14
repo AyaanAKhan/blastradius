@@ -12,13 +12,14 @@ function validSummary(value: unknown): value is NarrationSummary {
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
   const summary = value as Record<string, unknown>;
   return (
-    typeof summary.score === "number" &&
-    typeof summary.level === "string" &&
+    summary.policyVersion === "rank-v1" &&
     Array.isArray(summary.changedFiles) &&
     summary.changedFiles.length <= 200 &&
     summary.changedFiles.every((path) => typeof path === "string" && path.length <= 400) &&
     Array.isArray(summary.impactedFiles) &&
     summary.impactedFiles.length <= 24 &&
+    Array.isArray(summary.reviewOrder) &&
+    summary.reviewOrder.length <= 5 &&
     Array.isArray(summary.factors) &&
     summary.factors.length <= 12 &&
     Array.isArray(summary.unknowns) &&

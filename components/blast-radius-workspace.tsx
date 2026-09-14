@@ -355,9 +355,9 @@ export function BlastRadiusWorkspace() {
         const result = await runAnalysis(value.diff, repository, analysisOptions);
         if (!result) throw new Error("The change could not be analyzed.");
         return {
-          score: result.score,
-          level: result.level,
+          policyVersion: result.policyVersion,
           confidence: result.confidence,
+          reviewOrder: result.reviewOrder,
           verificationPlan: result.verificationPlan,
         };
       },
@@ -474,7 +474,7 @@ export function BlastRadiusWorkspace() {
                 aria-controls="evidence-panel"
                 aria-selected={activeTab === "evidence"}
                 onClick={() => setActiveTab("evidence")}
-              >Score evidence</button>
+              >Evidence factors</button>
             </div>
             <div
               id="map-panel"
@@ -498,10 +498,7 @@ export function BlastRadiusWorkspace() {
                     <strong>{factor.label}</strong>
                     <p>{factor.explanation}</p>
                   </div>
-                  <ProgressBar value={factor.value} label={`${factor.label}: ${factor.value} percent`} />
-                  <output data-direction={factor.contribution < 0 ? "down" : "up"}>
-                    {factor.contribution > 0 ? "+" : ""}{factor.contribution}
-                  </output>
+                  <span className="factor-signal" data-signal={factor.signal}>{factor.signal}</span>
                 </div>
               ))}
             </div>
@@ -519,14 +516,11 @@ export function BlastRadiusWorkspace() {
             <section className="review-section">
               <header><span>Review order</span><small>highest signal first</small></header>
               <ol>
-                {analysis.nodes
-                  .filter((node) => node.kind === "risk" || node.kind === "surface" || node.kind === "changed")
-                  .slice(0, 4)
-                  .map((node, index) => (
-                    <li key={node.id}>
-                      <b>{String(index + 1).padStart(2, "0")}</b>
-                      <span className="path-label">{node.path}</span>
-                      <em data-kind={node.kind}>{node.kind}</em>
+                {analysis.reviewOrder.slice(0, 4).map((target) => (
+                    <li key={target.path} title={target.reasons.join("; ")}>
+                      <b>{String(target.rank).padStart(2, "0")}</b>
+                      <span className="path-label">{target.path}</span>
+                      <em data-kind={target.kind}>{target.kind}</em>
                     </li>
                   ))}
               </ol>
@@ -536,13 +530,16 @@ export function BlastRadiusWorkspace() {
 
         <aside className="brief-column">
           <div className="column-index">03 / Review brief</div>
-          <section className="score-block">
-            <span>Review attention</span>
-            <div className="score-line">
-              <strong>{analysis.score}</strong>
-              <em data-level={analysis.level.toLowerCase()}>{analysis.level}</em>
+          <section className="priority-block">
+            <span>Review priority</span>
+            <div className="priority-line">
+              <strong>{analysis.reviewOrder[0] ? "#01" : "N/A"}</strong>
+              <em data-kind={analysis.reviewOrder[0]?.kind ?? "context"}>
+                {analysis.reviewOrder[0]?.kind ?? "no target"}
+              </em>
             </div>
-            <p>Prioritization score. It does not claim that this change contains a bug.</p>
+            <p className="priority-path">{analysis.reviewOrder[0]?.path ?? "No changed path could be parsed."}</p>
+            <p>Ordinal review queue from visible evidence. It is not a defect probability.</p>
             <div className="confidence">
               <div><span>Evidence confidence</span><b>{analysis.confidence.toFixed(2)}</b></div>
               <ProgressBar value={analysis.confidence * 100} label={`Evidence confidence: ${Math.round(analysis.confidence * 100)} percent`} />
@@ -569,7 +566,7 @@ export function BlastRadiusWorkspace() {
 
           <p className="evidence-promise">
             <span aria-hidden="true">✓</span>
-            Every score contribution remains visible and reproducible.
+            Every ranking reason remains visible and reproducible.
           </p>
         </aside>
       </div>

@@ -22,7 +22,7 @@ const sources = [
   {
     name: "CodeSee Review Maps",
     claim: "Review Maps visualize changed files, dependency connections, and unchanged files that may be affected by a pull request.",
-    takeaway: "Strong visual context; BlastRadius adds explicit score contributions, test evidence, and named uncertainty in a local-first demo.",
+    takeaway: "Strong visual context; BlastRadius adds explicit ranking reasons, test evidence, and named uncertainty in a local-first demo.",
     href: "https://docs.codesee.io/docs/user-guide",
   },
   {

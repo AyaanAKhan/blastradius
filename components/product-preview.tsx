@@ -47,8 +47,8 @@ export function ProductPreview() {
         </section>
         <aside className="preview-brief">
           <span className="preview-kicker">REVIEW BRIEF</span>
-          <div className="preview-score"><strong>68</strong><em>HIGH</em></div>
-          <p>Review attention, not defect probability.</p>
+          <div className="preview-priority"><strong>#01</strong><em>UNPAIRED</em></div>
+          <p>Review order from visible evidence, not defect probability.</p>
           <dl>
             <div><dt>Confidence</dt><dd>0.88</dd></div>
             <div><dt>Surfaces</dt><dd>1</dd></div>
