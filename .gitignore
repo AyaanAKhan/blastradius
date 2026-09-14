@@ -5,6 +5,7 @@
 
 # Test output
 /coverage
+/.cache
 
 # Framework output
 /.next

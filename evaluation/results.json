@@ -1,0 +1,182 @@
+{
+  "policyVersion": "rank-v1",
+  "requestedPullRequestsPerRepository": 300,
+  "totalPullRequests": 900,
+  "totalLabeledPullRequests": 121,
+  "totalHeldOutPullRequests": 26,
+  "label": "Changed file with at least one inline human review comment, excluding the pull request author and bots.",
+  "split": "Oldest 80 percent development, newest 20 percent held out.",
+  "results": [
+    {
+      "repository": "vitejs/vite",
+      "graphSnapshots": "pull-request head commits",
+      "pulled": 300,
+      "labeled": 56,
+      "development": {
+        "pullRequests": 44,
+        "metrics": {
+          "random": {
+            "precisionAt1": 0.4844,
+            "recallAt3": 0.7314,
+            "meanReciprocalRank": 0.6598
+          },
+          "churn": {
+            "precisionAt1": 0.6136,
+            "recallAt3": 0.8947,
+            "meanReciprocalRank": 0.7727
+          },
+          "dependents": {
+            "precisionAt1": 0.6364,
+            "recallAt3": 0.9023,
+            "meanReciprocalRank": 0.8049
+          },
+          "blastradius": {
+            "precisionAt1": 0.5682,
+            "recallAt3": 0.8379,
+            "meanReciprocalRank": 0.7362
+          }
+        }
+      },
+      "heldOut": {
+        "pullRequests": 12,
+        "metrics": {
+          "random": {
+            "precisionAt1": 0.4644,
+            "recallAt3": 0.6165,
+            "meanReciprocalRank": 0.6469
+          },
+          "churn": {
+            "precisionAt1": 0.6667,
+            "recallAt3": 0.7778,
+            "meanReciprocalRank": 0.8
+          },
+          "dependents": {
+            "precisionAt1": 0.75,
+            "recallAt3": 0.6111,
+            "meanReciprocalRank": 0.8069
+          },
+          "blastradius": {
+            "precisionAt1": 0.75,
+            "recallAt3": 0.5833,
+            "meanReciprocalRank": 0.7911
+          }
+        }
+      },
+      "mappingCoverage": 0.7043
+    },
+    {
+      "repository": "pallets/flask",
+      "graphSnapshots": "pull-request head commits",
+      "pulled": 300,
+      "labeled": 8,
+      "development": {
+        "pullRequests": 6,
+        "metrics": {
+          "random": {
+            "precisionAt1": 0.3673,
+            "recallAt3": 0.6435,
+            "meanReciprocalRank": 0.5435
+          },
+          "churn": {
+            "precisionAt1": 0.1667,
+            "recallAt3": 1,
+            "meanReciprocalRank": 0.5833
+          },
+          "dependents": {
+            "precisionAt1": 0.6667,
+            "recallAt3": 1,
+            "meanReciprocalRank": 0.8333
+          },
+          "blastradius": {
+            "precisionAt1": 0.5,
+            "recallAt3": 0.8333,
+            "meanReciprocalRank": 0.6905
+          }
+        }
+      },
+      "heldOut": {
+        "pullRequests": 2,
+        "metrics": {
+          "random": {
+            "precisionAt1": 0.2885,
+            "recallAt3": 0.6154,
+            "meanReciprocalRank": 0.4973
+          },
+          "churn": {
+            "precisionAt1": 1,
+            "recallAt3": 1,
+            "meanReciprocalRank": 1
+          },
+          "dependents": {
+            "precisionAt1": 1,
+            "recallAt3": 1,
+            "meanReciprocalRank": 1
+          },
+          "blastradius": {
+            "precisionAt1": 1,
+            "recallAt3": 1,
+            "meanReciprocalRank": 1
+          }
+        }
+      },
+      "mappingCoverage": 0.6923
+    },
+    {
+      "repository": "expressjs/express",
+      "graphSnapshots": "pull-request head commits",
+      "pulled": 300,
+      "labeled": 57,
+      "development": {
+        "pullRequests": 45,
+        "metrics": {
+          "random": {
+            "precisionAt1": 0.7263,
+            "recallAt3": 0.9055,
+            "meanReciprocalRank": 0.8325
+          },
+          "churn": {
+            "precisionAt1": 0.7556,
+            "recallAt3": 0.8981,
+            "meanReciprocalRank": 0.8474
+          },
+          "dependents": {
+            "precisionAt1": 0.8,
+            "recallAt3": 0.9426,
+            "meanReciprocalRank": 0.888
+          },
+          "blastradius": {
+            "precisionAt1": 0.7778,
+            "recallAt3": 0.9093,
+            "meanReciprocalRank": 0.8654
+          }
+        }
+      },
+      "heldOut": {
+        "pullRequests": 12,
+        "metrics": {
+          "random": {
+            "precisionAt1": 0.8194,
+            "recallAt3": 1,
+            "meanReciprocalRank": 0.9051
+          },
+          "churn": {
+            "precisionAt1": 0.8333,
+            "recallAt3": 1,
+            "meanReciprocalRank": 0.9028
+          },
+          "dependents": {
+            "precisionAt1": 0.9167,
+            "recallAt3": 1,
+            "meanReciprocalRank": 0.9583
+          },
+          "blastradius": {
+            "precisionAt1": 0.9167,
+            "recallAt3": 1,
+            "meanReciprocalRank": 0.9583
+          }
+        }
+      },
+      "mappingCoverage": 0.3525
+    }
+  ]
+}

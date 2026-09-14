@@ -16,6 +16,10 @@ export type CompilerMap = {
   configPath?: string;
 };
 
+export type CompilerMapOptions = {
+  collectDiagnostics?: boolean;
+};
+
 const SOURCE_EXTENSIONS = [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs"];
 const IGNORED_DIRECTORY = /(^|\/)(node_modules|\.git|\.next|dist|build|out|coverage)(\/|$)/i;
 
@@ -198,13 +202,47 @@ function formatDiagnostic(diagnostic: ts.Diagnostic) {
   return `${slash(diagnostic.file.fileName)}:${position.line + 1}:${position.character + 1} ${message}`;
 }
 
-export function mapTypeScriptRepository(rootDirectory: string): CompilerMap {
+function syntacticExports(sourceFile: ts.SourceFile) {
+  const names = new Set<string>();
+  for (const statement of sourceFile.statements) {
+    if (ts.isExportDeclaration(statement)) {
+      if (statement.exportClause && ts.isNamedExports(statement.exportClause)) {
+        for (const item of statement.exportClause.elements) names.add(item.name.text);
+      } else {
+        names.add("*");
+      }
+      continue;
+    }
+    const exported = ts.canHaveModifiers(statement)
+      && ts.getModifiers(statement)?.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword);
+    if (!exported) continue;
+    if (ts.isVariableStatement(statement)) {
+      for (const declaration of statement.declarationList.declarations) {
+        if (ts.isIdentifier(declaration.name)) names.add(declaration.name.text);
+      }
+    } else if (
+      (ts.isFunctionDeclaration(statement) ||
+        ts.isClassDeclaration(statement) ||
+        ts.isInterfaceDeclaration(statement) ||
+        ts.isTypeAliasDeclaration(statement) ||
+        ts.isEnumDeclaration(statement)) &&
+      statement.name
+    ) {
+      names.add(statement.name.text);
+    }
+  }
+  return [...names].sort();
+}
+
+export function mapTypeScriptRepository(
+  rootDirectory: string,
+  mapOptions: CompilerMapOptions = {},
+): CompilerMap {
   const root = path.resolve(rootDirectory);
   const configPath = ts.findConfigFile(root, ts.sys.fileExists, "tsconfig.json")
     ?? ts.findConfigFile(root, ts.sys.fileExists, "jsconfig.json");
   const parsed = compilerOptionsFor(root, configPath);
   const program = ts.createProgram({ rootNames: parsed.fileNames, options: parsed.options });
-  const checker = program.getTypeChecker();
   const files: RepositoryFile[] = [];
 
   for (const sourceFile of program.getSourceFiles()) {
@@ -215,22 +253,21 @@ export function mapTypeScriptRepository(rootDirectory: string): CompilerMap {
       IGNORED_DIRECTORY.test(repositoryPath)
     ) continue;
     const extracted = declarationImports(root, sourceFile, parsed.options);
-    const moduleSymbol = checker.getSymbolAtLocation(sourceFile);
-    const exportedSymbols = moduleSymbol
-      ? checker.getExportsOfModule(moduleSymbol).map((symbol) => symbol.getName()).sort()
-      : [];
     files.push({
       path: repositoryPath,
       imports: [...new Set(extracted.imports.map((item) => item.specifier))],
       importMetadata: extracted.imports,
-      exportedSymbols,
+      exportedSymbols: syntacticExports(sourceFile),
       isTest: isTestPath(repositoryPath),
       isSurface: isSurfacePath(repositoryPath),
       hasDynamicImport: extracted.hasDynamicImport,
     });
   }
 
-  const diagnostics = [...parsed.errors, ...ts.getPreEmitDiagnostics(program)]
+  const diagnostics = [
+    ...parsed.errors,
+    ...(mapOptions.collectDiagnostics === false ? [] : ts.getPreEmitDiagnostics(program)),
+  ]
     .slice(0, 50)
     .map(formatDiagnostic);
   return {

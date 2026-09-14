@@ -1,0 +1,14 @@
+[
+  {
+    "repository": "vitejs/vite",
+    "mapper": "typescript"
+  },
+  {
+    "repository": "pallets/flask",
+    "mapper": "python"
+  },
+  {
+    "repository": "expressjs/express",
+    "mapper": "typescript"
+  }
+]

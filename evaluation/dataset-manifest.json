@@ -1,0 +1,5417 @@
+[
+  {
+    "repository": "vitejs/vite",
+    "pullRequests": [
+      {
+        "number": 23466,
+        "mergedAt": "2026-09-10T11:49:33Z",
+        "headSha": "b841df7740886077e21a28ae4660da826eca1fcf",
+        "url": "https://github.com/vitejs/vite/pull/23466"
+      },
+      {
+        "number": 23465,
+        "mergedAt": "2026-09-10T11:37:00Z",
+        "headSha": "8637fbd7db3e02d9a2a2e4a1f7c1e5b356b8aef8",
+        "url": "https://github.com/vitejs/vite/pull/23465"
+      },
+      {
+        "number": 23464,
+        "mergedAt": "2026-09-10T11:20:41Z",
+        "headSha": "663f96fa4597cb2203e64e98eea2f2eb24777897",
+        "url": "https://github.com/vitejs/vite/pull/23464"
+      },
+      {
+        "number": 23219,
+        "mergedAt": "2026-09-10T03:01:45Z",
+        "headSha": "66d02d1fce8c43fe5672a7c9f31ecf7f3d766a42",
+        "url": "https://github.com/vitejs/vite/pull/23219"
+      },
+      {
+        "number": 23235,
+        "mergedAt": "2026-09-10T02:58:28Z",
+        "headSha": "af49fb635e313c3f61adc281db25690ec448bbbb",
+        "url": "https://github.com/vitejs/vite/pull/23235"
+      },
+      {
+        "number": 23263,
+        "mergedAt": "2026-09-10T02:52:46Z",
+        "headSha": "b7b9c4087cbb7fb82bd74b627d7cbaa5e420ac4b",
+        "url": "https://github.com/vitejs/vite/pull/23263"
+      },
+      {
+        "number": 23437,
+        "mergedAt": "2026-09-10T02:50:01Z",
+        "headSha": "d5690c044acce1c3f38041f43a0dde95495d6e42",
+        "url": "https://github.com/vitejs/vite/pull/23437"
+      },
+      {
+        "number": 23456,
+        "mergedAt": "2026-09-10T02:19:09Z",
+        "headSha": "2e31b67ca63a51216d6807bcf69b593bd5160465",
+        "url": "https://github.com/vitejs/vite/pull/23456"
+      },
+      {
+        "number": 23446,
+        "mergedAt": "2026-09-08T05:09:35Z",
+        "headSha": "6aa4fa109245f2ba6215c3f1bd3560a391ea9f73",
+        "url": "https://github.com/vitejs/vite/pull/23446"
+      },
+      {
+        "number": 23449,
+        "mergedAt": "2026-09-07T11:27:09Z",
+        "headSha": "961ada7c214feeafad793f16dd7ee87c53265358",
+        "url": "https://github.com/vitejs/vite/pull/23449"
+      },
+      {
+        "number": 23445,
+        "mergedAt": "2026-09-07T11:15:53Z",
+        "headSha": "982a5b4b6b599ce2c7217077e283235aad3dc4a2",
+        "url": "https://github.com/vitejs/vite/pull/23445"
+      },
+      {
+        "number": 23448,
+        "mergedAt": "2026-09-07T10:22:19Z",
+        "headSha": "b9defadd782028e6d50232f3cb082f28f3156b1b",
+        "url": "https://github.com/vitejs/vite/pull/23448"
+      },
+      {
+        "number": 23447,
+        "mergedAt": "2026-09-07T07:15:35Z",
+        "headSha": "3838588828dab551123b0d9b705e3369d166bc5e",
+        "url": "https://github.com/vitejs/vite/pull/23447"
+      },
+      {
+        "number": 23333,
+        "mergedAt": "2026-09-07T05:29:06Z",
+        "headSha": "8d6ae3dc91d0a157db212be7d656e1d9802b3085",
+        "url": "https://github.com/vitejs/vite/pull/23333"
+      },
+      {
+        "number": 23357,
+        "mergedAt": "2026-09-07T05:10:24Z",
+        "headSha": "17731eeeea644a2942584203525811ec90bb3a9c",
+        "url": "https://github.com/vitejs/vite/pull/23357"
+      },
+      {
+        "number": 23386,
+        "mergedAt": "2026-09-07T05:01:10Z",
+        "headSha": "4afee6043915a1197cc7ff0e479a9de92a5c326a",
+        "url": "https://github.com/vitejs/vite/pull/23386"
+      },
+      {
+        "number": 23444,
+        "mergedAt": "2026-09-07T04:50:08Z",
+        "headSha": "7e72887e179d77524f3edfb2093c2d3da4a71e5a",
+        "url": "https://github.com/vitejs/vite/pull/23444"
+      },
+      {
+        "number": 23356,
+        "mergedAt": "2026-09-04T10:13:10Z",
+        "headSha": "51d9e0cd639464c02ea5fa324984f80948f40923",
+        "url": "https://github.com/vitejs/vite/pull/23356"
+      },
+      {
+        "number": 23387,
+        "mergedAt": "2026-09-04T10:12:06Z",
+        "headSha": "118288bf0d27b23a71662417b59f086ff62be008",
+        "url": "https://github.com/vitejs/vite/pull/23387"
+      },
+      {
+        "number": 23424,
+        "mergedAt": "2026-09-04T09:53:38Z",
+        "headSha": "9b694e281e1dee3b10ee9eb0a25c0753b012bafd",
+        "url": "https://github.com/vitejs/vite/pull/23424"
+      },
+      {
+        "number": 23422,
+        "mergedAt": "2026-09-04T03:30:05Z",
+        "headSha": "7ce1563dcd7ed70449e34f2cfb3ea9867793b7b0",
+        "url": "https://github.com/vitejs/vite/pull/23422"
+      },
+      {
+        "number": 23423,
+        "mergedAt": "2026-09-03T14:31:10Z",
+        "headSha": "b884de8128b1c72198458a74088baee4c8fa51c3",
+        "url": "https://github.com/vitejs/vite/pull/23423"
+      },
+      {
+        "number": 23373,
+        "mergedAt": "2026-09-03T08:03:28Z",
+        "headSha": "1edf0bc193907c50820a5dbcfc7d7d48b40092b5",
+        "url": "https://github.com/vitejs/vite/pull/23373"
+      },
+      {
+        "number": 23416,
+        "mergedAt": "2026-09-02T08:38:40Z",
+        "headSha": "2644adf0d2ceed9e4f4e28cc94c9c2d111e06c91",
+        "url": "https://github.com/vitejs/vite/pull/23416"
+      },
+      {
+        "number": 23412,
+        "mergedAt": "2026-09-02T03:35:38Z",
+        "headSha": "001219f65ad1a6d92045e5cc63f86607a0a3eb1c",
+        "url": "https://github.com/vitejs/vite/pull/23412"
+      },
+      {
+        "number": 23411,
+        "mergedAt": "2026-09-02T03:32:25Z",
+        "headSha": "12571f683c4f1ecd2fdd6b23d1f5f3855e9f4320",
+        "url": "https://github.com/vitejs/vite/pull/23411"
+      },
+      {
+        "number": 23310,
+        "mergedAt": "2026-09-02T03:03:55Z",
+        "headSha": "e5e9468a2ff51d155fcb77d7972ea85df4fdfb38",
+        "url": "https://github.com/vitejs/vite/pull/23310"
+      },
+      {
+        "number": 23381,
+        "mergedAt": "2026-09-01T08:39:45Z",
+        "headSha": "01119dc32820d4a75a5552ae96da408e53fa8aad",
+        "url": "https://github.com/vitejs/vite/pull/23381"
+      },
+      {
+        "number": 23394,
+        "mergedAt": "2026-09-01T08:38:42Z",
+        "headSha": "5d37c6d4d196c573ea3b85ae9189e29397cf8880",
+        "url": "https://github.com/vitejs/vite/pull/23394"
+      },
+      {
+        "number": 23410,
+        "mergedAt": "2026-09-01T08:18:14Z",
+        "headSha": "20e7de92453b18135ddb00bdeee92ccf1ba96a42",
+        "url": "https://github.com/vitejs/vite/pull/23410"
+      },
+      {
+        "number": 23346,
+        "mergedAt": "2026-09-01T05:10:09Z",
+        "headSha": "17fca76fc329c084a60b1cb2bcece195268ac9c9",
+        "url": "https://github.com/vitejs/vite/pull/23346"
+      },
+      {
+        "number": 23191,
+        "mergedAt": "2026-09-01T04:55:00Z",
+        "headSha": "8f76093dd0dc0922c0b4e0802ce2524af07ac7a8",
+        "url": "https://github.com/vitejs/vite/pull/23191"
+      },
+      {
+        "number": 23378,
+        "mergedAt": "2026-09-01T03:48:40Z",
+        "headSha": "85a0a54e9636368abe5421a82ed4576607eee44e",
+        "url": "https://github.com/vitejs/vite/pull/23378"
+      },
+      {
+        "number": 23404,
+        "mergedAt": "2026-08-31T04:26:23Z",
+        "headSha": "b2c84cf3da3d6164824d0ab121561a14d741a82d",
+        "url": "https://github.com/vitejs/vite/pull/23404"
+      },
+      {
+        "number": 23405,
+        "mergedAt": "2026-08-31T03:39:44Z",
+        "headSha": "4069840b54fcf30421fb83a1c6978106a782048e",
+        "url": "https://github.com/vitejs/vite/pull/23405"
+      },
+      {
+        "number": 23397,
+        "mergedAt": "2026-08-29T10:52:24Z",
+        "headSha": "94b8caeed7f7c063a068bfbe222a7a12b16bad7b",
+        "url": "https://github.com/vitejs/vite/pull/23397"
+      },
+      {
+        "number": 23382,
+        "mergedAt": "2026-08-27T02:19:58Z",
+        "headSha": "b06d55721b11ff8b0e56269a6b533203a6660c89",
+        "url": "https://github.com/vitejs/vite/pull/23382"
+      },
+      {
+        "number": 23372,
+        "mergedAt": "2026-08-26T08:13:26Z",
+        "headSha": "5f2b3d7a4d0ef05f9fd5fb8788b016845d7b90f5",
+        "url": "https://github.com/vitejs/vite/pull/23372"
+      },
+      {
+        "number": 23368,
+        "mergedAt": "2026-08-26T08:11:41Z",
+        "headSha": "3eac0d9717377bb87242a121059825dbb2f380b2",
+        "url": "https://github.com/vitejs/vite/pull/23368"
+      },
+      {
+        "number": 23363,
+        "mergedAt": "2026-08-26T08:06:27Z",
+        "headSha": "f59576789172e07b4b3d04ce8a0280354177c491",
+        "url": "https://github.com/vitejs/vite/pull/23363"
+      },
+      {
+        "number": 23370,
+        "mergedAt": "2026-08-26T07:10:40Z",
+        "headSha": "9305fe9be6a420eea7231b99d2c2f1fce9ac1b5c",
+        "url": "https://github.com/vitejs/vite/pull/23370"
+      },
+      {
+        "number": 23369,
+        "mergedAt": "2026-08-26T07:10:24Z",
+        "headSha": "a17bb26527a0ea4e7433cbb0cbd8e2651de939d4",
+        "url": "https://github.com/vitejs/vite/pull/23369"
+      },
+      {
+        "number": 23364,
+        "mergedAt": "2026-08-26T05:37:39Z",
+        "headSha": "0918e1c27b848aeada1b2f037c439614b7135e81",
+        "url": "https://github.com/vitejs/vite/pull/23364"
+      },
+      {
+        "number": 23353,
+        "mergedAt": "2026-08-25T08:04:24Z",
+        "headSha": "93dcdab379d370ed789819f8d750f3fe3faefa15",
+        "url": "https://github.com/vitejs/vite/pull/23353"
+      },
+      {
+        "number": 23344,
+        "mergedAt": "2026-08-24T04:37:04Z",
+        "headSha": "9e4895b608bbe949e2033e518f8d690e1f97c00b",
+        "url": "https://github.com/vitejs/vite/pull/23344"
+      },
+      {
+        "number": 23342,
+        "mergedAt": "2026-08-24T04:13:10Z",
+        "headSha": "5e3bad9f23a1ae2ea69cbf586abc59ff10ecdab0",
+        "url": "https://github.com/vitejs/vite/pull/23342"
+      },
+      {
+        "number": 23337,
+        "mergedAt": "2026-08-24T04:10:56Z",
+        "headSha": "aa4af25c878b46fec81ec71d4ddad96aeda40c07",
+        "url": "https://github.com/vitejs/vite/pull/23337"
+      },
+      {
+        "number": 23340,
+        "mergedAt": "2026-08-24T03:43:18Z",
+        "headSha": "f8dcd1f600d6d78d351971db7eb7001ba3feb78f",
+        "url": "https://github.com/vitejs/vite/pull/23340"
+      },
+      {
+        "number": 23341,
+        "mergedAt": "2026-08-24T03:42:43Z",
+        "headSha": "52e49866693f4c523928abc3f09273bcc1931578",
+        "url": "https://github.com/vitejs/vite/pull/23341"
+      },
+      {
+        "number": 23019,
+        "mergedAt": "2026-08-24T03:42:27Z",
+        "headSha": "f6ac7c1af4f36524e1af664d2ca259157af83bfa",
+        "url": "https://github.com/vitejs/vite/pull/23019"
+      },
+      {
+        "number": 23338,
+        "mergedAt": "2026-08-24T03:26:39Z",
+        "headSha": "7c1f61c3a337b869afb80043e6df93a8bb836281",
+        "url": "https://github.com/vitejs/vite/pull/23338"
+      },
+      {
+        "number": 23339,
+        "mergedAt": "2026-08-24T02:38:43Z",
+        "headSha": "55e665d0556b9a5e1d5fdd46c68c1752bfc8b45f",
+        "url": "https://github.com/vitejs/vite/pull/23339"
+      },
+      {
+        "number": 23332,
+        "mergedAt": "2026-08-24T00:01:37Z",
+        "headSha": "057a3a03b87213f00f9082377f33dc6523a05cd4",
+        "url": "https://github.com/vitejs/vite/pull/23332"
+      },
+      {
+        "number": 23335,
+        "mergedAt": "2026-08-24T00:00:40Z",
+        "headSha": "83f196aba655a9d7cbc3bc5f2f013d4f4bcea3fe",
+        "url": "https://github.com/vitejs/vite/pull/23335"
+      },
+      {
+        "number": 23265,
+        "mergedAt": "2026-08-23T10:07:52Z",
+        "headSha": "dada85d30d25eb79b6d7f3f70ced66e85173f5fb",
+        "url": "https://github.com/vitejs/vite/pull/23265"
+      },
+      {
+        "number": 23330,
+        "mergedAt": "2026-08-23T06:30:22Z",
+        "headSha": "b73af155907db9828e5262499b3ab72b5a1bbab3",
+        "url": "https://github.com/vitejs/vite/pull/23330"
+      },
+      {
+        "number": 23329,
+        "mergedAt": "2026-08-23T04:21:35Z",
+        "headSha": "08913b648bbf4a8bb09d2ea3ea1ddea6f8d6101f",
+        "url": "https://github.com/vitejs/vite/pull/23329"
+      },
+      {
+        "number": 23325,
+        "mergedAt": "2026-08-22T07:25:55Z",
+        "headSha": "0dca9093669229c714fece0f9d5d4a36604f2055",
+        "url": "https://github.com/vitejs/vite/pull/23325"
+      },
+      {
+        "number": 23319,
+        "mergedAt": "2026-08-22T06:36:55Z",
+        "headSha": "1a886d7fe3a56fa663d2415951fde8040f908dd5",
+        "url": "https://github.com/vitejs/vite/pull/23319"
+      },
+      {
+        "number": 23311,
+        "mergedAt": "2026-08-21T15:31:30Z",
+        "headSha": "0237c8b715a3df2cceaac2c3584abf8b93e331e1",
+        "url": "https://github.com/vitejs/vite/pull/23311"
+      },
+      {
+        "number": 23157,
+        "mergedAt": "2026-08-21T11:31:20Z",
+        "headSha": "5abe035e4487285f391636448df965eaaadb118b",
+        "url": "https://github.com/vitejs/vite/pull/23157"
+      },
+      {
+        "number": 22962,
+        "mergedAt": "2026-08-21T11:25:45Z",
+        "headSha": "a99781944363ef6e3906b36e40a639a944850778",
+        "url": "https://github.com/vitejs/vite/pull/22962"
+      },
+      {
+        "number": 23118,
+        "mergedAt": "2026-08-21T11:25:25Z",
+        "headSha": "14f6e30fe8a6816d0a73315bc7208a4e02514cbd",
+        "url": "https://github.com/vitejs/vite/pull/23118"
+      },
+      {
+        "number": 22898,
+        "mergedAt": "2026-08-21T11:17:54Z",
+        "headSha": "dc83d01e29f219c0ef79085508c48033e92c39b9",
+        "url": "https://github.com/vitejs/vite/pull/22898"
+      },
+      {
+        "number": 22894,
+        "mergedAt": "2026-08-21T11:14:28Z",
+        "headSha": "b15dde7cc55d52b0a1c5c086f5c3fc3f1a2613cb",
+        "url": "https://github.com/vitejs/vite/pull/22894"
+      },
+      {
+        "number": 22888,
+        "mergedAt": "2026-08-21T10:18:21Z",
+        "headSha": "28d91650aa85e48338c8c5aee9915a993139d871",
+        "url": "https://github.com/vitejs/vite/pull/22888"
+      },
+      {
+        "number": 22886,
+        "mergedAt": "2026-08-21T10:11:28Z",
+        "headSha": "220ccd8a0d21391f297f4f1454786ccdad6e4fdd",
+        "url": "https://github.com/vitejs/vite/pull/22886"
+      },
+      {
+        "number": 22280,
+        "mergedAt": "2026-08-21T10:10:36Z",
+        "headSha": "c868923cbbd7366cfe54cf99868615f407689b51",
+        "url": "https://github.com/vitejs/vite/pull/22280"
+      },
+      {
+        "number": 23133,
+        "mergedAt": "2026-08-21T09:34:53Z",
+        "headSha": "7fea922e29c851eff48fbe2977820118e1b5e0d5",
+        "url": "https://github.com/vitejs/vite/pull/23133"
+      },
+      {
+        "number": 23321,
+        "mergedAt": "2026-08-21T09:27:56Z",
+        "headSha": "3e45bfdf129d531cb081a00fac298b455fc0af7a",
+        "url": "https://github.com/vitejs/vite/pull/23321"
+      },
+      {
+        "number": 23110,
+        "mergedAt": "2026-08-21T09:15:19Z",
+        "headSha": "5a1cc07b1e0f63ed4fce9d4417ec6e2f0c1c7384",
+        "url": "https://github.com/vitejs/vite/pull/23110"
+      },
+      {
+        "number": 22473,
+        "mergedAt": "2026-08-21T09:13:28Z",
+        "headSha": "d31d8dde74d1e94cce87b81b4345dc97b8be5956",
+        "url": "https://github.com/vitejs/vite/pull/22473"
+      },
+      {
+        "number": 23183,
+        "mergedAt": "2026-08-21T09:12:01Z",
+        "headSha": "3a88ffd7bb8f0e91f5d978fbb784b07d59eb9ed6",
+        "url": "https://github.com/vitejs/vite/pull/23183"
+      },
+      {
+        "number": 23185,
+        "mergedAt": "2026-08-21T09:08:54Z",
+        "headSha": "1bb3eec3ef93caf1ed148101ab180968814d4e9a",
+        "url": "https://github.com/vitejs/vite/pull/23185"
+      },
+      {
+        "number": 23042,
+        "mergedAt": "2026-08-21T09:07:57Z",
+        "headSha": "1e2496d8ab428bcf5815a263fa703fc38cf908d1",
+        "url": "https://github.com/vitejs/vite/pull/23042"
+      },
+      {
+        "number": 23172,
+        "mergedAt": "2026-08-21T09:07:38Z",
+        "headSha": "796cd47ba8c13e3ad08ce573f52f81e113ffc6af",
+        "url": "https://github.com/vitejs/vite/pull/23172"
+      },
+      {
+        "number": 23171,
+        "mergedAt": "2026-08-21T09:06:21Z",
+        "headSha": "4aeb91e3e4306344553127d2e270a781ecf1ead8",
+        "url": "https://github.com/vitejs/vite/pull/23171"
+      },
+      {
+        "number": 23165,
+        "mergedAt": "2026-08-21T09:03:53Z",
+        "headSha": "b077cd171d4aa71e012ed5f887850b7b9a04b1e3",
+        "url": "https://github.com/vitejs/vite/pull/23165"
+      },
+      {
+        "number": 23116,
+        "mergedAt": "2026-08-21T04:18:48Z",
+        "headSha": "469a4aaa95fb4dd9319130ef6ee974c8f62fcf22",
+        "url": "https://github.com/vitejs/vite/pull/23116"
+      },
+      {
+        "number": 23256,
+        "mergedAt": "2026-08-21T04:02:44Z",
+        "headSha": "7c2d5ef3e66d14aa173e2d04d9ecf92effc1e545",
+        "url": "https://github.com/vitejs/vite/pull/23256"
+      },
+      {
+        "number": 23318,
+        "mergedAt": "2026-08-21T02:20:59Z",
+        "headSha": "a93bb9e11e43f31cb137e151341124461eb67dab",
+        "url": "https://github.com/vitejs/vite/pull/23318"
+      },
+      {
+        "number": 23315,
+        "mergedAt": "2026-08-21T02:20:41Z",
+        "headSha": "cc33a21fc5b79622811392ad15d689c59a4e453e",
+        "url": "https://github.com/vitejs/vite/pull/23315"
+      },
+      {
+        "number": 23308,
+        "mergedAt": "2026-08-20T03:53:42Z",
+        "headSha": "69be6710c811bce53a10cf25804da4d9df23974c",
+        "url": "https://github.com/vitejs/vite/pull/23308"
+      },
+      {
+        "number": 23307,
+        "mergedAt": "2026-08-20T03:53:30Z",
+        "headSha": "21a4abd791f7513365038fae6356e60e70a833ac",
+        "url": "https://github.com/vitejs/vite/pull/23307"
+      },
+      {
+        "number": 23306,
+        "mergedAt": "2026-08-20T02:46:50Z",
+        "headSha": "4a0b59e242f27f7bfeda3ae8e61f47c10779c4f7",
+        "url": "https://github.com/vitejs/vite/pull/23306"
+      },
+      {
+        "number": 23247,
+        "mergedAt": "2026-08-19T11:55:56Z",
+        "headSha": "f8da06cb91c53c245411f85cb068a2d4d5684fe1",
+        "url": "https://github.com/vitejs/vite/pull/23247"
+      },
+      {
+        "number": 23198,
+        "mergedAt": "2026-08-19T11:50:19Z",
+        "headSha": "21b471b710f7871959d68404882b6ce1be0d9b72",
+        "url": "https://github.com/vitejs/vite/pull/23198"
+      },
+      {
+        "number": 23305,
+        "mergedAt": "2026-08-19T10:18:29Z",
+        "headSha": "7d1080ff300388b1b877c95132e47b5d07a86672",
+        "url": "https://github.com/vitejs/vite/pull/23305"
+      },
+      {
+        "number": 23239,
+        "mergedAt": "2026-08-19T09:19:26Z",
+        "headSha": "30226fa40c4d12160df469c7784fc7f90da2538c",
+        "url": "https://github.com/vitejs/vite/pull/23239"
+      },
+      {
+        "number": 23302,
+        "mergedAt": "2026-08-19T08:20:07Z",
+        "headSha": "8c51c1ab5576b3a58bc8cf8f00c5b46f84aa86bc",
+        "url": "https://github.com/vitejs/vite/pull/23302"
+      },
+      {
+        "number": 23293,
+        "mergedAt": "2026-08-19T07:13:43Z",
+        "headSha": "39e96bc7aac5ae35d169c5793d2cf1747b30c678",
+        "url": "https://github.com/vitejs/vite/pull/23293"
+      },
+      {
+        "number": 23270,
+        "mergedAt": "2026-08-19T07:11:19Z",
+        "headSha": "6ef953572cb6e05b51bc22a7ff58e9209d51c8ae",
+        "url": "https://github.com/vitejs/vite/pull/23270"
+      },
+      {
+        "number": 23258,
+        "mergedAt": "2026-08-19T05:47:56Z",
+        "headSha": "78543d94d95eb0e3995721c98c111f2a4edf7241",
+        "url": "https://github.com/vitejs/vite/pull/23258"
+      },
+      {
+        "number": 23295,
+        "mergedAt": "2026-08-19T05:39:44Z",
+        "headSha": "861401c04ec7f2f1ce58168559da6e08945df4e1",
+        "url": "https://github.com/vitejs/vite/pull/23295"
+      },
+      {
+        "number": 23300,
+        "mergedAt": "2026-08-19T04:46:37Z",
+        "headSha": "5f42ea1fe34ecd0f5b7e1b4f3c538e6ee76e5b9e",
+        "url": "https://github.com/vitejs/vite/pull/23300"
+      },
+      {
+        "number": 23299,
+        "mergedAt": "2026-08-19T04:46:16Z",
+        "headSha": "9bf463c7c4c905b9065d2c706e43ccabade15dbc",
+        "url": "https://github.com/vitejs/vite/pull/23299"
+      },
+      {
+        "number": 23009,
+        "mergedAt": "2026-08-19T02:11:18Z",
+        "headSha": "b02586df97d76c5bc5518459b1ad8ae30f70dcde",
+        "url": "https://github.com/vitejs/vite/pull/23009"
+      },
+      {
+        "number": 23285,
+        "mergedAt": "2026-08-18T08:24:26Z",
+        "headSha": "ce35f15aa31da295d7d6d2cac02ea1ac66090195",
+        "url": "https://github.com/vitejs/vite/pull/23285"
+      },
+      {
+        "number": 23259,
+        "mergedAt": "2026-08-18T07:26:17Z",
+        "headSha": "20b25df79c8d6f2543297e357923c3d3a15ad12b",
+        "url": "https://github.com/vitejs/vite/pull/23259"
+      },
+      {
+        "number": 23254,
+        "mergedAt": "2026-08-18T07:26:16Z",
+        "headSha": "8104a855b4acf205516350af6810636ef0cb3d19",
+        "url": "https://github.com/vitejs/vite/pull/23254"
+      },
+      {
+        "number": 22392,
+        "mergedAt": "2026-08-18T07:01:09Z",
+        "headSha": "fe3a482bf44e29f6062a921befeeb8540466577f",
+        "url": "https://github.com/vitejs/vite/pull/22392"
+      },
+      {
+        "number": 23291,
+        "mergedAt": "2026-08-18T06:51:13Z",
+        "headSha": "9bfddfccf1e462a027c00d8947111a753e1b96d1",
+        "url": "https://github.com/vitejs/vite/pull/23291"
+      },
+      {
+        "number": 23066,
+        "mergedAt": "2026-08-18T04:56:26Z",
+        "headSha": "6441df5c41b25514bbbffac079be49f1b3917d93",
+        "url": "https://github.com/vitejs/vite/pull/23066"
+      },
+      {
+        "number": 23217,
+        "mergedAt": "2026-08-18T03:58:28Z",
+        "headSha": "07c8bc3581428ff28f174a054b7179d6fe9c6dd9",
+        "url": "https://github.com/vitejs/vite/pull/23217"
+      },
+      {
+        "number": 23284,
+        "mergedAt": "2026-08-18T02:30:30Z",
+        "headSha": "b20a99f3a378262fffd9c31e6491f439ef4fc514",
+        "url": "https://github.com/vitejs/vite/pull/23284"
+      },
+      {
+        "number": 23218,
+        "mergedAt": "2026-08-17T06:57:22Z",
+        "headSha": "6c8e23ad234802779992a641e689bf5fd693094d",
+        "url": "https://github.com/vitejs/vite/pull/23218"
+      },
+      {
+        "number": 22964,
+        "mergedAt": "2026-08-17T06:51:25Z",
+        "headSha": "4537a9d008a1063f4fc8fda3d9c7e3956035fde6",
+        "url": "https://github.com/vitejs/vite/pull/22964"
+      },
+      {
+        "number": 23280,
+        "mergedAt": "2026-08-17T03:35:52Z",
+        "headSha": "6d467f6573e4d8e172e076d4d438dee014b66047",
+        "url": "https://github.com/vitejs/vite/pull/23280"
+      },
+      {
+        "number": 23226,
+        "mergedAt": "2026-08-17T01:21:08Z",
+        "headSha": "75f6ab8fc4e175bbd308008ee44b290cec2730e1",
+        "url": "https://github.com/vitejs/vite/pull/23226"
+      },
+      {
+        "number": 23249,
+        "mergedAt": "2026-08-13T17:42:43Z",
+        "headSha": "4c9b5a0e47e0e741c19497ba33e6dba5c6f8b98b",
+        "url": "https://github.com/vitejs/vite/pull/23249"
+      },
+      {
+        "number": 23200,
+        "mergedAt": "2026-08-13T17:31:22Z",
+        "headSha": "1d826d19f149f8cbcc6ee58906cf4b7fc96eeca9",
+        "url": "https://github.com/vitejs/vite/pull/23200"
+      },
+      {
+        "number": 23251,
+        "mergedAt": "2026-08-13T04:27:33Z",
+        "headSha": "5060653d44d2b2c506db2657bbdd9ed2637df1c6",
+        "url": "https://github.com/vitejs/vite/pull/23251"
+      },
+      {
+        "number": 23248,
+        "mergedAt": "2026-08-13T03:05:42Z",
+        "headSha": "2c7bb4c2fdbffe10f384910244f51ef41d3d8ad3",
+        "url": "https://github.com/vitejs/vite/pull/23248"
+      },
+      {
+        "number": 23241,
+        "mergedAt": "2026-08-13T02:49:36Z",
+        "headSha": "95f432022783f4acbd7fdb4be1b41ddad76cc091",
+        "url": "https://github.com/vitejs/vite/pull/23241"
+      },
+      {
+        "number": 23231,
+        "mergedAt": "2026-08-11T10:27:53Z",
+        "headSha": "ed4a3e14b177ff662dad4c1425cd4b9dd79fd752",
+        "url": "https://github.com/vitejs/vite/pull/23231"
+      },
+      {
+        "number": 23222,
+        "mergedAt": "2026-08-11T07:46:33Z",
+        "headSha": "628095599ece50171001b0d1cd1d38c43c5c2d84",
+        "url": "https://github.com/vitejs/vite/pull/23222"
+      },
+      {
+        "number": 23228,
+        "mergedAt": "2026-08-11T07:45:44Z",
+        "headSha": "8bb8a7764b7a400275a7ada78bbbeb45c099645d",
+        "url": "https://github.com/vitejs/vite/pull/23228"
+      },
+      {
+        "number": 23207,
+        "mergedAt": "2026-08-11T02:50:07Z",
+        "headSha": "0fea04474872257d8bf91d2e7587657dc7f77924",
+        "url": "https://github.com/vitejs/vite/pull/23207"
+      },
+      {
+        "number": 23209,
+        "mergedAt": "2026-08-11T02:45:37Z",
+        "headSha": "df054e45a5b1eb09cd6663f69de35ea25851a89e",
+        "url": "https://github.com/vitejs/vite/pull/23209"
+      },
+      {
+        "number": 23206,
+        "mergedAt": "2026-08-11T02:16:30Z",
+        "headSha": "ca527a92360cc20b627f3bc8c6e8b599627dc5e9",
+        "url": "https://github.com/vitejs/vite/pull/23206"
+      },
+      {
+        "number": 23223,
+        "mergedAt": "2026-08-10T11:13:27Z",
+        "headSha": "86efba679d3d0b310ec7cdfeb261aa86f56d34cf",
+        "url": "https://github.com/vitejs/vite/pull/23223"
+      },
+      {
+        "number": 23202,
+        "mergedAt": "2026-08-10T06:17:17Z",
+        "headSha": "49b0a6d47ea62c84c8b54ea73325269aa31e0b0a",
+        "url": "https://github.com/vitejs/vite/pull/23202"
+      },
+      {
+        "number": 23190,
+        "mergedAt": "2026-08-07T07:37:01Z",
+        "headSha": "e29381fe5c0519ecad78c381b8b36dc43285d59f",
+        "url": "https://github.com/vitejs/vite/pull/23190"
+      },
+      {
+        "number": 23187,
+        "mergedAt": "2026-08-07T03:03:23Z",
+        "headSha": "cd92b5791910d09a7a0a415e3e98c9bb45a2f910",
+        "url": "https://github.com/vitejs/vite/pull/23187"
+      },
+      {
+        "number": 23188,
+        "mergedAt": "2026-08-07T03:03:14Z",
+        "headSha": "52338b8dc12782cedb9923efcffe182d0933798d",
+        "url": "https://github.com/vitejs/vite/pull/23188"
+      },
+      {
+        "number": 23041,
+        "mergedAt": "2026-08-07T01:12:20Z",
+        "headSha": "92159d1f2298ed4958f19ab9c922d4fecabb42ba",
+        "url": "https://github.com/vitejs/vite/pull/23041"
+      },
+      {
+        "number": 23158,
+        "mergedAt": "2026-08-06T13:01:24Z",
+        "headSha": "9a5a6ad6f1309afc72d32ad3e742fb0ce03647fe",
+        "url": "https://github.com/vitejs/vite/pull/23158"
+      },
+      {
+        "number": 23186,
+        "mergedAt": "2026-08-06T12:49:56Z",
+        "headSha": "a4beaf83000752ad4b9c4891a9d3e6e98cdb2aef",
+        "url": "https://github.com/vitejs/vite/pull/23186"
+      },
+      {
+        "number": 23147,
+        "mergedAt": "2026-08-06T12:38:08Z",
+        "headSha": "dd949569c0b4ce85e4878381ea238275d9dcb701",
+        "url": "https://github.com/vitejs/vite/pull/23147"
+      },
+      {
+        "number": 23184,
+        "mergedAt": "2026-08-06T12:37:10Z",
+        "headSha": "fb747d45f13afa659011bf0c5a234360a6b18192",
+        "url": "https://github.com/vitejs/vite/pull/23184"
+      },
+      {
+        "number": 23080,
+        "mergedAt": "2026-08-06T11:24:34Z",
+        "headSha": "4ca08c8a6924dd8ccb309ceb05136730e8b6ca13",
+        "url": "https://github.com/vitejs/vite/pull/23080"
+      },
+      {
+        "number": 23177,
+        "mergedAt": "2026-08-06T03:22:17Z",
+        "headSha": "fec5a461453b927096afd3fe29155f08e49803f6",
+        "url": "https://github.com/vitejs/vite/pull/23177"
+      },
+      {
+        "number": 23174,
+        "mergedAt": "2026-08-05T11:09:56Z",
+        "headSha": "fd84a306709672b47214386451246bc8b1f329a6",
+        "url": "https://github.com/vitejs/vite/pull/23174"
+      },
+      {
+        "number": 23081,
+        "mergedAt": "2026-08-05T03:11:09Z",
+        "headSha": "bd27de7a60e937c2a27c25c398b8908f6ee7fa69",
+        "url": "https://github.com/vitejs/vite/pull/23081"
+      },
+      {
+        "number": 23161,
+        "mergedAt": "2026-08-05T02:50:46Z",
+        "headSha": "24d68a181799d345d6ce03ff9aca07d98efbaddd",
+        "url": "https://github.com/vitejs/vite/pull/23161"
+      },
+      {
+        "number": 22967,
+        "mergedAt": "2026-08-04T09:22:05Z",
+        "headSha": "70a5846fd27706c36ce4c56199ccbb94073e5cad",
+        "url": "https://github.com/vitejs/vite/pull/22967"
+      },
+      {
+        "number": 23079,
+        "mergedAt": "2026-08-04T09:15:36Z",
+        "headSha": "ad250428acc442587c7d39901b4699363646a3b1",
+        "url": "https://github.com/vitejs/vite/pull/23079"
+      },
+      {
+        "number": 23078,
+        "mergedAt": "2026-08-04T09:14:27Z",
+        "headSha": "f30397a3561b8b020069db70bcc60e7b4dd0f4a2",
+        "url": "https://github.com/vitejs/vite/pull/23078"
+      },
+      {
+        "number": 23152,
+        "mergedAt": "2026-08-04T07:32:14Z",
+        "headSha": "06e0c6ed3a3dd8f3565c6e2fbe1487bbf0161823",
+        "url": "https://github.com/vitejs/vite/pull/23152"
+      },
+      {
+        "number": 23129,
+        "mergedAt": "2026-08-04T06:45:45Z",
+        "headSha": "cb73010bb5037a2872f15ed8061f4e0813f6c1c9",
+        "url": "https://github.com/vitejs/vite/pull/23129"
+      },
+      {
+        "number": 23148,
+        "mergedAt": "2026-08-04T06:30:32Z",
+        "headSha": "91508ea42909c6175681ce39dc2a6e6e0b700688",
+        "url": "https://github.com/vitejs/vite/pull/23148"
+      },
+      {
+        "number": 23082,
+        "mergedAt": "2026-08-04T04:24:43Z",
+        "headSha": "846274d4c06efcaca9363f37711b2d60eda512e5",
+        "url": "https://github.com/vitejs/vite/pull/23082"
+      },
+      {
+        "number": 23142,
+        "mergedAt": "2026-08-03T06:20:35Z",
+        "headSha": "f7032f0043b67501301635035483ea2bb0976751",
+        "url": "https://github.com/vitejs/vite/pull/23142"
+      },
+      {
+        "number": 23127,
+        "mergedAt": "2026-08-03T05:01:15Z",
+        "headSha": "a8b2e48c6584d37d9a425ce1ee58a360e84b839d",
+        "url": "https://github.com/vitejs/vite/pull/23127"
+      },
+      {
+        "number": 23136,
+        "mergedAt": "2026-08-03T04:45:37Z",
+        "headSha": "c30272b31a2605824887f73c04347d0a4a7c2290",
+        "url": "https://github.com/vitejs/vite/pull/23136"
+      },
+      {
+        "number": 23140,
+        "mergedAt": "2026-08-03T04:23:03Z",
+        "headSha": "ba6f46386d3b2b549f867da870bd0dde00704e2a",
+        "url": "https://github.com/vitejs/vite/pull/23140"
+      },
+      {
+        "number": 23137,
+        "mergedAt": "2026-08-03T03:11:42Z",
+        "headSha": "fe83860f28450d6d9acf14d2e51e46d6b3913aa6",
+        "url": "https://github.com/vitejs/vite/pull/23137"
+      },
+      {
+        "number": 23135,
+        "mergedAt": "2026-08-03T03:10:20Z",
+        "headSha": "b73b54124c2d578233006fa9f65460c1df8d4a50",
+        "url": "https://github.com/vitejs/vite/pull/23135"
+      },
+      {
+        "number": 23114,
+        "mergedAt": "2026-08-03T03:03:30Z",
+        "headSha": "214636edf9b1483698fc749792179f115a4fdc75",
+        "url": "https://github.com/vitejs/vite/pull/23114"
+      },
+      {
+        "number": 23138,
+        "mergedAt": "2026-08-03T02:48:27Z",
+        "headSha": "9717f6ae80f72491ad0f35dff403e9ae89466ef0",
+        "url": "https://github.com/vitejs/vite/pull/23138"
+      },
+      {
+        "number": 23085,
+        "mergedAt": "2026-07-31T07:56:34Z",
+        "headSha": "3812be46bb550626ebb56c174423c16e3b672e58",
+        "url": "https://github.com/vitejs/vite/pull/23085"
+      },
+      {
+        "number": 23038,
+        "mergedAt": "2026-07-31T07:56:20Z",
+        "headSha": "34a2c0abe351900a56213cef6894f0c678f5acc3",
+        "url": "https://github.com/vitejs/vite/pull/23038"
+      },
+      {
+        "number": 22955,
+        "mergedAt": "2026-07-31T07:46:53Z",
+        "headSha": "51e299410e3a839d55e8c6b0eac17617a5b17231",
+        "url": "https://github.com/vitejs/vite/pull/22955"
+      },
+      {
+        "number": 23070,
+        "mergedAt": "2026-07-31T04:54:04Z",
+        "headSha": "030b870d8a4b0beab4fef1e0ccda3e47db7544c0",
+        "url": "https://github.com/vitejs/vite/pull/23070"
+      },
+      {
+        "number": 23107,
+        "mergedAt": "2026-07-30T11:05:52Z",
+        "headSha": "d2e2cafdee312aa2f82f58bf7123534f868249e9",
+        "url": "https://github.com/vitejs/vite/pull/23107"
+      },
+      {
+        "number": 23106,
+        "mergedAt": "2026-07-30T11:05:34Z",
+        "headSha": "159b9b9c635a586ad3c93f43473f62142ceecaf9",
+        "url": "https://github.com/vitejs/vite/pull/23106"
+      },
+      {
+        "number": 23101,
+        "mergedAt": "2026-07-30T10:00:07Z",
+        "headSha": "520b8233f78b1239b4711f2798577d5c5b456a48",
+        "url": "https://github.com/vitejs/vite/pull/23101"
+      },
+      {
+        "number": 22932,
+        "mergedAt": "2026-07-30T06:15:47Z",
+        "headSha": "a46cb2e31bb0f1b1fd62596f2764c52b197be1f8",
+        "url": "https://github.com/vitejs/vite/pull/22932"
+      },
+      {
+        "number": 23064,
+        "mergedAt": "2026-07-28T11:52:19Z",
+        "headSha": "e1d5086545d31d7a6341650d9c2d17e937909ac1",
+        "url": "https://github.com/vitejs/vite/pull/23064"
+      },
+      {
+        "number": 23029,
+        "mergedAt": "2026-07-28T11:41:33Z",
+        "headSha": "0f2ac91df280ede526f6e01ae1479f754a15b08a",
+        "url": "https://github.com/vitejs/vite/pull/23029"
+      },
+      {
+        "number": 23043,
+        "mergedAt": "2026-07-28T11:28:21Z",
+        "headSha": "c979446475ab0817a00f535132c6d1ae7a06e057",
+        "url": "https://github.com/vitejs/vite/pull/23043"
+      },
+      {
+        "number": 23084,
+        "mergedAt": "2026-07-28T09:15:54Z",
+        "headSha": "c54ac116d4e344f25e07e4b36fbcd98a8774c0b9",
+        "url": "https://github.com/vitejs/vite/pull/23084"
+      },
+      {
+        "number": 23077,
+        "mergedAt": "2026-07-28T07:42:49Z",
+        "headSha": "c8a200425a8ac0aa81d07f43b277390e71ff0b7e",
+        "url": "https://github.com/vitejs/vite/pull/23077"
+      },
+      {
+        "number": 23083,
+        "mergedAt": "2026-07-28T07:04:40Z",
+        "headSha": "6d8560949d1d637eb687ad40bbd117b88739c923",
+        "url": "https://github.com/vitejs/vite/pull/23083"
+      },
+      {
+        "number": 23051,
+        "mergedAt": "2026-07-28T05:51:24Z",
+        "headSha": "652cbdba30b34913f5c5630c763cd0a3baed60ab",
+        "url": "https://github.com/vitejs/vite/pull/23051"
+      },
+      {
+        "number": 23068,
+        "mergedAt": "2026-07-28T05:32:40Z",
+        "headSha": "b627706e370d24dae221a92b4b44a0eb968ba435",
+        "url": "https://github.com/vitejs/vite/pull/23068"
+      },
+      {
+        "number": 23056,
+        "mergedAt": "2026-07-28T05:19:37Z",
+        "headSha": "ab198a5f287d458497936706cd389c55146e92b4",
+        "url": "https://github.com/vitejs/vite/pull/23056"
+      },
+      {
+        "number": 23069,
+        "mergedAt": "2026-07-27T11:21:54Z",
+        "headSha": "536c813c80110d998f3d9b2b8060f3e8604e0695",
+        "url": "https://github.com/vitejs/vite/pull/23069"
+      },
+      {
+        "number": 23054,
+        "mergedAt": "2026-07-27T10:59:17Z",
+        "headSha": "de870a403a1435cd16b024b265bd101bb410423f",
+        "url": "https://github.com/vitejs/vite/pull/23054"
+      },
+      {
+        "number": 23060,
+        "mergedAt": "2026-07-27T10:53:58Z",
+        "headSha": "d809003f281b37ca9d5af9898a3b9b43fc18474d",
+        "url": "https://github.com/vitejs/vite/pull/23060"
+      },
+      {
+        "number": 23061,
+        "mergedAt": "2026-07-27T10:53:51Z",
+        "headSha": "759333a19dc951049e5e7b7ae8460975a3a601da",
+        "url": "https://github.com/vitejs/vite/pull/23061"
+      },
+      {
+        "number": 23071,
+        "mergedAt": "2026-07-27T10:44:00Z",
+        "headSha": "24d9ce8d7801fa241e59cfda8d180abf8ab13ee9",
+        "url": "https://github.com/vitejs/vite/pull/23071"
+      },
+      {
+        "number": 23073,
+        "mergedAt": "2026-07-27T10:42:13Z",
+        "headSha": "47b08192d3e4dd9d9ffb74008f5e8a698e224337",
+        "url": "https://github.com/vitejs/vite/pull/23073"
+      },
+      {
+        "number": 22965,
+        "mergedAt": "2026-07-24T10:18:07Z",
+        "headSha": "302e218c3f42d8dfb0cd5cc80916e5bf0e469181",
+        "url": "https://github.com/vitejs/vite/pull/22965"
+      },
+      {
+        "number": 23027,
+        "mergedAt": "2026-07-24T06:43:26Z",
+        "headSha": "d105a5c92b132d6610d9a419f477bb49950ed05b",
+        "url": "https://github.com/vitejs/vite/pull/23027"
+      },
+      {
+        "number": 22974,
+        "mergedAt": "2026-07-24T06:03:34Z",
+        "headSha": "8fba64d0deda448c80d910b9e9b685b51b90b2d4",
+        "url": "https://github.com/vitejs/vite/pull/22974"
+      },
+      {
+        "number": 22992,
+        "mergedAt": "2026-07-24T05:49:23Z",
+        "headSha": "2450ddacd180316ea7743dd887d4d383656bddc0",
+        "url": "https://github.com/vitejs/vite/pull/22992"
+      },
+      {
+        "number": 23035,
+        "mergedAt": "2026-07-24T05:49:08Z",
+        "headSha": "ac77b12d53efdf9659588fb24963aca73db043b3",
+        "url": "https://github.com/vitejs/vite/pull/23035"
+      },
+      {
+        "number": 23024,
+        "mergedAt": "2026-07-24T03:57:07Z",
+        "headSha": "ddd81b0bc0bed5bb53c0f4dae71610aab46667d1",
+        "url": "https://github.com/vitejs/vite/pull/23024"
+      },
+      {
+        "number": 23036,
+        "mergedAt": "2026-07-24T03:42:26Z",
+        "headSha": "dea4c7b5bda61f1d6cbbc62197d033e8db116b75",
+        "url": "https://github.com/vitejs/vite/pull/23036"
+      },
+      {
+        "number": 23023,
+        "mergedAt": "2026-07-23T07:18:00Z",
+        "headSha": "2e92e80a8189765571e94204f890d6303c6f3d78",
+        "url": "https://github.com/vitejs/vite/pull/23023"
+      },
+      {
+        "number": 22954,
+        "mergedAt": "2026-07-23T04:17:26Z",
+        "headSha": "a277a191d8f9b9e6745390e4cc7ff54484b6ad12",
+        "url": "https://github.com/vitejs/vite/pull/22954"
+      },
+      {
+        "number": 23013,
+        "mergedAt": "2026-07-23T04:15:17Z",
+        "headSha": "148dc3e6d06a71675310377e2f566f5c65a746b9",
+        "url": "https://github.com/vitejs/vite/pull/23013"
+      },
+      {
+        "number": 22953,
+        "mergedAt": "2026-07-23T03:59:55Z",
+        "headSha": "9a8a9c2f6f3adf03b8373160641997350b8b6afa",
+        "url": "https://github.com/vitejs/vite/pull/22953"
+      },
+      {
+        "number": 23015,
+        "mergedAt": "2026-07-23T03:59:03Z",
+        "headSha": "2f9a396e8a7ab3cb0b1295abab5e1c105f625e4d",
+        "url": "https://github.com/vitejs/vite/pull/23015"
+      },
+      {
+        "number": 23020,
+        "mergedAt": "2026-07-23T03:34:44Z",
+        "headSha": "26253bdaa3d763bd2310ab174ff14672b680ee0f",
+        "url": "https://github.com/vitejs/vite/pull/23020"
+      },
+      {
+        "number": 22887,
+        "mergedAt": "2026-07-22T14:44:58Z",
+        "headSha": "86526a8ba44e426739814e2293b53d5ff69a5d7d",
+        "url": "https://github.com/vitejs/vite/pull/22887"
+      },
+      {
+        "number": 23010,
+        "mergedAt": "2026-07-22T10:03:34Z",
+        "headSha": "9915dba69561b5ca8dd694373ec44c07aaef7762",
+        "url": "https://github.com/vitejs/vite/pull/23010"
+      },
+      {
+        "number": 23006,
+        "mergedAt": "2026-07-22T06:04:00Z",
+        "headSha": "c7c46a8d0ba921959a858de2e5c8c6bd64fbf2a8",
+        "url": "https://github.com/vitejs/vite/pull/23006"
+      },
+      {
+        "number": 23002,
+        "mergedAt": "2026-07-22T04:29:55Z",
+        "headSha": "71cd7bcd7484401770291a28d9e0c520b52340a1",
+        "url": "https://github.com/vitejs/vite/pull/23002"
+      },
+      {
+        "number": 23000,
+        "mergedAt": "2026-07-22T04:29:47Z",
+        "headSha": "2e4f1c4c92ab209aefa62c1cec93141ab89b8514",
+        "url": "https://github.com/vitejs/vite/pull/23000"
+      },
+      {
+        "number": 22961,
+        "mergedAt": "2026-07-22T04:29:04Z",
+        "headSha": "f9ec81f6f4b7fc30f57a5a7e9dc8c14232cecbd2",
+        "url": "https://github.com/vitejs/vite/pull/22961"
+      },
+      {
+        "number": 23005,
+        "mergedAt": "2026-07-22T04:23:03Z",
+        "headSha": "33186aa768ae618ffc940a3a9718365fa15ce988",
+        "url": "https://github.com/vitejs/vite/pull/23005"
+      },
+      {
+        "number": 22883,
+        "mergedAt": "2026-07-21T13:35:07Z",
+        "headSha": "acaae990a31ce25dc74f42180e572bd62612268e",
+        "url": "https://github.com/vitejs/vite/pull/22883"
+      },
+      {
+        "number": 22998,
+        "mergedAt": "2026-07-21T13:02:32Z",
+        "headSha": "1618e41565789ef0eeee484e98a17648e41d4d33",
+        "url": "https://github.com/vitejs/vite/pull/22998"
+      },
+      {
+        "number": 22995,
+        "mergedAt": "2026-07-21T12:57:13Z",
+        "headSha": "420afd742314a07d4f9934ca058ef1e3e74dc70f",
+        "url": "https://github.com/vitejs/vite/pull/22995"
+      },
+      {
+        "number": 22979,
+        "mergedAt": "2026-07-21T12:56:18Z",
+        "headSha": "a340539acad305f29906fdf5e18b4f2464e751ef",
+        "url": "https://github.com/vitejs/vite/pull/22979"
+      },
+      {
+        "number": 22983,
+        "mergedAt": "2026-07-21T08:28:57Z",
+        "headSha": "04e92b6fe082e02c0c0a28a6448b6593a6a5d09b",
+        "url": "https://github.com/vitejs/vite/pull/22983"
+      },
+      {
+        "number": 22985,
+        "mergedAt": "2026-07-21T08:25:30Z",
+        "headSha": "f3dba2cb826112e6eaedf4ea16d2a1d6a1127393",
+        "url": "https://github.com/vitejs/vite/pull/22985"
+      },
+      {
+        "number": 22988,
+        "mergedAt": "2026-07-21T06:00:58Z",
+        "headSha": "f49c4766523b43e97bd873be63a1056b6bec00dd",
+        "url": "https://github.com/vitejs/vite/pull/22988"
+      },
+      {
+        "number": 22994,
+        "mergedAt": "2026-07-21T05:52:06Z",
+        "headSha": "684afff8be4849082bdeee036f1c778a0e5f4361",
+        "url": "https://github.com/vitejs/vite/pull/22994"
+      },
+      {
+        "number": 22993,
+        "mergedAt": "2026-07-21T05:26:57Z",
+        "headSha": "0d6506efadbe7f362020848d9f0ad63770bf80bf",
+        "url": "https://github.com/vitejs/vite/pull/22993"
+      },
+      {
+        "number": 22989,
+        "mergedAt": "2026-07-21T05:15:08Z",
+        "headSha": "456bc0e3addfbdff6af506258fd0c361b4dc538d",
+        "url": "https://github.com/vitejs/vite/pull/22989"
+      },
+      {
+        "number": 22990,
+        "mergedAt": "2026-07-21T05:13:21Z",
+        "headSha": "79addbc4ca51d3f7b8177867af3e07f181d4c143",
+        "url": "https://github.com/vitejs/vite/pull/22990"
+      },
+      {
+        "number": 22973,
+        "mergedAt": "2026-07-21T05:12:01Z",
+        "headSha": "83897f3fb910950d891c4305b3bc6e2da96aec2d",
+        "url": "https://github.com/vitejs/vite/pull/22973"
+      },
+      {
+        "number": 22972,
+        "mergedAt": "2026-07-21T05:10:29Z",
+        "headSha": "b8c7b3afa12387073a2469a7b2ef9b54405a36cb",
+        "url": "https://github.com/vitejs/vite/pull/22972"
+      },
+      {
+        "number": 22947,
+        "mergedAt": "2026-07-17T13:08:28Z",
+        "headSha": "03e05fb771207a0371c4fbb5084e8efce65d6b75",
+        "url": "https://github.com/vitejs/vite/pull/22947"
+      },
+      {
+        "number": 22832,
+        "mergedAt": "2026-07-17T11:12:16Z",
+        "headSha": "17e138e0d39c18828a8204e704aa17a79f315eed",
+        "url": "https://github.com/vitejs/vite/pull/22832"
+      },
+      {
+        "number": 22642,
+        "mergedAt": "2026-07-17T07:50:31Z",
+        "headSha": "d34630c22c9397b5fa53071386fe20394bd4a61e",
+        "url": "https://github.com/vitejs/vite/pull/22642"
+      },
+      {
+        "number": 22830,
+        "mergedAt": "2026-07-17T07:01:24Z",
+        "headSha": "262068027d33475565224b6b5ec1d70193fc49eb",
+        "url": "https://github.com/vitejs/vite/pull/22830"
+      },
+      {
+        "number": 22850,
+        "mergedAt": "2026-07-17T06:10:20Z",
+        "headSha": "1a922d5ab8e544318f2f129d158b9fd51f70be4b",
+        "url": "https://github.com/vitejs/vite/pull/22850"
+      },
+      {
+        "number": 22891,
+        "mergedAt": "2026-07-16T11:59:09Z",
+        "headSha": "1f2533d27aeee893d14cc0574f7128e4dd4916d7",
+        "url": "https://github.com/vitejs/vite/pull/22891"
+      },
+      {
+        "number": 22674,
+        "mergedAt": "2026-07-16T11:44:51Z",
+        "headSha": "c81e319a9cf6a1cbf0c451e442bf5c1053aa358d",
+        "url": "https://github.com/vitejs/vite/pull/22674"
+      },
+      {
+        "number": 22813,
+        "mergedAt": "2026-07-16T11:43:06Z",
+        "headSha": "5c69f2d20aa698a52994cecd9cb7227b8673c5b0",
+        "url": "https://github.com/vitejs/vite/pull/22813"
+      },
+      {
+        "number": 22792,
+        "mergedAt": "2026-07-16T11:42:15Z",
+        "headSha": "a82af2809f8bbfa318684c51d50a0b72ac45a9c1",
+        "url": "https://github.com/vitejs/vite/pull/22792"
+      },
+      {
+        "number": 22909,
+        "mergedAt": "2026-07-16T11:36:16Z",
+        "headSha": "bd9927a7b2cbedef7e91433e43a357e537a90c48",
+        "url": "https://github.com/vitejs/vite/pull/22909"
+      },
+      {
+        "number": 22940,
+        "mergedAt": "2026-07-16T11:35:13Z",
+        "headSha": "31afa12cc8975b0661f3331535f7ddfa7b0afb09",
+        "url": "https://github.com/vitejs/vite/pull/22940"
+      },
+      {
+        "number": 22951,
+        "mergedAt": "2026-07-16T05:15:24Z",
+        "headSha": "313899d10a1e62bcff4a6562b79535de6ee2de9f",
+        "url": "https://github.com/vitejs/vite/pull/22951"
+      },
+      {
+        "number": 22869,
+        "mergedAt": "2026-07-16T05:08:16Z",
+        "headSha": "45c000c0cbeb90c95a46d181add676e2e140b7b6",
+        "url": "https://github.com/vitejs/vite/pull/22869"
+      },
+      {
+        "number": 22952,
+        "mergedAt": "2026-07-16T04:54:00Z",
+        "headSha": "09d54f26ae7bbc5f1c6a49f24dc16b3359c5fae8",
+        "url": "https://github.com/vitejs/vite/pull/22952"
+      },
+      {
+        "number": 22945,
+        "mergedAt": "2026-07-16T04:52:25Z",
+        "headSha": "49ef75e1fbf7341faeb4a991f05620ff634c5a60",
+        "url": "https://github.com/vitejs/vite/pull/22945"
+      },
+      {
+        "number": 22939,
+        "mergedAt": "2026-07-16T04:39:35Z",
+        "headSha": "e533de9fc7443be51f93a083ce1167ef912171b6",
+        "url": "https://github.com/vitejs/vite/pull/22939"
+      },
+      {
+        "number": 22931,
+        "mergedAt": "2026-07-16T04:39:26Z",
+        "headSha": "aee0f00f3aba64d9c419574d58f352d94de9f55e",
+        "url": "https://github.com/vitejs/vite/pull/22931"
+      },
+      {
+        "number": 22948,
+        "mergedAt": "2026-07-16T03:42:34Z",
+        "headSha": "999dac6cb842ff32dcca1d3fc12608711ac637e9",
+        "url": "https://github.com/vitejs/vite/pull/22948"
+      },
+      {
+        "number": 22893,
+        "mergedAt": "2026-07-14T07:38:59Z",
+        "headSha": "8cf9516b003c914babb89cf2bb54966bc2b4ccb9",
+        "url": "https://github.com/vitejs/vite/pull/22893"
+      },
+      {
+        "number": 22842,
+        "mergedAt": "2026-07-14T06:08:56Z",
+        "headSha": "dfe6075951ef7026dc3805bdc1e34aef10bc6fbb",
+        "url": "https://github.com/vitejs/vite/pull/22842"
+      },
+      {
+        "number": 22927,
+        "mergedAt": "2026-07-14T04:44:30Z",
+        "headSha": "f6b9339304a8b6d07675ee94696b3b5702b26356",
+        "url": "https://github.com/vitejs/vite/pull/22927"
+      },
+      {
+        "number": 22862,
+        "mergedAt": "2026-07-14T01:25:31Z",
+        "headSha": "ac86d372fa93b2187d67ef7085082bda6ca9f07e",
+        "url": "https://github.com/vitejs/vite/pull/22862"
+      },
+      {
+        "number": 22921,
+        "mergedAt": "2026-07-13T07:53:45Z",
+        "headSha": "ab129c0d26c026dcb5d4d56d11f6d79b94a31e52",
+        "url": "https://github.com/vitejs/vite/pull/22921"
+      },
+      {
+        "number": 22922,
+        "mergedAt": "2026-07-13T07:09:26Z",
+        "headSha": "187c8532ae665eb94d5feffe6228d4da5f747bed",
+        "url": "https://github.com/vitejs/vite/pull/22922"
+      },
+      {
+        "number": 22924,
+        "mergedAt": "2026-07-13T05:36:58Z",
+        "headSha": "c951535f538ed7a4e25fb3eaac3e25371134a82b",
+        "url": "https://github.com/vitejs/vite/pull/22924"
+      },
+      {
+        "number": 22911,
+        "mergedAt": "2026-07-13T03:26:11Z",
+        "headSha": "381a19270b96094cfc9f1ef8035600f23073dc7d",
+        "url": "https://github.com/vitejs/vite/pull/22911"
+      },
+      {
+        "number": 22914,
+        "mergedAt": "2026-07-12T17:25:33Z",
+        "headSha": "22efe20e7abb9924592ec7f00228bd5ac87dd0fc",
+        "url": "https://github.com/vitejs/vite/pull/22914"
+      },
+      {
+        "number": 22912,
+        "mergedAt": "2026-07-10T11:36:34Z",
+        "headSha": "57eb7fb38de6f5316b46720f2ae073311249c79a",
+        "url": "https://github.com/vitejs/vite/pull/22912"
+      },
+      {
+        "number": 22899,
+        "mergedAt": "2026-07-10T02:01:40Z",
+        "headSha": "cabff4833a78f58cff8994034a89b83c764096d6",
+        "url": "https://github.com/vitejs/vite/pull/22899"
+      },
+      {
+        "number": 22908,
+        "mergedAt": "2026-07-10T01:44:45Z",
+        "headSha": "356ab9e01ec4699f7a510fac27fe9b7acfdbbe7d",
+        "url": "https://github.com/vitejs/vite/pull/22908"
+      },
+      {
+        "number": 22468,
+        "mergedAt": "2026-07-09T04:27:03Z",
+        "headSha": "c82e8a5ae237623edb5fc39f25d7b07fa74d3ae0",
+        "url": "https://github.com/vitejs/vite/pull/22468"
+      },
+      {
+        "number": 22829,
+        "mergedAt": "2026-07-09T04:13:25Z",
+        "headSha": "2388d44bc2e501c12e010abfc8160881e0f3a91a",
+        "url": "https://github.com/vitejs/vite/pull/22829"
+      },
+      {
+        "number": 22780,
+        "mergedAt": "2026-07-09T02:49:11Z",
+        "headSha": "506da9c8e88081f29cb67dd210fce2595ad18cbf",
+        "url": "https://github.com/vitejs/vite/pull/22780"
+      },
+      {
+        "number": 22897,
+        "mergedAt": "2026-07-09T02:46:47Z",
+        "headSha": "9b7b82eb7aaca5efdea31482d680c0d1569ef892",
+        "url": "https://github.com/vitejs/vite/pull/22897"
+      },
+      {
+        "number": 22840,
+        "mergedAt": "2026-07-09T02:46:08Z",
+        "headSha": "348af93b3aa86afc724d6150931de361bcd06033",
+        "url": "https://github.com/vitejs/vite/pull/22840"
+      },
+      {
+        "number": 22852,
+        "mergedAt": "2026-07-09T02:43:51Z",
+        "headSha": "6074c204efcda8c49fee2d7f70a2dc1fd8ed6a29",
+        "url": "https://github.com/vitejs/vite/pull/22852"
+      },
+      {
+        "number": 22875,
+        "mergedAt": "2026-07-09T02:37:05Z",
+        "headSha": "a0fecd17681966aa8cc8918a164a1e8d498f333c",
+        "url": "https://github.com/vitejs/vite/pull/22875"
+      },
+      {
+        "number": 22870,
+        "mergedAt": "2026-07-08T08:38:42Z",
+        "headSha": "0d09acbc35b2c3f105812b870003cd130ee44b57",
+        "url": "https://github.com/vitejs/vite/pull/22870"
+      },
+      {
+        "number": 22867,
+        "mergedAt": "2026-07-07T10:44:11Z",
+        "headSha": "23c0178b5ec73ce6ab9512abae21e8a7a3fe766e",
+        "url": "https://github.com/vitejs/vite/pull/22867"
+      },
+      {
+        "number": 22872,
+        "mergedAt": "2026-07-07T02:52:27Z",
+        "headSha": "a81fa1b50b186796a3337d62a66f1bf87545e61f",
+        "url": "https://github.com/vitejs/vite/pull/22872"
+      },
+      {
+        "number": 22882,
+        "mergedAt": "2026-07-07T02:26:38Z",
+        "headSha": "7f48f3ec12603dc69e4cfaa62278c5e7eff3e6c2",
+        "url": "https://github.com/vitejs/vite/pull/22882"
+      },
+      {
+        "number": 22859,
+        "mergedAt": "2026-07-06T12:05:59Z",
+        "headSha": "69726aee12d85ecde5915ff062454bee7ad2ecb0",
+        "url": "https://github.com/vitejs/vite/pull/22859"
+      },
+      {
+        "number": 22878,
+        "mergedAt": "2026-07-06T11:17:53Z",
+        "headSha": "a214d22c087d70d2752039beb5e33a938ec8973e",
+        "url": "https://github.com/vitejs/vite/pull/22878"
+      },
+      {
+        "number": 22741,
+        "mergedAt": "2026-07-06T10:49:08Z",
+        "headSha": "bb823ce7ed2993d64e400cfe2613e706711f2ce6",
+        "url": "https://github.com/vitejs/vite/pull/22741"
+      },
+      {
+        "number": 22876,
+        "mergedAt": "2026-07-06T10:47:57Z",
+        "headSha": "657675222fcc684afc3e3be468a599a73f90e4af",
+        "url": "https://github.com/vitejs/vite/pull/22876"
+      },
+      {
+        "number": 22865,
+        "mergedAt": "2026-07-06T10:46:28Z",
+        "headSha": "4bad1a19829755996728d6d8c5c3f3bb01bf56ba",
+        "url": "https://github.com/vitejs/vite/pull/22865"
+      },
+      {
+        "number": 22871,
+        "mergedAt": "2026-07-06T10:28:30Z",
+        "headSha": "300fb2a7bdc2ee52a79b52633348b5cb1cb271dc",
+        "url": "https://github.com/vitejs/vite/pull/22871"
+      },
+      {
+        "number": 22874,
+        "mergedAt": "2026-07-06T10:12:48Z",
+        "headSha": "ab001bd75eab7cc066b8912dd706f86065f56ded",
+        "url": "https://github.com/vitejs/vite/pull/22874"
+      },
+      {
+        "number": 22866,
+        "mergedAt": "2026-07-06T10:02:23Z",
+        "headSha": "6c7e38f71262a3077e5ed8ffb2f9d2dda123e7a7",
+        "url": "https://github.com/vitejs/vite/pull/22866"
+      },
+      {
+        "number": 22858,
+        "mergedAt": "2026-07-04T05:06:15Z",
+        "headSha": "d17adee898321aac88a58879356daa8210b94b6f",
+        "url": "https://github.com/vitejs/vite/pull/22858"
+      },
+      {
+        "number": 22851,
+        "mergedAt": "2026-07-03T06:00:05Z",
+        "headSha": "72b21b6b1c0ca415923b06edf31a8e4a630661d9",
+        "url": "https://github.com/vitejs/vite/pull/22851"
+      },
+      {
+        "number": 22841,
+        "mergedAt": "2026-07-03T03:34:19Z",
+        "headSha": "4269f3b5b10cd485e79d4874b8a98fe453302cd2",
+        "url": "https://github.com/vitejs/vite/pull/22841"
+      },
+      {
+        "number": 22848,
+        "mergedAt": "2026-07-03T03:31:56Z",
+        "headSha": "5bcc5182b938384240288f0ffaab5d4afc08a3f5",
+        "url": "https://github.com/vitejs/vite/pull/22848"
+      },
+      {
+        "number": 22839,
+        "mergedAt": "2026-07-03T01:31:31Z",
+        "headSha": "712146345f4785795b0d3840c0e17015c6e873cc",
+        "url": "https://github.com/vitejs/vite/pull/22839"
+      },
+      {
+        "number": 22838,
+        "mergedAt": "2026-07-02T02:57:24Z",
+        "headSha": "559c90dd618bb0d3c2d977e1cfae7d73cca13a2e",
+        "url": "https://github.com/vitejs/vite/pull/22838"
+      },
+      {
+        "number": 22717,
+        "mergedAt": "2026-07-02T02:26:50Z",
+        "headSha": "662ee2f9831a2c87f0d222ff270eab8d3cfef706",
+        "url": "https://github.com/vitejs/vite/pull/22717"
+      },
+      {
+        "number": 22828,
+        "mergedAt": "2026-07-02T02:19:12Z",
+        "headSha": "3779419056b7f041bb812f8d678d8d70f50e8536",
+        "url": "https://github.com/vitejs/vite/pull/22828"
+      },
+      {
+        "number": 22833,
+        "mergedAt": "2026-07-02T00:53:38Z",
+        "headSha": "f5e500002a5e359fde6f6407ee10224946217b0d",
+        "url": "https://github.com/vitejs/vite/pull/22833"
+      },
+      {
+        "number": 22759,
+        "mergedAt": "2026-07-01T03:55:06Z",
+        "headSha": "e59a4e4f1847b8b7e2c6a9c617a584844fc973ee",
+        "url": "https://github.com/vitejs/vite/pull/22759"
+      },
+      {
+        "number": 22827,
+        "mergedAt": "2026-06-30T16:32:49Z",
+        "headSha": "7c150c7f56ff3aab89f360b3572008f3ff5b77f6",
+        "url": "https://github.com/vitejs/vite/pull/22827"
+      },
+      {
+        "number": 22825,
+        "mergedAt": "2026-06-30T15:47:27Z",
+        "headSha": "b7687eae1783ffe97144d43c954a8ba9c99e6737",
+        "url": "https://github.com/vitejs/vite/pull/22825"
+      },
+      {
+        "number": 22819,
+        "mergedAt": "2026-06-30T15:38:56Z",
+        "headSha": "ce1e0ca972ca1d577a1f8dc4462f29a9840c799a",
+        "url": "https://github.com/vitejs/vite/pull/22819"
+      },
+      {
+        "number": 22778,
+        "mergedAt": "2026-06-30T09:55:35Z",
+        "headSha": "84d30e963d7aa2698cc54e49dc47b27502377115",
+        "url": "https://github.com/vitejs/vite/pull/22778"
+      },
+      {
+        "number": 22824,
+        "mergedAt": "2026-06-30T09:55:13Z",
+        "headSha": "96a30a238a620d04363f6f4b21aea1c9124fd0c2",
+        "url": "https://github.com/vitejs/vite/pull/22824"
+      },
+      {
+        "number": 22823,
+        "mergedAt": "2026-06-30T09:43:13Z",
+        "headSha": "a7aa60779e891408329731ec6760256ccedae851",
+        "url": "https://github.com/vitejs/vite/pull/22823"
+      },
+      {
+        "number": 22822,
+        "mergedAt": "2026-06-30T09:43:06Z",
+        "headSha": "a31c99e4d67e82489ac12883a6991d46280fe042",
+        "url": "https://github.com/vitejs/vite/pull/22822"
+      },
+      {
+        "number": 22687,
+        "mergedAt": "2026-06-30T08:33:54Z",
+        "headSha": "06425b585138007a1e852b9312d5d6cffb52e11c",
+        "url": "https://github.com/vitejs/vite/pull/22687"
+      },
+      {
+        "number": 22821,
+        "mergedAt": "2026-06-30T08:29:42Z",
+        "headSha": "27ff0e2ae45d7b9c660bd48c7ace470e8f366248",
+        "url": "https://github.com/vitejs/vite/pull/22821"
+      },
+      {
+        "number": 22718,
+        "mergedAt": "2026-06-30T08:25:47Z",
+        "headSha": "ebd944e9a00ac03cd7ef9937dfbd9d4bee8c83a4",
+        "url": "https://github.com/vitejs/vite/pull/22718"
+      },
+      {
+        "number": 22790,
+        "mergedAt": "2026-06-30T07:49:19Z",
+        "headSha": "463c7a437860eaf5a322beb5236de9e07b5c8e34",
+        "url": "https://github.com/vitejs/vite/pull/22790"
+      },
+      {
+        "number": 22797,
+        "mergedAt": "2026-06-30T07:49:06Z",
+        "headSha": "b1e243a1a259881804879e7ac0ff135a4f0ad27e",
+        "url": "https://github.com/vitejs/vite/pull/22797"
+      },
+      {
+        "number": 22793,
+        "mergedAt": "2026-06-30T07:45:17Z",
+        "headSha": "486fae414da4a9bcb5df9a568e26970dec8bdb7a",
+        "url": "https://github.com/vitejs/vite/pull/22793"
+      },
+      {
+        "number": 22800,
+        "mergedAt": "2026-06-30T07:14:28Z",
+        "headSha": "3637611116ded07cce7e1f2ca6c7bbbad829f462",
+        "url": "https://github.com/vitejs/vite/pull/22800"
+      },
+      {
+        "number": 22775,
+        "mergedAt": "2026-06-30T06:57:33Z",
+        "headSha": "aa6eb860b373bc7fd43ce0611c3c2067ee101379",
+        "url": "https://github.com/vitejs/vite/pull/22775"
+      },
+      {
+        "number": 22804,
+        "mergedAt": "2026-06-30T06:45:47Z",
+        "headSha": "c56b09820c464c5fa3ea2c162459fdee9b1f9505",
+        "url": "https://github.com/vitejs/vite/pull/22804"
+      },
+      {
+        "number": 22805,
+        "mergedAt": "2026-06-30T06:05:11Z",
+        "headSha": "0235255e95dc2075b4793543eadd1c49a4bd6624",
+        "url": "https://github.com/vitejs/vite/pull/22805"
+      },
+      {
+        "number": 22803,
+        "mergedAt": "2026-06-30T05:58:24Z",
+        "headSha": "050bddbdec69be442448a3fa3ef986e9dd94f532",
+        "url": "https://github.com/vitejs/vite/pull/22803"
+      },
+      {
+        "number": 22809,
+        "mergedAt": "2026-06-30T05:54:24Z",
+        "headSha": "cf528f07ae7f5e447cd52e2113a83fa8267e7172",
+        "url": "https://github.com/vitejs/vite/pull/22809"
+      },
+      {
+        "number": 22817,
+        "mergedAt": "2026-06-30T04:07:19Z",
+        "headSha": "55fb924f29a86c2abe946e64f0ee62d9216cb555",
+        "url": "https://github.com/vitejs/vite/pull/22817"
+      },
+      {
+        "number": 22816,
+        "mergedAt": "2026-06-30T03:40:11Z",
+        "headSha": "bf47bf6ddba456077430f6ebfc867d1a2dafe188",
+        "url": "https://github.com/vitejs/vite/pull/22816"
+      },
+      {
+        "number": 22773,
+        "mergedAt": "2026-06-30T03:24:38Z",
+        "headSha": "200253a92c9594cd8b6e8584abb8e489c8d4396b",
+        "url": "https://github.com/vitejs/vite/pull/22773"
+      },
+      {
+        "number": 22783,
+        "mergedAt": "2026-06-30T02:02:55Z",
+        "headSha": "36429b8bcb0c649354ede89644f0f678ad25ce30",
+        "url": "https://github.com/vitejs/vite/pull/22783"
+      },
+      {
+        "number": 22784,
+        "mergedAt": "2026-06-30T02:02:36Z",
+        "headSha": "04572d6bd1cdbe6af02f963afa281061b257d256",
+        "url": "https://github.com/vitejs/vite/pull/22784"
+      },
+      {
+        "number": 22811,
+        "mergedAt": "2026-06-30T00:29:58Z",
+        "headSha": "4f6d5baa153d01486ece00c29cb338eb7579326a",
+        "url": "https://github.com/vitejs/vite/pull/22811"
+      },
+      {
+        "number": 22615,
+        "mergedAt": "2026-06-29T13:48:55Z",
+        "headSha": "cb24ba984bf463fb4c4674bbed364309123c6b1c",
+        "url": "https://github.com/vitejs/vite/pull/22615"
+      },
+      {
+        "number": 22786,
+        "mergedAt": "2026-06-26T14:48:58Z",
+        "headSha": "a218434d48e97e1322cda4ab02dac059c96a395f",
+        "url": "https://github.com/vitejs/vite/pull/22786"
+      },
+      {
+        "number": 22785,
+        "mergedAt": "2026-06-26T14:26:39Z",
+        "headSha": "5b368a920eabc50e1e7d2f08eb8ca1a43dc49d06",
+        "url": "https://github.com/vitejs/vite/pull/22785"
+      },
+      {
+        "number": 22781,
+        "mergedAt": "2026-06-26T09:57:22Z",
+        "headSha": "9dd40ce0652b7f7496b0b699f78b9334b6d1182c",
+        "url": "https://github.com/vitejs/vite/pull/22781"
+      },
+      {
+        "number": 22745,
+        "mergedAt": "2026-06-26T09:56:07Z",
+        "headSha": "77b1721a36e785df29ccd6d8a040cf9debd65870",
+        "url": "https://github.com/vitejs/vite/pull/22745"
+      },
+      {
+        "number": 22769,
+        "mergedAt": "2026-06-26T09:50:19Z",
+        "headSha": "a59d1c5653f9575fd093ec6fde4a0b35ff6bcccb",
+        "url": "https://github.com/vitejs/vite/pull/22769"
+      },
+      {
+        "number": 22782,
+        "mergedAt": "2026-06-26T09:34:17Z",
+        "headSha": "0e68d668ee5378970df2b858ebf6864abf132d0c",
+        "url": "https://github.com/vitejs/vite/pull/22782"
+      },
+      {
+        "number": 22591,
+        "mergedAt": "2026-06-26T03:58:47Z",
+        "headSha": "7f03eec1cce1036a64bfb5ebe882ba33249fc891",
+        "url": "https://github.com/vitejs/vite/pull/22591"
+      },
+      {
+        "number": 22744,
+        "mergedAt": "2026-06-26T03:14:32Z",
+        "headSha": "f3e4c52a946bcacb9d98e9ee8358ee27199d7576",
+        "url": "https://github.com/vitejs/vite/pull/22744"
+      },
+      {
+        "number": 22761,
+        "mergedAt": "2026-06-25T08:54:01Z",
+        "headSha": "4c7879f05d4419e5d7df7856aa3af4d08fad73f8",
+        "url": "https://github.com/vitejs/vite/pull/22761"
+      }
+    ]
+  },
+  {
+    "repository": "pallets/flask",
+    "pullRequests": [
+      {
+        "number": 6133,
+        "mergedAt": "2026-08-11T20:19:14Z",
+        "headSha": "89992954ec71b594b1b911f98977cdc8ad46a057",
+        "url": "https://github.com/pallets/flask/pull/6133"
+      },
+      {
+        "number": 6096,
+        "mergedAt": "2026-08-11T19:48:41Z",
+        "headSha": "7203feabf723edae0286ae5dc64fec8ac4c91735",
+        "url": "https://github.com/pallets/flask/pull/6096"
+      },
+      {
+        "number": 6095,
+        "mergedAt": "2026-07-30T17:05:05Z",
+        "headSha": "5ce121dd841e2dc2594d0ed3954278f4101d3521",
+        "url": "https://github.com/pallets/flask/pull/6095"
+      },
+      {
+        "number": 6013,
+        "mergedAt": "2026-05-02T03:58:57Z",
+        "headSha": "9368fb3f3c52d74534d14c1bef03c79c103356cd",
+        "url": "https://github.com/pallets/flask/pull/6013"
+      },
+      {
+        "number": 5962,
+        "mergedAt": "2026-03-24T13:55:57Z",
+        "headSha": "91c6b3fecf36b1f04554e57cc4060ccb737a445d",
+        "url": "https://github.com/pallets/flask/pull/5962"
+      },
+      {
+        "number": 5945,
+        "mergedAt": "2026-03-08T23:15:00Z",
+        "headSha": "560c119e3dc33b35b9c57172fae521d99c2a1421",
+        "url": "https://github.com/pallets/flask/pull/5945"
+      },
+      {
+        "number": 5928,
+        "mergedAt": "2026-02-20T04:00:34Z",
+        "headSha": "fbb6f0bc4c60a0bada0e03c3480d0ccf30a3c1df",
+        "url": "https://github.com/pallets/flask/pull/5928"
+      },
+      {
+        "number": 5924,
+        "mergedAt": "2026-02-19T05:01:53Z",
+        "headSha": "22d924701a6ae2e4cd01e9a15bbaf3946094af65",
+        "url": "https://github.com/pallets/flask/pull/5924"
+      },
+      {
+        "number": 5917,
+        "mergedAt": "2026-02-12T21:07:51Z",
+        "headSha": "e82db2ca3a22c9614c1987392c9cfaa8c6ce99ad",
+        "url": "https://github.com/pallets/flask/pull/5917"
+      },
+      {
+        "number": 5903,
+        "mergedAt": "2026-01-28T15:43:01Z",
+        "headSha": "3d03098a97ddc6a908aa4a50c2ef7381f8297d0a",
+        "url": "https://github.com/pallets/flask/pull/5903"
+      },
+      {
+        "number": 5900,
+        "mergedAt": "2026-01-25T18:35:12Z",
+        "headSha": "ac5664d2281533eacafd64f5cc7d5edcdaccab60",
+        "url": "https://github.com/pallets/flask/pull/5900"
+      },
+      {
+        "number": 5899,
+        "mergedAt": "2026-01-25T03:53:12Z",
+        "headSha": "c77a5203438fe772d41f6a47303ad3f57a4efe6d",
+        "url": "https://github.com/pallets/flask/pull/5899"
+      },
+      {
+        "number": 5865,
+        "mergedAt": "2026-01-25T03:04:07Z",
+        "headSha": "fe3b215d3ade4db68262dae1a3cdc464a1fc524f",
+        "url": "https://github.com/pallets/flask/pull/5865"
+      },
+      {
+        "number": 5844,
+        "mergedAt": "2026-01-25T03:00:24Z",
+        "headSha": "3709c4a9a87e6ce8c26dc4a951e1df52ac9ecad0",
+        "url": "https://github.com/pallets/flask/pull/5844"
+      },
+      {
+        "number": 5827,
+        "mergedAt": "2026-01-25T02:46:57Z",
+        "headSha": "3962683c5bd9477182d980a1081f5effb46c8ed2",
+        "url": "https://github.com/pallets/flask/pull/5827"
+      },
+      {
+        "number": 5808,
+        "mergedAt": "2026-01-25T02:25:31Z",
+        "headSha": "dbd4c2882593f6118103120aa96fa9acdf7deedb",
+        "url": "https://github.com/pallets/flask/pull/5808"
+      },
+      {
+        "number": 5898,
+        "mergedAt": "2026-01-25T01:18:35Z",
+        "headSha": "eca5fd1dfdc614c2df876cc32018a7d71f84ea82",
+        "url": "https://github.com/pallets/flask/pull/5898"
+      },
+      {
+        "number": 5818,
+        "mergedAt": "2025-11-17T16:49:53Z",
+        "headSha": "6a64969009bf1898bd302e6a9633f71942523f7f",
+        "url": "https://github.com/pallets/flask/pull/5818"
+      },
+      {
+        "number": 5829,
+        "mergedAt": "2025-10-14T20:26:26Z",
+        "headSha": "5a174abe08a63175d0b7f6c555f93de30afb0661",
+        "url": "https://github.com/pallets/flask/pull/5829"
+      },
+      {
+        "number": 5812,
+        "mergedAt": "2025-09-19T23:45:27Z",
+        "headSha": "c2705ffd9ce1dc8476cb29eaf5ff5d4c719852d9",
+        "url": "https://github.com/pallets/flask/pull/5812"
+      },
+      {
+        "number": 5800,
+        "mergedAt": "2025-08-19T21:03:43Z",
+        "headSha": "2c1b30d0503cfb064f1cb252e6614a06915a362a",
+        "url": "https://github.com/pallets/flask/pull/5800"
+      },
+      {
+        "number": 5795,
+        "mergedAt": "2025-08-19T20:56:49Z",
+        "headSha": "4dd52ca9c768c9b6d04180f0547d6f4b6e34f211",
+        "url": "https://github.com/pallets/flask/pull/5795"
+      },
+      {
+        "number": 5736,
+        "mergedAt": "2025-08-19T19:36:01Z",
+        "headSha": "edebd3704437f19b5b137eaffe97130fe817d144",
+        "url": "https://github.com/pallets/flask/pull/5736"
+      },
+      {
+        "number": 5799,
+        "mergedAt": "2025-08-19T15:23:51Z",
+        "headSha": "9822a0351574790cb66c652fcc396ad7aa2b09d8",
+        "url": "https://github.com/pallets/flask/pull/5799"
+      },
+      {
+        "number": 5798,
+        "mergedAt": "2025-08-18T18:44:57Z",
+        "headSha": "b228ca3d87745b746d904a2108429617a814ffda",
+        "url": "https://github.com/pallets/flask/pull/5798"
+      },
+      {
+        "number": 5777,
+        "mergedAt": "2025-08-18T17:26:12Z",
+        "headSha": "d44f1c65239c3e33509224aa1931631243dbfa7f",
+        "url": "https://github.com/pallets/flask/pull/5777"
+      },
+      {
+        "number": 5742,
+        "mergedAt": "2025-08-18T17:20:07Z",
+        "headSha": "0f83958247e9eab1c7f62903601dfd5fe10c640f",
+        "url": "https://github.com/pallets/flask/pull/5742"
+      },
+      {
+        "number": 5723,
+        "mergedAt": "2025-08-18T17:08:08Z",
+        "headSha": "7bf3be8dfa5832ef03a3fd8f07f6736e770440e4",
+        "url": "https://github.com/pallets/flask/pull/5723"
+      },
+      {
+        "number": 5797,
+        "mergedAt": "2025-08-18T16:56:39Z",
+        "headSha": "53b8f08218796d95764c5252bccd8a50a173a6fb",
+        "url": "https://github.com/pallets/flask/pull/5797"
+      },
+      {
+        "number": 5757,
+        "mergedAt": "2025-06-09T21:33:26Z",
+        "headSha": "a758915893352f5986c6ee101cdf7e3b7a64fa28",
+        "url": "https://github.com/pallets/flask/pull/5757"
+      },
+      {
+        "number": 5754,
+        "mergedAt": "2025-06-08T16:47:45Z",
+        "headSha": "adeea0070700671230733879846417c80f4e62b1",
+        "url": "https://github.com/pallets/flask/pull/5754"
+      },
+      {
+        "number": 5737,
+        "mergedAt": "2025-05-20T16:30:06Z",
+        "headSha": "184ec3c5453e1156372085df35e8d922ce7e3559",
+        "url": "https://github.com/pallets/flask/pull/5737"
+      },
+      {
+        "number": 5731,
+        "mergedAt": "2025-05-13T15:35:41Z",
+        "headSha": "52df9eed45d0b19c588662ed8492d8fbaa0e7098",
+        "url": "https://github.com/pallets/flask/pull/5731"
+      },
+      {
+        "number": 5730,
+        "mergedAt": "2025-05-13T15:01:42Z",
+        "headSha": "7fff56f5172c48b6f3aedf17ee14ef5c2533dfd1",
+        "url": "https://github.com/pallets/flask/pull/5730"
+      },
+      {
+        "number": 5727,
+        "mergedAt": "2025-05-12T01:04:35Z",
+        "headSha": "0109e496f6ca68de29480fe6413e81b1d3f86aa9",
+        "url": "https://github.com/pallets/flask/pull/5727"
+      },
+      {
+        "number": 5659,
+        "mergedAt": "2025-03-30T20:15:54Z",
+        "headSha": "410e5ab7ed0ef326fa8b5164a633863f137ffff5",
+        "url": "https://github.com/pallets/flask/pull/5659"
+      },
+      {
+        "number": 5702,
+        "mergedAt": "2025-03-29T22:45:11Z",
+        "headSha": "41ec5760a2c55a099c3a1733fdd36fbb1258a02b",
+        "url": "https://github.com/pallets/flask/pull/5702"
+      },
+      {
+        "number": 5701,
+        "mergedAt": "2025-03-29T22:32:30Z",
+        "headSha": "c94d2a77db0102a7cf8ceec7804f366f180c373f",
+        "url": "https://github.com/pallets/flask/pull/5701"
+      },
+      {
+        "number": 5700,
+        "mergedAt": "2025-03-29T22:28:27Z",
+        "headSha": "7d5d1874581209f66ad7bcdfb7f85b2b9a7ca471",
+        "url": "https://github.com/pallets/flask/pull/5700"
+      },
+      {
+        "number": 5695,
+        "mergedAt": "2025-03-29T22:17:48Z",
+        "headSha": "2ae36c8dd5c9d24578d9fca85f8c351290d0de04",
+        "url": "https://github.com/pallets/flask/pull/5695"
+      },
+      {
+        "number": 5674,
+        "mergedAt": "2025-03-29T22:15:04Z",
+        "headSha": "da600394865c06a4772c433c1a560453dcf4f868",
+        "url": "https://github.com/pallets/flask/pull/5674"
+      },
+      {
+        "number": 5671,
+        "mergedAt": "2025-03-29T22:10:56Z",
+        "headSha": "f51a23839aa55aee2f2a9196c344df6eecd854d7",
+        "url": "https://github.com/pallets/flask/pull/5671"
+      },
+      {
+        "number": 5650,
+        "mergedAt": "2025-03-29T21:49:06Z",
+        "headSha": "75a8327cfd6eb912e469a8a613151d7ee50a1c1c",
+        "url": "https://github.com/pallets/flask/pull/5650"
+      },
+      {
+        "number": 5647,
+        "mergedAt": "2024-11-24T01:52:56Z",
+        "headSha": "54c3f87af9f6c0d6622cec2c3d9695b0229fb8fa",
+        "url": "https://github.com/pallets/flask/pull/5647"
+      },
+      {
+        "number": 5649,
+        "mergedAt": "2024-11-24T00:06:37Z",
+        "headSha": "b394a994e6d632643d0061e0e67772f076925951",
+        "url": "https://github.com/pallets/flask/pull/5649"
+      },
+      {
+        "number": 5648,
+        "mergedAt": "2024-11-23T23:59:30Z",
+        "headSha": "d22bfcd4cfe3b93daddfce8521f77447ca8d6b84",
+        "url": "https://github.com/pallets/flask/pull/5648"
+      },
+      {
+        "number": 5640,
+        "mergedAt": "2024-11-13T18:27:38Z",
+        "headSha": "ab8149664182b662453a563161aa89013c806dc9",
+        "url": "https://github.com/pallets/flask/pull/5640"
+      },
+      {
+        "number": 5638,
+        "mergedAt": "2024-11-13T16:27:13Z",
+        "headSha": "f49dbfd3e451006a485e81ebce030495131c4454",
+        "url": "https://github.com/pallets/flask/pull/5638"
+      },
+      {
+        "number": 5637,
+        "mergedAt": "2024-11-13T05:03:23Z",
+        "headSha": "4f7156f2c3271613b34d04040b502b9d7ae35eb9",
+        "url": "https://github.com/pallets/flask/pull/5637"
+      },
+      {
+        "number": 5634,
+        "mergedAt": "2024-11-12T18:13:39Z",
+        "headSha": "4995a775df21a206b529403bc30d71795a994fd4",
+        "url": "https://github.com/pallets/flask/pull/5634"
+      },
+      {
+        "number": 5633,
+        "mergedAt": "2024-11-08T17:55:00Z",
+        "headSha": "470e2b8d17fd0032271b21f1d6775d48c3855a79",
+        "url": "https://github.com/pallets/flask/pull/5633"
+      },
+      {
+        "number": 5632,
+        "mergedAt": "2024-11-08T16:16:04Z",
+        "headSha": "e13373f838ab34027c5a80e16a6cb8262d41eab7",
+        "url": "https://github.com/pallets/flask/pull/5632"
+      },
+      {
+        "number": 5630,
+        "mergedAt": "2024-11-07T19:56:27Z",
+        "headSha": "2c3160304278d323da8485057770926d1b582579",
+        "url": "https://github.com/pallets/flask/pull/5630"
+      },
+      {
+        "number": 5599,
+        "mergedAt": "2024-11-06T17:47:58Z",
+        "headSha": "629fa0ab3e0017150b4edde4f5fbcb0fe9b6d113",
+        "url": "https://github.com/pallets/flask/pull/5599"
+      },
+      {
+        "number": 5627,
+        "mergedAt": "2024-11-02T01:06:12Z",
+        "headSha": "a9b99b3489cc24b5bed99fbadbd91f598a5a1420",
+        "url": "https://github.com/pallets/flask/pull/5627"
+      },
+      {
+        "number": 5499,
+        "mergedAt": "2024-11-01T23:26:38Z",
+        "headSha": "9efc1ebeeb431769897798cdf8de2c67dcbbc9c0",
+        "url": "https://github.com/pallets/flask/pull/5499"
+      },
+      {
+        "number": 5626,
+        "mergedAt": "2024-11-01T20:21:36Z",
+        "headSha": "c7a53888a1a514619b0611fd8b7928592f4ed612",
+        "url": "https://github.com/pallets/flask/pull/5626"
+      },
+      {
+        "number": 5624,
+        "mergedAt": "2024-10-31T20:15:30Z",
+        "headSha": "8f37c82f6144fffc2ed30e49ee81a54702a0f317",
+        "url": "https://github.com/pallets/flask/pull/5624"
+      },
+      {
+        "number": 5623,
+        "mergedAt": "2024-10-31T19:32:11Z",
+        "headSha": "1d610e44b396d11113bb6a5d168cc5e996a6dfb9",
+        "url": "https://github.com/pallets/flask/pull/5623"
+      },
+      {
+        "number": 5620,
+        "mergedAt": "2024-10-24T21:54:53Z",
+        "headSha": "9e831e915fa875423af0c0de8f53a3780055919e",
+        "url": "https://github.com/pallets/flask/pull/5620"
+      },
+      {
+        "number": 5618,
+        "mergedAt": "2024-10-22T21:16:56Z",
+        "headSha": "74721b48f0347f19f134f386fab3421e5132fb53",
+        "url": "https://github.com/pallets/flask/pull/5618"
+      },
+      {
+        "number": 5615,
+        "mergedAt": "2024-10-18T20:22:45Z",
+        "headSha": "52ccd66735ba1f6e67d06e747d6a641980b788a3",
+        "url": "https://github.com/pallets/flask/pull/5615"
+      },
+      {
+        "number": 5609,
+        "mergedAt": "2024-10-18T19:59:21Z",
+        "headSha": "e63ead4208c1e56723532878728ef9c2eb197b01",
+        "url": "https://github.com/pallets/flask/pull/5609"
+      },
+      {
+        "number": 5541,
+        "mergedAt": "2024-08-06T15:31:01Z",
+        "headSha": "326ad3f43c63f84a69d6d08af276cbdf653efc51",
+        "url": "https://github.com/pallets/flask/pull/5541"
+      },
+      {
+        "number": 5539,
+        "mergedAt": "2024-08-03T14:28:46Z",
+        "headSha": "4fe0aebab79a092615f5f86a24b91bac07fb2ef2",
+        "url": "https://github.com/pallets/flask/pull/5539"
+      },
+      {
+        "number": 5526,
+        "mergedAt": "2024-07-11T02:16:46Z",
+        "headSha": "28d5a4d71824ff5823ae310e3fd014b48b33d583",
+        "url": "https://github.com/pallets/flask/pull/5526"
+      },
+      {
+        "number": 5522,
+        "mergedAt": "2024-07-11T01:08:49Z",
+        "headSha": "321bd74b954156553db3dca8f43b45cdd5a88f76",
+        "url": "https://github.com/pallets/flask/pull/5522"
+      },
+      {
+        "number": 5517,
+        "mergedAt": "2024-07-02T11:17:59Z",
+        "headSha": "3d357273b50ed9c8ca660f60fde255c26ff7a228",
+        "url": "https://github.com/pallets/flask/pull/5517"
+      },
+      {
+        "number": 5514,
+        "mergedAt": "2024-07-01T23:14:08Z",
+        "headSha": "e165f3aef4dbede5d7e3f71c336c89a268753ae9",
+        "url": "https://github.com/pallets/flask/pull/5514"
+      },
+      {
+        "number": 5516,
+        "mergedAt": "2024-07-01T19:47:02Z",
+        "headSha": "7621b3d96ac2d53846c4df211bc05c5e13420028",
+        "url": "https://github.com/pallets/flask/pull/5516"
+      },
+      {
+        "number": 5496,
+        "mergedAt": "2024-06-07T19:04:18Z",
+        "headSha": "4ecd11cc1d3dca3d8175bde554b480a7950df2a2",
+        "url": "https://github.com/pallets/flask/pull/5496"
+      },
+      {
+        "number": 5495,
+        "mergedAt": "2024-06-03T22:25:32Z",
+        "headSha": "07c8f19bfd6128c7cbb9c61c41b43a9eeca1b435",
+        "url": "https://github.com/pallets/flask/pull/5495"
+      },
+      {
+        "number": 5493,
+        "mergedAt": "2024-06-01T16:01:47Z",
+        "headSha": "e3535f99717bdf3882c0b48bff3e3eb244454e34",
+        "url": "https://github.com/pallets/flask/pull/5493"
+      },
+      {
+        "number": 5492,
+        "mergedAt": "2024-06-01T15:16:45Z",
+        "headSha": "f567ab90681235f38bdeaeda004d89e85b8627d9",
+        "url": "https://github.com/pallets/flask/pull/5492"
+      },
+      {
+        "number": 5485,
+        "mergedAt": "2024-05-25T18:32:16Z",
+        "headSha": "c7da8c2aa3a923fc620ad480a8831a8a0f21ab37",
+        "url": "https://github.com/pallets/flask/pull/5485"
+      },
+      {
+        "number": 5487,
+        "mergedAt": "2024-05-25T18:27:37Z",
+        "headSha": "767ad19b10c64af1fa328383713ea97e23cc0080",
+        "url": "https://github.com/pallets/flask/pull/5487"
+      },
+      {
+        "number": 5464,
+        "mergedAt": "2024-05-25T17:27:04Z",
+        "headSha": "4a1766c252bac0de1368cc4eaefba1299f77d546",
+        "url": "https://github.com/pallets/flask/pull/5464"
+      },
+      {
+        "number": 5481,
+        "mergedAt": "2024-05-11T15:39:30Z",
+        "headSha": "9101439d7b7e21d5cf8a4a2a3dc92b9980539c6b",
+        "url": "https://github.com/pallets/flask/pull/5481"
+      },
+      {
+        "number": 5477,
+        "mergedAt": "2024-05-06T22:28:44Z",
+        "headSha": "4e894892bc0230c46e998b6ea82b5b07b9943a39",
+        "url": "https://github.com/pallets/flask/pull/5477"
+      },
+      {
+        "number": 5476,
+        "mergedAt": "2024-05-06T17:24:44Z",
+        "headSha": "860a25c390eba8e6c089a818b02800dd9d789864",
+        "url": "https://github.com/pallets/flask/pull/5476"
+      },
+      {
+        "number": 5473,
+        "mergedAt": "2024-05-06T17:17:48Z",
+        "headSha": "a936b0c610ba86f542eb3855de2be674a7b9310b",
+        "url": "https://github.com/pallets/flask/pull/5473"
+      },
+      {
+        "number": 5475,
+        "mergedAt": "2024-05-02T12:10:51Z",
+        "headSha": "823e279e0dd40d8818a8d58c12a7df22caae1c04",
+        "url": "https://github.com/pallets/flask/pull/5475"
+      },
+      {
+        "number": 5468,
+        "mergedAt": "2024-04-23T23:54:09Z",
+        "headSha": "224c639bf9f37b99bc66a879fbbc516f59857967",
+        "url": "https://github.com/pallets/flask/pull/5468"
+      },
+      {
+        "number": 5470,
+        "mergedAt": "2024-04-23T23:52:13Z",
+        "headSha": "b7278186c4e16c58a4dbd439eedf716146c19f53",
+        "url": "https://github.com/pallets/flask/pull/5470"
+      },
+      {
+        "number": 5461,
+        "mergedAt": "2024-04-07T19:27:04Z",
+        "headSha": "c12a5d874c5a014495eb2db8a73f40037bc813ac",
+        "url": "https://github.com/pallets/flask/pull/5461"
+      },
+      {
+        "number": 5270,
+        "mergedAt": "2024-04-07T19:16:22Z",
+        "headSha": "5fdce4c331ac530280cc941179d364a07f4a1088",
+        "url": "https://github.com/pallets/flask/pull/5270"
+      },
+      {
+        "number": 5460,
+        "mergedAt": "2024-04-07T18:42:24Z",
+        "headSha": "db461112c70d5f2bf93c7a6ac27eeb665c232dd0",
+        "url": "https://github.com/pallets/flask/pull/5460"
+      },
+      {
+        "number": 5459,
+        "mergedAt": "2024-04-07T18:11:26Z",
+        "headSha": "be508c618411d72281672980abb19b2150581943",
+        "url": "https://github.com/pallets/flask/pull/5459"
+      },
+      {
+        "number": 5457,
+        "mergedAt": "2024-04-07T17:24:40Z",
+        "headSha": "c640059cb983c8b3c26023182734e411d8ab62dc",
+        "url": "https://github.com/pallets/flask/pull/5457"
+      },
+      {
+        "number": 5423,
+        "mergedAt": "2024-04-06T23:17:13Z",
+        "headSha": "0e59442f6cce9442c1dcaf8515df7182312fa6cd",
+        "url": "https://github.com/pallets/flask/pull/5423"
+      },
+      {
+        "number": 5404,
+        "mergedAt": "2024-02-12T20:50:45Z",
+        "headSha": "ad36383951c130f16e02b5f61b1161da99bc1ca4",
+        "url": "https://github.com/pallets/flask/pull/5404"
+      },
+      {
+        "number": 5403,
+        "mergedAt": "2024-02-03T21:12:15Z",
+        "headSha": "d2030595dcdc8ca5701504f00255360fb12a3a2b",
+        "url": "https://github.com/pallets/flask/pull/5403"
+      },
+      {
+        "number": 5393,
+        "mergedAt": "2024-02-03T20:39:33Z",
+        "headSha": "1af8f95785b85d0937153ee63d504c0b51934d80",
+        "url": "https://github.com/pallets/flask/pull/5393"
+      },
+      {
+        "number": 5389,
+        "mergedAt": "2024-02-03T20:18:40Z",
+        "headSha": "ecc057dd4857e655f0844b781899a917852042a4",
+        "url": "https://github.com/pallets/flask/pull/5389"
+      },
+      {
+        "number": 5401,
+        "mergedAt": "2024-02-03T15:40:28Z",
+        "headSha": "484a7cc9a7ba2540ab2af5141196f5ab5809df33",
+        "url": "https://github.com/pallets/flask/pull/5401"
+      },
+      {
+        "number": 5400,
+        "mergedAt": "2024-02-03T15:35:16Z",
+        "headSha": "a4bada52d0c5442011665eb1ad4bdb61c06d28fe",
+        "url": "https://github.com/pallets/flask/pull/5400"
+      },
+      {
+        "number": 5386,
+        "mergedAt": "2024-01-18T20:03:25Z",
+        "headSha": "f622b1cadea2bed4ea4cc476695e9c181ec5da11",
+        "url": "https://github.com/pallets/flask/pull/5386"
+      },
+      {
+        "number": 5383,
+        "mergedAt": "2024-01-18T17:16:53Z",
+        "headSha": "81b3c85f51834a06bc8fbecf350bc20d756d8026",
+        "url": "https://github.com/pallets/flask/pull/5383"
+      },
+      {
+        "number": 5377,
+        "mergedAt": "2024-01-15T15:52:57Z",
+        "headSha": "8fdab74cc80c39f45aa65da5dd029c8d262756c3",
+        "url": "https://github.com/pallets/flask/pull/5377"
+      },
+      {
+        "number": 5382,
+        "mergedAt": "2024-01-15T15:52:35Z",
+        "headSha": "700fc7d928b7a625b04e6865b3eb282043e90f7d",
+        "url": "https://github.com/pallets/flask/pull/5382"
+      },
+      {
+        "number": 5374,
+        "mergedAt": "2024-01-01T15:21:54Z",
+        "headSha": "63ff4185f9d1306c3bd54489f1adb88e7b48e588",
+        "url": "https://github.com/pallets/flask/pull/5374"
+      },
+      {
+        "number": 5355,
+        "mergedAt": "2023-12-13T23:13:23Z",
+        "headSha": "8a66990c6161b30422359244a052805dc98a5059",
+        "url": "https://github.com/pallets/flask/pull/5355"
+      },
+      {
+        "number": 5344,
+        "mergedAt": "2023-12-13T23:06:37Z",
+        "headSha": "1d5abfadd7132c9a78e14e5ba6c07aed47115280",
+        "url": "https://github.com/pallets/flask/pull/5344"
+      },
+      {
+        "number": 5351,
+        "mergedAt": "2023-12-13T23:01:14Z",
+        "headSha": "b55ccae72aba110ae08e8ef0a9cfb8649750594a",
+        "url": "https://github.com/pallets/flask/pull/5351"
+      },
+      {
+        "number": 5352,
+        "mergedAt": "2023-12-04T22:26:30Z",
+        "headSha": "78ced0093ade22a5de43ce3da98a4c2526022fbf",
+        "url": "https://github.com/pallets/flask/pull/5352"
+      },
+      {
+        "number": 5354,
+        "mergedAt": "2023-12-04T22:26:16Z",
+        "headSha": "452b78f24331c9805075cc0572128a91f4345e32",
+        "url": "https://github.com/pallets/flask/pull/5354"
+      },
+      {
+        "number": 5336,
+        "mergedAt": "2023-11-15T20:55:44Z",
+        "headSha": "4104f29956b16f3e351462651ec3c6cc5a0dd069",
+        "url": "https://github.com/pallets/flask/pull/5336"
+      },
+      {
+        "number": 5331,
+        "mergedAt": "2023-11-09T21:29:21Z",
+        "headSha": "54ff9b297276a3add08c8faf1557b5e359b3ab99",
+        "url": "https://github.com/pallets/flask/pull/5331"
+      },
+      {
+        "number": 5330,
+        "mergedAt": "2023-11-09T17:04:53Z",
+        "headSha": "4431ada1a2615c30fedf200b28cbb80c38250e7c",
+        "url": "https://github.com/pallets/flask/pull/5330"
+      },
+      {
+        "number": 5329,
+        "mergedAt": "2023-11-09T17:00:37Z",
+        "headSha": "33d888622676073a5cd9d5f268933de82a0345c0",
+        "url": "https://github.com/pallets/flask/pull/5329"
+      },
+      {
+        "number": 5313,
+        "mergedAt": "2023-10-28T15:42:54Z",
+        "headSha": "7af0271f4703a71beef8e26d1f5f6f8da04100e6",
+        "url": "https://github.com/pallets/flask/pull/5313"
+      },
+      {
+        "number": 5303,
+        "mergedAt": "2023-10-20T16:50:01Z",
+        "headSha": "bb9937593de3917d17c2da1fc55489f10bb3c8b2",
+        "url": "https://github.com/pallets/flask/pull/5303"
+      },
+      {
+        "number": 5287,
+        "mergedAt": "2023-10-07T00:36:40Z",
+        "headSha": "9bee1d7b5bbd820fb114d8106436e62684f16b75",
+        "url": "https://github.com/pallets/flask/pull/5287"
+      },
+      {
+        "number": 5291,
+        "mergedAt": "2023-10-06T23:37:42Z",
+        "headSha": "ab7e695e0f0736e89e894f4eed64ce6e09ac4ff5",
+        "url": "https://github.com/pallets/flask/pull/5291"
+      },
+      {
+        "number": 5257,
+        "mergedAt": "2023-09-30T14:37:24Z",
+        "headSha": "735a4701d6d5e848241e7d7535db898efb62d400",
+        "url": "https://github.com/pallets/flask/pull/5257"
+      },
+      {
+        "number": 5264,
+        "mergedAt": "2023-09-30T14:25:31Z",
+        "headSha": "17179082c241abe8e4884bf04ff59277765b8578",
+        "url": "https://github.com/pallets/flask/pull/5264"
+      },
+      {
+        "number": 5262,
+        "mergedAt": "2023-09-24T14:58:23Z",
+        "headSha": "11f9e72fda8d66c9b6e87c98f82dc0b7ffee6db0",
+        "url": "https://github.com/pallets/flask/pull/5262"
+      },
+      {
+        "number": 5248,
+        "mergedAt": "2023-09-05T21:02:38Z",
+        "headSha": "24c6508d39ad7fabd4c017b9a47d12539ea6b708",
+        "url": "https://github.com/pallets/flask/pull/5248"
+      },
+      {
+        "number": 5247,
+        "mergedAt": "2023-09-05T21:02:29Z",
+        "headSha": "98cef9fcca23677f436b2d6d7297d14bb93b59fc",
+        "url": "https://github.com/pallets/flask/pull/5247"
+      },
+      {
+        "number": 5246,
+        "mergedAt": "2023-09-05T21:01:16Z",
+        "headSha": "0c97a411b430f96694e9980515b5e253ad999327",
+        "url": "https://github.com/pallets/flask/pull/5246"
+      },
+      {
+        "number": 5242,
+        "mergedAt": "2023-08-29T13:09:59Z",
+        "headSha": "293041a290178dc1d526075372960c3ca589d366",
+        "url": "https://github.com/pallets/flask/pull/5242"
+      },
+      {
+        "number": 5238,
+        "mergedAt": "2023-08-27T14:12:04Z",
+        "headSha": "74d923515c0145028bf122b66c6c595aac62aa9a",
+        "url": "https://github.com/pallets/flask/pull/5238"
+      },
+      {
+        "number": 5232,
+        "mergedAt": "2023-08-21T19:52:54Z",
+        "headSha": "3205b53c7cf69d17fee49cac6b84978175b7dd73",
+        "url": "https://github.com/pallets/flask/pull/5232"
+      },
+      {
+        "number": 5231,
+        "mergedAt": "2023-08-21T16:42:21Z",
+        "headSha": "5bb30270d2e68d8d9278ac6f5abf67049acba662",
+        "url": "https://github.com/pallets/flask/pull/5231"
+      },
+      {
+        "number": 5127,
+        "mergedAt": "2023-08-20T16:32:09Z",
+        "headSha": "bc5dd3894b4b19e07abfe6a23d87d66c02e4061f",
+        "url": "https://github.com/pallets/flask/pull/5127"
+      },
+      {
+        "number": 5223,
+        "mergedAt": "2023-08-16T22:08:53Z",
+        "headSha": "04994df59f2f642e52ba46ca656088bcdb931262",
+        "url": "https://github.com/pallets/flask/pull/5223"
+      },
+      {
+        "number": 5217,
+        "mergedAt": "2023-08-16T21:29:40Z",
+        "headSha": "a887e179b8af6a9c582a7918f9f8499ab58032cc",
+        "url": "https://github.com/pallets/flask/pull/5217"
+      },
+      {
+        "number": 5215,
+        "mergedAt": "2023-08-16T20:35:14Z",
+        "headSha": "17e146ad949b3d80438faf95e81b53c543cb50f5",
+        "url": "https://github.com/pallets/flask/pull/5215"
+      },
+      {
+        "number": 5213,
+        "mergedAt": "2023-08-01T16:59:06Z",
+        "headSha": "dcc86ebfce71bf2829bce429134d6424355f159a",
+        "url": "https://github.com/pallets/flask/pull/5213"
+      },
+      {
+        "number": 5212,
+        "mergedAt": "2023-08-01T16:58:55Z",
+        "headSha": "180ff8853c69240a3d214734da8d78f8d4d6f0bc",
+        "url": "https://github.com/pallets/flask/pull/5212"
+      },
+      {
+        "number": 5211,
+        "mergedAt": "2023-08-01T16:17:48Z",
+        "headSha": "7255be9626ab56d81bc0ab86db939fcc1da9bca1",
+        "url": "https://github.com/pallets/flask/pull/5211"
+      },
+      {
+        "number": 5187,
+        "mergedAt": "2023-07-04T13:18:23Z",
+        "headSha": "65bc7636348a9ca32ccafb9f685ab4377e1e446d",
+        "url": "https://github.com/pallets/flask/pull/5187"
+      },
+      {
+        "number": 5182,
+        "mergedAt": "2023-07-03T12:58:14Z",
+        "headSha": "11da927fd993c941618a67b443cc0649402f4de0",
+        "url": "https://github.com/pallets/flask/pull/5182"
+      },
+      {
+        "number": 5186,
+        "mergedAt": "2023-07-01T16:24:20Z",
+        "headSha": "1ce4d95de92fdd9423c295bf9b63117817fab3bf",
+        "url": "https://github.com/pallets/flask/pull/5186"
+      },
+      {
+        "number": 5185,
+        "mergedAt": "2023-07-01T16:24:11Z",
+        "headSha": "1fb188636e6a21e9c1fefdf4dd8c671dd3f332d6",
+        "url": "https://github.com/pallets/flask/pull/5185"
+      },
+      {
+        "number": 5184,
+        "mergedAt": "2023-07-01T16:23:57Z",
+        "headSha": "f62580b947e3be4d8b5ef5fa486d1472884aacd5",
+        "url": "https://github.com/pallets/flask/pull/5184"
+      },
+      {
+        "number": 5183,
+        "mergedAt": "2023-07-01T16:23:36Z",
+        "headSha": "47a89da558e240148ced28ddcc4e709a4be4955a",
+        "url": "https://github.com/pallets/flask/pull/5183"
+      },
+      {
+        "number": 5180,
+        "mergedAt": "2023-06-30T00:28:25Z",
+        "headSha": "aea13d5a100b03758fecb88a34daeab4f8aa8426",
+        "url": "https://github.com/pallets/flask/pull/5180"
+      },
+      {
+        "number": 5177,
+        "mergedAt": "2023-06-27T21:17:46Z",
+        "headSha": "6b9acd565cded9c805760037b69754c11749c830",
+        "url": "https://github.com/pallets/flask/pull/5177"
+      },
+      {
+        "number": 5171,
+        "mergedAt": "2023-06-21T16:32:37Z",
+        "headSha": "a7ae372f2f58343a7eb56209f29eb9879e171b58",
+        "url": "https://github.com/pallets/flask/pull/5171"
+      },
+      {
+        "number": 5161,
+        "mergedAt": "2023-06-09T16:38:59Z",
+        "headSha": "bda295d37fa3809c95a93d01dd605d0222109889",
+        "url": "https://github.com/pallets/flask/pull/5161"
+      },
+      {
+        "number": 5157,
+        "mergedAt": "2023-06-07T20:21:49Z",
+        "headSha": "ed8ddb6a3a14ae332823b0a266b02a5ef024cbb3",
+        "url": "https://github.com/pallets/flask/pull/5157"
+      },
+      {
+        "number": 5154,
+        "mergedAt": "2023-06-07T19:53:30Z",
+        "headSha": "d614d6bf8c7b6db6f817648836f9044b13dc42b4",
+        "url": "https://github.com/pallets/flask/pull/5154"
+      },
+      {
+        "number": 5150,
+        "mergedAt": "2023-06-01T18:49:17Z",
+        "headSha": "18e703bc9341b8066e2b277af5d37b13f5bd3aef",
+        "url": "https://github.com/pallets/flask/pull/5150"
+      },
+      {
+        "number": 5149,
+        "mergedAt": "2023-06-01T18:47:53Z",
+        "headSha": "fc74a114b3afe87284467f2ccdbeb7a4a8badbc4",
+        "url": "https://github.com/pallets/flask/pull/5149"
+      },
+      {
+        "number": 5148,
+        "mergedAt": "2023-06-01T18:46:49Z",
+        "headSha": "40f31c307848e560336fc8b336fbc2fdc1a478ee",
+        "url": "https://github.com/pallets/flask/pull/5148"
+      },
+      {
+        "number": 5140,
+        "mergedAt": "2023-05-31T16:14:56Z",
+        "headSha": "0f477df86a8c953cb5e4df0bd90266345140b114",
+        "url": "https://github.com/pallets/flask/pull/5140"
+      },
+      {
+        "number": 5136,
+        "mergedAt": "2023-05-18T12:33:44Z",
+        "headSha": "38229063bdc3b063b22fe2ec560c8779bf1d2f3e",
+        "url": "https://github.com/pallets/flask/pull/5136"
+      },
+      {
+        "number": 5126,
+        "mergedAt": "2023-05-14T16:43:35Z",
+        "headSha": "2abb7513dc52e9d9f2c73dde91f3b89d8f9492e4",
+        "url": "https://github.com/pallets/flask/pull/5126"
+      },
+      {
+        "number": 5111,
+        "mergedAt": "2023-05-02T17:41:41Z",
+        "headSha": "0a00e1b6085f62fb776a95ef676ea661bff565f6",
+        "url": "https://github.com/pallets/flask/pull/5111"
+      },
+      {
+        "number": 5110,
+        "mergedAt": "2023-05-02T14:43:49Z",
+        "headSha": "47af817c8fe01045c641b97f8fb784c7ad864eee",
+        "url": "https://github.com/pallets/flask/pull/5110"
+      },
+      {
+        "number": 5109,
+        "mergedAt": "2023-05-02T14:18:08Z",
+        "headSha": "8646edca6f47e2cd57464081b3911218d4734f8d",
+        "url": "https://github.com/pallets/flask/pull/5109"
+      },
+      {
+        "number": 5108,
+        "mergedAt": "2023-05-02T14:12:59Z",
+        "headSha": "3fbfbad79fe294918459b70eb409d555b20de2c8",
+        "url": "https://github.com/pallets/flask/pull/5108"
+      },
+      {
+        "number": 5106,
+        "mergedAt": "2023-05-01T17:22:01Z",
+        "headSha": "ec8ca69195174a6526a6006d804841c0124eeccf",
+        "url": "https://github.com/pallets/flask/pull/5106"
+      },
+      {
+        "number": 5104,
+        "mergedAt": "2023-05-01T17:21:02Z",
+        "headSha": "dcd25d8f07be14508c7f8182d9f9cc4365eb96fe",
+        "url": "https://github.com/pallets/flask/pull/5104"
+      },
+      {
+        "number": 5105,
+        "mergedAt": "2023-05-01T17:17:25Z",
+        "headSha": "b7b753b96c36f0704c7c2729f6564aa6c34797a6",
+        "url": "https://github.com/pallets/flask/pull/5105"
+      },
+      {
+        "number": 5102,
+        "mergedAt": "2023-05-01T15:42:27Z",
+        "headSha": "f3b8f570545200c87465d18386f3fc9f2258307a",
+        "url": "https://github.com/pallets/flask/pull/5102"
+      },
+      {
+        "number": 5101,
+        "mergedAt": "2023-05-01T15:22:59Z",
+        "headSha": "e1aedecdc689cc9a79131851dbdabf6c3bc49c9e",
+        "url": "https://github.com/pallets/flask/pull/5101"
+      },
+      {
+        "number": 5086,
+        "mergedAt": "2023-04-25T21:21:37Z",
+        "headSha": "721abdc3810057269503a72d2db80fb826f3c85c",
+        "url": "https://github.com/pallets/flask/pull/5086"
+      },
+      {
+        "number": 5085,
+        "mergedAt": "2023-04-25T20:06:22Z",
+        "headSha": "0ec9192cf25f5187d6521f2539489fa8d55336bb",
+        "url": "https://github.com/pallets/flask/pull/5085"
+      },
+      {
+        "number": 5083,
+        "mergedAt": "2023-04-25T18:42:22Z",
+        "headSha": "8728c3e4cd4e929a4327d917acd4b96c75f963d0",
+        "url": "https://github.com/pallets/flask/pull/5083"
+      },
+      {
+        "number": 5082,
+        "mergedAt": "2023-04-25T18:33:30Z",
+        "headSha": "79ebf6c39cba01b240a926b899b7d0828e63fc4b",
+        "url": "https://github.com/pallets/flask/pull/5082"
+      },
+      {
+        "number": 5081,
+        "mergedAt": "2023-04-25T17:53:09Z",
+        "headSha": "74e03298200e33951ca350a35aa3a8c0b4ff8177",
+        "url": "https://github.com/pallets/flask/pull/5081"
+      },
+      {
+        "number": 5077,
+        "mergedAt": "2023-04-24T18:21:42Z",
+        "headSha": "d48deba27331f11e19599af2a5b6e64476fd90da",
+        "url": "https://github.com/pallets/flask/pull/5077"
+      },
+      {
+        "number": 5073,
+        "mergedAt": "2023-04-20T18:49:26Z",
+        "headSha": "83d777bebfb3031de51d458b47d06e8e612f3a3d",
+        "url": "https://github.com/pallets/flask/pull/5073"
+      },
+      {
+        "number": 5072,
+        "mergedAt": "2023-04-20T18:11:52Z",
+        "headSha": "2e8fe7b2f2b541a60c90c625446647b22c5cacc2",
+        "url": "https://github.com/pallets/flask/pull/5072"
+      },
+      {
+        "number": 5071,
+        "mergedAt": "2023-04-20T16:36:51Z",
+        "headSha": "44ffe6c6d6c90a414de32db1b03d5978f8770271",
+        "url": "https://github.com/pallets/flask/pull/5071"
+      },
+      {
+        "number": 5067,
+        "mergedAt": "2023-04-15T19:27:24Z",
+        "headSha": "a67195e0598f7fa4481e366527600cf0b46ae78e",
+        "url": "https://github.com/pallets/flask/pull/5067"
+      },
+      {
+        "number": 5066,
+        "mergedAt": "2023-04-15T18:57:46Z",
+        "headSha": "5bba529dfc9021a3df8fba96658a05f605e20afe",
+        "url": "https://github.com/pallets/flask/pull/5066"
+      },
+      {
+        "number": 5063,
+        "mergedAt": "2023-04-14T16:45:20Z",
+        "headSha": "84c007d34f7f0b8737310fe4d67be12c463e0130",
+        "url": "https://github.com/pallets/flask/pull/5063"
+      },
+      {
+        "number": 4969,
+        "mergedAt": "2023-04-13T17:03:49Z",
+        "headSha": "ffc0cba994616f3142fcd5f0e13a50fe8f3ecadf",
+        "url": "https://github.com/pallets/flask/pull/4969"
+      },
+      {
+        "number": 5059,
+        "mergedAt": "2023-04-13T15:24:59Z",
+        "headSha": "f7d9956c0f0e9a80b1d345adac191f6ebd0ffee4",
+        "url": "https://github.com/pallets/flask/pull/5059"
+      },
+      {
+        "number": 5049,
+        "mergedAt": "2023-04-13T15:08:28Z",
+        "headSha": "8239765a4410d13d489e299a99e4a4c6951e190b",
+        "url": "https://github.com/pallets/flask/pull/5049"
+      },
+      {
+        "number": 5058,
+        "mergedAt": "2023-04-13T14:51:11Z",
+        "headSha": "9cb1a7a52d7927071e2b737d52f902f006969e82",
+        "url": "https://github.com/pallets/flask/pull/5058"
+      },
+      {
+        "number": 5034,
+        "mergedAt": "2023-04-12T20:43:24Z",
+        "headSha": "b626a9387900a9f717eb42765275adc0bf0875e3",
+        "url": "https://github.com/pallets/flask/pull/5034"
+      },
+      {
+        "number": 5029,
+        "mergedAt": "2023-04-12T20:29:06Z",
+        "headSha": "c67bfe551d016b15d0a2df89c985d8030387bf1e",
+        "url": "https://github.com/pallets/flask/pull/5029"
+      },
+      {
+        "number": 5054,
+        "mergedAt": "2023-04-12T20:10:35Z",
+        "headSha": "c24f8c8199f8ceda7a7cfb5e91773eba595f5b67",
+        "url": "https://github.com/pallets/flask/pull/5054"
+      },
+      {
+        "number": 5053,
+        "mergedAt": "2023-04-12T17:57:14Z",
+        "headSha": "04c21387dbc454fb59cae9c9bb21a13358cb5a34",
+        "url": "https://github.com/pallets/flask/pull/5053"
+      },
+      {
+        "number": 5037,
+        "mergedAt": "2023-04-05T21:56:26Z",
+        "headSha": "15f2ca2c24c63533219312600942248d3513a670",
+        "url": "https://github.com/pallets/flask/pull/5037"
+      },
+      {
+        "number": 5041,
+        "mergedAt": "2023-04-04T14:00:50Z",
+        "headSha": "d2a6f5c572f5275bb8c91286cfd24c2c504cc243",
+        "url": "https://github.com/pallets/flask/pull/5041"
+      },
+      {
+        "number": 5038,
+        "mergedAt": "2023-04-03T13:19:09Z",
+        "headSha": "29676a273a5b9dc99268850c4fa534f78884cdd3",
+        "url": "https://github.com/pallets/flask/pull/5038"
+      },
+      {
+        "number": 5040,
+        "mergedAt": "2023-04-03T13:18:57Z",
+        "headSha": "4909e8ff86508c87ba9a77a4adc602e9288c5141",
+        "url": "https://github.com/pallets/flask/pull/5040"
+      },
+      {
+        "number": 5039,
+        "mergedAt": "2023-04-03T13:18:45Z",
+        "headSha": "6a6c83789f88715329a79d9cb887e25f8e472e94",
+        "url": "https://github.com/pallets/flask/pull/5039"
+      },
+      {
+        "number": 5014,
+        "mergedAt": "2023-03-11T16:34:56Z",
+        "headSha": "b8b410014d85f9861acc87c5f21c9a55a42d09c9",
+        "url": "https://github.com/pallets/flask/pull/5014"
+      },
+      {
+        "number": 5026,
+        "mergedAt": "2023-03-11T16:21:58Z",
+        "headSha": "c4b39ba2f3fede0555f18fc03b0f2499bb0d424b",
+        "url": "https://github.com/pallets/flask/pull/5026"
+      },
+      {
+        "number": 5025,
+        "mergedAt": "2023-03-11T15:41:19Z",
+        "headSha": "1432cddb139fc3cb64b990b8672d245d805e97d0",
+        "url": "https://github.com/pallets/flask/pull/5025"
+      },
+      {
+        "number": 5024,
+        "mergedAt": "2023-03-11T15:32:13Z",
+        "headSha": "31022056aee5ab24cf485e31a0b48bbd52d96a04",
+        "url": "https://github.com/pallets/flask/pull/5024"
+      },
+      {
+        "number": 5020,
+        "mergedAt": "2023-03-08T19:04:53Z",
+        "headSha": "0bc6be604d465406c5909b13162e7097ab0ea2f8",
+        "url": "https://github.com/pallets/flask/pull/5020"
+      },
+      {
+        "number": 5005,
+        "mergedAt": "2023-03-01T17:04:40Z",
+        "headSha": "3cdcc729a73766bdb071b8b43a1d60971994db07",
+        "url": "https://github.com/pallets/flask/pull/5005"
+      },
+      {
+        "number": 5006,
+        "mergedAt": "2023-03-01T17:02:06Z",
+        "headSha": "b8eb83940cc46e1499f8e4194f688f193232eedb",
+        "url": "https://github.com/pallets/flask/pull/5006"
+      },
+      {
+        "number": 4992,
+        "mergedAt": "2023-02-23T19:13:18Z",
+        "headSha": "b10b6d4af1127fdfb0a74221af0c020ced71fece",
+        "url": "https://github.com/pallets/flask/pull/4992"
+      },
+      {
+        "number": 4998,
+        "mergedAt": "2023-02-23T18:59:28Z",
+        "headSha": "4256fc63044fa0d9c2135443461689b1adaf386d",
+        "url": "https://github.com/pallets/flask/pull/4998"
+      },
+      {
+        "number": 4997,
+        "mergedAt": "2023-02-23T17:34:18Z",
+        "headSha": "fc03d0dfab64945169e1114cdc1fb39519a1e0c1",
+        "url": "https://github.com/pallets/flask/pull/4997"
+      },
+      {
+        "number": 4996,
+        "mergedAt": "2023-02-23T16:59:38Z",
+        "headSha": "9c02f07f9bb4c88207c2a6860742c452c35d2948",
+        "url": "https://github.com/pallets/flask/pull/4996"
+      },
+      {
+        "number": 4995,
+        "mergedAt": "2023-02-23T16:45:39Z",
+        "headSha": "6650764e9719402de2aaa6f321bdec587699c6b2",
+        "url": "https://github.com/pallets/flask/pull/4995"
+      },
+      {
+        "number": 4980,
+        "mergedAt": "2023-02-15T22:44:24Z",
+        "headSha": "41d4f62909bb426c84e9d057151f7d734695320a",
+        "url": "https://github.com/pallets/flask/pull/4980"
+      },
+      {
+        "number": 4973,
+        "mergedAt": "2023-02-10T22:54:50Z",
+        "headSha": "a6cd8f212e762b8f70e00f3341b27799c0fb657a",
+        "url": "https://github.com/pallets/flask/pull/4973"
+      },
+      {
+        "number": 4972,
+        "mergedAt": "2023-02-10T18:53:02Z",
+        "headSha": "ba2b3094d1a8177059ea68853a48fcd5e90920fe",
+        "url": "https://github.com/pallets/flask/pull/4972"
+      },
+      {
+        "number": 4971,
+        "mergedAt": "2023-02-10T18:42:48Z",
+        "headSha": "ab93222bd6d4ea26e3aa832a0409489530f3f5e0",
+        "url": "https://github.com/pallets/flask/pull/4971"
+      },
+      {
+        "number": 4968,
+        "mergedAt": "2023-02-10T17:35:31Z",
+        "headSha": "3f195248dcd59f8eb08e282b7980dc04b97d7391",
+        "url": "https://github.com/pallets/flask/pull/4968"
+      },
+      {
+        "number": 4966,
+        "mergedAt": "2023-02-09T02:44:10Z",
+        "headSha": "428d9430bc69031150a8d50ac8af17cc8082ea4e",
+        "url": "https://github.com/pallets/flask/pull/4966"
+      },
+      {
+        "number": 4963,
+        "mergedAt": "2023-02-07T15:11:51Z",
+        "headSha": "a15da89dbb4be39be09ed7e5b57a22acfb117e6d",
+        "url": "https://github.com/pallets/flask/pull/4963"
+      },
+      {
+        "number": 4952,
+        "mergedAt": "2023-02-02T17:01:22Z",
+        "headSha": "d93760d8bd6e367faefe9ad550f753e32ef9a12d",
+        "url": "https://github.com/pallets/flask/pull/4952"
+      },
+      {
+        "number": 4960,
+        "mergedAt": "2023-02-02T17:01:03Z",
+        "headSha": "9abe28130d4f0aff48b4f9931ebc15bd7617f19f",
+        "url": "https://github.com/pallets/flask/pull/4960"
+      },
+      {
+        "number": 4959,
+        "mergedAt": "2023-02-01T16:55:10Z",
+        "headSha": "74c256872b5f0be65e9f71b91a73ac4b02647298",
+        "url": "https://github.com/pallets/flask/pull/4959"
+      },
+      {
+        "number": 4958,
+        "mergedAt": "2023-02-01T16:54:52Z",
+        "headSha": "94a23a3e24b6736ca3b54773de0ce384270c457a",
+        "url": "https://github.com/pallets/flask/pull/4958"
+      },
+      {
+        "number": 4949,
+        "mergedAt": "2023-01-20T21:49:30Z",
+        "headSha": "0b4b61146ffca0f7dfc25f1b245df89442293335",
+        "url": "https://github.com/pallets/flask/pull/4949"
+      },
+      {
+        "number": 4947,
+        "mergedAt": "2023-01-18T18:38:38Z",
+        "headSha": "261e4a6cf287180b69c4db407791e43ce90e50ad",
+        "url": "https://github.com/pallets/flask/pull/4947"
+      },
+      {
+        "number": 4942,
+        "mergedAt": "2023-01-09T19:11:02Z",
+        "headSha": "a7487701999fee55bb76a393e72c96ac8e277fcf",
+        "url": "https://github.com/pallets/flask/pull/4942"
+      },
+      {
+        "number": 4943,
+        "mergedAt": "2023-01-09T18:42:15Z",
+        "headSha": "2a9d16d01189249749324141f0c294b31bf7ba6b",
+        "url": "https://github.com/pallets/flask/pull/4943"
+      },
+      {
+        "number": 4935,
+        "mergedAt": "2023-01-04T21:06:36Z",
+        "headSha": "cabda5935322d75e7aedb3ee6d59fb7ab62bd674",
+        "url": "https://github.com/pallets/flask/pull/4935"
+      },
+      {
+        "number": 4933,
+        "mergedAt": "2023-01-03T15:24:18Z",
+        "headSha": "bb1f83c26586f1aa254d67a67e6b692034b4cb4a",
+        "url": "https://github.com/pallets/flask/pull/4933"
+      },
+      {
+        "number": 4779,
+        "mergedAt": "2022-12-24T22:28:21Z",
+        "headSha": "bd26928fdb2476fca62f0e621e8f2870250ac2bc",
+        "url": "https://github.com/pallets/flask/pull/4779"
+      },
+      {
+        "number": 4921,
+        "mergedAt": "2022-12-24T18:20:57Z",
+        "headSha": "09112cfc477a270f4b2990e1daf39db1dbe30e98",
+        "url": "https://github.com/pallets/flask/pull/4921"
+      },
+      {
+        "number": 4920,
+        "mergedAt": "2022-12-24T18:07:46Z",
+        "headSha": "677a0468481a0f620bdb217e8f1a24ebe94681e5",
+        "url": "https://github.com/pallets/flask/pull/4920"
+      },
+      {
+        "number": 4926,
+        "mergedAt": "2022-12-24T17:36:40Z",
+        "headSha": "1a68768e6b0aa19bd670ca050ad81adff55ba479",
+        "url": "https://github.com/pallets/flask/pull/4926"
+      },
+      {
+        "number": 4922,
+        "mergedAt": "2022-12-24T17:25:44Z",
+        "headSha": "8e3128b9893ba4ec8d120e1c2f479f61bd10a476",
+        "url": "https://github.com/pallets/flask/pull/4922"
+      },
+      {
+        "number": 4913,
+        "mergedAt": "2022-12-22T13:48:46Z",
+        "headSha": "43ef559de3ecb1915aabe8156f357d7ac4cd22b3",
+        "url": "https://github.com/pallets/flask/pull/4913"
+      },
+      {
+        "number": 4907,
+        "mergedAt": "2022-12-14T00:36:49Z",
+        "headSha": "95b666871c7a89f2793952ea06d1c45e0ae5a38a",
+        "url": "https://github.com/pallets/flask/pull/4907"
+      },
+      {
+        "number": 4899,
+        "mergedAt": "2022-12-10T05:42:03Z",
+        "headSha": "3e932aa103661e78a0946e15f35b9f4da3908d39",
+        "url": "https://github.com/pallets/flask/pull/4899"
+      },
+      {
+        "number": 4882,
+        "mergedAt": "2022-11-27T14:51:08Z",
+        "headSha": "d951a763fb90ff3edb5aede5198198ee5d30d44e",
+        "url": "https://github.com/pallets/flask/pull/4882"
+      },
+      {
+        "number": 4883,
+        "mergedAt": "2022-11-27T14:50:47Z",
+        "headSha": "9a294a640141ea8ab108e5c0964d75d91a636c0a",
+        "url": "https://github.com/pallets/flask/pull/4883"
+      },
+      {
+        "number": 4879,
+        "mergedAt": "2022-11-25T15:43:47Z",
+        "headSha": "d178653b5f7a5ee2ba15e215ce60caeeb9ed82e1",
+        "url": "https://github.com/pallets/flask/pull/4879"
+      },
+      {
+        "number": 4862,
+        "mergedAt": "2022-11-08T04:38:32Z",
+        "headSha": "703214f18c622c7a885abed20d50fabdcf5d3fc0",
+        "url": "https://github.com/pallets/flask/pull/4862"
+      },
+      {
+        "number": 4858,
+        "mergedAt": "2022-11-01T01:41:21Z",
+        "headSha": "9daddd12719a098ff33556fcc34c0b7cf33120ca",
+        "url": "https://github.com/pallets/flask/pull/4858"
+      },
+      {
+        "number": 4847,
+        "mergedAt": "2022-10-30T15:00:37Z",
+        "headSha": "5dfd2126a6d5210096ec6ba1ead471b79dc8bd17",
+        "url": "https://github.com/pallets/flask/pull/4847"
+      },
+      {
+        "number": 4840,
+        "mergedAt": "2022-10-30T14:55:51Z",
+        "headSha": "18d8ee666621daffbb0cd1279841959635b18198",
+        "url": "https://github.com/pallets/flask/pull/4840"
+      },
+      {
+        "number": 4833,
+        "mergedAt": "2022-10-19T14:16:05Z",
+        "headSha": "c7da6d74a89753405203e2ee7d19dda74b38b493",
+        "url": "https://github.com/pallets/flask/pull/4833"
+      },
+      {
+        "number": 4835,
+        "mergedAt": "2022-10-05T03:09:06Z",
+        "headSha": "75e92090ee43642ad0608edc8bc5d4dc5e84dec8",
+        "url": "https://github.com/pallets/flask/pull/4835"
+      },
+      {
+        "number": 4821,
+        "mergedAt": "2022-09-18T11:53:47Z",
+        "headSha": "3eb4152b0e904db3f9b80f4eee72ca754ac633c5",
+        "url": "https://github.com/pallets/flask/pull/4821"
+      },
+      {
+        "number": 4818,
+        "mergedAt": "2022-09-14T13:08:38Z",
+        "headSha": "2680285f56d7e75de23b745ec69f854308f422d3",
+        "url": "https://github.com/pallets/flask/pull/4818"
+      },
+      {
+        "number": 4815,
+        "mergedAt": "2022-09-14T13:07:20Z",
+        "headSha": "a3221b830a5bf1ea97fee5831447ebcb411ff258",
+        "url": "https://github.com/pallets/flask/pull/4815"
+      },
+      {
+        "number": 4806,
+        "mergedAt": "2022-09-07T19:07:21Z",
+        "headSha": "59dda69eb3a7a9b6544ff78a2590a2aff000967a",
+        "url": "https://github.com/pallets/flask/pull/4806"
+      },
+      {
+        "number": 4801,
+        "mergedAt": "2022-09-02T15:52:14Z",
+        "headSha": "bba32d35a624b1687cd642162c6300a7295f0533",
+        "url": "https://github.com/pallets/flask/pull/4801"
+      },
+      {
+        "number": 4783,
+        "mergedAt": "2022-08-22T16:05:53Z",
+        "headSha": "4949d5def85454bb3788979c737719917d28232e",
+        "url": "https://github.com/pallets/flask/pull/4783"
+      },
+      {
+        "number": 4780,
+        "mergedAt": "2022-08-21T14:56:09Z",
+        "headSha": "746455d1038fd5479f396cbf2d19b48edfeb8290",
+        "url": "https://github.com/pallets/flask/pull/4780"
+      },
+      {
+        "number": 4772,
+        "mergedAt": "2022-08-17T16:24:58Z",
+        "headSha": "86bf3f205feaa86e149674cd0f23a14f3e5c2e22",
+        "url": "https://github.com/pallets/flask/pull/4772"
+      },
+      {
+        "number": 4760,
+        "mergedAt": "2022-08-13T02:22:11Z",
+        "headSha": "77cdefcceeb90e261977493318bc8e71c5b15c33",
+        "url": "https://github.com/pallets/flask/pull/4760"
+      },
+      {
+        "number": 4758,
+        "mergedAt": "2022-08-09T14:08:08Z",
+        "headSha": "22b6296830113827810d4e89c634f8153020f097",
+        "url": "https://github.com/pallets/flask/pull/4758"
+      },
+      {
+        "number": 4757,
+        "mergedAt": "2022-08-09T14:03:39Z",
+        "headSha": "00b07c863ec147256b68f71c3fe9b6b2f9dbe6bc",
+        "url": "https://github.com/pallets/flask/pull/4757"
+      },
+      {
+        "number": 4755,
+        "mergedAt": "2022-08-08T23:24:25Z",
+        "headSha": "43d2fff317aec64a000604a764b8ab2dc751c753",
+        "url": "https://github.com/pallets/flask/pull/4755"
+      },
+      {
+        "number": 4754,
+        "mergedAt": "2022-08-08T23:19:32Z",
+        "headSha": "de16718b39e3544688130339a0813997e3790c48",
+        "url": "https://github.com/pallets/flask/pull/4754"
+      },
+      {
+        "number": 4749,
+        "mergedAt": "2022-08-05T18:35:15Z",
+        "headSha": "e3df23374cdb9342a823556170c53c9d987d0d33",
+        "url": "https://github.com/pallets/flask/pull/4749"
+      },
+      {
+        "number": 4748,
+        "mergedAt": "2022-08-05T18:28:22Z",
+        "headSha": "3ffbed380fcd5c8651173badcd6a38f9a5afe2d1",
+        "url": "https://github.com/pallets/flask/pull/4748"
+      },
+      {
+        "number": 4742,
+        "mergedAt": "2022-08-04T14:27:50Z",
+        "headSha": "a6a7a57380cd8f7410753c3b819ba6d09198d8c9",
+        "url": "https://github.com/pallets/flask/pull/4742"
+      },
+      {
+        "number": 4736,
+        "mergedAt": "2022-08-03T23:51:23Z",
+        "headSha": "52c54b2ce1e392c5d5cd9339a4a069e91edd1d01",
+        "url": "https://github.com/pallets/flask/pull/4736"
+      },
+      {
+        "number": 4735,
+        "mergedAt": "2022-08-03T17:02:18Z",
+        "headSha": "714ccefeca33db9e87e8ef4abd0008af05c32a4d",
+        "url": "https://github.com/pallets/flask/pull/4735"
+      },
+      {
+        "number": 4710,
+        "mergedAt": "2022-08-02T00:12:10Z",
+        "headSha": "292c7e5c5db14824a23bbd6fdfe69f62015aee20",
+        "url": "https://github.com/pallets/flask/pull/4710"
+      },
+      {
+        "number": 4721,
+        "mergedAt": "2022-08-02T00:07:27Z",
+        "headSha": "6f9ef112865eae12684aa74924ee08504044a62d",
+        "url": "https://github.com/pallets/flask/pull/4721"
+      },
+      {
+        "number": 4722,
+        "mergedAt": "2022-08-02T00:04:13Z",
+        "headSha": "bfdd37110c67ebeb42061fb43cf684b05291241f",
+        "url": "https://github.com/pallets/flask/pull/4722"
+      },
+      {
+        "number": 4720,
+        "mergedAt": "2022-08-01T22:19:17Z",
+        "headSha": "30427a209043bfb9730904e0c34b0dbc40bd21f4",
+        "url": "https://github.com/pallets/flask/pull/4720"
+      },
+      {
+        "number": 4719,
+        "mergedAt": "2022-08-01T17:56:15Z",
+        "headSha": "7d53a129cf1b28f1a88491ae50877473b68bdb54",
+        "url": "https://github.com/pallets/flask/pull/4719"
+      },
+      {
+        "number": 4718,
+        "mergedAt": "2022-08-01T17:44:32Z",
+        "headSha": "5d8e35653fca0d7ee01519d556c7851089de82ea",
+        "url": "https://github.com/pallets/flask/pull/4718"
+      },
+      {
+        "number": 4695,
+        "mergedAt": "2022-07-14T21:17:38Z",
+        "headSha": "4bf7415a9692b0c1a69cd50a17c1cbda4a75931b",
+        "url": "https://github.com/pallets/flask/pull/4695"
+      },
+      {
+        "number": 4694,
+        "mergedAt": "2022-07-13T20:54:33Z",
+        "headSha": "134aebe60115716b962a95a0dd31bf72c5417941",
+        "url": "https://github.com/pallets/flask/pull/4694"
+      },
+      {
+        "number": 4693,
+        "mergedAt": "2022-07-13T20:50:05Z",
+        "headSha": "58f3536a8f5dfc18e559c518ae38cba52bec90a9",
+        "url": "https://github.com/pallets/flask/pull/4693"
+      },
+      {
+        "number": 4692,
+        "mergedAt": "2022-07-13T16:55:01Z",
+        "headSha": "69f9845ef2da3051d74d4dade3e88ccf5b2ee3de",
+        "url": "https://github.com/pallets/flask/pull/4692"
+      },
+      {
+        "number": 4687,
+        "mergedAt": "2022-07-11T23:50:11Z",
+        "headSha": "03b410066b96f63ba2a215750f881d5bebb78a29",
+        "url": "https://github.com/pallets/flask/pull/4687"
+      },
+      {
+        "number": 4686,
+        "mergedAt": "2022-07-10T11:36:55Z",
+        "headSha": "58ecacd271c2a07018cb6f65da164d4bed1e14ea",
+        "url": "https://github.com/pallets/flask/pull/4686"
+      },
+      {
+        "number": 4685,
+        "mergedAt": "2022-07-09T12:44:53Z",
+        "headSha": "91044c4d769efa7f20455e1b70457a7da95c26d8",
+        "url": "https://github.com/pallets/flask/pull/4685"
+      },
+      {
+        "number": 4682,
+        "mergedAt": "2022-07-08T18:58:44Z",
+        "headSha": "e0dad454810dd081947d3ca2ff376c5096185698",
+        "url": "https://github.com/pallets/flask/pull/4682"
+      },
+      {
+        "number": 4681,
+        "mergedAt": "2022-07-08T17:28:02Z",
+        "headSha": "6751f68560bfa7c51133d2712830645ed551ace8",
+        "url": "https://github.com/pallets/flask/pull/4681"
+      },
+      {
+        "number": 4680,
+        "mergedAt": "2022-07-08T13:41:56Z",
+        "headSha": "2f1d1d625697b9eca82dc8b2f46fff24dace63b1",
+        "url": "https://github.com/pallets/flask/pull/4680"
+      },
+      {
+        "number": 4676,
+        "mergedAt": "2022-07-06T21:05:20Z",
+        "headSha": "8b793e1c965b70d12f2f2942e5d677d56f038280",
+        "url": "https://github.com/pallets/flask/pull/4676"
+      },
+      {
+        "number": 4675,
+        "mergedAt": "2022-07-06T12:33:05Z",
+        "headSha": "9dfcb90c92e13f2d92cb723cb834b5e0d666a2f5",
+        "url": "https://github.com/pallets/flask/pull/4675"
+      },
+      {
+        "number": 4674,
+        "mergedAt": "2022-07-04T22:55:54Z",
+        "headSha": "e9d0000fc152108948144def06b2ac84524bffcc",
+        "url": "https://github.com/pallets/flask/pull/4674"
+      },
+      {
+        "number": 4672,
+        "mergedAt": "2022-07-03T04:48:06Z",
+        "headSha": "60b845ebabeb77e401186f4b83de21d3f9c6a9d7",
+        "url": "https://github.com/pallets/flask/pull/4672"
+      },
+      {
+        "number": 4667,
+        "mergedAt": "2022-07-01T21:14:37Z",
+        "headSha": "c2810ffdd2f2becbc37d35f63b69034b8b9ed5b8",
+        "url": "https://github.com/pallets/flask/pull/4667"
+      },
+      {
+        "number": 4666,
+        "mergedAt": "2022-07-01T19:35:24Z",
+        "headSha": "84c722044ad03f7f5384f5314c8350b3a13d8dfa",
+        "url": "https://github.com/pallets/flask/pull/4666"
+      },
+      {
+        "number": 4665,
+        "mergedAt": "2022-07-01T16:45:43Z",
+        "headSha": "2589328485f51ad17afda682dd84a83da4e4e38e",
+        "url": "https://github.com/pallets/flask/pull/4665"
+      },
+      {
+        "number": 4662,
+        "mergedAt": "2022-06-30T04:21:53Z",
+        "headSha": "5544d09477af3221d988ec18b086930c2d9e67cd",
+        "url": "https://github.com/pallets/flask/pull/4662"
+      },
+      {
+        "number": 4658,
+        "mergedAt": "2022-06-28T23:38:09Z",
+        "headSha": "b46bfcfa63e3c7b32b66dd4870f1c8c17fe1cb46",
+        "url": "https://github.com/pallets/flask/pull/4658"
+      },
+      {
+        "number": 4654,
+        "mergedAt": "2022-06-28T13:27:25Z",
+        "headSha": "64ab59817dedd7959b4b38d47403c86415f4a322",
+        "url": "https://github.com/pallets/flask/pull/4654"
+      },
+      {
+        "number": 4652,
+        "mergedAt": "2022-06-23T13:00:33Z",
+        "headSha": "abcb6c96777794da1142b0117f8c57f95cba65b7",
+        "url": "https://github.com/pallets/flask/pull/4652"
+      },
+      {
+        "number": 4629,
+        "mergedAt": "2022-06-18T19:24:14Z",
+        "headSha": "46433e9807a1c960d6b2bb0e125cf16a90167d97",
+        "url": "https://github.com/pallets/flask/pull/4629"
+      },
+      {
+        "number": 4645,
+        "mergedAt": "2022-06-17T19:05:19Z",
+        "headSha": "ed42e9292811a95f2a68e06a9ae50cb5872216a3",
+        "url": "https://github.com/pallets/flask/pull/4645"
+      },
+      {
+        "number": 4647,
+        "mergedAt": "2022-06-17T18:57:22Z",
+        "headSha": "c9e000b9cea2e117218d460874d86301fbb43c43",
+        "url": "https://github.com/pallets/flask/pull/4647"
+      },
+      {
+        "number": 4646,
+        "mergedAt": "2022-06-17T16:30:28Z",
+        "headSha": "ab1fbef29a073fe5950ea2357f6a3a0d280eb506",
+        "url": "https://github.com/pallets/flask/pull/4646"
+      },
+      {
+        "number": 4642,
+        "mergedAt": "2022-06-15T21:17:45Z",
+        "headSha": "aa801c431ad1f979bce3ea1afbd88e7796ebfd7e",
+        "url": "https://github.com/pallets/flask/pull/4642"
+      },
+      {
+        "number": 4637,
+        "mergedAt": "2022-06-12T21:03:56Z",
+        "headSha": "2ea77c278282f04a8a18c3ced88ef1e048f8ed4a",
+        "url": "https://github.com/pallets/flask/pull/4637"
+      },
+      {
+        "number": 4636,
+        "mergedAt": "2022-06-11T21:03:01Z",
+        "headSha": "2f3c87dcb8492f082a2f3ece444773d9db30171b",
+        "url": "https://github.com/pallets/flask/pull/4636"
+      },
+      {
+        "number": 4630,
+        "mergedAt": "2022-06-09T16:24:26Z",
+        "headSha": "9934528c8f7e3aa6f4a1c800cba439e5425a5093",
+        "url": "https://github.com/pallets/flask/pull/4630"
+      },
+      {
+        "number": 4624,
+        "mergedAt": "2022-06-06T22:52:49Z",
+        "headSha": "45174bf9a1e96e51ce589c7aa2c151249d1fdf11",
+        "url": "https://github.com/pallets/flask/pull/4624"
+      },
+      {
+        "number": 4621,
+        "mergedAt": "2022-06-06T17:11:00Z",
+        "headSha": "96c97dec095f204b8a557c5ea804afdd329e3c43",
+        "url": "https://github.com/pallets/flask/pull/4621"
+      },
+      {
+        "number": 4610,
+        "mergedAt": "2022-06-06T16:26:53Z",
+        "headSha": "b06df0a792ceb5506da47e0c8fea09902c1058f9",
+        "url": "https://github.com/pallets/flask/pull/4610"
+      },
+      {
+        "number": 4579,
+        "mergedAt": "2022-06-05T22:54:08Z",
+        "headSha": "48766754b8e8a16bfb075229eaaf88643c958c4e",
+        "url": "https://github.com/pallets/flask/pull/4579"
+      },
+      {
+        "number": 4620,
+        "mergedAt": "2022-06-05T22:45:22Z",
+        "headSha": "72cae9ce2b6a5a296b7328df8dd73240e14718e6",
+        "url": "https://github.com/pallets/flask/pull/4620"
+      },
+      {
+        "number": 4617,
+        "mergedAt": "2022-06-01T23:10:31Z",
+        "headSha": "5d31ce1031e8ca24dc908c319567a76110edd87e",
+        "url": "https://github.com/pallets/flask/pull/4617"
+      },
+      {
+        "number": 4613,
+        "mergedAt": "2022-05-31T16:10:36Z",
+        "headSha": "3ecebcdf8de02818cd409afd6edd39a09248b3ef",
+        "url": "https://github.com/pallets/flask/pull/4613"
+      },
+      {
+        "number": 4603,
+        "mergedAt": "2022-05-23T20:56:20Z",
+        "headSha": "61f62e6005f72c44a90026e2589b6bc5234f2f24",
+        "url": "https://github.com/pallets/flask/pull/4603"
+      },
+      {
+        "number": 4595,
+        "mergedAt": "2022-05-23T17:44:48Z",
+        "headSha": "c45c81938a1715eb4bdf9eaf6ac9d75becb8c191",
+        "url": "https://github.com/pallets/flask/pull/4595"
+      },
+      {
+        "number": 4581,
+        "mergedAt": "2022-05-23T17:19:59Z",
+        "headSha": "9252be9c9ebe46dd6415b24999a869ed87eace57",
+        "url": "https://github.com/pallets/flask/pull/4581"
+      },
+      {
+        "number": 4606,
+        "mergedAt": "2022-05-23T16:51:58Z",
+        "headSha": "1232d698600e11dcb83bb5dc349ca785eae02d2f",
+        "url": "https://github.com/pallets/flask/pull/4606"
+      },
+      {
+        "number": 4577,
+        "mergedAt": "2022-05-23T16:12:45Z",
+        "headSha": "e044b00047da9bf94e7eb88049a17fe1dcf78f4e",
+        "url": "https://github.com/pallets/flask/pull/4577"
+      },
+      {
+        "number": 4596,
+        "mergedAt": "2022-05-15T15:54:26Z",
+        "headSha": "69e2300608497bba103fd05735c878c0d642dd68",
+        "url": "https://github.com/pallets/flask/pull/4596"
+      },
+      {
+        "number": 4580,
+        "mergedAt": "2022-05-14T19:50:37Z",
+        "headSha": "39f93632964ecabfcb9c1980e2add922098aad80",
+        "url": "https://github.com/pallets/flask/pull/4580"
+      },
+      {
+        "number": 4576,
+        "mergedAt": "2022-05-12T20:45:38Z",
+        "headSha": "eb5dd9f5ef255c578cbbe13c1cb4dd11389d5519",
+        "url": "https://github.com/pallets/flask/pull/4576"
+      },
+      {
+        "number": 4575,
+        "mergedAt": "2022-05-11T16:22:20Z",
+        "headSha": "fdab801fbbd9de5adbdb3320ca4a1cb116c892f5",
+        "url": "https://github.com/pallets/flask/pull/4575"
+      },
+      {
+        "number": 4593,
+        "mergedAt": "2022-05-10T16:35:05Z",
+        "headSha": "2381044d04cdb058a526c0e27163b4d891d851ed",
+        "url": "https://github.com/pallets/flask/pull/4593"
+      },
+      {
+        "number": 4591,
+        "mergedAt": "2022-05-10T16:19:03Z",
+        "headSha": "410a324ec43ca2793a0413d3cd32ca45311e3ff5",
+        "url": "https://github.com/pallets/flask/pull/4591"
+      }
+    ]
+  },
+  {
+    "repository": "expressjs/express",
+    "pullRequests": [
+      {
+        "number": 7465,
+        "mergedAt": "2026-09-13T11:55:18Z",
+        "headSha": "ee7f67869e1c58949cd2e005048b0e37ae4e0dd3",
+        "url": "https://github.com/expressjs/express/pull/7465"
+      },
+      {
+        "number": 7464,
+        "mergedAt": "2026-09-13T11:55:13Z",
+        "headSha": "b889d9de261b6685205c64bb2fc6f64f721231c9",
+        "url": "https://github.com/expressjs/express/pull/7464"
+      },
+      {
+        "number": 7426,
+        "mergedAt": "2026-09-11T12:54:15Z",
+        "headSha": "b5a9fdbee8d5ba6cf1d8bd5161638096fe80008d",
+        "url": "https://github.com/expressjs/express/pull/7426"
+      },
+      {
+        "number": 7440,
+        "mergedAt": "2026-09-11T12:53:50Z",
+        "headSha": "6f0c86610a7d32953d7e24e91fab8607369e3339",
+        "url": "https://github.com/expressjs/express/pull/7440"
+      },
+      {
+        "number": 7461,
+        "mergedAt": "2026-09-08T13:33:06Z",
+        "headSha": "8bf21420f0e2543e1d58d126d47d3547e23e4860",
+        "url": "https://github.com/expressjs/express/pull/7461"
+      },
+      {
+        "number": 7462,
+        "mergedAt": "2026-09-08T13:32:20Z",
+        "headSha": "6fc2bdcc18dac521b53e9cbb6df58188af6bfd25",
+        "url": "https://github.com/expressjs/express/pull/7462"
+      },
+      {
+        "number": 7450,
+        "mergedAt": "2026-09-08T13:08:50Z",
+        "headSha": "f430bae044e41a2240efd70d1db403415e49c551",
+        "url": "https://github.com/expressjs/express/pull/7450"
+      },
+      {
+        "number": 7460,
+        "mergedAt": "2026-09-08T13:07:35Z",
+        "headSha": "1640dd9bec305a05848504ac2300030f55894fcf",
+        "url": "https://github.com/expressjs/express/pull/7460"
+      },
+      {
+        "number": 7400,
+        "mergedAt": "2026-08-22T20:59:55Z",
+        "headSha": "7d050c900c7e999a560dffc4d4961ceb7f93fb58",
+        "url": "https://github.com/expressjs/express/pull/7400"
+      },
+      {
+        "number": 7399,
+        "mergedAt": "2026-08-22T20:57:14Z",
+        "headSha": "8042cedf2a17852d972a8336fbd17cde8df685a7",
+        "url": "https://github.com/expressjs/express/pull/7399"
+      },
+      {
+        "number": 7406,
+        "mergedAt": "2026-08-22T20:52:57Z",
+        "headSha": "022daf23370d60db310eba37ee50d89096b63874",
+        "url": "https://github.com/expressjs/express/pull/7406"
+      },
+      {
+        "number": 7403,
+        "mergedAt": "2026-08-22T20:52:19Z",
+        "headSha": "86be1aca028c55cd4a8c86a23bb631e1a8d1200c",
+        "url": "https://github.com/expressjs/express/pull/7403"
+      },
+      {
+        "number": 7390,
+        "mergedAt": "2026-08-22T20:37:48Z",
+        "headSha": "7f6c30742e4209062f48472bdd442c84b5893f55",
+        "url": "https://github.com/expressjs/express/pull/7390"
+      },
+      {
+        "number": 7152,
+        "mergedAt": "2026-07-27T21:54:24Z",
+        "headSha": "8a0280f99ea1fdc951d0354b568dc5b61c45e679",
+        "url": "https://github.com/expressjs/express/pull/7152"
+      },
+      {
+        "number": 7377,
+        "mergedAt": "2026-07-12T18:27:44Z",
+        "headSha": "741598e4d7d2fec16d6815b59c0114d61a740702",
+        "url": "https://github.com/expressjs/express/pull/7377"
+      },
+      {
+        "number": 7366,
+        "mergedAt": "2026-07-12T18:22:01Z",
+        "headSha": "7bf8671d13b83cec863568e68989df2c2d6084cf",
+        "url": "https://github.com/expressjs/express/pull/7366"
+      },
+      {
+        "number": 7353,
+        "mergedAt": "2026-07-06T15:04:47Z",
+        "headSha": "44a1765da914f181101dc04fd8d47657478f3ef9",
+        "url": "https://github.com/expressjs/express/pull/7353"
+      },
+      {
+        "number": 7345,
+        "mergedAt": "2026-07-06T15:03:46Z",
+        "headSha": "8519bfc3986109c4a318b2f6050a05ea94b55287",
+        "url": "https://github.com/expressjs/express/pull/7345"
+      },
+      {
+        "number": 7316,
+        "mergedAt": "2026-07-05T19:03:11Z",
+        "headSha": "7bab8e9148b104e0bbc87c99815d74f1b4b74fd5",
+        "url": "https://github.com/expressjs/express/pull/7316"
+      },
+      {
+        "number": 7135,
+        "mergedAt": "2026-06-16T03:14:29Z",
+        "headSha": "45dfa345ead2992da4ffea403a5bb43148a29096",
+        "url": "https://github.com/expressjs/express/pull/7135"
+      },
+      {
+        "number": 4893,
+        "mergedAt": "2026-06-16T03:06:32Z",
+        "headSha": "dddae1894b8cca5f3b8f8f429def8ecf6bb98ab8",
+        "url": "https://github.com/expressjs/express/pull/4893"
+      },
+      {
+        "number": 7233,
+        "mergedAt": "2026-06-16T02:45:22Z",
+        "headSha": "754a1831de09be6ffb81acf7af12c60164c7f7f7",
+        "url": "https://github.com/expressjs/express/pull/7233"
+      },
+      {
+        "number": 7297,
+        "mergedAt": "2026-06-16T02:36:47Z",
+        "headSha": "ead103e91075da8386261491a535f7d25e20c713",
+        "url": "https://github.com/expressjs/express/pull/7297"
+      },
+      {
+        "number": 7265,
+        "mergedAt": "2026-06-16T02:34:07Z",
+        "headSha": "bf6754c69c2676fe4acbab0ffd59c3c27c06bea3",
+        "url": "https://github.com/expressjs/express/pull/7265"
+      },
+      {
+        "number": 6464,
+        "mergedAt": "2026-06-15T20:36:43Z",
+        "headSha": "0a6147bd3faa3c8c7d803b82c3cc33c7fe48c208",
+        "url": "https://github.com/expressjs/express/pull/6464"
+      },
+      {
+        "number": 7234,
+        "mergedAt": "2026-06-15T19:49:54Z",
+        "headSha": "0b8f68b8a7f525bc81c973b5596ae0826228f19f",
+        "url": "https://github.com/expressjs/express/pull/7234"
+      },
+      {
+        "number": 7305,
+        "mergedAt": "2026-06-14T17:02:35Z",
+        "headSha": "3233065ebc1102fd191591a3e6d7d034e2f9df3d",
+        "url": "https://github.com/expressjs/express/pull/7305"
+      },
+      {
+        "number": 7212,
+        "mergedAt": "2026-05-17T14:48:33Z",
+        "headSha": "e41bb718cdaf5daf4b3c01b26c10fabb4326b37c",
+        "url": "https://github.com/expressjs/express/pull/7212"
+      },
+      {
+        "number": 7211,
+        "mergedAt": "2026-05-17T14:46:35Z",
+        "headSha": "9d6c42763bafb93ad952252ab548f8c6b3b8c63f",
+        "url": "https://github.com/expressjs/express/pull/7211"
+      },
+      {
+        "number": 7210,
+        "mergedAt": "2026-05-17T14:44:00Z",
+        "headSha": "9402438335f0cfe9a8328954e81ee7fa9757cc88",
+        "url": "https://github.com/expressjs/express/pull/7210"
+      },
+      {
+        "number": 7218,
+        "mergedAt": "2026-05-17T14:43:12Z",
+        "headSha": "9ecb54ea61f3e66aedfe336901fcfc37870c71f4",
+        "url": "https://github.com/expressjs/express/pull/7218"
+      },
+      {
+        "number": 7144,
+        "mergedAt": "2026-05-17T14:42:11Z",
+        "headSha": "b31e4d2cfc0f71e905cf9e381a824686a88dd693",
+        "url": "https://github.com/expressjs/express/pull/7144"
+      },
+      {
+        "number": 7225,
+        "mergedAt": "2026-05-11T18:43:23Z",
+        "headSha": "9519b3e106817d2d069abc1eb1f048d4a5729a12",
+        "url": "https://github.com/expressjs/express/pull/7225"
+      },
+      {
+        "number": 7224,
+        "mergedAt": "2026-05-08T21:26:13Z",
+        "headSha": "c16927d88dab50580cc0893fa31d9afb475a5dc3",
+        "url": "https://github.com/expressjs/express/pull/7224"
+      },
+      {
+        "number": 7191,
+        "mergedAt": "2026-05-04T08:53:42Z",
+        "headSha": "5125da90917a2105f81672914d7fb358b1673d22",
+        "url": "https://github.com/expressjs/express/pull/7191"
+      },
+      {
+        "number": 7150,
+        "mergedAt": "2026-04-23T17:50:02Z",
+        "headSha": "987c3a0b2783b2351a003c5db9b3c81ce2bd4901",
+        "url": "https://github.com/expressjs/express/pull/7150"
+      },
+      {
+        "number": 7149,
+        "mergedAt": "2026-04-23T17:49:19Z",
+        "headSha": "e4e3511effac8dadb579bc156037d410b39deaf7",
+        "url": "https://github.com/expressjs/express/pull/7149"
+      },
+      {
+        "number": 7148,
+        "mergedAt": "2026-04-23T17:48:35Z",
+        "headSha": "2132762e254a916e82e4631c64d30fea4bcab779",
+        "url": "https://github.com/expressjs/express/pull/7148"
+      },
+      {
+        "number": 7159,
+        "mergedAt": "2026-04-06T20:58:04Z",
+        "headSha": "6df9c2cfe022aa11fff88ff93ca11c4834232149",
+        "url": "https://github.com/expressjs/express/pull/7159"
+      },
+      {
+        "number": 7136,
+        "mergedAt": "2026-03-31T04:39:23Z",
+        "headSha": "8e564e69ee5746e1a2f2e1ab48523fa81fa93deb",
+        "url": "https://github.com/expressjs/express/pull/7136"
+      },
+      {
+        "number": 7064,
+        "mergedAt": "2026-03-01T13:55:02Z",
+        "headSha": "64dd2e69752856d66faa641da3a6321a585e1037",
+        "url": "https://github.com/expressjs/express/pull/7064"
+      },
+      {
+        "number": 7074,
+        "mergedAt": "2026-03-01T10:24:14Z",
+        "headSha": "1eda86c6dd5f48573ff8458fc023109f070c3bd1",
+        "url": "https://github.com/expressjs/express/pull/7074"
+      },
+      {
+        "number": 7073,
+        "mergedAt": "2026-03-01T10:23:27Z",
+        "headSha": "361a34e8081e6d8ef200f098b072823cf72723af",
+        "url": "https://github.com/expressjs/express/pull/7073"
+      },
+      {
+        "number": 7072,
+        "mergedAt": "2026-03-01T10:21:46Z",
+        "headSha": "c6ebc17f4ab23ffa63bb6b8202a7bd28418071cc",
+        "url": "https://github.com/expressjs/express/pull/7072"
+      },
+      {
+        "number": 7037,
+        "mergedAt": "2026-02-23T09:58:26Z",
+        "headSha": "f3b22bc59fe616c7cdc4e7071da4ef60d94b30d1",
+        "url": "https://github.com/expressjs/express/pull/7037"
+      },
+      {
+        "number": 7029,
+        "mergedAt": "2026-02-22T03:15:12Z",
+        "headSha": "0db6a9128d80f836f7cbce9868f8d9cbeb7df1e8",
+        "url": "https://github.com/expressjs/express/pull/7029"
+      },
+      {
+        "number": 7057,
+        "mergedAt": "2026-02-22T03:11:09Z",
+        "headSha": "cefc1f50d20735a5ebf02a170373c1a0c45c4a10",
+        "url": "https://github.com/expressjs/express/pull/7057"
+      },
+      {
+        "number": 6996,
+        "mergedAt": "2026-02-14T17:25:36Z",
+        "headSha": "29e574d6a6125d12b19aa2fd76a92a071aa7b405",
+        "url": "https://github.com/expressjs/express/pull/6996"
+      },
+      {
+        "number": 7013,
+        "mergedAt": "2026-02-09T23:10:13Z",
+        "headSha": "d0fa97d9f6132634e8e64c51980242e6224f3056",
+        "url": "https://github.com/expressjs/express/pull/7013"
+      },
+      {
+        "number": 7012,
+        "mergedAt": "2026-02-09T23:05:17Z",
+        "headSha": "54ab2dc27868e1021c6a77fafddfd6bcb3484b85",
+        "url": "https://github.com/expressjs/express/pull/7012"
+      },
+      {
+        "number": 7011,
+        "mergedAt": "2026-02-09T23:04:00Z",
+        "headSha": "e6c7139dcf2ad8d7d55d66772685e6ad13134429",
+        "url": "https://github.com/expressjs/express/pull/7011"
+      },
+      {
+        "number": 7021,
+        "mergedAt": "2026-02-08T20:55:42Z",
+        "headSha": "94398a2360e1952ea5b975e1e1a9cd909e695c29",
+        "url": "https://github.com/expressjs/express/pull/7021"
+      },
+      {
+        "number": 6995,
+        "mergedAt": "2026-02-01T12:04:08Z",
+        "headSha": "3d73eba928dd9eaab364eb360b5f9179bf89d60d",
+        "url": "https://github.com/expressjs/express/pull/6995"
+      },
+      {
+        "number": 6274,
+        "mergedAt": "2026-02-01T03:12:23Z",
+        "headSha": "32c7adab64e08a60eda77663495ea1328487af73",
+        "url": "https://github.com/expressjs/express/pull/6274"
+      },
+      {
+        "number": 6894,
+        "mergedAt": "2026-02-01T02:53:38Z",
+        "headSha": "38c18c8c9b84e6f6bfe93d849364632f25b608d0",
+        "url": "https://github.com/expressjs/express/pull/6894"
+      },
+      {
+        "number": 6991,
+        "mergedAt": "2026-01-19T14:56:53Z",
+        "headSha": "7990883a9f01856696ff240763351b9c81e0e2a2",
+        "url": "https://github.com/expressjs/express/pull/6991"
+      },
+      {
+        "number": 6992,
+        "mergedAt": "2026-01-17T22:36:23Z",
+        "headSha": "fe77a3dcfdabbf53b574eb95cfec88621babbf85",
+        "url": "https://github.com/expressjs/express/pull/6992"
+      },
+      {
+        "number": 6534,
+        "mergedAt": "2026-01-17T02:27:23Z",
+        "headSha": "57b6969bddfedc4513721c5c21f967a1852a8a7e",
+        "url": "https://github.com/expressjs/express/pull/6534"
+      },
+      {
+        "number": 6936,
+        "mergedAt": "2026-01-16T21:19:39Z",
+        "headSha": "17489f6e87e2b5c9e11b15750e7a04d774e33e48",
+        "url": "https://github.com/expressjs/express/pull/6936"
+      },
+      {
+        "number": 5167,
+        "mergedAt": "2026-01-16T15:29:01Z",
+        "headSha": "ac7fc4d139a83f555ea07e744fe7495d9c184edd",
+        "url": "https://github.com/expressjs/express/pull/5167"
+      },
+      {
+        "number": 6482,
+        "mergedAt": "2026-01-12T09:28:55Z",
+        "headSha": "bbdcf31cd5bd80a4a58ee561b0ddaf01b29de2f8",
+        "url": "https://github.com/expressjs/express/pull/6482"
+      },
+      {
+        "number": 6962,
+        "mergedAt": "2026-01-07T14:48:47Z",
+        "headSha": "fd55b5ceae913bbe49d8dde30eea9fc020e80ebf",
+        "url": "https://github.com/expressjs/express/pull/6962"
+      },
+      {
+        "number": 6963,
+        "mergedAt": "2026-01-07T14:47:41Z",
+        "headSha": "0b168a93a249255b1cd528cb3cea5195391f2ecb",
+        "url": "https://github.com/expressjs/express/pull/6963"
+      },
+      {
+        "number": 6969,
+        "mergedAt": "2026-01-07T14:46:37Z",
+        "headSha": "5c563591186d3a8c57404b019f352e71c71e2e06",
+        "url": "https://github.com/expressjs/express/pull/6969"
+      },
+      {
+        "number": 6964,
+        "mergedAt": "2026-01-07T14:46:20Z",
+        "headSha": "4ff2e9cab9ade9cd1f3bcc0191b07e441b6ed222",
+        "url": "https://github.com/expressjs/express/pull/6964"
+      },
+      {
+        "number": 6965,
+        "mergedAt": "2026-01-07T14:45:48Z",
+        "headSha": "f8e5e4d2405862abd0d2e6fa186a9f674b03647a",
+        "url": "https://github.com/expressjs/express/pull/6965"
+      },
+      {
+        "number": 6088,
+        "mergedAt": "2026-01-07T14:41:35Z",
+        "headSha": "e41fb1403f830bb349262b2135a8426e333ed67a",
+        "url": "https://github.com/expressjs/express/pull/6088"
+      },
+      {
+        "number": 6961,
+        "mergedAt": "2026-01-07T14:38:53Z",
+        "headSha": "14f337b60a83aa9959adba1109b219bc4678dbfa",
+        "url": "https://github.com/expressjs/express/pull/6961"
+      },
+      {
+        "number": 6976,
+        "mergedAt": "2026-01-05T22:54:09Z",
+        "headSha": "6ba865a6c10e0b57270be110d5f8328ed3175c66",
+        "url": "https://github.com/expressjs/express/pull/6976"
+      },
+      {
+        "number": 6570,
+        "mergedAt": "2026-01-05T22:46:28Z",
+        "headSha": "c93fbf5e61066cac16ef088b7c39a32b80e034ff",
+        "url": "https://github.com/expressjs/express/pull/6570"
+      },
+      {
+        "number": 6972,
+        "mergedAt": "2026-01-05T09:08:19Z",
+        "headSha": "74f1f0ba5cdcae5495dfc4c2ef3fd7623867cc97",
+        "url": "https://github.com/expressjs/express/pull/6972"
+      },
+      {
+        "number": 6953,
+        "mergedAt": "2025-12-19T09:44:50Z",
+        "headSha": "1204e69a963fd359e801b5fb0e78278fb120206b",
+        "url": "https://github.com/expressjs/express/pull/6953"
+      },
+      {
+        "number": 6945,
+        "mergedAt": "2025-12-09T15:32:14Z",
+        "headSha": "8c887ae05e7cd046da4db4e14c8b93ac7cbee194",
+        "url": "https://github.com/expressjs/express/pull/6945"
+      },
+      {
+        "number": 6946,
+        "mergedAt": "2025-12-09T15:32:11Z",
+        "headSha": "217b6c29248f0718010c34ad5ddf8e3885220f85",
+        "url": "https://github.com/expressjs/express/pull/6946"
+      },
+      {
+        "number": 6933,
+        "mergedAt": "2025-12-01T20:27:35Z",
+        "headSha": "49ea750dc4671a45d6738fbcfe1f897b95ccf040",
+        "url": "https://github.com/expressjs/express/pull/6933"
+      },
+      {
+        "number": 6934,
+        "mergedAt": "2025-12-01T20:27:22Z",
+        "headSha": "616990ae664f6c3b77d9076d6d221f4afa6437e4",
+        "url": "https://github.com/expressjs/express/pull/6934"
+      },
+      {
+        "number": 6920,
+        "mergedAt": "2025-12-01T16:17:31Z",
+        "headSha": "7f600a046439b6697c72c8775ca91a14fb556a6d",
+        "url": "https://github.com/expressjs/express/pull/6920"
+      },
+      {
+        "number": 6921,
+        "mergedAt": "2025-12-01T16:17:12Z",
+        "headSha": "c3e71ffc397c014909bbe29c5b121f5ae966c72f",
+        "url": "https://github.com/expressjs/express/pull/6921"
+      },
+      {
+        "number": 6928,
+        "mergedAt": "2025-12-01T12:13:45Z",
+        "headSha": "82d49cf44ad8da252278bee78f7afac7d24f306f",
+        "url": "https://github.com/expressjs/express/pull/6928"
+      },
+      {
+        "number": 6929,
+        "mergedAt": "2025-12-01T12:12:53Z",
+        "headSha": "779dd0b87fc85af5ffb9de3eb8295315eaea882d",
+        "url": "https://github.com/expressjs/express/pull/6929"
+      },
+      {
+        "number": 6930,
+        "mergedAt": "2025-12-01T12:12:08Z",
+        "headSha": "5d6c0ce47c961265bb044608c1d32d764bd79e15",
+        "url": "https://github.com/expressjs/express/pull/6930"
+      },
+      {
+        "number": 6922,
+        "mergedAt": "2025-11-26T14:19:57Z",
+        "headSha": "9aadd30d0308ae6f88eb78787de66e9b6bc2fa83",
+        "url": "https://github.com/expressjs/express/pull/6922"
+      },
+      {
+        "number": 6919,
+        "mergedAt": "2025-11-25T21:17:24Z",
+        "headSha": "539037f55cb1061c4e974eb422d072c0c0635ecb",
+        "url": "https://github.com/expressjs/express/pull/6919"
+      },
+      {
+        "number": 6890,
+        "mergedAt": "2025-11-25T10:32:32Z",
+        "headSha": "099e7784a6becbc538817dcb7041248117bc4af2",
+        "url": "https://github.com/expressjs/express/pull/6890"
+      },
+      {
+        "number": 6888,
+        "mergedAt": "2025-11-25T03:32:29Z",
+        "headSha": "99008d55c960c95d98163a50ea72bdd28952d248",
+        "url": "https://github.com/expressjs/express/pull/6888"
+      },
+      {
+        "number": 6897,
+        "mergedAt": "2025-11-23T23:52:16Z",
+        "headSha": "4680089eed00fffe5b65cee73dc7738a0d429931",
+        "url": "https://github.com/expressjs/express/pull/6897"
+      },
+      {
+        "number": 6909,
+        "mergedAt": "2025-11-21T14:22:59Z",
+        "headSha": "db7707b4aa5223123c1147f73648eb7b7738c865",
+        "url": "https://github.com/expressjs/express/pull/6909"
+      },
+      {
+        "number": 6905,
+        "mergedAt": "2025-11-20T19:34:22Z",
+        "headSha": "19e5ca9fbb4f8461aaa5bf3d8bc99fbaea73b403",
+        "url": "https://github.com/expressjs/express/pull/6905"
+      },
+      {
+        "number": 6900,
+        "mergedAt": "2025-11-18T09:42:56Z",
+        "headSha": "59c058192aa3a446624ad554a9ead682e7021112",
+        "url": "https://github.com/expressjs/express/pull/6900"
+      },
+      {
+        "number": 6868,
+        "mergedAt": "2025-11-01T09:46:37Z",
+        "headSha": "2bf3ff13c885278a37741fba49c40346660da886",
+        "url": "https://github.com/expressjs/express/pull/6868"
+      },
+      {
+        "number": 6869,
+        "mergedAt": "2025-11-01T09:45:51Z",
+        "headSha": "0e69899532657df338210b4a877b3a030a630fce",
+        "url": "https://github.com/expressjs/express/pull/6869"
+      },
+      {
+        "number": 6870,
+        "mergedAt": "2025-11-01T09:45:07Z",
+        "headSha": "a8834f61e8f8ad9271e13e1fb253260b5f9a99cc",
+        "url": "https://github.com/expressjs/express/pull/6870"
+      },
+      {
+        "number": 6871,
+        "mergedAt": "2025-11-01T09:44:12Z",
+        "headSha": "62242edb60890a2a23f0b683cc0eee4ccc4d3686",
+        "url": "https://github.com/expressjs/express/pull/6871"
+      },
+      {
+        "number": 6843,
+        "mergedAt": "2025-10-16T11:51:39Z",
+        "headSha": "996df0544b702c9ec1699472ca448ffaec13fb20",
+        "url": "https://github.com/expressjs/express/pull/6843"
+      },
+      {
+        "number": 6793,
+        "mergedAt": "2025-10-03T12:44:02Z",
+        "headSha": "b8984eebd5c2a6bedeb908429d645855ae209846",
+        "url": "https://github.com/expressjs/express/pull/6793"
+      },
+      {
+        "number": 6794,
+        "mergedAt": "2025-10-03T12:43:54Z",
+        "headSha": "c71ee3dff20b82eb86ec37d13038e149111acf8f",
+        "url": "https://github.com/expressjs/express/pull/6794"
+      },
+      {
+        "number": 6795,
+        "mergedAt": "2025-10-03T12:43:45Z",
+        "headSha": "bc84b40b00e0980680bcf215c975aaf1fae90cf5",
+        "url": "https://github.com/expressjs/express/pull/6795"
+      },
+      {
+        "number": 6796,
+        "mergedAt": "2025-10-03T12:40:09Z",
+        "headSha": "501b76aaa463d47eb9b7d640487ca783426b7b31",
+        "url": "https://github.com/expressjs/express/pull/6796"
+      },
+      {
+        "number": 6797,
+        "mergedAt": "2025-10-03T12:34:25Z",
+        "headSha": "6d7d4b763e266b052a4ff3f8853d9cef9cf4c83f",
+        "url": "https://github.com/expressjs/express/pull/6797"
+      },
+      {
+        "number": 6780,
+        "mergedAt": "2025-09-25T05:20:45Z",
+        "headSha": "c8e6b1216f85948bc4d1544893d2dd8a24515500",
+        "url": "https://github.com/expressjs/express/pull/6780"
+      },
+      {
+        "number": 6675,
+        "mergedAt": "2025-09-14T14:39:33Z",
+        "headSha": "cdba40d8608056e67067bbc20b42870ee7705c1e",
+        "url": "https://github.com/expressjs/express/pull/6675"
+      },
+      {
+        "number": 6718,
+        "mergedAt": "2025-08-22T07:12:09Z",
+        "headSha": "cd7323bd4ffd1a6f2644d0dae29566ee2b982899",
+        "url": "https://github.com/expressjs/express/pull/6718"
+      },
+      {
+        "number": 6705,
+        "mergedAt": "2025-08-21T15:05:29Z",
+        "headSha": "0c6bcf31484bad99d24d2022802804e056108ff0",
+        "url": "https://github.com/expressjs/express/pull/6705"
+      },
+      {
+        "number": 6588,
+        "mergedAt": "2025-08-20T13:18:37Z",
+        "headSha": "30b05a8412eb8b707377e09a9fdb2e919f025629",
+        "url": "https://github.com/expressjs/express/pull/6588"
+      },
+      {
+        "number": 6644,
+        "mergedAt": "2025-08-12T22:58:13Z",
+        "headSha": "856fb9a83468c799432d69cafdbb7f61844d6672",
+        "url": "https://github.com/expressjs/express/pull/6644"
+      },
+      {
+        "number": 6678,
+        "mergedAt": "2025-08-06T01:24:49Z",
+        "headSha": "dd7e9164efd030d594cb33e0490ee8a99acd4b1b",
+        "url": "https://github.com/expressjs/express/pull/6678"
+      },
+      {
+        "number": 6679,
+        "mergedAt": "2025-08-06T01:24:22Z",
+        "headSha": "8128e7e513159dcb873e6435fd92411ac673786d",
+        "url": "https://github.com/expressjs/express/pull/6679"
+      },
+      {
+        "number": 6601,
+        "mergedAt": "2025-07-30T13:41:53Z",
+        "headSha": "8844cbecdeb4a152429eb8be4596965b67382061",
+        "url": "https://github.com/expressjs/express/pull/6601"
+      },
+      {
+        "number": 6653,
+        "mergedAt": "2025-07-21T23:14:33Z",
+        "headSha": "b1475bef29e5c0c9a9a1d002149bc90bcff40a13",
+        "url": "https://github.com/expressjs/express/pull/6653"
+      },
+      {
+        "number": 6632,
+        "mergedAt": "2025-07-16T02:27:50Z",
+        "headSha": "d33c4a0ef24eedc7a13437c474b25261348bdeb2",
+        "url": "https://github.com/expressjs/express/pull/6632"
+      },
+      {
+        "number": 6405,
+        "mergedAt": "2025-07-15T03:18:10Z",
+        "headSha": "f36e6b516dfd77f727b107253bbec9037e647615",
+        "url": "https://github.com/expressjs/express/pull/6405"
+      },
+      {
+        "number": 6618,
+        "mergedAt": "2025-07-09T08:27:41Z",
+        "headSha": "f38883bd15bc4b287654c08b9f63182c2beb84a7",
+        "url": "https://github.com/expressjs/express/pull/6618"
+      },
+      {
+        "number": 6609,
+        "mergedAt": "2025-07-04T14:47:31Z",
+        "headSha": "3aa9901c6d85d6b64f0ab1094ea0de89a6a17f3b",
+        "url": "https://github.com/expressjs/express/pull/6609"
+      },
+      {
+        "number": 6520,
+        "mergedAt": "2025-07-03T02:33:10Z",
+        "headSha": "b9e9f2a72135c988fddd033a56686a1e7d8e63fa",
+        "url": "https://github.com/expressjs/express/pull/6520"
+      },
+      {
+        "number": 6525,
+        "mergedAt": "2025-06-28T01:10:36Z",
+        "headSha": "bb8ac68965db0422d51f27570f428a4a1029388d",
+        "url": "https://github.com/expressjs/express/pull/6525"
+      },
+      {
+        "number": 6548,
+        "mergedAt": "2025-06-18T21:36:52Z",
+        "headSha": "492cc7a1188b07b3e4bcafbba17997d724d85d01",
+        "url": "https://github.com/expressjs/express/pull/6548"
+      },
+      {
+        "number": 6549,
+        "mergedAt": "2025-06-18T21:36:20Z",
+        "headSha": "9f0627cc3e0f200e6b758fc34241e96f98cfd39a",
+        "url": "https://github.com/expressjs/express/pull/6549"
+      },
+      {
+        "number": 6427,
+        "mergedAt": "2025-06-09T20:34:53Z",
+        "headSha": "b19378e967c7fb76c53883b0b62c0163196d13f6",
+        "url": "https://github.com/expressjs/express/pull/6427"
+      },
+      {
+        "number": 6476,
+        "mergedAt": "2025-05-29T00:26:16Z",
+        "headSha": "d29e4ecc73f56d12907dad977c5f1e0fd21d8aa7",
+        "url": "https://github.com/expressjs/express/pull/6476"
+      },
+      {
+        "number": 6515,
+        "mergedAt": "2025-05-29T00:16:44Z",
+        "headSha": "4f0b400915c9689d484c8e9dfd8dcdd6b1b6f1cd",
+        "url": "https://github.com/expressjs/express/pull/6515"
+      },
+      {
+        "number": 6522,
+        "mergedAt": "2025-05-28T23:55:05Z",
+        "headSha": "78f926aded5921b4304b149c3f63de0c27f2e82f",
+        "url": "https://github.com/expressjs/express/pull/6522"
+      },
+      {
+        "number": 6535,
+        "mergedAt": "2025-05-27T08:36:50Z",
+        "headSha": "d051c65b9733c6fe234230bba94d3ac6f3ac687e",
+        "url": "https://github.com/expressjs/express/pull/6535"
+      },
+      {
+        "number": 6512,
+        "mergedAt": "2025-05-15T16:40:26Z",
+        "headSha": "bd302bf4606259a7703a06a2c5d269eed1679eb1",
+        "url": "https://github.com/expressjs/express/pull/6512"
+      },
+      {
+        "number": 6513,
+        "mergedAt": "2025-05-15T16:40:08Z",
+        "headSha": "c90176ca4ba2ff7690051a5d87da783bf985f6a9",
+        "url": "https://github.com/expressjs/express/pull/6513"
+      },
+      {
+        "number": 6506,
+        "mergedAt": "2025-05-10T23:52:25Z",
+        "headSha": "be3d2628fb04bdbd8351ee3938e233ffa0346bc8",
+        "url": "https://github.com/expressjs/express/pull/6506"
+      },
+      {
+        "number": 6488,
+        "mergedAt": "2025-05-09T13:29:27Z",
+        "headSha": "043eeaa641a4f72be0ef64adb36483475729dce8",
+        "url": "https://github.com/expressjs/express/pull/6488"
+      },
+      {
+        "number": 6504,
+        "mergedAt": "2025-05-08T02:08:26Z",
+        "headSha": "a99064b1d96769f1ea457cf84df258c7336b768b",
+        "url": "https://github.com/expressjs/express/pull/6504"
+      },
+      {
+        "number": 6496,
+        "mergedAt": "2025-05-05T21:02:24Z",
+        "headSha": "8d72e53d9761dd43836b1d7193091c432ffa3dce",
+        "url": "https://github.com/expressjs/express/pull/6496"
+      },
+      {
+        "number": 6497,
+        "mergedAt": "2025-05-05T21:02:09Z",
+        "headSha": "70d744cd44a110283d0c56970d3c0d336fd9878a",
+        "url": "https://github.com/expressjs/express/pull/6497"
+      },
+      {
+        "number": 6498,
+        "mergedAt": "2025-05-05T21:01:58Z",
+        "headSha": "c7104f8abb9043fa50d0f59fb790e3a2c7045653",
+        "url": "https://github.com/expressjs/express/pull/6498"
+      },
+      {
+        "number": 6456,
+        "mergedAt": "2025-04-16T16:18:38Z",
+        "headSha": "10c4e24943f5b6681b84e7effc27776117e8aa88",
+        "url": "https://github.com/expressjs/express/pull/6456"
+      },
+      {
+        "number": 6386,
+        "mergedAt": "2025-04-11T01:57:43Z",
+        "headSha": "64c1a4cfb10115c0ba35f9182a60d7a45ff0ce2b",
+        "url": "https://github.com/expressjs/express/pull/6386"
+      },
+      {
+        "number": 6137,
+        "mergedAt": "2025-04-11T01:49:23Z",
+        "headSha": "762c3a57be06d19bad21a40b409fa7d099f184c3",
+        "url": "https://github.com/expressjs/express/pull/6137"
+      },
+      {
+        "number": 6429,
+        "mergedAt": "2025-04-05T02:53:14Z",
+        "headSha": "48bc4c4f3a6f806883e306f2df6c59b4e0e2d6a6",
+        "url": "https://github.com/expressjs/express/pull/6429"
+      },
+      {
+        "number": 6425,
+        "mergedAt": "2025-03-31T14:04:10Z",
+        "headSha": "cd7d4397c398a3f3ecadeaf9ef6ac1377bd414c4",
+        "url": "https://github.com/expressjs/express/pull/6425"
+      },
+      {
+        "number": 6418,
+        "mergedAt": "2025-03-28T00:46:06Z",
+        "headSha": "e9dd56ab8c8bd470f8bd69d3e20db732c81e0439",
+        "url": "https://github.com/expressjs/express/pull/6418"
+      },
+      {
+        "number": 6408,
+        "mergedAt": "2025-03-27T23:43:18Z",
+        "headSha": "cedf9f51072cfdddd7e3c1cdbd8528841118a334",
+        "url": "https://github.com/expressjs/express/pull/6408"
+      },
+      {
+        "number": 6415,
+        "mergedAt": "2025-03-27T14:46:29Z",
+        "headSha": "eb2f2237ca2f17ff248e9e22485e8e878fc7b1a1",
+        "url": "https://github.com/expressjs/express/pull/6415"
+      },
+      {
+        "number": 6417,
+        "mergedAt": "2025-03-27T01:47:40Z",
+        "headSha": "e70bf3accdd91ba3ac4b02781665ede5f9bdb744",
+        "url": "https://github.com/expressjs/express/pull/6417"
+      },
+      {
+        "number": 6420,
+        "mergedAt": "2025-03-27T01:32:29Z",
+        "headSha": "9ce03cd2ddd65dada0378c3319f1b50da20d293d",
+        "url": "https://github.com/expressjs/express/pull/6420"
+      },
+      {
+        "number": 6419,
+        "mergedAt": "2025-03-27T01:31:58Z",
+        "headSha": "448d5fc4f9eb802d3416a1fb2bce19845a03286f",
+        "url": "https://github.com/expressjs/express/pull/6419"
+      },
+      {
+        "number": 6399,
+        "mergedAt": "2025-03-24T01:08:24Z",
+        "headSha": "bec6e97b9ca31f792e3b37ec846e5432f9621418",
+        "url": "https://github.com/expressjs/express/pull/6399"
+      },
+      {
+        "number": 6373,
+        "mergedAt": "2025-03-19T00:12:45Z",
+        "headSha": "4c13701454efcca5f27b403ea9303d8047dd4860",
+        "url": "https://github.com/expressjs/express/pull/6373"
+      },
+      {
+        "number": 6397,
+        "mergedAt": "2025-03-18T16:12:20Z",
+        "headSha": "198be26a4e06ef032f034a20d4cb726892f9b005",
+        "url": "https://github.com/expressjs/express/pull/6397"
+      },
+      {
+        "number": 6398,
+        "mergedAt": "2025-03-18T16:12:00Z",
+        "headSha": "6ec940474e75ad561f2b37594c8519d45d902e0a",
+        "url": "https://github.com/expressjs/express/pull/6398"
+      },
+      {
+        "number": 6392,
+        "mergedAt": "2025-03-16T22:44:57Z",
+        "headSha": "966399d2fa541026cc400c13e5315083eec88497",
+        "url": "https://github.com/expressjs/express/pull/6392"
+      },
+      {
+        "number": 5435,
+        "mergedAt": "2025-03-11T21:50:59Z",
+        "headSha": "3e0d2b45fd16a308df8f13c7aede4e4db995141d",
+        "url": "https://github.com/expressjs/express/pull/5435"
+      },
+      {
+        "number": 6374,
+        "mergedAt": "2025-03-11T21:49:58Z",
+        "headSha": "90f85cb3c2c3f43419ed605baf52d87e6d0cfc0a",
+        "url": "https://github.com/expressjs/express/pull/6374"
+      },
+      {
+        "number": 6352,
+        "mergedAt": "2025-03-11T21:49:08Z",
+        "headSha": "49928d82c07163815b2de9a104bab15ea8d6f9db",
+        "url": "https://github.com/expressjs/express/pull/6352"
+      },
+      {
+        "number": 6364,
+        "mergedAt": "2025-03-05T15:11:29Z",
+        "headSha": "2522ac41a36f71d5c62c9e3a5b5de66ccdd30fbd",
+        "url": "https://github.com/expressjs/express/pull/6364"
+      },
+      {
+        "number": 6349,
+        "mergedAt": "2025-03-04T14:09:19Z",
+        "headSha": "f97937fd7f160c5134b4614ace7c9345454c8089",
+        "url": "https://github.com/expressjs/express/pull/6349"
+      },
+      {
+        "number": 6345,
+        "mergedAt": "2025-02-27T21:47:13Z",
+        "headSha": "f75d0b4de06c91ce6cadffaf5d9c9c76371f7b8a",
+        "url": "https://github.com/expressjs/express/pull/6345"
+      },
+      {
+        "number": 6336,
+        "mergedAt": "2025-02-17T16:53:01Z",
+        "headSha": "268443170f39a4faf6d2a04e476c5db4f15ad317",
+        "url": "https://github.com/expressjs/express/pull/6336"
+      },
+      {
+        "number": 4885,
+        "mergedAt": "2025-02-14T16:20:53Z",
+        "headSha": "94869c7b92fa35aca11f07eb10fe5862048d659e",
+        "url": "https://github.com/expressjs/express/pull/4885"
+      },
+      {
+        "number": 6338,
+        "mergedAt": "2025-02-14T15:51:27Z",
+        "headSha": "ec1678d8bdc801e769eedcc951f2f635cd0d8edd",
+        "url": "https://github.com/expressjs/express/pull/6338"
+      },
+      {
+        "number": 6073,
+        "mergedAt": "2025-02-13T19:39:31Z",
+        "headSha": "85cc7f5649cd610f08bae544d5a889a463607431",
+        "url": "https://github.com/expressjs/express/pull/6073"
+      },
+      {
+        "number": 6337,
+        "mergedAt": "2025-02-13T16:44:50Z",
+        "headSha": "37c4799e0cc8f3b3a14cc3be32cac43da87ca748",
+        "url": "https://github.com/expressjs/express/pull/6337"
+      },
+      {
+        "number": 6122,
+        "mergedAt": "2025-02-12T16:47:19Z",
+        "headSha": "3f4257c69405cc44f34fdaf36a054bfcffae4e38",
+        "url": "https://github.com/expressjs/express/pull/6122"
+      },
+      {
+        "number": 6323,
+        "mergedAt": "2025-02-12T16:25:08Z",
+        "headSha": "d34a4c04c969143a1cd88c5ab67ad178747c7878",
+        "url": "https://github.com/expressjs/express/pull/6323"
+      },
+      {
+        "number": 6234,
+        "mergedAt": "2025-02-12T16:22:12Z",
+        "headSha": "fa389257d086de1ff7a541dd50c0b602b490bca6",
+        "url": "https://github.com/expressjs/express/pull/6234"
+      },
+      {
+        "number": 6331,
+        "mergedAt": "2025-02-12T16:09:50Z",
+        "headSha": "7c9ef822b5afc979db6dba10dc3f29cc36eed4a3",
+        "url": "https://github.com/expressjs/express/pull/6331"
+      },
+      {
+        "number": 6332,
+        "mergedAt": "2025-02-12T15:44:53Z",
+        "headSha": "b04d0e8445b83df261ef4662e32f177af889cba2",
+        "url": "https://github.com/expressjs/express/pull/6332"
+      },
+      {
+        "number": 6333,
+        "mergedAt": "2025-02-12T15:38:10Z",
+        "headSha": "a340d58c43cc236962f484d61552d88e44cc6df4",
+        "url": "https://github.com/expressjs/express/pull/6333"
+      },
+      {
+        "number": 6313,
+        "mergedAt": "2025-02-10T19:41:39Z",
+        "headSha": "e1639373e706def340a4e077564fc080f3731dc3",
+        "url": "https://github.com/expressjs/express/pull/6313"
+      },
+      {
+        "number": 6317,
+        "mergedAt": "2025-02-05T18:05:39Z",
+        "headSha": "21a623e279bc4f158aeb1ca7db28e0b86a013e1e",
+        "url": "https://github.com/expressjs/express/pull/6317"
+      },
+      {
+        "number": 6322,
+        "mergedAt": "2025-02-05T17:40:08Z",
+        "headSha": "e6af20449e3ff4cb7f4d2ee39839187872f8ae3c",
+        "url": "https://github.com/expressjs/express/pull/6322"
+      },
+      {
+        "number": 6324,
+        "mergedAt": "2025-02-05T17:25:48Z",
+        "headSha": "581c18dc10830a1b7f44e553812406462a61c235",
+        "url": "https://github.com/expressjs/express/pull/6324"
+      },
+      {
+        "number": 6314,
+        "mergedAt": "2025-02-05T12:28:00Z",
+        "headSha": "870508257b06fcdef2263a6e11c7c23798142443",
+        "url": "https://github.com/expressjs/express/pull/6314"
+      },
+      {
+        "number": 6097,
+        "mergedAt": "2025-02-04T10:59:49Z",
+        "headSha": "4cd7be99c27c2f6417cf2ab853661e5d9295dcff",
+        "url": "https://github.com/expressjs/express/pull/6097"
+      },
+      {
+        "number": 6278,
+        "mergedAt": "2025-02-04T10:28:18Z",
+        "headSha": "48f30b22b7c0d47dfb06aaa32d08aac5d47913eb",
+        "url": "https://github.com/expressjs/express/pull/6278"
+      },
+      {
+        "number": 6297,
+        "mergedAt": "2025-01-26T10:54:07Z",
+        "headSha": "5a62656c3fa8d29f2b2fb511449b734eab8ba62d",
+        "url": "https://github.com/expressjs/express/pull/6297"
+      },
+      {
+        "number": 6276,
+        "mergedAt": "2025-01-23T15:51:46Z",
+        "headSha": "b1351e3410b6d95118ecd8d309acc9813cb12d53",
+        "url": "https://github.com/expressjs/express/pull/6276"
+      },
+      {
+        "number": 5957,
+        "mergedAt": "2025-01-16T00:22:08Z",
+        "headSha": "31a91bb7b585f0013423dd0e8c07c5430df34a94",
+        "url": "https://github.com/expressjs/express/pull/5957"
+      },
+      {
+        "number": 5431,
+        "mergedAt": "2025-01-15T06:39:30Z",
+        "headSha": "3bc917d64a49d06ad6d582d2729eb1b869058e6b",
+        "url": "https://github.com/expressjs/express/pull/5431"
+      },
+      {
+        "number": 6256,
+        "mergedAt": "2025-01-14T19:01:40Z",
+        "headSha": "926d61185a849930c212e289e7af98fd39b53d77",
+        "url": "https://github.com/expressjs/express/pull/6256"
+      },
+      {
+        "number": 6197,
+        "mergedAt": "2025-01-12T17:08:51Z",
+        "headSha": "80836e76b272c35f8106d92b7d9c27a5cd2dc815",
+        "url": "https://github.com/expressjs/express/pull/6197"
+      },
+      {
+        "number": 6266,
+        "mergedAt": "2025-01-11T17:12:04Z",
+        "headSha": "f960e356b227a20b6265d6c8239178af773592f1",
+        "url": "https://github.com/expressjs/express/pull/6266"
+      },
+      {
+        "number": 6236,
+        "mergedAt": "2025-01-10T17:53:45Z",
+        "headSha": "6ccc88112203ca9373f6612e25366f5bb60935cb",
+        "url": "https://github.com/expressjs/express/pull/6236"
+      },
+      {
+        "number": 6080,
+        "mergedAt": "2025-01-08T20:53:41Z",
+        "headSha": "d46bf33968d254afcff001d7f9901537b22df32f",
+        "url": "https://github.com/expressjs/express/pull/6080"
+      },
+      {
+        "number": 6211,
+        "mergedAt": "2025-01-08T20:45:36Z",
+        "headSha": "41c0811e6bae9a83fe8b2c247c79516a524b7ff0",
+        "url": "https://github.com/expressjs/express/pull/6211"
+      },
+      {
+        "number": 6091,
+        "mergedAt": "2025-01-08T15:56:16Z",
+        "headSha": "e86f1bec744b8d633e1a62be774270cc10aa5cba",
+        "url": "https://github.com/expressjs/express/pull/6091"
+      },
+      {
+        "number": 6196,
+        "mergedAt": "2025-01-02T07:00:30Z",
+        "headSha": "dcd3b71b45433a5744309005019b53675b01f6de",
+        "url": "https://github.com/expressjs/express/pull/6196"
+      },
+      {
+        "number": 6217,
+        "mergedAt": "2024-12-20T17:18:55Z",
+        "headSha": "7577df2f395da634326d90fff573777489fb9c35",
+        "url": "https://github.com/expressjs/express/pull/6217"
+      },
+      {
+        "number": 6190,
+        "mergedAt": "2024-12-17T15:59:55Z",
+        "headSha": "00592a061f2de312862fd474c0f497993b72eb51",
+        "url": "https://github.com/expressjs/express/pull/6190"
+      },
+      {
+        "number": 6094,
+        "mergedAt": "2024-12-05T22:27:56Z",
+        "headSha": "009a03b96e3d2cab108a6f0bd36bb7eede5752b2",
+        "url": "https://github.com/expressjs/express/pull/6094"
+      },
+      {
+        "number": 6209,
+        "mergedAt": "2024-12-05T22:16:48Z",
+        "headSha": "e19ba071e8cc5c12471ae4b4bf0e63679e7836f7",
+        "url": "https://github.com/expressjs/express/pull/6209"
+      },
+      {
+        "number": 6173,
+        "mergedAt": "2024-11-27T20:22:23Z",
+        "headSha": "00887b9e1587888df4fb6ec933b91433185f0d78",
+        "url": "https://github.com/expressjs/express/pull/6173"
+      },
+      {
+        "number": 6151,
+        "mergedAt": "2024-11-27T18:59:36Z",
+        "headSha": "9e74fdbcf7309408baea0192c22dd6a08f416ee5",
+        "url": "https://github.com/expressjs/express/pull/6151"
+      },
+      {
+        "number": 6177,
+        "mergedAt": "2024-11-20T19:40:39Z",
+        "headSha": "806a624425704ac67be4ba87895c46b5602a317b",
+        "url": "https://github.com/expressjs/express/pull/6177"
+      },
+      {
+        "number": 6147,
+        "mergedAt": "2024-11-15T16:23:43Z",
+        "headSha": "7f01247e94e11592c2c69d4e86c81d865980a362",
+        "url": "https://github.com/expressjs/express/pull/6147"
+      },
+      {
+        "number": 6146,
+        "mergedAt": "2024-11-15T16:16:29Z",
+        "headSha": "d24644694516eee889320a25954b6413db24440a",
+        "url": "https://github.com/expressjs/express/pull/6146"
+      },
+      {
+        "number": 6150,
+        "mergedAt": "2024-11-15T14:53:38Z",
+        "headSha": "4bfe0b0b7ae8789a3f6502383a139acb9202e433",
+        "url": "https://github.com/expressjs/express/pull/6150"
+      },
+      {
+        "number": 6066,
+        "mergedAt": "2024-11-14T21:01:25Z",
+        "headSha": "648727ef3cd111de18d2f5feeb41a9b3012a34b1",
+        "url": "https://github.com/expressjs/express/pull/6066"
+      },
+      {
+        "number": 6148,
+        "mergedAt": "2024-11-12T15:30:35Z",
+        "headSha": "e1a3a1da4562545abf253a114088b76c933d5473",
+        "url": "https://github.com/expressjs/express/pull/6148"
+      },
+      {
+        "number": 6048,
+        "mergedAt": "2024-10-29T12:35:45Z",
+        "headSha": "890c99d73e94328b4cdf369225d5a1a3becfe96c",
+        "url": "https://github.com/expressjs/express/pull/6048"
+      },
+      {
+        "number": 6071,
+        "mergedAt": "2024-10-27T10:10:33Z",
+        "headSha": "9de106cd566149a72aa895a6ffae5934b26892c0",
+        "url": "https://github.com/expressjs/express/pull/6071"
+      },
+      {
+        "number": 6081,
+        "mergedAt": "2024-10-22T18:22:26Z",
+        "headSha": "bcab127381f07b1e55a1a13d6d8d6ccb7dd88777",
+        "url": "https://github.com/expressjs/express/pull/6081"
+      },
+      {
+        "number": 6058,
+        "mergedAt": "2024-10-20T18:10:23Z",
+        "headSha": "94e64e20dccd869b69faf4bd1aabcf15b90fc555",
+        "url": "https://github.com/expressjs/express/pull/6058"
+      },
+      {
+        "number": 5956,
+        "mergedAt": "2024-10-20T18:09:33Z",
+        "headSha": "5c5f594220668b9f25d4d2fb2fafb04ecff8c57d",
+        "url": "https://github.com/expressjs/express/pull/5956"
+      },
+      {
+        "number": 5994,
+        "mergedAt": "2024-10-20T18:09:00Z",
+        "headSha": "fe5bc5a57cad41b02162f3cc11ac13c88cdd20d3",
+        "url": "https://github.com/expressjs/express/pull/5994"
+      },
+      {
+        "number": 5920,
+        "mergedAt": "2024-10-20T18:07:23Z",
+        "headSha": "e8968b77c9ca202f83fc5e25a417f75dbec2eac3",
+        "url": "https://github.com/expressjs/express/pull/5920"
+      },
+      {
+        "number": 5819,
+        "mergedAt": "2024-10-20T18:06:49Z",
+        "headSha": "560bd65000609b800c5ad272273d284e930afdcd",
+        "url": "https://github.com/expressjs/express/pull/5819"
+      },
+      {
+        "number": 6064,
+        "mergedAt": "2024-10-20T17:58:49Z",
+        "headSha": "eef5e65d81b1998c8a0f9c877861df5a3d31694c",
+        "url": "https://github.com/expressjs/express/pull/6064"
+      },
+      {
+        "number": 6065,
+        "mergedAt": "2024-10-20T17:58:25Z",
+        "headSha": "e33bd4f6f24fed635b2e83461e7095831a96e626",
+        "url": "https://github.com/expressjs/express/pull/6065"
+      },
+      {
+        "number": 6075,
+        "mergedAt": "2024-10-20T17:25:57Z",
+        "headSha": "751228876cd12c72542fe2a15b9f91e4cc92daec",
+        "url": "https://github.com/expressjs/express/pull/6075"
+      },
+      {
+        "number": 6027,
+        "mergedAt": "2024-10-09T19:40:05Z",
+        "headSha": "b4b393abb8207af8ac70020804017305d7e9048f",
+        "url": "https://github.com/expressjs/express/pull/6027"
+      },
+      {
+        "number": 6032,
+        "mergedAt": "2024-10-08T19:31:11Z",
+        "headSha": "2be35fa1017606370eb089ccb93176ba722c2e2c",
+        "url": "https://github.com/expressjs/express/pull/6032"
+      },
+      {
+        "number": 6031,
+        "mergedAt": "2024-10-08T18:36:08Z",
+        "headSha": "62cb5c6c2384e0a0c70520cf93c5294757c4789e",
+        "url": "https://github.com/expressjs/express/pull/6031"
+      },
+      {
+        "number": 6029,
+        "mergedAt": "2024-10-08T10:13:25Z",
+        "headSha": "210561431d4b71a565af370ca2edb42d560d9a21",
+        "url": "https://github.com/expressjs/express/pull/6029"
+      },
+      {
+        "number": 6017,
+        "mergedAt": "2024-10-08T10:10:56Z",
+        "headSha": "7a525c94ae4c90a994d6b0543ef019609b857b3d",
+        "url": "https://github.com/expressjs/express/pull/6017"
+      },
+      {
+        "number": 6013,
+        "mergedAt": "2024-10-06T21:06:57Z",
+        "headSha": "b4d988afb1a3f459257e13b9c9c5d42ad5692c27",
+        "url": "https://github.com/expressjs/express/pull/6013"
+      },
+      {
+        "number": 6009,
+        "mergedAt": "2024-10-06T15:34:27Z",
+        "headSha": "510ec78b656bac08dcf399ce7480c1fefa94c866",
+        "url": "https://github.com/expressjs/express/pull/6009"
+      },
+      {
+        "number": 5962,
+        "mergedAt": "2024-09-30T20:49:26Z",
+        "headSha": "deb7edec0405621e110a9b5fd1354ee938bfe620",
+        "url": "https://github.com/expressjs/express/pull/5962"
+      },
+      {
+        "number": 5946,
+        "mergedAt": "2024-09-11T22:27:37Z",
+        "headSha": "06bca79035ffc5a9df146d1e55e0e723f1148bfc",
+        "url": "https://github.com/expressjs/express/pull/5946"
+      },
+      {
+        "number": 5951,
+        "mergedAt": "2024-09-11T22:26:00Z",
+        "headSha": "1be40ec7044f3ce2ed0cb96ebdb7fbc4b3e12664",
+        "url": "https://github.com/expressjs/express/pull/5951"
+      },
+      {
+        "number": 5954,
+        "mergedAt": "2024-09-11T22:20:34Z",
+        "headSha": "885ca8809580490cb9749e344d5009d763b933b6",
+        "url": "https://github.com/expressjs/express/pull/5954"
+      },
+      {
+        "number": 5935,
+        "mergedAt": "2024-09-11T19:24:22Z",
+        "headSha": "b6637157ab1b7e7a5f26f3d2960a2373de08e6b9",
+        "url": "https://github.com/expressjs/express/pull/5935"
+      },
+      {
+        "number": 2237,
+        "mergedAt": "2024-09-10T04:41:36Z",
+        "headSha": "344b022fc7ed95cf07b46e097935e61151fd585f",
+        "url": "https://github.com/expressjs/express/pull/2237"
+      },
+      {
+        "number": 5934,
+        "mergedAt": "2024-09-10T04:22:13Z",
+        "headSha": "55898b026774719a1b981418d06e30d6d26d34b7",
+        "url": "https://github.com/expressjs/express/pull/5934"
+      },
+      {
+        "number": 5933,
+        "mergedAt": "2024-09-10T03:28:56Z",
+        "headSha": "0c530e14efdf26d8b995bd128a62eb8ec5b5cee1",
+        "url": "https://github.com/expressjs/express/pull/5933"
+      },
+      {
+        "number": 5931,
+        "mergedAt": "2024-09-10T02:49:36Z",
+        "headSha": "e87a48632c2b12f37ffe78de8c6d4acaa62f4715",
+        "url": "https://github.com/expressjs/express/pull/5931"
+      },
+      {
+        "number": 5595,
+        "mergedAt": "2024-09-10T02:17:28Z",
+        "headSha": "9c756b01050de1d0a52eca507093862fb1cf2fe1",
+        "url": "https://github.com/expressjs/express/pull/5595"
+      },
+      {
+        "number": 5785,
+        "mergedAt": "2024-09-10T02:17:28Z",
+        "headSha": "f9256ef36fa97da0c1f2b90e789a694e97fa59de",
+        "url": "https://github.com/expressjs/express/pull/5785"
+      },
+      {
+        "number": 5930,
+        "mergedAt": "2024-09-10T01:47:27Z",
+        "headSha": "022925831fdf11d70e733349227b437fe1257978",
+        "url": "https://github.com/expressjs/express/pull/5930"
+      },
+      {
+        "number": 5929,
+        "mergedAt": "2024-09-10T01:29:19Z",
+        "headSha": "49f81855f26754968f20a2700ed510b540ff0195",
+        "url": "https://github.com/expressjs/express/pull/5929"
+      },
+      {
+        "number": 5928,
+        "mergedAt": "2024-09-10T00:46:25Z",
+        "headSha": "7165b7f35739d6fa5fb48f294ea562faadfbe627",
+        "url": "https://github.com/expressjs/express/pull/5928"
+      },
+      {
+        "number": 5926,
+        "mergedAt": "2024-09-09T23:36:30Z",
+        "headSha": "5a5b32d9dbe39f9fd9d3f975f5a6a8235a699217",
+        "url": "https://github.com/expressjs/express/pull/5926"
+      },
+      {
+        "number": 5885,
+        "mergedAt": "2024-09-09T22:50:12Z",
+        "headSha": "91edef7f3012d9017ee7933fad5a7e3deae4d6ae",
+        "url": "https://github.com/expressjs/express/pull/5885"
+      },
+      {
+        "number": 5916,
+        "mergedAt": "2024-09-09T22:03:32Z",
+        "headSha": "8d7ffa6f1482a99cf4bfafde5b474625377c1ade",
+        "url": "https://github.com/expressjs/express/pull/5916"
+      },
+      {
+        "number": 5902,
+        "mergedAt": "2024-09-09T21:02:06Z",
+        "headSha": "54679595915712658d067fc50137558eb474905d",
+        "url": "https://github.com/expressjs/express/pull/5902"
+      },
+      {
+        "number": 5899,
+        "mergedAt": "2024-09-02T18:36:21Z",
+        "headSha": "d99f9de2f9fe8c2026834108afbdfbff5c780791",
+        "url": "https://github.com/expressjs/express/pull/5899"
+      },
+      {
+        "number": 5884,
+        "mergedAt": "2024-08-31T18:09:21Z",
+        "headSha": "b9f445ac6998d360d3ed0ca5001a5b22c500abf3",
+        "url": "https://github.com/expressjs/express/pull/5884"
+      },
+      {
+        "number": 5883,
+        "mergedAt": "2024-08-31T17:31:31Z",
+        "headSha": "565bf1037607bb204bdbf736c7e5a988a0412f7c",
+        "url": "https://github.com/expressjs/express/pull/5883"
+      },
+      {
+        "number": 5882,
+        "mergedAt": "2024-08-31T16:06:25Z",
+        "headSha": "97cd6bbde9b8e00214653b5664c00028d61d4e1b",
+        "url": "https://github.com/expressjs/express/pull/5882"
+      },
+      {
+        "number": 5881,
+        "mergedAt": "2024-08-31T15:55:04Z",
+        "headSha": "c7f36100f3cbe9f75a1b896c7dcc2a3b2c4ef0ad",
+        "url": "https://github.com/expressjs/express/pull/5881"
+      },
+      {
+        "number": 5833,
+        "mergedAt": "2024-08-23T23:17:12Z",
+        "headSha": "403dbe3399aa237c406660e862c7b70684981971",
+        "url": "https://github.com/expressjs/express/pull/5833"
+      },
+      {
+        "number": 5847,
+        "mergedAt": "2024-08-23T21:10:16Z",
+        "headSha": "1abca1bc71b92d1efa16e4e77da3cf173c535164",
+        "url": "https://github.com/expressjs/express/pull/5847"
+      },
+      {
+        "number": 5790,
+        "mergedAt": "2024-08-23T21:07:45Z",
+        "headSha": "d9d56ede6c5a287c7e4a7172f423f29c9ec68c46",
+        "url": "https://github.com/expressjs/express/pull/5790"
+      },
+      {
+        "number": 5781,
+        "mergedAt": "2024-08-23T20:39:13Z",
+        "headSha": "a869367e37d10082cb353738d18a8250010c4f97",
+        "url": "https://github.com/expressjs/express/pull/5781"
+      },
+      {
+        "number": 5782,
+        "mergedAt": "2024-08-23T20:37:27Z",
+        "headSha": "16171e7437aa2469da1089c4b735be020d71309b",
+        "url": "https://github.com/expressjs/express/pull/5782"
+      },
+      {
+        "number": 5835,
+        "mergedAt": "2024-08-22T16:25:15Z",
+        "headSha": "349a575a7ba221d1915e5f914c02c76e7f6b72da",
+        "url": "https://github.com/expressjs/express/pull/5835"
+      },
+      {
+        "number": 5603,
+        "mergedAt": "2024-08-22T03:15:02Z",
+        "headSha": "ed5a9f439d27d7f0ed0f288198b5b21130da18bb",
+        "url": "https://github.com/expressjs/express/pull/5603"
+      },
+      {
+        "number": 5836,
+        "mergedAt": "2024-08-19T20:12:24Z",
+        "headSha": "47b9bb1d75201042ae6981ed1509ddf68515f3e0",
+        "url": "https://github.com/expressjs/express/pull/5836"
+      },
+      {
+        "number": 5814,
+        "mergedAt": "2024-08-18T18:37:51Z",
+        "headSha": "da8e98beeeafd92a72b865be4d653baafe9f5713",
+        "url": "https://github.com/expressjs/express/pull/5814"
+      },
+      {
+        "number": 5830,
+        "mergedAt": "2024-08-17T15:21:29Z",
+        "headSha": "581e5866cbaffc403d9e9ea85681a0a235cf0007",
+        "url": "https://github.com/expressjs/express/pull/5830"
+      },
+      {
+        "number": 5829,
+        "mergedAt": "2024-08-17T15:20:25Z",
+        "headSha": "bfd45e6ed3aa89b865a36b9e8b7a720568d8a54a",
+        "url": "https://github.com/expressjs/express/pull/5829"
+      },
+      {
+        "number": 5786,
+        "mergedAt": "2024-08-09T16:59:53Z",
+        "headSha": "5899c3ae7c0aebc0c212de00fdf1a16cb9be0c71",
+        "url": "https://github.com/expressjs/express/pull/5786"
+      },
+      {
+        "number": 5792,
+        "mergedAt": "2024-08-02T20:26:45Z",
+        "headSha": "4feefb921828eb4d7d43b62b5cafc9490f0a0df6",
+        "url": "https://github.com/expressjs/express/pull/5792"
+      },
+      {
+        "number": 5803,
+        "mergedAt": "2024-08-02T14:07:36Z",
+        "headSha": "c5b66fc167754dca1b651afd146917d8a2ad75cd",
+        "url": "https://github.com/expressjs/express/pull/5803"
+      },
+      {
+        "number": 5677,
+        "mergedAt": "2024-08-01T23:42:07Z",
+        "headSha": "13977d83deb5f6f4b69a5ba6fa7e76c5053ab015",
+        "url": "https://github.com/expressjs/express/pull/5677"
+      },
+      {
+        "number": 4212,
+        "mergedAt": "2024-07-30T21:49:14Z",
+        "headSha": "794f2dead942c91baf75073915f022abf5f79d31",
+        "url": "https://github.com/expressjs/express/pull/4212"
+      },
+      {
+        "number": 5436,
+        "mergedAt": "2024-07-28T10:55:10Z",
+        "headSha": "4d8aa0692bd21c1ee292d66ee7a708da36d7442f",
+        "url": "https://github.com/expressjs/express/pull/5436"
+      },
+      {
+        "number": 5599,
+        "mergedAt": "2024-07-27T18:15:55Z",
+        "headSha": "e34a3e60e45efa782fce03fb156984c4525445f2",
+        "url": "https://github.com/expressjs/express/pull/5599"
+      },
+      {
+        "number": 5762,
+        "mergedAt": "2024-07-17T20:44:03Z",
+        "headSha": "bba9d44df6fb39e8cd7a6a777515fd717926ec3e",
+        "url": "https://github.com/expressjs/express/pull/5762"
+      },
+      {
+        "number": 5722,
+        "mergedAt": "2024-06-26T22:23:19Z",
+        "headSha": "3733d59e87e74cfd2d970da92f400ee0b6262c8e",
+        "url": "https://github.com/expressjs/express/pull/5722"
+      },
+      {
+        "number": 5683,
+        "mergedAt": "2024-06-10T21:19:11Z",
+        "headSha": "6629cff7ef02f658dabc6f9109063fbc6a327ed0",
+        "url": "https://github.com/expressjs/express/pull/5683"
+      },
+      {
+        "number": 5695,
+        "mergedAt": "2024-06-09T03:25:42Z",
+        "headSha": "fcf7ca62d260074b2c5e119ae79cda0a427f9c2f",
+        "url": "https://github.com/expressjs/express/pull/5695"
+      },
+      {
+        "number": 5672,
+        "mergedAt": "2024-06-07T23:48:48Z",
+        "headSha": "d181e544ab74efec9426e1349fa3d3c63c36962b",
+        "url": "https://github.com/expressjs/express/pull/5672"
+      },
+      {
+        "number": 5690,
+        "mergedAt": "2024-06-05T21:25:59Z",
+        "headSha": "b7a3e07d7873a387979eb96cf8d3669b3d43f4e2",
+        "url": "https://github.com/expressjs/express/pull/5690"
+      },
+      {
+        "number": 5666,
+        "mergedAt": "2024-05-22T22:29:16Z",
+        "headSha": "c88542cfa64cce6d4e2707d50c9a4474c39473ee",
+        "url": "https://github.com/expressjs/express/pull/5666"
+      },
+      {
+        "number": 3216,
+        "mergedAt": "2024-05-17T20:47:56Z",
+        "headSha": "103e711eac807ee5572d88a07749d945f24cf153",
+        "url": "https://github.com/expressjs/express/pull/3216"
+      },
+      {
+        "number": 5653,
+        "mergedAt": "2024-05-14T02:31:23Z",
+        "headSha": "1850e06f2ea772ca2b1027e18f559b9aed3bb616",
+        "url": "https://github.com/expressjs/express/pull/5653"
+      },
+      {
+        "number": 5619,
+        "mergedAt": "2024-05-08T21:02:11Z",
+        "headSha": "b301cd7fe6acdb5fbf83474613329217edbe0975",
+        "url": "https://github.com/expressjs/express/pull/5619"
+      },
+      {
+        "number": 5627,
+        "mergedAt": "2024-05-04T22:15:53Z",
+        "headSha": "9dae6edc850af1a226bf203e32ea5037343e4b25",
+        "url": "https://github.com/expressjs/express/pull/5627"
+      },
+      {
+        "number": 5639,
+        "mergedAt": "2024-05-04T22:01:42Z",
+        "headSha": "01fa7379c72520170e564ca65a0ab605c4b12250",
+        "url": "https://github.com/expressjs/express/pull/5639"
+      },
+      {
+        "number": 5628,
+        "mergedAt": "2024-05-04T21:09:52Z",
+        "headSha": "177a0cf8d0f957df03527374a960177c9b250087",
+        "url": "https://github.com/expressjs/express/pull/5628"
+      },
+      {
+        "number": 5569,
+        "mergedAt": "2024-05-04T20:53:10Z",
+        "headSha": "d6e6204552622efc5e0af5a99c39cfac7cf7c0cc",
+        "url": "https://github.com/expressjs/express/pull/5569"
+      },
+      {
+        "number": 4861,
+        "mergedAt": "2024-04-29T14:43:25Z",
+        "headSha": "68d1b9edf89fbb3cc6e28a8f58f9b09aba6dbfb1",
+        "url": "https://github.com/expressjs/express/pull/4861"
+      },
+      {
+        "number": 5605,
+        "mergedAt": "2024-04-21T09:48:10Z",
+        "headSha": "8c5152498be11fe5fc7a7c0b9c69ebc505776d93",
+        "url": "https://github.com/expressjs/express/pull/5605"
+      },
+      {
+        "number": 5433,
+        "mergedAt": "2024-04-17T13:13:07Z",
+        "headSha": "c0155081e58e06a51a39f336db97fd1c53d9bc14",
+        "url": "https://github.com/expressjs/express/pull/5433"
+      },
+      {
+        "number": 5600,
+        "mergedAt": "2024-04-17T11:53:16Z",
+        "headSha": "b0d9ab3b774fd25fe558ae3cc725c570abada057",
+        "url": "https://github.com/expressjs/express/pull/5600"
+      },
+      {
+        "number": 5590,
+        "mergedAt": "2024-04-10T16:53:53Z",
+        "headSha": "d4c1d99ac08252bf3ccee483997821cd7ccc1ca1",
+        "url": "https://github.com/expressjs/express/pull/5590"
+      },
+      {
+        "number": 5587,
+        "mergedAt": "2024-04-09T13:51:51Z",
+        "headSha": "f66a2791e22641f1fc5913dd2f2ebafecf31923a",
+        "url": "https://github.com/expressjs/express/pull/5587"
+      },
+      {
+        "number": 5579,
+        "mergedAt": "2024-04-07T16:40:16Z",
+        "headSha": "48ad87b0bc5841909d9fe8b009ca81e1c431da4c",
+        "url": "https://github.com/expressjs/express/pull/5579"
+      },
+      {
+        "number": 5526,
+        "mergedAt": "2024-04-04T11:01:35Z",
+        "headSha": "63c95b5a0a9c8af6b926b5a502a6712d29cdb059",
+        "url": "https://github.com/expressjs/express/pull/5526"
+      },
+      {
+        "number": 5564,
+        "mergedAt": "2024-03-27T14:57:44Z",
+        "headSha": "641c880e8120be6637631316e8562cf978212616",
+        "url": "https://github.com/expressjs/express/pull/5564"
+      },
+      {
+        "number": 5565,
+        "mergedAt": "2024-03-27T14:57:09Z",
+        "headSha": "ab5b12edf180316295229dc0befaa8d8ffe2a6f8",
+        "url": "https://github.com/expressjs/express/pull/5565"
+      },
+      {
+        "number": 5562,
+        "mergedAt": "2024-03-26T14:41:06Z",
+        "headSha": "ed11dde49e8dca84fed4e0b4b7b06efde4d40caf",
+        "url": "https://github.com/expressjs/express/pull/5562"
+      },
+      {
+        "number": 5561,
+        "mergedAt": "2024-03-25T14:29:41Z",
+        "headSha": "04bc62787be974874bc1467b23606c36bc9779ba",
+        "url": "https://github.com/expressjs/express/pull/5561"
+      },
+      {
+        "number": 5555,
+        "mergedAt": "2024-03-20T22:10:22Z",
+        "headSha": "813e78971cbb56c14c507323cb812b572cb42532",
+        "url": "https://github.com/expressjs/express/pull/5555"
+      },
+      {
+        "number": 5556,
+        "mergedAt": "2024-03-20T21:52:48Z",
+        "headSha": "1d78dfbe0edfd6f3b967e4e12f8df103a1a32c2b",
+        "url": "https://github.com/expressjs/express/pull/5556"
+      },
+      {
+        "number": 5552,
+        "mergedAt": "2024-03-20T21:33:03Z",
+        "headSha": "499a8c11ee1cc9d9f801e3f92e352efcd69cf236",
+        "url": "https://github.com/expressjs/express/pull/5552"
+      },
+      {
+        "number": 5551,
+        "mergedAt": "2024-03-20T15:18:54Z",
+        "headSha": "83e77aff6a3859d58206f3ff9501277023c03f87",
+        "url": "https://github.com/expressjs/express/pull/5551"
+      },
+      {
+        "number": 5541,
+        "mergedAt": "2024-03-16T17:57:42Z",
+        "headSha": "1343573ec36b1c7e885ab5b4097b0158dd0cf536",
+        "url": "https://github.com/expressjs/express/pull/5541"
+      },
+      {
+        "number": 5510,
+        "mergedAt": "2024-03-14T11:43:13Z",
+        "headSha": "022b73b39408125c2b9ed91da85555fbee7e4771",
+        "url": "https://github.com/expressjs/express/pull/5510"
+      },
+      {
+        "number": 5511,
+        "mergedAt": "2024-03-14T11:40:52Z",
+        "headSha": "c5d995f633f234cd1a509ff3695bc6dc5e819327",
+        "url": "https://github.com/expressjs/express/pull/5511"
+      },
+      {
+        "number": 5527,
+        "mergedAt": "2024-03-11T15:19:21Z",
+        "headSha": "578b78bc5ff5888f6580fc40ba1a23697e49236d",
+        "url": "https://github.com/expressjs/express/pull/5527"
+      },
+      {
+        "number": 5505,
+        "mergedAt": "2024-02-29T11:41:41Z",
+        "headSha": "1b51edac7c5f2844e23602164a52643bb625993a",
+        "url": "https://github.com/expressjs/express/pull/5505"
+      },
+      {
+        "number": 5414,
+        "mergedAt": "2024-02-20T03:54:20Z",
+        "headSha": "0e3ab6ec215fc297473323fb1e8d0df03033e774",
+        "url": "https://github.com/expressjs/express/pull/5414"
+      },
+      {
+        "number": 5490,
+        "mergedAt": "2024-02-19T21:42:51Z",
+        "headSha": "59af63ac2e6aea6a9cefb6fe27705ccf024d8373",
+        "url": "https://github.com/expressjs/express/pull/5490"
+      },
+      {
+        "number": 5195,
+        "mergedAt": "2024-02-19T17:02:54Z",
+        "headSha": "3abea7f8189c73f7f219d8878343d961eb9a4910",
+        "url": "https://github.com/expressjs/express/pull/5195"
+      },
+      {
+        "number": 5233,
+        "mergedAt": "2024-02-19T14:52:29Z",
+        "headSha": "2a89eb5c749a168820d6ea96723ad8a7e979a58b",
+        "url": "https://github.com/expressjs/express/pull/5233"
+      },
+      {
+        "number": 5162,
+        "mergedAt": "2023-09-28T20:12:29Z",
+        "headSha": "2a00da2067b7017f769c9100205a2a5f267a884b",
+        "url": "https://github.com/expressjs/express/pull/5162"
+      },
+      {
+        "number": 5137,
+        "mergedAt": "2023-06-04T15:42:48Z",
+        "headSha": "3531987844e533742f1159b0c3f1e07fad2e4597",
+        "url": "https://github.com/expressjs/express/pull/5137"
+      },
+      {
+        "number": 5028,
+        "mergedAt": "2023-02-23T22:14:15Z",
+        "headSha": "9bc1742937253825d2dc1e9a48c8e8424f0a315b",
+        "url": "https://github.com/expressjs/express/pull/5028"
+      },
+      {
+        "number": 5131,
+        "mergedAt": "2023-02-23T20:23:51Z",
+        "headSha": "5ad95419bac1cb5bcc1f09fd1872f2b2af4aed1a",
+        "url": "https://github.com/expressjs/express/pull/5131"
+      },
+      {
+        "number": 5130,
+        "mergedAt": "2023-02-23T05:23:48Z",
+        "headSha": "506fbd63befe810783dba49d11159c7ad46c239a",
+        "url": "https://github.com/expressjs/express/pull/5130"
+      },
+      {
+        "number": 5113,
+        "mergedAt": "2023-02-22T16:51:27Z",
+        "headSha": "3c1d605da76a6c25dbe423a42d58871803c3e328",
+        "url": "https://github.com/expressjs/express/pull/5113"
+      },
+      {
+        "number": 5117,
+        "mergedAt": "2023-02-22T15:24:48Z",
+        "headSha": "6b4c4f5426fb5de23fb7174fd6e3bf53048e06ca",
+        "url": "https://github.com/expressjs/express/pull/5117"
+      },
+      {
+        "number": 5119,
+        "mergedAt": "2023-02-22T05:15:28Z",
+        "headSha": "a1efd9d6cf968a9e863f3fdd3fef63d06ff039c4",
+        "url": "https://github.com/expressjs/express/pull/5119"
+      }
+    ]
+  }
+]

@@ -20,6 +20,7 @@
     "cli": "npm run build:cli && node dist/cli/src/index.js",
     "fixtures:update": "npm run build:cli && node scripts/update-golden.mjs",
     "fixtures:refresh": "npm run build:cli && node scripts/refresh-golden.mjs",
+    "evaluate": "npm run build:cli && node scripts/evaluate.mjs",
     "check": "npm run test && npm run typecheck && npm run lint && npm run build:cli && npm run build"
   },
   "dependencies": {
