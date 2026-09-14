@@ -6,10 +6,10 @@ BlastRadius parses a unified diff, resolves relative and configured alias import
 
 ## Primary pages
 
-- [Home](https://ayaankhan.github.io/blastradius/): Product purpose and differentiation.
-- [Analyzer](https://ayaankhan.github.io/blastradius/analyze/): Working interactive MVP with a built-in sample.
-- [Method](https://ayaankhan.github.io/blastradius/method/): Algorithm, ranking policy, architecture, and limitations.
-- [Sources](https://ayaankhan.github.io/blastradius/sources/): Primary documentation behind product comparisons.
+- [Home](https://ayaanakhan.github.io/blastradius/): Product purpose and differentiation.
+- [Analyzer](https://ayaanakhan.github.io/blastradius/analyze/): Working interactive MVP with a built-in sample.
+- [Method](https://ayaanakhan.github.io/blastradius/method/): Algorithm, ranking policy, architecture, and limitations.
+- [Sources](https://ayaanakhan.github.io/blastradius/sources/): Primary documentation behind product comparisons.
 
 ## Important limits
 

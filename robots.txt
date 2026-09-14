@@ -1,5 +1,5 @@
 User-Agent: *
 Allow: /
 
-Host: ayaankhan.github.io
-Sitemap: https://ayaankhan.github.io/blastradius/sitemap.xml
+Host: ayaanakhan.github.io
+Sitemap: https://ayaanakhan.github.io/blastradius/sitemap.xml
