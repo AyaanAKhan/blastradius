@@ -486,6 +486,29 @@ export function analyzeChange(
   const changedPaths = changedFiles.map((file) => normalizePath(file.path));
   const changedPathSet = new Set(changedPaths);
   const changedSymbols = changedSymbolsByPath(diff);
+  const reachByChanged = new Map<string, number>();
+  for (const root of changedPaths) {
+    const seen = new Set<string>();
+    const work: Array<{ path: string; depth: number }> = [{ path: root, depth: 0 }];
+    while (work.length) {
+      const current = work.shift();
+      if (!current || current.depth >= 3) continue;
+      for (const dependency of reverseGraph.get(current.path) ?? []) {
+        if (changedPathSet.has(dependency.importer) || seen.has(dependency.importer)) continue;
+        const symbols = changedSymbols.get(root);
+        if (
+          current.depth === 0 &&
+          symbols?.size &&
+          dependency.symbols.length &&
+          !dependency.symbols.includes("*") &&
+          !dependency.symbols.some((symbol) => symbols.has(symbol))
+        ) continue;
+        seen.add(dependency.importer);
+        work.push({ path: dependency.importer, depth: current.depth + 1 });
+      }
+    }
+    reachByChanged.set(root, seen.size);
+  }
   const discovered = new Map<string, number>();
   const queue: Array<{ path: string; depth: number }> = changedPaths.map((path) => ({ path, depth: 0 }));
 
@@ -695,7 +718,17 @@ export function analyzeChange(
         if (node.kind === "dependent") return 5;
         return 6;
       };
-      return priority(left) - priority(right) || left.depth - right.depth || left.path.localeCompare(right.path);
+      const leftChange = changedFiles.find((file) => file.path === left.path);
+      const rightChange = changedFiles.find((file) => file.path === right.path);
+      const leftChurn = leftChange ? leftChange.additions + leftChange.deletions : 0;
+      const rightChurn = rightChange ? rightChange.additions + rightChange.deletions : 0;
+      return (
+        priority(left) - priority(right) ||
+        (reachByChanged.get(right.path) ?? 0) - (reachByChanged.get(left.path) ?? 0) ||
+        rightChurn - leftChurn ||
+        left.depth - right.depth ||
+        left.path.localeCompare(right.path)
+      );
     })
     .slice(0, 10)
     .map((node, index): ReviewTarget => {
@@ -705,6 +738,8 @@ export function analyzeChange(
       if (node.kind === "surface") reasons.push("Exposed surface reached by the dependency graph");
       if (node.kind === "dependent") reasons.push(`Downstream dependency at hop ${node.depth}`);
       if (change) reasons.push(`${change.changeType} file with ${change.additions + change.deletions} changed lines`);
+      const downstreamReach = reachByChanged.get(node.path) ?? 0;
+      if (downstreamReach) reasons.push(`${downstreamReach} downstream file${downstreamReach === 1 ? "" : "s"} within three hops`);
       if (SENSITIVE_PARTS.some((part) => node.path.toLowerCase().includes(part))) reasons.push("Review-sensitive path term");
       if (/(package-lock|pnpm-lock|yarn\.lock|\.env|config|schema|migration)/i.test(node.path)) reasons.push("Configuration or schema reach");
       return { rank: index + 1, path: node.path, kind: node.kind, reasons };

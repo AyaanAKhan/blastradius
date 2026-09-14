@@ -1,6 +1,6 @@
 {
   "policyVersion": "rank-v1",
-  "sha256": "49d3d183f46ecb916faf91827da0976ad0a80218cd0df67ae3d77539686e5e11",
+  "sha256": "ae2474899db5f6fa4e4863e53a7cacf76fb53d3b3b43f71f2e015416deb7c8ea",
   "result": {
     "policyVersion": "rank-v1",
     "confidence": 0.6813926940639269,
@@ -461,18 +461,19 @@
       },
       {
         "rank": 2,
-        "path": "CHANGES.rst",
+        "path": "src/flask/sansio/scaffold.py",
         "kind": "changed",
         "reasons": [
-          "modified file with 1 changed lines"
+          "modified file with 8 changed lines",
+          "18 downstream files within three hops"
         ]
       },
       {
         "rank": 3,
-        "path": "src/flask/sansio/scaffold.py",
+        "path": "CHANGES.rst",
         "kind": "changed",
         "reasons": [
-          "modified file with 8 changed lines"
+          "modified file with 1 changed lines"
         ]
       },
       {

@@ -168,6 +168,32 @@ test("rank-v1 orders review targets by evidence instead of a numeric score", () 
   assert.ok(result.factors.every((factor) => ["attention", "mitigation", "context"].includes(factor.signal)));
 });
 
+test("review order uses downstream reach before churn within a policy tier", () => {
+  const files: RepositoryFile[] = [
+    { path: "src/quiet.ts", imports: [], isTest: false, isSurface: false },
+    { path: "src/reached.ts", imports: [], isTest: false, isSurface: false },
+    { path: "src/consumer.ts", imports: ["./reached"], isTest: false, isSurface: false },
+  ];
+  const change = `diff --git a/src/quiet.ts b/src/quiet.ts
+--- a/src/quiet.ts
++++ b/src/quiet.ts
+@@ -1 +1,3 @@
+-export const quiet = 1
++export const quiet = 2
++export const second = 2
++export const third = 3
+diff --git a/src/reached.ts b/src/reached.ts
+--- a/src/reached.ts
++++ b/src/reached.ts
+@@ -1 +1 @@
+-export const reached = 1
++export const reached = 2`;
+  const result = analyzeChange(change, files);
+
+  assert.equal(result.reviewOrder[0]?.path, "src/reached.ts");
+  assert.ok(result.reviewOrder[0]?.reasons.some((reason) => reason.includes("downstream file")));
+});
+
 test("configured aliases resolve into the dependency graph", () => {
   const files: RepositoryFile[] = [
     { path: "lib/core.ts", imports: [], isTest: false, isSurface: false },

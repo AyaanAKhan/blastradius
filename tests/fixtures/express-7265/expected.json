@@ -1,6 +1,6 @@
 {
   "policyVersion": "rank-v1",
-  "sha256": "61e70ed213845677097bd578f37f168a1a7cf41d9a45881af7aea23848a3a8e3",
+  "sha256": "899bc4ed805adf4e378023eea89fc872ba025dd514724dc00bb24bb978746dda",
   "result": {
     "policyVersion": "rank-v1",
     "confidence": 0.8791666666666667,
@@ -419,7 +419,8 @@
         "path": "lib/request.js",
         "kind": "changed",
         "reasons": [
-          "modified file with 2 changed lines"
+          "modified file with 2 changed lines",
+          "23 downstream files within three hops"
         ]
       },
       {

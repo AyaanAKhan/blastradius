@@ -1,6 +1,6 @@
 {
   "policyVersion": "rank-v1",
-  "sha256": "43030148bcaf6ea96700092c6501115d5116cf8fba7ca2e006474a5e29797003",
+  "sha256": "d1f88a0f39e0cec1f7d842f9e3d2d4e6e418c0a0a5ad4dfee42dd8d2b8d64964",
   "result": {
     "policyVersion": "rank-v1",
     "confidence": 0.6476984126984127,
@@ -449,7 +449,8 @@
         "path": "packages/vite/src/node/utils.ts",
         "kind": "changed",
         "reasons": [
-          "modified file with 4 changed lines"
+          "modified file with 4 changed lines",
+          "22 downstream files within three hops"
         ]
       },
       {
