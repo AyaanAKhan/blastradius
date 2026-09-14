@@ -159,6 +159,7 @@ function ImpactMap({ analysis }: { analysis: AnalysisResult }) {
             return (
               <path
                 className="graph-edge"
+                data-kind={edge.kind}
                 d={`M ${startX} ${startY} C ${startX + bend} ${startY}, ${endX - bend} ${endY}, ${endX} ${endY}`}
                 markerEnd="url(#edge-arrow)"
                 key={`${edge.from}-${edge.to}-${index}`}

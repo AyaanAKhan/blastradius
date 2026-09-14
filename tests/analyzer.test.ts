@@ -210,6 +210,7 @@ test("external packages do not count as unresolved imports", () => {
 
   assert.equal(classifySpecifier("react"), "external");
   assert.equal(classifySpecifier("@next/font/google"), "external");
+  assert.equal(classifySpecifier("node:assert/strict"), "external");
   assert.equal(result.stats.unresolvedImports, 0);
   assert.equal(result.stats.ignoredExternalImports, 2);
 });

@@ -9,6 +9,8 @@
 # Framework output
 /.next
 /out
+/dist
+/build
 
 # Local environment
 .env*

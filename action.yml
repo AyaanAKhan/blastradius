@@ -1,0 +1,78 @@
+name: BlastRadius review plan
+description: Build an explainable review order from a pull request dependency graph.
+author: Ayaan Khan
+branding:
+  icon: activity
+  color: blue
+inputs:
+  base:
+    description: Base git revision. Defaults to the pull request base SHA.
+    required: false
+  head:
+    description: Head git revision. Defaults to the pull request head SHA.
+    required: false
+  token:
+    description: Repository token used to create or update the pull request comment.
+    required: true
+outputs:
+  report:
+    description: Path to the generated Markdown report.
+    value: ${{ steps.analyze.outputs.report }}
+runs:
+  using: composite
+  steps:
+    - name: Install analyzer dependencies
+      shell: bash
+      run: npm ci --prefix "$GITHUB_ACTION_PATH" --ignore-scripts
+    - name: Build review plan
+      id: analyze
+      shell: bash
+      env:
+        INPUT_BASE: ${{ inputs.base }}
+        INPUT_HEAD: ${{ inputs.head }}
+        EVENT_BASE: ${{ github.event.pull_request.base.sha }}
+        EVENT_HEAD: ${{ github.event.pull_request.head.sha }}
+      run: |
+        npm --prefix "$GITHUB_ACTION_PATH" run build:cli
+        base="${INPUT_BASE:-$EVENT_BASE}"
+        head="${INPUT_HEAD:-$EVENT_HEAD}"
+        report="$RUNNER_TEMP/blastradius-report.md"
+        node "$GITHUB_ACTION_PATH/dist/cli/src/index.js" --repo "$GITHUB_WORKSPACE" --base "$base" --head "$head" --output "$report"
+        echo "report=$report" >> "$GITHUB_OUTPUT"
+    - name: Publish sticky pull request comment
+      uses: actions/github-script@v7
+      env:
+        REPORT_PATH: ${{ steps.analyze.outputs.report }}
+      with:
+        github-token: ${{ inputs.token }}
+        script: |
+          const fs = require("fs");
+          const marker = "<!-- blastradius-report -->";
+          const body = `${marker}\n${fs.readFileSync(process.env.REPORT_PATH, "utf8")}`;
+          const issue_number = context.issue.number;
+          if (!issue_number) {
+            core.setFailed("This action must run for a pull request event.");
+            return;
+          }
+          const { data: comments } = await github.rest.issues.listComments({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number,
+            per_page: 100,
+          });
+          const existing = comments.find((comment) => comment.body?.startsWith(marker));
+          if (existing) {
+            await github.rest.issues.updateComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: existing.id,
+              body,
+            });
+          } else {
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number,
+              body,
+            });
+          }

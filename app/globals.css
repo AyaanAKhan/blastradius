@@ -269,6 +269,8 @@ button:focus-visible, a:focus-visible, textarea:focus-visible, [role="tab"]:focu
 .impact-graph { display: block; min-width: 840px; width: 100%; height: auto; }
 .graph-stage-label { fill: var(--muted); font: 700 12px var(--mono); letter-spacing: .02em; }
 .graph-edge { fill: none; stroke: #9aaabd; stroke-width: 1.5; opacity: .75; transition: stroke .15s ease, stroke-width .15s ease, opacity .15s ease; }
+.graph-edge[data-kind="type"] { stroke-dasharray: 5 4; opacity: .58; }
+.graph-edge[data-kind="test"] { stroke: #64a58b; }
 .graph-edge:hover { stroke: var(--blue); stroke-width: 3; opacity: 1; }
 #edge-arrow path { fill: #9aaabd; }
 .graph-node rect { fill: white; stroke: var(--line); stroke-width: 1; }
