@@ -1,0 +1,8 @@
+{
+  "repository": "pallets/flask",
+  "pullRequest": 6133,
+  "url": "https://github.com/pallets/flask/pull/6133",
+  "baseSha": "3596b1ab61cea85edb8970e83ff61daa073facf8",
+  "mergedAt": "2026-08-11T20:19:14Z",
+  "title": "add `app.query` route decorator"
+}

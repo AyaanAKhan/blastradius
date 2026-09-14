@@ -1,0 +1,8 @@
+{
+  "repository": "vitejs/vite",
+  "pullRequest": 23437,
+  "url": "https://github.com/vitejs/vite/pull/23437",
+  "baseSha": "e6f6b3e3119256daa837b2dc399058c8aa45b470",
+  "mergedAt": "2026-09-10T02:50:01Z",
+  "title": "fix: only treat whole `node_modules` path segments as dependencies (fix #17467)"
+}

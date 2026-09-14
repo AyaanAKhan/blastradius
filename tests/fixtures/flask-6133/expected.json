@@ -1,0 +1,562 @@
+{
+  "policyVersion": "rank-v1",
+  "sha256": "49d3d183f46ecb916faf91827da0976ad0a80218cd0df67ae3d77539686e5e11",
+  "result": {
+    "policyVersion": "rank-v1",
+    "confidence": 0.6813926940639269,
+    "changedFiles": [
+      {
+        "path": "CHANGES.rst",
+        "additions": 1,
+        "deletions": 0,
+        "changeType": "modified"
+      },
+      {
+        "path": "src/flask/sansio/scaffold.py",
+        "additions": 8,
+        "deletions": 0,
+        "changeType": "modified"
+      },
+      {
+        "path": "tests/test_basic.py",
+        "additions": 5,
+        "deletions": 2,
+        "changeType": "modified"
+      }
+    ],
+    "nodes": [
+      {
+        "id": "src/flask/sessions.py",
+        "label": "sessions.py",
+        "path": "src/flask/sessions.py",
+        "kind": "risk",
+        "depth": 3
+      },
+      {
+        "id": "CHANGES.rst",
+        "label": "CHANGES.rst",
+        "path": "CHANGES.rst",
+        "kind": "changed",
+        "depth": 0
+      },
+      {
+        "id": "src/flask/sansio/scaffold.py",
+        "label": "scaffold.py",
+        "path": "src/flask/sansio/scaffold.py",
+        "kind": "changed",
+        "depth": 0
+      },
+      {
+        "id": "tests/test_basic.py",
+        "label": "test_basic.py",
+        "path": "tests/test_basic.py",
+        "kind": "changed",
+        "depth": 0
+      },
+      {
+        "id": "src/flask/blueprints.py",
+        "label": "blueprints.py",
+        "path": "src/flask/blueprints.py",
+        "kind": "dependent",
+        "depth": 1
+      },
+      {
+        "id": "src/flask/debughelpers.py",
+        "label": "debughelpers.py",
+        "path": "src/flask/debughelpers.py",
+        "kind": "dependent",
+        "depth": 1
+      },
+      {
+        "id": "src/flask/sansio/app.py",
+        "label": "app.py",
+        "path": "src/flask/sansio/app.py",
+        "kind": "dependent",
+        "depth": 1
+      },
+      {
+        "id": "src/flask/sansio/blueprints.py",
+        "label": "blueprints.py",
+        "path": "src/flask/sansio/blueprints.py",
+        "kind": "dependent",
+        "depth": 1
+      },
+      {
+        "id": "src/flask/templating.py",
+        "label": "templating.py",
+        "path": "src/flask/templating.py",
+        "kind": "dependent",
+        "depth": 1
+      },
+      {
+        "id": "src/flask/__init__.py",
+        "label": "__init__.py",
+        "path": "src/flask/__init__.py",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "src/flask/app.py",
+        "label": "app.py",
+        "path": "src/flask/app.py",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "src/flask/config.py",
+        "label": "config.py",
+        "path": "src/flask/config.py",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "src/flask/json/provider.py",
+        "label": "provider.py",
+        "path": "src/flask/json/provider.py",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "src/flask/logging.py",
+        "label": "logging.py",
+        "path": "src/flask/logging.py",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "src/flask/wrappers.py",
+        "label": "wrappers.py",
+        "path": "src/flask/wrappers.py",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "src/flask/cli.py",
+        "label": "cli.py",
+        "path": "src/flask/cli.py",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "src/flask/ctx.py",
+        "label": "ctx.py",
+        "path": "src/flask/ctx.py",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "src/flask/globals.py",
+        "label": "globals.py",
+        "path": "src/flask/globals.py",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "src/flask/helpers.py",
+        "label": "helpers.py",
+        "path": "src/flask/helpers.py",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "src/flask/json/__init__.py",
+        "label": "__init__.py",
+        "path": "src/flask/json/__init__.py",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "src/flask/testing.py",
+        "label": "testing.py",
+        "path": "src/flask/testing.py",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "tests/test_apps/blueprintapp/__init__.py",
+        "label": "__init__.py",
+        "path": "tests/test_apps/blueprintapp/__init__.py",
+        "kind": "test",
+        "depth": 3
+      },
+      {
+        "id": "tests/test_apps/blueprintapp/apps/__init__.py",
+        "label": "__init__.py",
+        "path": "tests/test_apps/blueprintapp/apps/__init__.py",
+        "kind": "test",
+        "depth": 3
+      },
+      {
+        "id": "tests/test_apps/blueprintapp/apps/admin/__init__.py",
+        "label": "__init__.py",
+        "path": "tests/test_apps/blueprintapp/apps/admin/__init__.py",
+        "kind": "test",
+        "depth": 3
+      }
+    ],
+    "edges": [
+      {
+        "from": "src/flask/ctx.py",
+        "to": "src/flask/app.py",
+        "evidence": "app.py imports ctx.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/globals.py",
+        "to": "src/flask/app.py",
+        "evidence": "app.py imports globals.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/helpers.py",
+        "to": "src/flask/app.py",
+        "evidence": "app.py imports helpers.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/sansio/app.py",
+        "to": "src/flask/app.py",
+        "evidence": "app.py imports app.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/sessions.py",
+        "to": "src/flask/app.py",
+        "evidence": "app.py imports sessions.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/templating.py",
+        "to": "src/flask/app.py",
+        "evidence": "app.py imports templating.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/wrappers.py",
+        "to": "src/flask/app.py",
+        "evidence": "app.py imports wrappers.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/testing.py",
+        "to": "src/flask/app.py",
+        "evidence": "app.py imports testing.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/debughelpers.py",
+        "to": "src/flask/app.py",
+        "evidence": "app.py imports debughelpers.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/cli.py",
+        "to": "src/flask/blueprints.py",
+        "evidence": "blueprints.py imports cli.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/globals.py",
+        "to": "src/flask/blueprints.py",
+        "evidence": "blueprints.py imports globals.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/helpers.py",
+        "to": "src/flask/blueprints.py",
+        "evidence": "blueprints.py imports helpers.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/sansio/blueprints.py",
+        "to": "src/flask/blueprints.py",
+        "evidence": "blueprints.py imports blueprints.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/sansio/scaffold.py",
+        "to": "src/flask/blueprints.py",
+        "evidence": "blueprints.py imports scaffold.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/wrappers.py",
+        "to": "src/flask/blueprints.py",
+        "evidence": "blueprints.py imports wrappers.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/globals.py",
+        "to": "src/flask/cli.py",
+        "evidence": "cli.py imports globals.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/helpers.py",
+        "to": "src/flask/cli.py",
+        "evidence": "cli.py imports helpers.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/app.py",
+        "to": "src/flask/cli.py",
+        "evidence": "cli.py imports app.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/sansio/app.py",
+        "to": "src/flask/config.py",
+        "evidence": "config.py imports app.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/globals.py",
+        "to": "src/flask/ctx.py",
+        "evidence": "ctx.py imports globals.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/helpers.py",
+        "to": "src/flask/ctx.py",
+        "evidence": "ctx.py imports helpers.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/app.py",
+        "to": "src/flask/ctx.py",
+        "evidence": "ctx.py imports app.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/sessions.py",
+        "to": "src/flask/ctx.py",
+        "evidence": "ctx.py imports sessions.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/wrappers.py",
+        "to": "src/flask/ctx.py",
+        "evidence": "ctx.py imports wrappers.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/blueprints.py",
+        "to": "src/flask/debughelpers.py",
+        "evidence": "debughelpers.py imports blueprints.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/globals.py",
+        "to": "src/flask/debughelpers.py",
+        "evidence": "debughelpers.py imports globals.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/sansio/app.py",
+        "to": "src/flask/debughelpers.py",
+        "evidence": "debughelpers.py imports app.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/sansio/scaffold.py",
+        "to": "src/flask/debughelpers.py",
+        "evidence": "debughelpers.py imports scaffold.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/wrappers.py",
+        "to": "src/flask/debughelpers.py",
+        "evidence": "debughelpers.py imports wrappers.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/app.py",
+        "to": "src/flask/globals.py",
+        "evidence": "globals.py imports app.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/ctx.py",
+        "to": "src/flask/globals.py",
+        "evidence": "globals.py imports ctx.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/sessions.py",
+        "to": "src/flask/globals.py",
+        "evidence": "globals.py imports sessions.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/wrappers.py",
+        "to": "src/flask/globals.py",
+        "evidence": "globals.py imports wrappers.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/globals.py",
+        "to": "src/flask/helpers.py",
+        "evidence": "helpers.py imports globals.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/wrappers.py",
+        "to": "src/flask/helpers.py",
+        "evidence": "helpers.py imports wrappers.py",
+        "kind": "value"
+      },
+      {
+        "from": "src/flask/sansio/app.py",
+        "to": "src/flask/json/provider.py",
+        "evidence": "provider.py imports app.py",
+        "kind": "value"
+      }
+    ],
+    "factors": [
+      {
+        "label": "Change size",
+        "signal": "context",
+        "explanation": "16 changed lines across 3 files"
+      },
+      {
+        "label": "Dependency fan-out",
+        "signal": "attention",
+        "explanation": "18 downstream files within three hops"
+      },
+      {
+        "label": "Sensitive paths",
+        "signal": "context",
+        "explanation": "No changed paths matched the configured sensitive domains"
+      },
+      {
+        "label": "Related tests",
+        "signal": "mitigation",
+        "explanation": "4 related tests found by import or exact filename evidence"
+      },
+      {
+        "label": "Sensitive dependents without tests",
+        "signal": "attention",
+        "explanation": "1 sensitive downstream file had no matching test evidence"
+      },
+      {
+        "label": "Verification added",
+        "signal": "mitigation",
+        "explanation": "1 test file changed with the implementation"
+      },
+      {
+        "label": "Configuration reach",
+        "signal": "context",
+        "explanation": "No configuration or schema changes detected"
+      }
+    ],
+    "reviewOrder": [
+      {
+        "rank": 1,
+        "path": "src/flask/sessions.py",
+        "kind": "risk",
+        "reasons": [
+          "Sensitive downstream path with no matching test evidence",
+          "Review-sensitive path term"
+        ]
+      },
+      {
+        "rank": 2,
+        "path": "CHANGES.rst",
+        "kind": "changed",
+        "reasons": [
+          "modified file with 1 changed lines"
+        ]
+      },
+      {
+        "rank": 3,
+        "path": "src/flask/sansio/scaffold.py",
+        "kind": "changed",
+        "reasons": [
+          "modified file with 8 changed lines"
+        ]
+      },
+      {
+        "rank": 4,
+        "path": "src/flask/blueprints.py",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 1"
+        ]
+      },
+      {
+        "rank": 5,
+        "path": "src/flask/debughelpers.py",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 1"
+        ]
+      },
+      {
+        "rank": 6,
+        "path": "src/flask/sansio/app.py",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 1"
+        ]
+      },
+      {
+        "rank": 7,
+        "path": "src/flask/sansio/blueprints.py",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 1"
+        ]
+      },
+      {
+        "rank": 8,
+        "path": "src/flask/templating.py",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 1"
+        ]
+      },
+      {
+        "rank": 9,
+        "path": "src/flask/__init__.py",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "rank": 10,
+        "path": "src/flask/app.py",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      }
+    ],
+    "verificationPlan": [
+      "Run tests/test_apps/blueprintapp/apps/admin/__init__.py",
+      "Run tests/test_apps/blueprintapp/apps/__init__.py",
+      "Exercise the unpaired path through src/flask/sessions.py"
+    ],
+    "brief": "3 changed files reach 18 downstream modules and 0 user-facing surfaces. src/flask/sessions.py is the highest-value review target because it is sensitive and has no matching test evidence.",
+    "narrativeSource": "evidence-engine",
+    "unknowns": [
+      "16 relative imports could not be resolved.",
+      "63 of 292 import specifiers used an unrecognized path alias and were not followed. The downstream graph is incomplete."
+    ],
+    "stats": {
+      "additions": 14,
+      "deletions": 2,
+      "impactedFiles": 18,
+      "impactedSurfaces": 0,
+      "impactedTests": 4,
+      "totalImports": 292,
+      "resolvedImports": 76,
+      "unresolvedImports": 79,
+      "ignoredExternalImports": 137,
+      "ignoredAssetImports": 0,
+      "typeOnlyImports": 0,
+      "symbolFilteredImports": 0,
+      "truncatedNodes": 0
+    }
+  }
+}

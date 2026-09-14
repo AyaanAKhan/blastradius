@@ -1,0 +1,8 @@
+{
+  "repository": "expressjs/express",
+  "pullRequest": 7265,
+  "url": "https://github.com/expressjs/express/pull/7265",
+  "baseSha": "dae209ae6559c29cfca2a1f4414c51d89ea643d5",
+  "mergedAt": "2026-06-16T02:34:07Z",
+  "title": "fix: replace deprecated trimRight() with trimEnd()"
+}

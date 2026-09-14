@@ -1,0 +1,483 @@
+{
+  "files": [
+    {
+      "path": "src/flask/app.py",
+      "imports": [
+        "__future__",
+        "datetime",
+        "functools",
+        "inspect",
+        "itertools",
+        "types",
+        "urllib/parse",
+        "werkzeug/datastructures",
+        "werkzeug/exceptions",
+        "werkzeug/routing",
+        "werkzeug/serving",
+        "werkzeug/wrappers",
+        "werkzeug/wsgi",
+        "./",
+        "./ctx",
+        "./globals",
+        "./helpers",
+        "./sansio/app",
+        "./sessions",
+        "./signals",
+        "./templating",
+        "./wrappers",
+        "_typeshed/wsgi",
+        "./testing",
+        "./typing",
+        "flask",
+        "./debughelpers",
+        "flask/testing",
+        "asgiref/sync",
+        "collections/abc",
+        "os",
+        "sys",
+        "typing",
+        "weakref",
+        "click",
+        "name of your application/  For example the Flask-SQLAlchemy",
+        "warnings"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/blueprints.py",
+      "imports": [
+        "__future__",
+        "datetime",
+        "./cli",
+        "./globals",
+        "./helpers",
+        "./sansio/blueprints",
+        "./sansio/scaffold",
+        "./wrappers",
+        "os",
+        "typing"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/cli.py",
+      "imports": [
+        "__future__",
+        "functools",
+        "operator",
+        "types",
+        "click/core",
+        "werkzeug",
+        "werkzeug/serving",
+        "werkzeug/utils",
+        "./globals",
+        "./helpers",
+        "_typeshed/wsgi",
+        "./app",
+        "./",
+        "rlcompleter",
+        "ast",
+        "collections/abc",
+        "importlib/metadata",
+        "inspect",
+        "os",
+        "platform",
+        "re",
+        "sys",
+        "traceback",
+        "typing",
+        "click",
+        "ssl",
+        "dotenv",
+        "cryptography",
+        "code",
+        "readline"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/config.py",
+      "imports": [
+        "__future__",
+        "werkzeug/utils",
+        "./sansio/app",
+        "yourapplication",
+        "errno",
+        "json",
+        "os",
+        "types",
+        "typing",
+        "typing_extensions",
+        "tomllib"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/ctx.py",
+      "imports": [
+        "__future__",
+        "functools",
+        "types",
+        "werkzeug/exceptions",
+        "werkzeug/routing",
+        "./",
+        "./globals",
+        "./helpers",
+        "./signals",
+        "_typeshed/wsgi",
+        "./app",
+        "./sessions",
+        "./wrappers",
+        "flask",
+        "contextvars",
+        "typing",
+        "typing_extensions",
+        "gevent",
+        "warnings"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/debughelpers.py",
+      "imports": [
+        "__future__",
+        "jinja2/loaders",
+        "werkzeug/routing",
+        "./blueprints",
+        "./globals",
+        "./sansio/app",
+        "./sansio/scaffold",
+        "./wrappers",
+        "typing"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/globals.py",
+      "imports": [
+        "__future__",
+        "contextvars",
+        "werkzeug/local",
+        "./app",
+        "./ctx",
+        "./sessions",
+        "./wrappers",
+        "typing",
+        "warnings"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/helpers.py",
+      "imports": [
+        "__future__",
+        "datetime",
+        "functools",
+        "types",
+        "werkzeug/exceptions",
+        "werkzeug/utils",
+        "werkzeug/wrappers",
+        "./globals",
+        "./signals",
+        "./wrappers",
+        "flask",
+        "importlib/util",
+        "os",
+        "sys",
+        "typing"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/json/provider.py",
+      "imports": [
+        "__future__",
+        "datetime",
+        "werkzeug/http",
+        "werkzeug/sansio/response",
+        "../sansio/app",
+        "dataclasses",
+        "decimal",
+        "json",
+        "typing",
+        "uuid",
+        "weakref"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/json/__init__.py",
+      "imports": [
+        "__future__",
+        "../globals",
+        "./provider",
+        "../wrappers",
+        "json",
+        "typing"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/logging.py",
+      "imports": [
+        "__future__",
+        "werkzeug/local",
+        "./globals",
+        "./sansio/app",
+        "logging",
+        "sys",
+        "typing"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/sansio/app.py",
+      "imports": [
+        "__future__",
+        "datetime",
+        "itertools",
+        "werkzeug/exceptions",
+        "werkzeug/routing",
+        "werkzeug/sansio/response",
+        "werkzeug/utils",
+        "../",
+        "../config",
+        "../ctx",
+        "../helpers",
+        "../json/provider",
+        "../logging",
+        "../templating",
+        "./scaffold",
+        "werkzeug/wrappers",
+        "../testing",
+        "./blueprints",
+        "flask",
+        "logging",
+        "os",
+        "sys",
+        "typing",
+        "name of your application/  For example the Flask-SQLAlchemy",
+        "name is main/  This name is used"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/sansio/blueprints.py",
+      "imports": [
+        "__future__",
+        "collections",
+        "functools",
+        "../",
+        "./scaffold",
+        "./app",
+        "os",
+        "typing"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/sansio/scaffold.py",
+      "imports": [
+        "__future__",
+        "collections",
+        "functools",
+        "jinja2",
+        "werkzeug/exceptions",
+        "werkzeug/utils",
+        "../",
+        "../helpers",
+        "../templating",
+        "click",
+        "importlib/util",
+        "os",
+        "pathlib",
+        "sys",
+        "typing"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/sessions.py",
+      "imports": [
+        "__future__",
+        "collections/abc",
+        "datetime",
+        "itsdangerous",
+        "werkzeug/datastructures",
+        "./json/tag",
+        "./app",
+        "./wrappers",
+        "hashlib",
+        "typing",
+        "typing_extensions"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/templating.py",
+      "imports": [
+        "__future__",
+        "jinja2",
+        "./ctx",
+        "./globals",
+        "./helpers",
+        "./signals",
+        "./sansio/app",
+        "./sansio/scaffold",
+        "./debughelpers",
+        "typing"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/testing.py",
+      "imports": [
+        "__future__",
+        "contextlib",
+        "copy",
+        "types",
+        "urllib/parse",
+        "click/testing",
+        "werkzeug/test",
+        "werkzeug/wrappers",
+        "./cli",
+        "./sessions",
+        "_typeshed/wsgi",
+        "./app",
+        "importlib/metadata",
+        "typing"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/wrappers.py",
+      "imports": [
+        "__future__",
+        "werkzeug/exceptions",
+        "werkzeug/wrappers",
+        "./",
+        "./globals",
+        "./helpers",
+        "werkzeug/routing",
+        "./debughelpers",
+        "typing"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "src/flask/__init__.py",
+      "imports": [
+        "./",
+        "./app",
+        "./blueprints",
+        "./config",
+        "./ctx",
+        "./globals",
+        "./helpers",
+        "./json",
+        "./signals",
+        "./templating",
+        "./wrappers"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "tests/test_apps/blueprintapp/apps/admin/__init__.py",
+      "imports": [
+        "flask"
+      ],
+      "isTest": true,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "tests/test_apps/blueprintapp/apps/__init__.py",
+      "imports": [],
+      "isTest": true,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "tests/test_apps/blueprintapp/__init__.py",
+      "imports": [
+        "flask",
+        "blueprintapp/apps/admin",
+        "blueprintapp/apps/frontend"
+      ],
+      "isTest": true,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "tests/test_basic.py",
+      "imports": [
+        "contextlib",
+        "datetime",
+        "platform",
+        "markupsafe",
+        "werkzeug/exceptions",
+        "werkzeug/http",
+        "werkzeug/routing",
+        "flask/globals",
+        "flask/testing",
+        "flask/debughelpers",
+        "dataclasses",
+        "pathlib",
+        "gc",
+        "importlib/metadata",
+        "re",
+        "typing",
+        "uuid",
+        "weakref",
+        "pytest",
+        "werkzeug/serving",
+        "flask"
+      ],
+      "isTest": true,
+      "isSurface": false,
+      "hasDynamicImport": false
+    }
+  ],
+  "options": {
+    "aliases": {},
+    "externalPackages": []
+  }
+}

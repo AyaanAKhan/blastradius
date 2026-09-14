@@ -1,0 +1,6167 @@
+{
+  "files": [
+    {
+      "path": "packages/vite/src/node/__tests__/utils.spec.ts",
+      "imports": [
+        "node:crypto",
+        "node:fs",
+        "node:os",
+        "node:path",
+        "mlly",
+        "vitest",
+        "..",
+        "../../shared/utils",
+        "../utils"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "node:crypto",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:fs",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:os",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:os",
+          "kind": "type",
+          "symbols": [
+            "NetworkInterfaceInfoIPv4"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "mlly",
+          "kind": "value",
+          "symbols": [
+            "fileURLToPath"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "vitest",
+          "kind": "value",
+          "symbols": [
+            "describe",
+            "expect",
+            "onTestFinished",
+            "test",
+            "vi"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "..",
+          "target": "packages/vite/src/node/index.ts",
+          "kind": "type",
+          "symbols": [
+            "CommonServerOptions",
+            "ResolvedServerUrls"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../../shared/utils",
+          "target": "packages/vite/src/shared/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "isWindows"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "asyncFlatten",
+            "bareImportRE",
+            "combineSourcemaps",
+            "extractHostnamesFromCerts",
+            "extractHostnamesFromSubjectAltName",
+            "flattenId",
+            "generateCodeFrame",
+            "getFileStartIndex",
+            "getHash",
+            "getLocalhostAddressIfDiffersFromDNS",
+            "getServerUrlByHost",
+            "injectQuery",
+            "isFileReadable",
+            "isParentDirectory",
+            "mergeWithDefaults",
+            "normalizePath",
+            "numberToPos",
+            "posToNumber",
+            "processSrcSetSync",
+            "removeTimestampQuery",
+            "resolveHostname",
+            "resolveServerUrls"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": true,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/__tests_dts__/config.ts",
+      "imports": [
+        "@type-challenges/utils",
+        "../config",
+        "../utils"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "@type-challenges/utils",
+          "kind": "type",
+          "symbols": [
+            "Equal",
+            "ExpectTrue"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "UserConfig",
+            "UserConfigExport",
+            "UserConfigFn",
+            "UserConfigFnObject",
+            "UserConfigFnPromise"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "value",
+          "symbols": [
+            "defineConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "mergeConfig"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "cases1"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/baseEnvironment.ts",
+      "imports": [
+        "picocolors",
+        "./config",
+        "./logger",
+        "./plugin"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "picocolors",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedConfig",
+            "ResolvedEnvironmentOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./logger",
+          "target": "packages/vite/src/node/logger.ts",
+          "kind": "type",
+          "symbols": [
+            "Logger"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugin",
+          "target": "packages/vite/src/node/plugin.ts",
+          "kind": "type",
+          "symbols": [
+            "Plugin"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "BaseEnvironment",
+        "PartialEnvironment",
+        "UnknownEnvironment"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/build.ts",
+      "imports": [
+        "node:path",
+        "picocolors",
+        "rolldown",
+        "rolldown/experimental",
+        "rolldown/plugins",
+        "#dep-types/commonjs",
+        "#dep-types/dynamicImportVars",
+        "#types/internal/esbuildOptions",
+        "#types/metadata",
+        "./baseEnvironment",
+        "./config",
+        "./constants",
+        "./deprecations",
+        "./environment",
+        "./logger",
+        "./packages",
+        "./plugin",
+        "./plugins",
+        "./plugins/esbuild",
+        "./plugins/importAnalysisBuild",
+        "./plugins/license",
+        "./plugins/manifest",
+        "./plugins/prepareOutDir",
+        "./plugins/reporter",
+        "./plugins/terser",
+        "./plugins/worker",
+        "./server/pluginContainer",
+        "./ssr/ssrManifestPlugin",
+        "./typeUtils",
+        "./utils",
+        "./watch",
+        "@vitejs/devtools/integration"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "picocolors",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown",
+          "kind": "type",
+          "symbols": [
+            "ExternalOption",
+            "InputOption",
+            "InternalModuleFormat",
+            "LogLevel",
+            "LogOrStringHandler",
+            "MinimalPluginContext",
+            "ModuleFormat",
+            "OutputAsset",
+            "OutputBundle",
+            "OutputChunk",
+            "OutputOptions",
+            "PluginContext",
+            "RenderedChunk",
+            "RolldownBuild",
+            "RolldownOptions",
+            "RolldownOutput",
+            "RolldownWatcher",
+            "RollupError",
+            "RollupLog",
+            "WarningHandlerWithDefault",
+            "WatcherOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown/experimental",
+          "kind": "value",
+          "symbols": [
+            "viteLoadFallbackPlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown/plugins",
+          "kind": "value",
+          "symbols": [
+            "esmExternalRequirePlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "#dep-types/commonjs",
+          "target": "packages/vite/src/types/commonjs.ts",
+          "kind": "type",
+          "symbols": [
+            "RollupCommonJSOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "#dep-types/dynamicImportVars",
+          "target": "packages/vite/src/types/dynamicImportVars.ts",
+          "kind": "type",
+          "symbols": [
+            "RollupDynamicImportVarsOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "#types/internal/esbuildOptions",
+          "target": "packages/vite/types/internal/esbuildOptions.ts",
+          "kind": "type",
+          "symbols": [
+            "EsbuildTarget"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "#types/metadata",
+          "target": "packages/vite/types/metadata.ts",
+          "kind": "type",
+          "symbols": [
+            "AssetMetadata",
+            "ChunkMetadata"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./baseEnvironment",
+          "target": "packages/vite/src/node/baseEnvironment.ts",
+          "kind": "type",
+          "symbols": [
+            "PartialEnvironment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./baseEnvironment",
+          "target": "packages/vite/src/node/baseEnvironment.ts",
+          "kind": "value",
+          "symbols": [
+            "BaseEnvironment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "EnvironmentOptions",
+            "InlineConfig",
+            "ResolvedConfig",
+            "ResolvedEnvironmentOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "value",
+          "symbols": [
+            "resolveConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./constants",
+          "target": "packages/vite/src/node/constants.ts",
+          "kind": "value",
+          "symbols": [
+            "DEFAULT_ASSETS_INLINE_LIMIT",
+            "ESBUILD_BASELINE_WIDELY_AVAILABLE_TARGET",
+            "ROLLUP_HOOKS",
+            "VERSION"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./deprecations",
+          "target": "packages/vite/src/node/deprecations.ts",
+          "kind": "value",
+          "symbols": [
+            "isFutureDeprecationEnabled",
+            "warnFutureDeprecation"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./environment",
+          "target": "packages/vite/src/node/environment.ts",
+          "kind": "type",
+          "symbols": [
+            "Environment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./logger",
+          "target": "packages/vite/src/node/logger.ts",
+          "kind": "type",
+          "symbols": [
+            "Logger"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./packages",
+          "target": "packages/vite/src/node/packages.ts",
+          "kind": "value",
+          "symbols": [
+            "findNearestMainPackageData",
+            "findNearestPackageData"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./packages",
+          "target": "packages/vite/src/node/packages.ts",
+          "kind": "type",
+          "symbols": [
+            "PackageCache"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugin",
+          "target": "packages/vite/src/node/plugin.ts",
+          "kind": "value",
+          "symbols": [
+            "perEnvironmentPlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugin",
+          "target": "packages/vite/src/node/plugin.ts",
+          "kind": "type",
+          "symbols": [
+            "MinimalPluginContextWithoutEnvironment",
+            "Plugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins",
+          "target": "packages/vite/src/node/plugins/index.ts",
+          "kind": "value",
+          "symbols": [
+            "getHookHandler"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/esbuild",
+          "target": "packages/vite/src/node/plugins/esbuild.ts",
+          "kind": "value",
+          "symbols": [
+            "buildEsbuildPlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/importAnalysisBuild",
+          "target": "packages/vite/src/node/plugins/importAnalysisBuild.ts",
+          "kind": "value",
+          "symbols": [
+            "buildImportAnalysisPlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/license",
+          "target": "packages/vite/src/node/plugins/license.ts",
+          "kind": "type",
+          "symbols": [
+            "LicenseOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/license",
+          "target": "packages/vite/src/node/plugins/license.ts",
+          "kind": "value",
+          "symbols": [
+            "licensePlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/manifest",
+          "target": "packages/vite/src/node/plugins/manifest.ts",
+          "kind": "value",
+          "symbols": [
+            "manifestPlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/prepareOutDir",
+          "target": "packages/vite/src/node/plugins/prepareOutDir.ts",
+          "kind": "value",
+          "symbols": [
+            "prepareOutDirPlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/reporter",
+          "target": "packages/vite/src/node/plugins/reporter.ts",
+          "kind": "value",
+          "symbols": [
+            "buildReporterPlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/terser",
+          "target": "packages/vite/src/node/plugins/terser.ts",
+          "kind": "type",
+          "symbols": [
+            "TerserOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/terser",
+          "target": "packages/vite/src/node/plugins/terser.ts",
+          "kind": "value",
+          "symbols": [
+            "terserPlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/worker",
+          "target": "packages/vite/src/node/plugins/worker.ts",
+          "kind": "value",
+          "symbols": [
+            "webWorkerPostPlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server/pluginContainer",
+          "target": "packages/vite/src/node/server/pluginContainer.ts",
+          "kind": "value",
+          "symbols": [
+            "BasicMinimalPluginContext",
+            "basePluginContextMeta"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./ssr/ssrManifestPlugin",
+          "target": "packages/vite/src/node/ssr/ssrManifestPlugin.ts",
+          "kind": "value",
+          "symbols": [
+            "ssrManifestPlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./typeUtils",
+          "target": "packages/vite/src/node/typeUtils.ts",
+          "kind": "type",
+          "symbols": [
+            "RollupPluginHooks"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "arraify",
+            "asyncFlatten",
+            "createDebugger",
+            "displayTime",
+            "getPkgName",
+            "joinUrlSegments",
+            "mergeConfig",
+            "mergeWithDefaults",
+            "partialEncodeURIPath",
+            "setupRollupOptionCompat",
+            "unique"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./watch",
+          "target": "packages/vite/src/node/watch.ts",
+          "kind": "value",
+          "symbols": [
+            "convertToWatcherOptions",
+            "getResolvedOutDirs",
+            "resolveChokidarOptions",
+            "resolveEmptyOutDir"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "@vitejs/devtools/integration",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "BuildAppHook",
+        "BuildEnvironment",
+        "BuildEnvironmentOptions",
+        "BuildOptions",
+        "BuilderOptions",
+        "ChunkMetadataMap",
+        "LibraryFormats",
+        "LibraryOptions",
+        "ModulePreloadOptions",
+        "RenderBuiltAssetUrl",
+        "ResolveModulePreloadDependenciesFn",
+        "ResolvedBuildEnvironmentOptions",
+        "ResolvedBuildOptions",
+        "ResolvedBuilderOptions",
+        "ResolvedModulePreloadOptions",
+        "ViteBuilder",
+        "build",
+        "buildEnvironmentOptionsDefaults",
+        "builderOptionsDefaults",
+        "clearLine",
+        "createBuilder",
+        "createToImportMetaURLBasedRelativeRuntime",
+        "enhanceRollupError",
+        "injectEnvironmentToHooks",
+        "onRollupLog",
+        "resolveBuildEnvironmentOptions",
+        "resolveBuildOutputs",
+        "resolveBuildPlugins",
+        "resolveBuilderOptions",
+        "resolveLibFilename",
+        "resolveRolldownOptions",
+        "resolveUserExternal",
+        "toOutputFilePathInCss",
+        "toOutputFilePathInHtml",
+        "toOutputFilePathInJS",
+        "toOutputFilePathWithoutRuntime"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/cli.ts",
+      "imports": [
+        "node:fs",
+        "node:path",
+        "node:perf_hooks",
+        "node:util",
+        "cac",
+        "picocolors",
+        "./build",
+        "./config",
+        "./constants",
+        "./logger",
+        "./server",
+        "./shortcuts",
+        "node:inspector",
+        "./optimizer",
+        "./preview"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "node:fs",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:perf_hooks",
+          "kind": "value",
+          "symbols": [
+            "performance"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:util",
+          "kind": "value",
+          "symbols": [
+            "inspect"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "cac",
+          "kind": "value",
+          "symbols": [
+            "cac"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "picocolors",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./build",
+          "target": "packages/vite/src/node/build.ts",
+          "kind": "value",
+          "symbols": [
+            "createBuilder"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./build",
+          "target": "packages/vite/src/node/build.ts",
+          "kind": "type",
+          "symbols": [
+            "BuildEnvironmentOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "InlineConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./constants",
+          "target": "packages/vite/src/node/constants.ts",
+          "kind": "value",
+          "symbols": [
+            "VERSION"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./logger",
+          "target": "packages/vite/src/node/logger.ts",
+          "kind": "type",
+          "symbols": [
+            "LogLevel"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./logger",
+          "target": "packages/vite/src/node/logger.ts",
+          "kind": "value",
+          "symbols": [
+            "createLogger"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server",
+          "target": "packages/vite/src/node/server/index.ts",
+          "kind": "type",
+          "symbols": [
+            "ServerOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./shortcuts",
+          "target": "packages/vite/src/node/shortcuts.ts",
+          "kind": "type",
+          "symbols": [
+            "CLIShortcut"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server",
+          "target": "packages/vite/src/node/server/index.ts",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:inspector",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./optimizer",
+          "target": "packages/vite/src/node/optimizer/index.ts",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./preview",
+          "target": "packages/vite/src/node/preview.ts",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "stopProfiler"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/config.ts",
+      "imports": [
+        "node:crypto",
+        "node:fs",
+        "node:fs/promises",
+        "node:module",
+        "node:path",
+        "node:perf_hooks",
+        "node:url",
+        "node:util",
+        "@voidzero-dev/vite-task-client",
+        "fresh-import",
+        "picocolors",
+        "picomatch",
+        "rolldown",
+        "tinyglobby",
+        "#dep-types/alias",
+        "#types/internal/devtoolsOptions",
+        "../module-runner/importMetaResolver",
+        "../shared/utils",
+        "../types/anymatch",
+        "./assetSource",
+        "./baseEnvironment",
+        "./build",
+        "./constants",
+        "./env",
+        "./idResolver",
+        "./logger",
+        "./nativeConfigCompat",
+        "./nodeResolve",
+        "./optimizer",
+        "./optimizer/pluginConverter",
+        "./packages",
+        "./plugin",
+        "./plugins",
+        "./plugins/css",
+        "./plugins/esbuild",
+        "./plugins/json",
+        "./plugins/oxc",
+        "./plugins/resolve",
+        "./preview",
+        "./server",
+        "./server/environment",
+        "./server/environments/runnableEnvironment",
+        "./server/middlewares/hostCheck",
+        "./server/pluginContainer",
+        "./server/ws",
+        "./ssr",
+        "./ssr/runnerImport",
+        "./typeUtils",
+        "./utils",
+        "@vitejs/devtools/config",
+        "@vitejs/devtools/integration"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "node:crypto",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:fs",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:fs/promises",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:module",
+          "kind": "value",
+          "symbols": [
+            "createRequire"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:perf_hooks",
+          "kind": "value",
+          "symbols": [
+            "performance"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:url",
+          "kind": "value",
+          "symbols": [
+            "pathToFileURL"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:util",
+          "kind": "value",
+          "symbols": [
+            "inspect",
+            "isDeepStrictEqual",
+            "promisify"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "@voidzero-dev/vite-task-client",
+          "kind": "value",
+          "symbols": [
+            "getEnv",
+            "ignoreInput",
+            "ignoreOutput"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "fresh-import",
+          "kind": "value",
+          "symbols": [
+            "freshImport"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "picocolors",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "picomatch",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown",
+          "kind": "type",
+          "symbols": [
+            "InputOption",
+            "NormalizedOutputOptions",
+            "OutputChunk",
+            "PluginContextMeta",
+            "RolldownOptions",
+            "RolldownOutput"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown",
+          "kind": "value",
+          "symbols": [
+            "rolldown"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "tinyglobby",
+          "kind": "value",
+          "symbols": [
+            "isDynamicPattern"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "#dep-types/alias",
+          "target": "packages/vite/src/types/alias.ts",
+          "kind": "type",
+          "symbols": [
+            "Alias",
+            "AliasOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "#types/internal/devtoolsOptions",
+          "target": "packages/vite/types/internal/devtoolsOptions.ts",
+          "kind": "type",
+          "symbols": [
+            "DevToolsConfig",
+            "ResolvedDevToolsConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../module-runner/importMetaResolver",
+          "target": "packages/vite/src/module-runner/importMetaResolver.ts",
+          "kind": "value",
+          "symbols": [
+            "createImportMetaResolver",
+            "importMetaResolveWithCustomHookString"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../shared/utils",
+          "target": "packages/vite/src/shared/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "withTrailingSlash"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../types/anymatch",
+          "target": "packages/vite/src/types/anymatch.ts",
+          "kind": "type",
+          "symbols": [
+            "AnymatchFn"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./assetSource",
+          "target": "packages/vite/src/node/assetSource.ts",
+          "kind": "type",
+          "symbols": [
+            "HtmlAssetSource"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./baseEnvironment",
+          "target": "packages/vite/src/node/baseEnvironment.ts",
+          "kind": "value",
+          "symbols": [
+            "PartialEnvironment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./build",
+          "target": "packages/vite/src/node/build.ts",
+          "kind": "type",
+          "symbols": [
+            "BuildEnvironmentOptions",
+            "BuilderOptions",
+            "RenderBuiltAssetUrl",
+            "ResolvedBuildEnvironmentOptions",
+            "ResolvedBuildOptions",
+            "ResolvedBuilderOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./build",
+          "target": "packages/vite/src/node/build.ts",
+          "kind": "value",
+          "symbols": [
+            "buildEnvironmentOptionsDefaults",
+            "builderOptionsDefaults",
+            "resolveBuildEnvironmentOptions",
+            "resolveBuilderOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./constants",
+          "target": "packages/vite/src/node/constants.ts",
+          "kind": "value",
+          "symbols": [
+            "CLIENT_ENTRY",
+            "DEFAULT_ASSETS_RE",
+            "DEFAULT_CLIENT_CONDITIONS",
+            "DEFAULT_CLIENT_MAIN_FIELDS",
+            "DEFAULT_CONFIG_FILES",
+            "DEFAULT_EXTENSIONS",
+            "DEFAULT_EXTERNAL_CONDITIONS",
+            "DEFAULT_PREVIEW_PORT",
+            "DEFAULT_SERVER_CONDITIONS",
+            "DEFAULT_SERVER_MAIN_FIELDS",
+            "ENV_ENTRY",
+            "FS_PREFIX"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./env",
+          "target": "packages/vite/src/node/env.ts",
+          "kind": "value",
+          "symbols": [
+            "loadEnv",
+            "resolveEnvPrefix"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./idResolver",
+          "target": "packages/vite/src/node/idResolver.ts",
+          "kind": "value",
+          "symbols": [
+            "createIdResolver"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./logger",
+          "target": "packages/vite/src/node/logger.ts",
+          "kind": "type",
+          "symbols": [
+            "LogLevel",
+            "Logger"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./logger",
+          "target": "packages/vite/src/node/logger.ts",
+          "kind": "value",
+          "symbols": [
+            "createLogger"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./nativeConfigCompat",
+          "target": "packages/vite/src/node/nativeConfigCompat.ts",
+          "kind": "type",
+          "symbols": [
+            "NativeConfigIncompatibility"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./nativeConfigCompat",
+          "target": "packages/vite/src/node/nativeConfigCompat.ts",
+          "kind": "value",
+          "symbols": [
+            "createNativeConfigCompatPlugin",
+            "formatNativeConfigIncompatWarning"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./nodeResolve",
+          "target": "packages/vite/src/node/nodeResolve.ts",
+          "kind": "value",
+          "symbols": [
+            "nodeResolveWithVite"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./optimizer",
+          "target": "packages/vite/src/node/optimizer/index.ts",
+          "kind": "type",
+          "symbols": [
+            "DepOptimizationOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./optimizer/pluginConverter",
+          "target": "packages/vite/src/node/optimizer/pluginConverter.ts",
+          "kind": "value",
+          "symbols": [
+            "convertEsbuildPluginToRolldownPlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./packages",
+          "target": "packages/vite/src/node/packages.ts",
+          "kind": "type",
+          "symbols": [
+            "PackageCache"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./packages",
+          "target": "packages/vite/src/node/packages.ts",
+          "kind": "value",
+          "symbols": [
+            "findNearestNodeModules",
+            "findNearestPackageData"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugin",
+          "target": "packages/vite/src/node/plugin.ts",
+          "kind": "value",
+          "symbols": [
+            "resolveEnvironmentPlugins"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugin",
+          "target": "packages/vite/src/node/plugin.ts",
+          "kind": "type",
+          "symbols": [
+            "FalsyPlugin",
+            "HookHandler",
+            "Plugin",
+            "PluginOption",
+            "PluginWithRequiredHook"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins",
+          "target": "packages/vite/src/node/plugins/index.ts",
+          "kind": "value",
+          "symbols": [
+            "createPluginHookUtils",
+            "getHookHandler",
+            "getSortedPluginsByHook",
+            "resolvePlugins"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/css",
+          "target": "packages/vite/src/node/plugins/css.ts",
+          "kind": "type",
+          "symbols": [
+            "CSSOptions",
+            "ResolvedCSSOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/css",
+          "target": "packages/vite/src/node/plugins/css.ts",
+          "kind": "value",
+          "symbols": [
+            "cssConfigDefaults",
+            "resolveCSSOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/esbuild",
+          "target": "packages/vite/src/node/plugins/esbuild.ts",
+          "kind": "type",
+          "symbols": [
+            "ESBuildOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/json",
+          "target": "packages/vite/src/node/plugins/json.ts",
+          "kind": "type",
+          "symbols": [
+            "JsonOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/oxc",
+          "target": "packages/vite/src/node/plugins/oxc.ts",
+          "kind": "type",
+          "symbols": [
+            "OxcOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/oxc",
+          "target": "packages/vite/src/node/plugins/oxc.ts",
+          "kind": "value",
+          "symbols": [
+            "convertEsbuildConfigToOxcConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/resolve",
+          "target": "packages/vite/src/node/plugins/resolve.ts",
+          "kind": "type",
+          "symbols": [
+            "EnvironmentResolveOptions",
+            "InternalResolveOptions",
+            "ResolveOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./preview",
+          "target": "packages/vite/src/node/preview.ts",
+          "kind": "type",
+          "symbols": [
+            "PreviewOptions",
+            "ResolvedPreviewOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./preview",
+          "target": "packages/vite/src/node/preview.ts",
+          "kind": "value",
+          "symbols": [
+            "resolvePreviewOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server",
+          "target": "packages/vite/src/node/server/index.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedServerOptions",
+            "ServerOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server",
+          "target": "packages/vite/src/node/server/index.ts",
+          "kind": "value",
+          "symbols": [
+            "resolveServerOptions",
+            "serverConfigDefaults"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server/environment",
+          "target": "packages/vite/src/node/server/environment.ts",
+          "kind": "value",
+          "symbols": [
+            "DevEnvironment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server/environments/runnableEnvironment",
+          "target": "packages/vite/src/node/server/environments/runnableEnvironment.ts",
+          "kind": "value",
+          "symbols": [
+            "createRunnableDevEnvironment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server/middlewares/hostCheck",
+          "target": "packages/vite/src/node/server/middlewares/hostCheck.ts",
+          "kind": "value",
+          "symbols": [
+            "getAdditionalAllowedHosts"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server/pluginContainer",
+          "target": "packages/vite/src/node/server/pluginContainer.ts",
+          "kind": "value",
+          "symbols": [
+            "BasicMinimalPluginContext",
+            "basePluginContextMeta"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server/ws",
+          "target": "packages/vite/src/node/server/ws.ts",
+          "kind": "type",
+          "symbols": [
+            "WebSocketServer"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./ssr",
+          "target": "packages/vite/src/node/ssr/index.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedSSROptions",
+            "SSROptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./ssr",
+          "target": "packages/vite/src/node/ssr/index.ts",
+          "kind": "value",
+          "symbols": [
+            "resolveSSROptions",
+            "ssrConfigDefaults"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./ssr/runnerImport",
+          "target": "packages/vite/src/node/ssr/runnerImport.ts",
+          "kind": "value",
+          "symbols": [
+            "runnerImport"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./typeUtils",
+          "target": "packages/vite/src/node/typeUtils.ts",
+          "kind": "type",
+          "symbols": [
+            "RequiredExceptFor"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "arraify",
+            "asyncFlatten",
+            "createDebugger",
+            "createFilter",
+            "deepClone",
+            "getFileStartIndex",
+            "hasBothRollupOptionsAndRolldownOptions",
+            "isExternalUrl",
+            "isFilePathESM",
+            "isInNodeModules",
+            "isNodeBuiltin",
+            "isNodeLikeBuiltin",
+            "isObject",
+            "isParentDirectory",
+            "lineTerminatorRE",
+            "mergeAlias",
+            "mergeConfig",
+            "mergeWithDefaults",
+            "nodeLikeBuiltins",
+            "normalizeAlias",
+            "normalizePath",
+            "safeRealpathSync",
+            "setupRollupOptionCompat"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "@vitejs/devtools/config",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "@vitejs/devtools/integration",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "AppType",
+        "ConfigEnv",
+        "CreateDevEnvironmentContext",
+        "DefaultEnvironmentOptions",
+        "DevEnvironmentOptions",
+        "EnvironmentOptions",
+        "ExperimentalOptions",
+        "FutureOptions",
+        "HTMLOptions",
+        "InlineConfig",
+        "LegacyOptions",
+        "PluginHookUtils",
+        "ResolveFn",
+        "ResolvedConfig",
+        "ResolvedDevEnvironmentOptions",
+        "ResolvedDevToolsConfig",
+        "ResolvedEnvironmentOptions",
+        "ResolvedResolveOptions",
+        "ResolvedWorkerOptions",
+        "SharedEnvironmentOptions",
+        "UserConfig",
+        "UserConfigExport",
+        "UserConfigFn",
+        "UserConfigFnObject",
+        "UserConfigFnPromise",
+        "bundleConfigFile",
+        "defineConfig",
+        "getDefaultEnvironmentOptions",
+        "isResolvedConfig",
+        "loadConfigFromFile",
+        "resolveBaseUrl",
+        "resolveConfig",
+        "resolveDevEnvironmentOptions",
+        "resolveDevToolsConfig",
+        "sortUserPlugins"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": true
+    },
+    {
+      "path": "packages/vite/src/node/deprecations.ts",
+      "imports": [
+        "picocolors",
+        "./config"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "picocolors",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "FutureOptions",
+            "ResolvedConfig"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "ignoreDeprecationWarnings",
+        "isFutureDeprecationEnabled",
+        "warnFutureDeprecation"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/env.ts",
+      "imports": [
+        "node:fs",
+        "node:path",
+        "node:util",
+        "@voidzero-dev/vite-task-client",
+        "dotenv-expand",
+        "picocolors",
+        "./config",
+        "./utils"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "node:fs",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:util",
+          "kind": "value",
+          "symbols": [
+            "parseEnv"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "@voidzero-dev/vite-task-client",
+          "kind": "value",
+          "symbols": [
+            "getEnvs"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "dotenv-expand",
+          "kind": "type",
+          "symbols": [
+            "DotenvPopulateInput"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "dotenv-expand",
+          "kind": "value",
+          "symbols": [
+            "expand"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "picocolors",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "UserConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "arraify",
+            "createDebugger",
+            "normalizePath",
+            "tryStatSync"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "getEnvFilesForMode",
+        "loadEnv",
+        "resolveEnvPrefix"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/idResolver.ts",
+      "imports": [
+        "@rollup/plugin-alias",
+        "rolldown",
+        "./baseEnvironment",
+        "./config",
+        "./environment",
+        "./plugins/resolve",
+        "./server/pluginContainer"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "@rollup/plugin-alias",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown",
+          "kind": "type",
+          "symbols": [
+            "PartialResolvedId"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./baseEnvironment",
+          "target": "packages/vite/src/node/baseEnvironment.ts",
+          "kind": "type",
+          "symbols": [
+            "PartialEnvironment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./environment",
+          "target": "packages/vite/src/node/environment.ts",
+          "kind": "type",
+          "symbols": [
+            "Environment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/resolve",
+          "target": "packages/vite/src/node/plugins/resolve.ts",
+          "kind": "value",
+          "symbols": [
+            "oxcResolvePlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/resolve",
+          "target": "packages/vite/src/node/plugins/resolve.ts",
+          "kind": "type",
+          "symbols": [
+            "InternalResolveOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server/pluginContainer",
+          "target": "packages/vite/src/node/server/pluginContainer.ts",
+          "kind": "type",
+          "symbols": [
+            "EnvironmentPluginContainer"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server/pluginContainer",
+          "target": "packages/vite/src/node/server/pluginContainer.ts",
+          "kind": "value",
+          "symbols": [
+            "createEnvironmentPluginContainer"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "ResolveIdFn",
+        "createBackCompatIdResolver",
+        "createIdResolver"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/index.ts",
+      "imports": [
+        "rolldown",
+        "rolldown/parseAst",
+        "#types/internal/rollupTypeCompat",
+        "rolldown/plugins",
+        "rolldown/utils",
+        "./config",
+        "./plugin",
+        "./environment",
+        "./server",
+        "./preview",
+        "./build",
+        "./optimizer",
+        "./idResolver",
+        "./plugins/css",
+        "./plugins/esbuild",
+        "./plugins/oxc",
+        "./server/middlewares/error",
+        "./server/environments/runnableEnvironment",
+        "./server/environments/fetchableEnvironments",
+        "./server/environment",
+        "./ssr/runnerImport",
+        "./ssr/fetchModule",
+        "./ssr/runtime/serverModuleRunner",
+        "./server/hmr",
+        "./ssr/ssrTransform",
+        "./constants",
+        "./utils",
+        "./server/send",
+        "./logger",
+        "./server/searchRoot",
+        "./server/middlewares/static",
+        "./env",
+        "./assetSource",
+        "./http",
+        "./watch",
+        "./ssr",
+        "./plugins/html",
+        "./plugins/json",
+        "#types/internal/esbuildOptions",
+        "./plugins/manifest",
+        "./plugins/resolve",
+        "./plugins/terser",
+        "./server/ws",
+        "./server/pluginContainer",
+        "./server/moduleGraph",
+        "./server/middlewares/proxy",
+        "./server/transformRequest",
+        "vite/module-runner",
+        "./shortcuts",
+        "#types/hmrPayload",
+        "#types/customEvent",
+        "#types/importGlob",
+        "#types/metadata",
+        "#dep-types/alias",
+        "#dep-types/connect",
+        "#dep-types/ws",
+        "http-proxy-3",
+        "#dep-types/chokidar",
+        "#types/internal/terserOptions",
+        "#dep-types/commonjs",
+        "#dep-types/dynamicImportVars",
+        "#dep-types/anymatch",
+        "#types/internal/lightningcssOptions",
+        "./server/mixedModuleGraph"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "rolldown",
+          "kind": "type",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown/parseAst",
+          "kind": "value",
+          "symbols": [
+            "parseAst",
+            "parseAstAsync"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "#types/internal/rollupTypeCompat",
+          "target": "packages/vite/types/internal/rollupTypeCompat.ts",
+          "kind": "type",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown/plugins",
+          "kind": "value",
+          "symbols": [
+            "esmExternalRequirePlugin"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "rolldown/utils",
+          "kind": "type",
+          "symbols": [
+            "ESTree",
+            "MinifyOptions",
+            "MinifyResult",
+            "ParseResult",
+            "ParserOptions",
+            "VisitorObject"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "rolldown/utils",
+          "kind": "value",
+          "symbols": [
+            "Visitor",
+            "minify",
+            "minifySync",
+            "parse",
+            "parseSync"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "value",
+          "symbols": [
+            "defineConfig",
+            "loadConfigFromFile",
+            "resolveConfig",
+            "sortUserPlugins"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./plugin",
+          "target": "packages/vite/src/node/plugin.ts",
+          "kind": "value",
+          "symbols": [
+            "perEnvironmentPlugin"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./environment",
+          "target": "packages/vite/src/node/environment.ts",
+          "kind": "value",
+          "symbols": [
+            "perEnvironmentState"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server",
+          "target": "packages/vite/src/node/server/index.ts",
+          "kind": "value",
+          "symbols": [
+            "createServer"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./preview",
+          "target": "packages/vite/src/node/preview.ts",
+          "kind": "value",
+          "symbols": [
+            "preview"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./build",
+          "target": "packages/vite/src/node/build.ts",
+          "kind": "value",
+          "symbols": [
+            "build",
+            "createBuilder"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./optimizer",
+          "target": "packages/vite/src/node/optimizer/index.ts",
+          "kind": "value",
+          "symbols": [
+            "optimizeDeps"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./idResolver",
+          "target": "packages/vite/src/node/idResolver.ts",
+          "kind": "value",
+          "symbols": [
+            "createIdResolver"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./plugins/css",
+          "target": "packages/vite/src/node/plugins/css.ts",
+          "kind": "value",
+          "symbols": [
+            "formatPostcssSourceMap",
+            "preprocessCSS"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./plugins/esbuild",
+          "target": "packages/vite/src/node/plugins/esbuild.ts",
+          "kind": "value",
+          "symbols": [
+            "transformWithEsbuild"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./plugins/oxc",
+          "target": "packages/vite/src/node/plugins/oxc.ts",
+          "kind": "value",
+          "symbols": [
+            "transformWithOxc"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/middlewares/error",
+          "target": "packages/vite/src/node/server/middlewares/error.ts",
+          "kind": "value",
+          "symbols": [
+            "buildErrorMessage"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/environments/runnableEnvironment",
+          "target": "packages/vite/src/node/server/environments/runnableEnvironment.ts",
+          "kind": "type",
+          "symbols": [
+            "RunnableDevEnvironment",
+            "RunnableDevEnvironmentContext"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/environments/runnableEnvironment",
+          "target": "packages/vite/src/node/server/environments/runnableEnvironment.ts",
+          "kind": "value",
+          "symbols": [
+            "createRunnableDevEnvironment",
+            "isRunnableDevEnvironment"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/environments/fetchableEnvironments",
+          "target": "packages/vite/src/node/server/environments/fetchableEnvironments.ts",
+          "kind": "type",
+          "symbols": [
+            "FetchableDevEnvironment",
+            "FetchableDevEnvironmentContext"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/environments/fetchableEnvironments",
+          "target": "packages/vite/src/node/server/environments/fetchableEnvironments.ts",
+          "kind": "value",
+          "symbols": [
+            "createFetchableDevEnvironment",
+            "isFetchableDevEnvironment"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/environment",
+          "target": "packages/vite/src/node/server/environment.ts",
+          "kind": "type",
+          "symbols": [
+            "DevEnvironmentContext"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/environment",
+          "target": "packages/vite/src/node/server/environment.ts",
+          "kind": "value",
+          "symbols": [
+            "DevEnvironment"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./ssr/runnerImport",
+          "target": "packages/vite/src/node/ssr/runnerImport.ts",
+          "kind": "value",
+          "symbols": [
+            "runnerImport"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./build",
+          "target": "packages/vite/src/node/build.ts",
+          "kind": "value",
+          "symbols": [
+            "BuildEnvironment"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./ssr/fetchModule",
+          "target": "packages/vite/src/node/ssr/fetchModule.ts",
+          "kind": "type",
+          "symbols": [
+            "FetchModuleOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./ssr/fetchModule",
+          "target": "packages/vite/src/node/ssr/fetchModule.ts",
+          "kind": "value",
+          "symbols": [
+            "fetchModule"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./ssr/runtime/serverModuleRunner",
+          "target": "packages/vite/src/node/ssr/runtime/serverModuleRunner.ts",
+          "kind": "value",
+          "symbols": [
+            "createServerModuleRunner",
+            "createServerModuleRunnerTransport"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/hmr",
+          "target": "packages/vite/src/node/server/hmr.ts",
+          "kind": "value",
+          "symbols": [
+            "createServerHotChannel"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./ssr/ssrTransform",
+          "target": "packages/vite/src/node/ssr/ssrTransform.ts",
+          "kind": "value",
+          "symbols": [
+            "ssrTransform"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./ssr/ssrTransform",
+          "target": "packages/vite/src/node/ssr/ssrTransform.ts",
+          "kind": "type",
+          "symbols": [
+            "ModuleRunnerTransformOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./constants",
+          "target": "packages/vite/src/node/constants.ts",
+          "kind": "value",
+          "symbols": [
+            "DEFAULT_CLIENT_CONDITIONS",
+            "DEFAULT_CLIENT_MAIN_FIELDS",
+            "DEFAULT_EXTERNAL_CONDITIONS",
+            "DEFAULT_SERVER_CONDITIONS",
+            "DEFAULT_SERVER_MAIN_FIELDS",
+            "VERSION",
+            "defaultAllowedOrigins"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "createFilter",
+            "isCSSRequest",
+            "mergeAlias",
+            "mergeConfig",
+            "normalizePath",
+            "rolldownVersion",
+            "rollupVersion",
+            "withFilter"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/send",
+          "target": "packages/vite/src/node/server/send.ts",
+          "kind": "value",
+          "symbols": [
+            "send"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./logger",
+          "target": "packages/vite/src/node/logger.ts",
+          "kind": "value",
+          "symbols": [
+            "createLogger"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/searchRoot",
+          "target": "packages/vite/src/node/server/searchRoot.ts",
+          "kind": "value",
+          "symbols": [
+            "searchForWorkspaceRoot"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/middlewares/static",
+          "target": "packages/vite/src/node/server/middlewares/static.ts",
+          "kind": "value",
+          "symbols": [
+            "isFileLoadingAllowed",
+            "isFileServingAllowed"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./env",
+          "target": "packages/vite/src/node/env.ts",
+          "kind": "value",
+          "symbols": [
+            "loadEnv",
+            "resolveEnvPrefix"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "AppType",
+            "ConfigEnv",
+            "DevEnvironmentOptions",
+            "EnvironmentOptions",
+            "ExperimentalOptions",
+            "HTMLOptions",
+            "InlineConfig",
+            "LegacyOptions",
+            "PluginHookUtils",
+            "ResolveFn",
+            "ResolvedConfig",
+            "ResolvedDevEnvironmentOptions",
+            "ResolvedDevToolsConfig",
+            "ResolvedWorkerOptions",
+            "UserConfig",
+            "UserConfigExport",
+            "UserConfigFn",
+            "UserConfigFnObject",
+            "UserConfigFnPromise"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./assetSource",
+          "target": "packages/vite/src/node/assetSource.ts",
+          "kind": "type",
+          "symbols": [
+            "HtmlAssetSource"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./plugin",
+          "target": "packages/vite/src/node/plugin.ts",
+          "kind": "type",
+          "symbols": [
+            "ConfigPluginContext",
+            "HookHandler",
+            "MinimalPluginContextWithoutEnvironment",
+            "Plugin",
+            "PluginOption"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./environment",
+          "target": "packages/vite/src/node/environment.ts",
+          "kind": "type",
+          "symbols": [
+            "Environment"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "type",
+          "symbols": [
+            "FilterPattern"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./http",
+          "target": "packages/vite/src/node/http.ts",
+          "kind": "type",
+          "symbols": [
+            "CommonServerOptions",
+            "CorsOptions",
+            "CorsOrigin"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server",
+          "target": "packages/vite/src/node/server/index.ts",
+          "kind": "type",
+          "symbols": [
+            "FileSystemServeOptions",
+            "HttpServer",
+            "ResolvedServerOptions",
+            "ResolvedServerUrls",
+            "ServerHook",
+            "ServerOptions",
+            "ViteDevServer"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./watch",
+          "target": "packages/vite/src/node/watch.ts",
+          "kind": "type",
+          "symbols": [
+            "ServerWatchOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./build",
+          "target": "packages/vite/src/node/build.ts",
+          "kind": "type",
+          "symbols": [
+            "BuildAppHook",
+            "BuildEnvironmentOptions",
+            "BuildOptions",
+            "BuilderOptions",
+            "LibraryFormats",
+            "LibraryOptions",
+            "ModulePreloadOptions",
+            "RenderBuiltAssetUrl",
+            "ResolveModulePreloadDependenciesFn",
+            "ResolvedBuildEnvironmentOptions",
+            "ResolvedBuildOptions",
+            "ResolvedModulePreloadOptions",
+            "ViteBuilder"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./preview",
+          "target": "packages/vite/src/node/preview.ts",
+          "kind": "type",
+          "symbols": [
+            "PreviewOptions",
+            "PreviewServer",
+            "PreviewServerHook",
+            "ResolvedPreviewOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./optimizer",
+          "target": "packages/vite/src/node/optimizer/index.ts",
+          "kind": "type",
+          "symbols": [
+            "DepOptimizationConfig",
+            "DepOptimizationMetadata",
+            "DepOptimizationOptions",
+            "ExportsData",
+            "OptimizedDepInfo"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./ssr",
+          "target": "packages/vite/src/node/ssr/index.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedSSROptions",
+            "SSROptions",
+            "SSRTarget",
+            "SsrDepOptimizationConfig"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./logger",
+          "target": "packages/vite/src/node/logger.ts",
+          "kind": "type",
+          "symbols": [
+            "LogErrorOptions",
+            "LogLevel",
+            "LogOptions",
+            "LogType",
+            "Logger",
+            "LoggerOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./plugins/html",
+          "target": "packages/vite/src/node/plugins/html.ts",
+          "kind": "type",
+          "symbols": [
+            "HtmlTagDescriptor",
+            "IndexHtmlTransform",
+            "IndexHtmlTransformContext",
+            "IndexHtmlTransformHook",
+            "IndexHtmlTransformResult"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./plugins/css",
+          "target": "packages/vite/src/node/plugins/css.ts",
+          "kind": "type",
+          "symbols": [
+            "CSSModulesOptions",
+            "CSSOptions",
+            "LessPreprocessorOptions",
+            "PostcssUserConfig",
+            "PreprocessCSSResult",
+            "ResolvedCSSOptions",
+            "SassPreprocessorOptions",
+            "StylusPreprocessorOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./plugins/json",
+          "target": "packages/vite/src/node/plugins/json.ts",
+          "kind": "type",
+          "symbols": [
+            "JsonOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./plugins/esbuild",
+          "target": "packages/vite/src/node/plugins/esbuild.ts",
+          "kind": "type",
+          "symbols": [
+            "ESBuildOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "#types/internal/esbuildOptions",
+          "target": "packages/vite/types/internal/esbuildOptions.ts",
+          "kind": "type",
+          "symbols": [
+            "EsbuildTransformOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./plugins/oxc",
+          "target": "packages/vite/src/node/plugins/oxc.ts",
+          "kind": "type",
+          "symbols": [
+            "OxcOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./plugins/manifest",
+          "target": "packages/vite/src/node/plugins/manifest.ts",
+          "kind": "type",
+          "symbols": [
+            "Manifest",
+            "ManifestChunk"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./plugins/resolve",
+          "target": "packages/vite/src/node/plugins/resolve.ts",
+          "kind": "type",
+          "symbols": [
+            "InternalResolveOptions",
+            "ResolveOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./plugins/terser",
+          "target": "packages/vite/src/node/plugins/terser.ts",
+          "kind": "type",
+          "symbols": [
+            "TerserOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/ws",
+          "target": "packages/vite/src/node/server/ws.ts",
+          "kind": "type",
+          "symbols": [
+            "WebSocketClient",
+            "WebSocketCustomListener",
+            "WebSocketServer"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/pluginContainer",
+          "target": "packages/vite/src/node/server/pluginContainer.ts",
+          "kind": "type",
+          "symbols": [
+            "PluginContainer",
+            "SkipInformation"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/moduleGraph",
+          "target": "packages/vite/src/node/server/moduleGraph.ts",
+          "kind": "type",
+          "symbols": [
+            "EnvironmentModuleGraph",
+            "EnvironmentModuleNode",
+            "ResolvedUrl"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/send",
+          "target": "packages/vite/src/node/server/send.ts",
+          "kind": "type",
+          "symbols": [
+            "SendOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/middlewares/proxy",
+          "target": "packages/vite/src/node/server/middlewares/proxy.ts",
+          "kind": "type",
+          "symbols": [
+            "ProxyOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/transformRequest",
+          "target": "packages/vite/src/node/server/transformRequest.ts",
+          "kind": "type",
+          "symbols": [
+            "TransformOptions",
+            "TransformResult"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/hmr",
+          "target": "packages/vite/src/node/server/hmr.ts",
+          "kind": "type",
+          "symbols": [
+            "HmrContext",
+            "HmrOptions",
+            "HotChannel",
+            "HotChannelClient",
+            "HotChannelListener",
+            "HotUpdateOptions",
+            "NormalizedHotChannel",
+            "NormalizedHotChannelClient",
+            "NormalizedServerHotChannel",
+            "ServerHotChannel",
+            "WsOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "vite/module-runner",
+          "kind": "type",
+          "symbols": [
+            "FetchFunction",
+            "FetchResult"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./ssr/runtime/serverModuleRunner",
+          "target": "packages/vite/src/node/ssr/runtime/serverModuleRunner.ts",
+          "kind": "type",
+          "symbols": [
+            "ServerModuleRunnerOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./shortcuts",
+          "target": "packages/vite/src/node/shortcuts.ts",
+          "kind": "type",
+          "symbols": [
+            "BindCLIShortcutsOptions",
+            "CLIShortcut"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "#types/hmrPayload",
+          "target": "packages/vite/types/hmrPayload.ts",
+          "kind": "type",
+          "symbols": [
+            "ConnectedPayload",
+            "CustomPayload",
+            "ErrorPayload",
+            "FullReloadPayload",
+            "HMRPayload",
+            "HotPayload",
+            "PrunePayload",
+            "Update",
+            "UpdatePayload"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "#types/customEvent",
+          "target": "packages/vite/types/customEvent.ts",
+          "kind": "type",
+          "symbols": [
+            "CustomEventMap",
+            "InferCustomEventPayload",
+            "InvalidatePayload"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "#types/importGlob",
+          "target": "packages/vite/types/importGlob.ts",
+          "kind": "type",
+          "symbols": [
+            "GeneralImportGlobOptions",
+            "ImportGlobFunction",
+            "ImportGlobOptions",
+            "KnownAsTypeMap",
+            "KnownQueryTypeMap"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "#types/metadata",
+          "target": "packages/vite/types/metadata.ts",
+          "kind": "type",
+          "symbols": [
+            "ChunkMetadata",
+            "CustomPluginOptionsVite"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "#dep-types/alias",
+          "target": "packages/vite/src/types/alias.ts",
+          "kind": "type",
+          "symbols": [
+            "Alias",
+            "AliasOptions",
+            "MapToFunction",
+            "ResolverFunction",
+            "ResolverObject"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "#dep-types/connect",
+          "target": "packages/vite/src/types/connect.ts",
+          "kind": "type",
+          "symbols": [
+            "Connect"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "#dep-types/ws",
+          "target": "packages/vite/src/types/ws.ts",
+          "kind": "type",
+          "symbols": [
+            "WebSocket",
+            "WebSocketAlias"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "http-proxy-3",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "#dep-types/chokidar",
+          "target": "packages/vite/src/types/chokidar.ts",
+          "kind": "type",
+          "symbols": [
+            "FSWatcher",
+            "WatchOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "#types/internal/terserOptions",
+          "target": "packages/vite/types/internal/terserOptions.ts",
+          "kind": "type",
+          "symbols": [
+            "Terser"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "#dep-types/commonjs",
+          "target": "packages/vite/src/types/commonjs.ts",
+          "kind": "type",
+          "symbols": [
+            "RollupCommonJSOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "#dep-types/dynamicImportVars",
+          "target": "packages/vite/src/types/dynamicImportVars.ts",
+          "kind": "type",
+          "symbols": [
+            "RollupDynamicImportVarsOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "#dep-types/anymatch",
+          "target": "packages/vite/src/types/anymatch.ts",
+          "kind": "type",
+          "symbols": [
+            "AnymatchFn",
+            "AnymatchPattern",
+            "Matcher"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "#types/internal/lightningcssOptions",
+          "target": "packages/vite/types/internal/lightningcssOptions.ts",
+          "kind": "type",
+          "symbols": [
+            "LightningCSSOptions"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "./server/mixedModuleGraph",
+          "target": "packages/vite/src/node/server/mixedModuleGraph.ts",
+          "kind": "type",
+          "symbols": [
+            "ModuleGraph",
+            "ModuleNode"
+          ],
+          "isReExport": true
+        }
+      ],
+      "exportedSymbols": [
+        "Alias",
+        "AliasOptions",
+        "AnymatchFn",
+        "AnymatchPattern",
+        "AppType",
+        "BindCLIShortcutsOptions",
+        "BuildAppHook",
+        "BuildEnvironment",
+        "BuildEnvironmentOptions",
+        "BuildOptions",
+        "BuilderOptions",
+        "CLIShortcut",
+        "CSSModulesOptions",
+        "CSSOptions",
+        "ChunkMetadata",
+        "CommonServerOptions",
+        "ConfigEnv",
+        "ConfigPluginContext",
+        "Connect",
+        "ConnectedPayload",
+        "CorsOptions",
+        "CorsOrigin",
+        "CustomEventMap",
+        "CustomPayload",
+        "CustomPluginOptionsVite",
+        "DepOptimizationConfig",
+        "DepOptimizationMetadata",
+        "DepOptimizationOptions",
+        "DevEnvironment",
+        "DevEnvironmentContext",
+        "DevEnvironmentOptions",
+        "ESBuildOptions",
+        "ESTree",
+        "Environment",
+        "EnvironmentModuleGraph",
+        "EnvironmentModuleNode",
+        "EnvironmentOptions",
+        "ErrorPayload",
+        "EsbuildTransformOptions",
+        "ExperimentalOptions",
+        "ExportsData",
+        "FSWatcher",
+        "FetchFunction",
+        "FetchModuleOptions",
+        "FetchResult",
+        "FetchableDevEnvironment",
+        "FetchableDevEnvironmentContext",
+        "FileSystemServeOptions",
+        "FilterPattern",
+        "FullReloadPayload",
+        "GeneralImportGlobOptions",
+        "HMRPayload",
+        "HTMLOptions",
+        "HmrContext",
+        "HmrOptions",
+        "HookHandler",
+        "HotChannel",
+        "HotChannelClient",
+        "HotChannelListener",
+        "HotPayload",
+        "HotUpdateOptions",
+        "HtmlAssetSource",
+        "HtmlTagDescriptor",
+        "HttpProxy",
+        "HttpServer",
+        "ImportGlobFunction",
+        "ImportGlobOptions",
+        "IndexHtmlTransform",
+        "IndexHtmlTransformContext",
+        "IndexHtmlTransformHook",
+        "IndexHtmlTransformResult",
+        "InferCustomEventPayload",
+        "InlineConfig",
+        "InternalResolveOptions",
+        "InvalidatePayload",
+        "JsonOptions",
+        "KnownAsTypeMap",
+        "KnownQueryTypeMap",
+        "LegacyOptions",
+        "LessPreprocessorOptions",
+        "LibraryFormats",
+        "LibraryOptions",
+        "LightningCSSOptions",
+        "LogErrorOptions",
+        "LogLevel",
+        "LogOptions",
+        "LogType",
+        "Logger",
+        "LoggerOptions",
+        "Manifest",
+        "ManifestChunk",
+        "MapToFunction",
+        "Matcher",
+        "MinifyOptions",
+        "MinifyResult",
+        "MinimalPluginContextWithoutEnvironment",
+        "ModuleGraph",
+        "ModuleNode",
+        "ModulePreloadOptions",
+        "ModuleRunnerTransformOptions",
+        "NormalizedHotChannel",
+        "NormalizedHotChannelClient",
+        "NormalizedServerHotChannel",
+        "OptimizedDepInfo",
+        "OxcOptions",
+        "ParseResult",
+        "ParserOptions",
+        "Plugin",
+        "PluginContainer",
+        "PluginHookUtils",
+        "PluginOption",
+        "PostcssUserConfig",
+        "PreprocessCSSResult",
+        "PreviewOptions",
+        "PreviewServer",
+        "PreviewServerHook",
+        "ProxyOptions",
+        "PrunePayload",
+        "RenderBuiltAssetUrl",
+        "ResolveFn",
+        "ResolveModulePreloadDependenciesFn",
+        "ResolveOptions",
+        "ResolvedBuildEnvironmentOptions",
+        "ResolvedBuildOptions",
+        "ResolvedCSSOptions",
+        "ResolvedConfig",
+        "ResolvedDevEnvironmentOptions",
+        "ResolvedDevToolsConfig",
+        "ResolvedModulePreloadOptions",
+        "ResolvedPreviewOptions",
+        "ResolvedSSROptions",
+        "ResolvedServerOptions",
+        "ResolvedServerUrls",
+        "ResolvedUrl",
+        "ResolvedWorkerOptions",
+        "ResolverFunction",
+        "ResolverObject",
+        "Rolldown",
+        "Rollup",
+        "RollupCommonJSOptions",
+        "RollupDynamicImportVarsOptions",
+        "RunnableDevEnvironment",
+        "RunnableDevEnvironmentContext",
+        "SSROptions",
+        "SSRTarget",
+        "SassPreprocessorOptions",
+        "SendOptions",
+        "ServerHook",
+        "ServerHotChannel",
+        "ServerModuleRunnerOptions",
+        "ServerOptions",
+        "ServerWatchOptions",
+        "SkipInformation",
+        "SsrDepOptimizationConfig",
+        "StylusPreprocessorOptions",
+        "Terser",
+        "TerserOptions",
+        "TransformOptions",
+        "TransformResult",
+        "Update",
+        "UpdatePayload",
+        "UserConfig",
+        "UserConfigExport",
+        "UserConfigFn",
+        "UserConfigFnObject",
+        "UserConfigFnPromise",
+        "Visitor",
+        "VisitorObject",
+        "ViteBuilder",
+        "ViteDevServer",
+        "WatchOptions",
+        "WebSocket",
+        "WebSocketAlias",
+        "WebSocketClient",
+        "WebSocketCustomListener",
+        "WebSocketServer",
+        "WsOptions",
+        "build",
+        "buildErrorMessage",
+        "createBuilder",
+        "createFetchableDevEnvironment",
+        "createFilter",
+        "createIdResolver",
+        "createLogger",
+        "createRunnableDevEnvironment",
+        "createServer",
+        "createServerHotChannel",
+        "createServerModuleRunner",
+        "createServerModuleRunnerTransport",
+        "defaultAllowedOrigins",
+        "defaultClientConditions",
+        "defaultClientMainFields",
+        "defaultExternalConditions",
+        "defaultServerConditions",
+        "defaultServerMainFields",
+        "defineConfig",
+        "esbuildVersion",
+        "esmExternalRequirePlugin",
+        "fetchModule",
+        "formatPostcssSourceMap",
+        "isCSSRequest",
+        "isFetchableDevEnvironment",
+        "isFileLoadingAllowed",
+        "isFileServingAllowed",
+        "isRunnableDevEnvironment",
+        "loadConfigFromFile",
+        "loadEnv",
+        "mergeAlias",
+        "mergeConfig",
+        "minify",
+        "minifySync",
+        "moduleRunnerTransform",
+        "normalizePath",
+        "optimizeDeps",
+        "parse",
+        "parseAst",
+        "parseAstAsync",
+        "parseSync",
+        "perEnvironmentPlugin",
+        "perEnvironmentState",
+        "preprocessCSS",
+        "preview",
+        "resolveConfig",
+        "resolveEnvPrefix",
+        "rolldownVersion",
+        "rollupVersion",
+        "runnerImport",
+        "searchForWorkspaceRoot",
+        "send",
+        "sortUserPlugins",
+        "transformWithEsbuild",
+        "transformWithOxc",
+        "version",
+        "withFilter"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/optimizer/index.ts",
+      "imports": [
+        "node:fs",
+        "node:fs/promises",
+        "node:path",
+        "node:perf_hooks",
+        "node:util",
+        "@voidzero-dev/vite-task-client",
+        "es-module-lexer",
+        "picocolors",
+        "rolldown",
+        "tinyglobby",
+        "#types/internal/esbuildOptions",
+        "../../shared/utils",
+        "../config",
+        "../constants",
+        "../environment",
+        "../plugins/oxc",
+        "../utils",
+        "./resolve",
+        "./rolldownDepPlugin",
+        "./scan"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "node:fs",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:fs/promises",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:perf_hooks",
+          "kind": "value",
+          "symbols": [
+            "performance"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:util",
+          "kind": "value",
+          "symbols": [
+            "promisify"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "@voidzero-dev/vite-task-client",
+          "kind": "value",
+          "symbols": [
+            "ignoreInput",
+            "ignoreOutput"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "es-module-lexer",
+          "kind": "value",
+          "symbols": [
+            "init",
+            "parse"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "picocolors",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown",
+          "kind": "type",
+          "symbols": [
+            "OutputOptions",
+            "RolldownOptions",
+            "RolldownOutput"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown",
+          "kind": "value",
+          "symbols": [
+            "rolldown"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "tinyglobby",
+          "kind": "value",
+          "symbols": [
+            "isDynamicPattern"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "#types/internal/esbuildOptions",
+          "target": "packages/vite/types/internal/esbuildOptions.ts",
+          "kind": "type",
+          "symbols": [
+            "DepsOptimizerEsbuildOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../../shared/utils",
+          "target": "packages/vite/src/shared/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "isWindows"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../constants",
+          "target": "packages/vite/src/node/constants.ts",
+          "kind": "value",
+          "symbols": [
+            "ESBUILD_BASELINE_WIDELY_AVAILABLE_TARGET",
+            "METADATA_FILENAME"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../environment",
+          "target": "packages/vite/src/node/environment.ts",
+          "kind": "type",
+          "symbols": [
+            "Environment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../plugins/oxc",
+          "target": "packages/vite/src/node/plugins/oxc.ts",
+          "kind": "value",
+          "symbols": [
+            "transformWithOxc"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "arraify",
+            "asyncFlatten",
+            "createDebugger",
+            "flattenId",
+            "getHash",
+            "isOptimizable",
+            "lookupFile",
+            "normalizeId",
+            "normalizePath",
+            "removeLeadingSlash",
+            "tryStatSync",
+            "unique"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./resolve",
+          "target": "packages/vite/src/node/optimizer/resolve.ts",
+          "kind": "value",
+          "symbols": [
+            "createOptimizeDepsIncludeResolver",
+            "expandGlobIds"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./rolldownDepPlugin",
+          "target": "packages/vite/src/node/optimizer/rolldownDepPlugin.ts",
+          "kind": "value",
+          "symbols": [
+            "rolldownCjsExternalPlugin",
+            "rolldownDepPlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./scan",
+          "target": "packages/vite/src/node/optimizer/scan.ts",
+          "kind": "value",
+          "symbols": [
+            "ScanEnvironment",
+            "scanImports"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "DepOptimizationConfig",
+        "DepOptimizationMetadata",
+        "DepOptimizationOptions",
+        "DepOptimizationResult",
+        "DepsOptimizer",
+        "ExportsData",
+        "OptimizedDepInfo",
+        "addManuallyIncludedOptimizeDeps",
+        "addOptimizedDepInfo",
+        "cleanupDepsCacheStaleDirs",
+        "createIsOptimizedDepFile",
+        "createIsOptimizedDepUrl",
+        "depsFromOptimizedDepInfo",
+        "depsLogString",
+        "discoverProjectDependencies",
+        "extractExportsData",
+        "getDepsCacheDir",
+        "getOptimizedDepPath",
+        "initDepsOptimizerMetadata",
+        "isDepOptimizationDisabled",
+        "loadCachedDepOptimizationMetadata",
+        "optimizeDeps",
+        "optimizeExplicitEnvironmentDeps",
+        "optimizedDepInfoFromFile",
+        "optimizedDepInfoFromId",
+        "optimizedDepNeedsInterop",
+        "runOptimizeDeps",
+        "toDiscoveredDependencies"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/optimizer/resolve.ts",
+      "imports": [
+        "node:path",
+        "picomatch",
+        "tinyglobby",
+        "../../shared/utils",
+        "../config",
+        "../environment",
+        "../idResolver",
+        "../packages",
+        "../utils"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "picomatch",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "tinyglobby",
+          "kind": "value",
+          "symbols": [
+            "globSync"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../../shared/utils",
+          "target": "packages/vite/src/shared/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "slash"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../environment",
+          "target": "packages/vite/src/node/environment.ts",
+          "kind": "type",
+          "symbols": [
+            "Environment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../idResolver",
+          "target": "packages/vite/src/node/idResolver.ts",
+          "kind": "value",
+          "symbols": [
+            "createBackCompatIdResolver"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../packages",
+          "target": "packages/vite/src/node/packages.ts",
+          "kind": "value",
+          "symbols": [
+            "resolvePackageData"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "escapeRegex",
+            "getNpmPackageName"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "createOptimizeDepsIncludeResolver",
+        "expandGlobIds"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/optimizer/rolldownDepPlugin.ts",
+      "imports": [
+        "node:path",
+        "magic-string",
+        "rolldown",
+        "rolldown/filter",
+        "strip-literal",
+        "../../shared/utils",
+        "../constants",
+        "../environment",
+        "../idResolver",
+        "../packages",
+        "../plugins/assetImportMetaUrl",
+        "../plugins/css",
+        "../plugins/importAnalysis",
+        "../plugins/resolve",
+        "../utils"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "magic-string",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown",
+          "kind": "type",
+          "symbols": [
+            "ImportKind",
+            "Plugin",
+            "RolldownPlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown/filter",
+          "kind": "value",
+          "symbols": [
+            "prefixRegex"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "strip-literal",
+          "kind": "value",
+          "symbols": [
+            "stripLiteral"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../../shared/utils",
+          "target": "packages/vite/src/shared/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "isWindows"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../constants",
+          "target": "packages/vite/src/node/constants.ts",
+          "kind": "value",
+          "symbols": [
+            "JS_TYPES_RE",
+            "KNOWN_ASSET_TYPES"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../environment",
+          "target": "packages/vite/src/node/environment.ts",
+          "kind": "type",
+          "symbols": [
+            "Environment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../idResolver",
+          "target": "packages/vite/src/node/idResolver.ts",
+          "kind": "value",
+          "symbols": [
+            "createBackCompatIdResolver"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../packages",
+          "target": "packages/vite/src/node/packages.ts",
+          "kind": "type",
+          "symbols": [
+            "PackageCache"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../plugins/assetImportMetaUrl",
+          "target": "packages/vite/src/node/plugins/assetImportMetaUrl.ts",
+          "kind": "value",
+          "symbols": [
+            "assetImportMetaUrlRE"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../plugins/css",
+          "target": "packages/vite/src/node/plugins/css.ts",
+          "kind": "value",
+          "symbols": [
+            "isModuleCSSRequest"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../plugins/importAnalysis",
+          "target": "packages/vite/src/node/plugins/importAnalysis.ts",
+          "kind": "value",
+          "symbols": [
+            "hasViteIgnoreRE"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../plugins/resolve",
+          "target": "packages/vite/src/node/plugins/resolve.ts",
+          "kind": "value",
+          "symbols": [
+            "browserExternalId",
+            "optionalPeerDepId"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "escapeRegex",
+            "flattenId",
+            "isBuiltin",
+            "isCSSRequest",
+            "isDataUrl",
+            "isExternalUrl",
+            "isNodeBuiltin",
+            "moduleListContains",
+            "normalizePath"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "rolldownCjsExternalPlugin",
+        "rolldownDepPlugin"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/plugin.ts",
+      "imports": [
+        "rolldown",
+        "./baseEnvironment",
+        "./build",
+        "./config",
+        "./environment",
+        "./plugins/html",
+        "./plugins/pluginFilter",
+        "./preview",
+        "./server",
+        "./server/environment",
+        "./server/hmr",
+        "./server/mixedModuleGraph",
+        "./server/moduleGraph",
+        "./utils"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "rolldown",
+          "kind": "type",
+          "symbols": [
+            "CustomPluginOptions",
+            "ImportKind",
+            "LoadResult",
+            "MinimalPluginContext",
+            "ModuleType",
+            "ModuleTypeFilter",
+            "ObjectHook",
+            "Plugin",
+            "PluginContext",
+            "PluginContextMeta",
+            "ResolveIdResult",
+            "TransformPluginContext",
+            "TransformResult"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./baseEnvironment",
+          "target": "packages/vite/src/node/baseEnvironment.ts",
+          "kind": "type",
+          "symbols": [
+            "PartialEnvironment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./build",
+          "target": "packages/vite/src/node/build.ts",
+          "kind": "type",
+          "symbols": [
+            "BuildAppHook"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "ConfigEnv",
+            "EnvironmentOptions",
+            "ResolvedConfig",
+            "UserConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./environment",
+          "target": "packages/vite/src/node/environment.ts",
+          "kind": "type",
+          "symbols": [
+            "Environment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/html",
+          "target": "packages/vite/src/node/plugins/html.ts",
+          "kind": "type",
+          "symbols": [
+            "IndexHtmlTransform"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./plugins/pluginFilter",
+          "target": "packages/vite/src/node/plugins/pluginFilter.ts",
+          "kind": "type",
+          "symbols": [
+            "StringFilter"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./preview",
+          "target": "packages/vite/src/node/preview.ts",
+          "kind": "type",
+          "symbols": [
+            "ClosePreviewServerHook",
+            "PreviewServerHook"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server",
+          "target": "packages/vite/src/node/server/index.ts",
+          "kind": "type",
+          "symbols": [
+            "CloseServerHook",
+            "ServerHook"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server/environment",
+          "target": "packages/vite/src/node/server/environment.ts",
+          "kind": "type",
+          "symbols": [
+            "DevEnvironment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server/hmr",
+          "target": "packages/vite/src/node/server/hmr.ts",
+          "kind": "type",
+          "symbols": [
+            "HmrContext",
+            "HotUpdateOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server/mixedModuleGraph",
+          "target": "packages/vite/src/node/server/mixedModuleGraph.ts",
+          "kind": "type",
+          "symbols": [
+            "ModuleNode"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server/moduleGraph",
+          "target": "packages/vite/src/node/server/moduleGraph.ts",
+          "kind": "type",
+          "symbols": [
+            "EnvironmentModuleNode"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "arraify",
+            "asyncFlatten"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "ConfigPluginContext",
+        "FalsyPlugin",
+        "HookHandler",
+        "MinimalPluginContextWithoutEnvironment",
+        "Plugin",
+        "PluginContextExtension",
+        "PluginContextMetaExtension",
+        "PluginOption",
+        "PluginWithRequiredHook",
+        "perEnvironmentPlugin",
+        "resolveEnvironmentPlugins"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/plugins/asset.ts",
+      "imports": [
+        "node:buffer",
+        "node:crypto",
+        "node:fs/promises",
+        "node:path",
+        "node:url",
+        "magic-string",
+        "mrmime",
+        "picocolors",
+        "picomatch",
+        "rolldown",
+        "rolldown/filter",
+        "../../shared/utils",
+        "../baseEnvironment",
+        "../build",
+        "../config",
+        "../constants",
+        "../environment",
+        "../plugin",
+        "../publicDir",
+        "../utils",
+        "./html"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "node:buffer",
+          "kind": "value",
+          "symbols": [
+            "Buffer"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:crypto",
+          "kind": "value",
+          "symbols": [
+            "randomBytes"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:fs/promises",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:url",
+          "kind": "value",
+          "symbols": [
+            "pathToFileURL"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "magic-string",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "mrmime",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "picocolors",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "picomatch",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown",
+          "kind": "type",
+          "symbols": [
+            "NormalizedOutputOptions",
+            "PluginContext",
+            "RenderedChunk"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown/filter",
+          "kind": "value",
+          "symbols": [
+            "makeIdFiltersToMatchWithQuery"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../../shared/utils",
+          "target": "packages/vite/src/shared/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "cleanUrl",
+            "splitFileAndPostfix",
+            "withTrailingSlash"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../baseEnvironment",
+          "target": "packages/vite/src/node/baseEnvironment.ts",
+          "kind": "type",
+          "symbols": [
+            "PartialEnvironment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../build",
+          "target": "packages/vite/src/node/build.ts",
+          "kind": "value",
+          "symbols": [
+            "createToImportMetaURLBasedRelativeRuntime",
+            "toOutputFilePathInJS"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../constants",
+          "target": "packages/vite/src/node/constants.ts",
+          "kind": "value",
+          "symbols": [
+            "DEFAULT_ASSETS_INLINE_LIMIT",
+            "DEFAULT_ASSETS_RE",
+            "FS_PREFIX"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../environment",
+          "target": "packages/vite/src/node/environment.ts",
+          "kind": "type",
+          "symbols": [
+            "Environment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../plugin",
+          "target": "packages/vite/src/node/plugin.ts",
+          "kind": "type",
+          "symbols": [
+            "Plugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../publicDir",
+          "target": "packages/vite/src/node/publicDir.ts",
+          "kind": "value",
+          "symbols": [
+            "checkPublicFile"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "encodeURIPath",
+            "getHash",
+            "injectQuery",
+            "joinUrlSegments",
+            "normalizePath",
+            "rawRE",
+            "removeLeadingSlash",
+            "removeUrlQuery",
+            "urlRE"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./html",
+          "target": "packages/vite/src/node/plugins/html.ts",
+          "kind": "value",
+          "symbols": [
+            "getImportMapFilename"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "assetPlugin",
+        "assetUrlRE",
+        "cssEntriesMap",
+        "fileToDevUrl",
+        "fileToUrl",
+        "getPublicAssetFilename",
+        "inlineRE",
+        "noInlineRE",
+        "publicAssetUrlCache",
+        "publicAssetUrlRE",
+        "publicFileToBuiltUrl",
+        "registerCustomMime",
+        "renderAssetUrlInJS",
+        "toOutputFilePathInJSForBundledDev",
+        "urlToBuiltUrl"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/plugins/assetImportMetaUrl.ts",
+      "imports": [
+        "node:path",
+        "magic-string",
+        "rolldown/filter",
+        "strip-literal",
+        "../../shared/utils",
+        "../config",
+        "../constants",
+        "../idResolver",
+        "../plugin",
+        "../utils",
+        "./asset",
+        "./importAnalysis",
+        "./importAnalysisBuild",
+        "./resolve"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "magic-string",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown/filter",
+          "kind": "value",
+          "symbols": [
+            "exactRegex"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "strip-literal",
+          "kind": "value",
+          "symbols": [
+            "stripLiteral"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../../shared/utils",
+          "target": "packages/vite/src/shared/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "slash"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../constants",
+          "target": "packages/vite/src/node/constants.ts",
+          "kind": "value",
+          "symbols": [
+            "CLIENT_ENTRY"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../idResolver",
+          "target": "packages/vite/src/node/idResolver.ts",
+          "kind": "value",
+          "symbols": [
+            "createBackCompatIdResolver"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../idResolver",
+          "target": "packages/vite/src/node/idResolver.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolveIdFn"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../plugin",
+          "target": "packages/vite/src/node/plugin.ts",
+          "kind": "type",
+          "symbols": [
+            "Plugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "injectQuery",
+            "isDataUrl",
+            "isParentDirectory",
+            "transformStableResult",
+            "tryStatSync"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./asset",
+          "target": "packages/vite/src/node/plugins/asset.ts",
+          "kind": "value",
+          "symbols": [
+            "fileToUrl"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./importAnalysis",
+          "target": "packages/vite/src/node/plugins/importAnalysis.ts",
+          "kind": "value",
+          "symbols": [
+            "hasViteIgnoreRE"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./importAnalysisBuild",
+          "target": "packages/vite/src/node/plugins/importAnalysisBuild.ts",
+          "kind": "value",
+          "symbols": [
+            "preloadHelperId"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./resolve",
+          "target": "packages/vite/src/node/plugins/resolve.ts",
+          "kind": "type",
+          "symbols": [
+            "InternalResolveOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./resolve",
+          "target": "packages/vite/src/node/plugins/resolve.ts",
+          "kind": "value",
+          "symbols": [
+            "tryFsResolve"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "assetImportMetaUrlPlugin",
+        "assetImportMetaUrlRE"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/plugins/clientInjections.ts",
+      "imports": [
+        "node:fs",
+        "node:path",
+        "../../shared/utils",
+        "../config",
+        "../constants",
+        "../environment",
+        "../plugin",
+        "../utils",
+        "./define"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "node:fs",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../../shared/utils",
+          "target": "packages/vite/src/shared/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "cleanUrl"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../constants",
+          "target": "packages/vite/src/node/constants.ts",
+          "kind": "value",
+          "symbols": [
+            "BUNDLED_DEV_CLIENT_ENTRY",
+            "CLIENT_ENTRY",
+            "ENV_ENTRY"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../environment",
+          "target": "packages/vite/src/node/environment.ts",
+          "kind": "value",
+          "symbols": [
+            "perEnvironmentState"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../plugin",
+          "target": "packages/vite/src/node/plugin.ts",
+          "kind": "type",
+          "symbols": [
+            "Plugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "isObject",
+            "normalizePath",
+            "resolveHostname"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./define",
+          "target": "packages/vite/src/node/plugins/define.ts",
+          "kind": "value",
+          "symbols": [
+            "replaceDefine",
+            "serializeDefine"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "clientInjectionsPlugin",
+        "getHmrImplementation"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/plugins/css.ts",
+      "imports": [
+        "node:fs",
+        "node:fs/promises",
+        "node:path",
+        "node:url",
+        "@jridgewell/remapping",
+        "@rollup/pluginutils",
+        "artichokie",
+        "less",
+        "lightningcss",
+        "magic-string",
+        "picocolors",
+        "postcss",
+        "postcss-load-config",
+        "rolldown",
+        "sass",
+        "stylus",
+        "tinyglobby",
+        "#types/internal/cssPreprocessorOptions",
+        "#types/internal/esbuildOptions",
+        "#types/internal/lightningcssOptions",
+        "#types/metadata",
+        "..",
+        "../../shared/constants",
+        "../../shared/utils",
+        "../baseEnvironment",
+        "../build",
+        "../config",
+        "../constants",
+        "../idResolver",
+        "../logger",
+        "../nodeResolve",
+        "../packages",
+        "../plugin",
+        "../publicDir",
+        "../server/moduleGraph",
+        "../server/pluginContainer",
+        "../server/searchRoot",
+        "../server/sourcemap",
+        "../utils",
+        "./asset",
+        "./esbuild",
+        "./html",
+        "./manifest",
+        "./oxc",
+        "postcss-import",
+        "postcss-modules",
+        "esbuild"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "node:fs",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:fs/promises",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:url",
+          "kind": "value",
+          "symbols": [
+            "fileURLToPath",
+            "pathToFileURL"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "@jridgewell/remapping",
+          "kind": "type",
+          "symbols": [
+            "RawSourceMap"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "@rollup/pluginutils",
+          "kind": "value",
+          "symbols": [
+            "dataToEsm"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "artichokie",
+          "kind": "value",
+          "symbols": [
+            "WorkerWithFallback"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "less",
+          "kind": "type",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "lightningcss",
+          "kind": "type",
+          "symbols": [
+            "TransformAttributeResult",
+            "TransformResult"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "magic-string",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "picocolors",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "postcss",
+          "kind": "type",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "postcss-load-config",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown",
+          "kind": "type",
+          "symbols": [
+            "ExistingRawSourceMap",
+            "InternalModuleFormat",
+            "MinimalPluginContext",
+            "OutputAsset",
+            "OutputChunk",
+            "RenderedChunk",
+            "RenderedModule",
+            "RollupError",
+            "SourceMapInput"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "sass",
+          "kind": "type",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "stylus",
+          "kind": "type",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "tinyglobby",
+          "kind": "value",
+          "symbols": [
+            "globSync"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "#types/internal/cssPreprocessorOptions",
+          "target": "packages/vite/types/internal/cssPreprocessorOptions.ts",
+          "kind": "type",
+          "symbols": [
+            "LessPreprocessorBaseOptions",
+            "SassModernPreprocessBaseOptions",
+            "StylusPreprocessorBaseOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "#types/internal/esbuildOptions",
+          "target": "packages/vite/types/internal/esbuildOptions.ts",
+          "kind": "type",
+          "symbols": [
+            "EsbuildTransformOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "#types/internal/lightningcssOptions",
+          "target": "packages/vite/types/internal/lightningcssOptions.ts",
+          "kind": "type",
+          "symbols": [
+            "LightningCSSOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "#types/metadata",
+          "target": "packages/vite/types/metadata.ts",
+          "kind": "type",
+          "symbols": [
+            "CustomPluginOptionsVite"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "..",
+          "target": "packages/vite/src/node/index.ts",
+          "kind": "type",
+          "symbols": [
+            "DevEnvironment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../../shared/constants",
+          "target": "packages/vite/src/shared/constants.ts",
+          "kind": "value",
+          "symbols": [
+            "NULL_BYTE_PLACEHOLDER"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../../shared/utils",
+          "target": "packages/vite/src/shared/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "cleanUrl",
+            "isWindows",
+            "slash"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../baseEnvironment",
+          "target": "packages/vite/src/node/baseEnvironment.ts",
+          "kind": "value",
+          "symbols": [
+            "PartialEnvironment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../build",
+          "target": "packages/vite/src/node/build.ts",
+          "kind": "value",
+          "symbols": [
+            "createToImportMetaURLBasedRelativeRuntime",
+            "resolveUserExternal",
+            "toOutputFilePathInCss",
+            "toOutputFilePathInJS"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../build",
+          "target": "packages/vite/src/node/build.ts",
+          "kind": "type",
+          "symbols": [
+            "LibraryOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../constants",
+          "target": "packages/vite/src/node/constants.ts",
+          "kind": "value",
+          "symbols": [
+            "CLIENT_PUBLIC_PATH",
+            "CSS_LANGS_RE",
+            "DEV_PROD_CONDITION",
+            "ESBUILD_BASELINE_WIDELY_AVAILABLE_TARGET",
+            "SPECIAL_QUERY_RE"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../idResolver",
+          "target": "packages/vite/src/node/idResolver.ts",
+          "kind": "value",
+          "symbols": [
+            "createBackCompatIdResolver"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../idResolver",
+          "target": "packages/vite/src/node/idResolver.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolveIdFn"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../logger",
+          "target": "packages/vite/src/node/logger.ts",
+          "kind": "type",
+          "symbols": [
+            "Logger"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../nodeResolve",
+          "target": "packages/vite/src/node/nodeResolve.ts",
+          "kind": "value",
+          "symbols": [
+            "nodeResolveWithVite"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../packages",
+          "target": "packages/vite/src/node/packages.ts",
+          "kind": "type",
+          "symbols": [
+            "PackageCache"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../packages",
+          "target": "packages/vite/src/node/packages.ts",
+          "kind": "value",
+          "symbols": [
+            "findNearestMainPackageData"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../plugin",
+          "target": "packages/vite/src/node/plugin.ts",
+          "kind": "type",
+          "symbols": [
+            "Plugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../publicDir",
+          "target": "packages/vite/src/node/publicDir.ts",
+          "kind": "value",
+          "symbols": [
+            "checkPublicFile"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../server/moduleGraph",
+          "target": "packages/vite/src/node/server/moduleGraph.ts",
+          "kind": "type",
+          "symbols": [
+            "EnvironmentModuleNode"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../server/pluginContainer",
+          "target": "packages/vite/src/node/server/pluginContainer.ts",
+          "kind": "type",
+          "symbols": [
+            "TransformPluginContext"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../server/searchRoot",
+          "target": "packages/vite/src/node/server/searchRoot.ts",
+          "kind": "value",
+          "symbols": [
+            "searchForWorkspaceRoot"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../server/sourcemap",
+          "target": "packages/vite/src/node/server/sourcemap.ts",
+          "kind": "value",
+          "symbols": [
+            "getCodeWithSourcemap",
+            "injectSourcesContent"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "_dirname",
+            "arraify",
+            "asyncReplace",
+            "combineSourcemaps",
+            "createSerialPromiseQueue",
+            "emptyCssComments",
+            "encodeURIPath",
+            "escapeRegex",
+            "generateCodeFrame",
+            "getFileStartIndex",
+            "getHash",
+            "getPackageManagerCommand",
+            "getPkgName",
+            "injectQuery",
+            "isCSSRequest",
+            "isDataUrl",
+            "isExternalUrl",
+            "isObject",
+            "joinUrlSegments",
+            "lineTerminatorRE",
+            "mergeWithDefaults",
+            "normalizePath",
+            "processSrcSet",
+            "removeDirectQuery",
+            "removeUrlQuery",
+            "stripBomTag",
+            "urlRE"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./asset",
+          "target": "packages/vite/src/node/plugins/asset.ts",
+          "kind": "value",
+          "symbols": [
+            "assetUrlRE",
+            "cssEntriesMap",
+            "fileToUrl",
+            "publicAssetUrlCache",
+            "publicAssetUrlRE",
+            "publicFileToBuiltUrl",
+            "renderAssetUrlInJS"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./esbuild",
+          "target": "packages/vite/src/node/plugins/esbuild.ts",
+          "kind": "type",
+          "symbols": [
+            "ESBuildOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./html",
+          "target": "packages/vite/src/node/plugins/html.ts",
+          "kind": "value",
+          "symbols": [
+            "addToHTMLProxyTransformResult",
+            "getImportMap"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./manifest",
+          "target": "packages/vite/src/node/plugins/manifest.ts",
+          "kind": "value",
+          "symbols": [
+            "getChunkOriginalFileName"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./oxc",
+          "target": "packages/vite/src/node/plugins/oxc.ts",
+          "kind": "value",
+          "symbols": [
+            "IIFE_BEGIN_RE",
+            "UMD_BEGIN_RE"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "postcss-load-config",
+          "kind": "type",
+          "symbols": [
+            "Config"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "postcss-import",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "postcss-modules",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "postcss",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:fs/promises",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "esbuild",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "lightningcss",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "CSSAtImportResolvers",
+        "CSSModulesOptions",
+        "CSSOptions",
+        "LessPreprocessorOptions",
+        "PostcssUserConfig",
+        "PreprocessCSSResult",
+        "ResolvedCSSOptions",
+        "SassPreprocessorOptions",
+        "StylePreprocessorResults",
+        "StylusPreprocessorOptions",
+        "convertTargets",
+        "createCSSResolvers",
+        "cssAnalysisPlugin",
+        "cssBundleNameCache",
+        "cssConfigDefaults",
+        "cssDataUriRE",
+        "cssPlugin",
+        "cssPostPlugin",
+        "cssUrlRE",
+        "formatPostcssSourceMap",
+        "getEmptyChunkReplacer",
+        "hoistAtRules",
+        "importCssRE",
+        "injectInlinedCSS",
+        "isDirectCSSRequest",
+        "isDirectRequest",
+        "isModuleCSSRequest",
+        "preprocessCSS",
+        "removedPureCssFilesCache",
+        "resolveCSSOptions",
+        "resolveLibCssFilename"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": true
+    },
+    {
+      "path": "packages/vite/src/node/plugins/define.ts",
+      "imports": [
+        "rolldown/utils",
+        "../config",
+        "../environment",
+        "../plugin",
+        "../utils",
+        "./html"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "rolldown/utils",
+          "kind": "value",
+          "symbols": [
+            "transformSync"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../environment",
+          "target": "packages/vite/src/node/environment.ts",
+          "kind": "type",
+          "symbols": [
+            "Environment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../plugin",
+          "target": "packages/vite/src/node/plugin.ts",
+          "kind": "type",
+          "symbols": [
+            "Plugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "escapeRegex",
+            "isCSSRequest"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./html",
+          "target": "packages/vite/src/node/plugins/html.ts",
+          "kind": "value",
+          "symbols": [
+            "isHTMLRequest"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "definePlugin",
+        "replaceDefine",
+        "serializeDefine"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/plugins/dynamicImportVars.ts",
+      "imports": [
+        "node:path",
+        "@rollup/plugin-dynamic-import-vars",
+        "es-module-lexer",
+        "magic-string",
+        "rolldown/experimental",
+        "rolldown/filter",
+        "rolldown/parseAst",
+        "../baseEnvironment",
+        "../config",
+        "../constants",
+        "../environment",
+        "../idResolver",
+        "../plugin",
+        "../utils",
+        "./importAnalysis",
+        "./resolve",
+        "./worker"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "posix"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "@rollup/plugin-dynamic-import-vars",
+          "kind": "value",
+          "symbols": [
+            "dynamicImportToGlob"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "es-module-lexer",
+          "kind": "value",
+          "symbols": [
+            "init",
+            "parse"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "es-module-lexer",
+          "kind": "type",
+          "symbols": [
+            "ImportSpecifier"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "magic-string",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown/experimental",
+          "kind": "value",
+          "symbols": [
+            "viteDynamicImportVarsPlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown/filter",
+          "kind": "value",
+          "symbols": [
+            "exactRegex"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown/parseAst",
+          "kind": "value",
+          "symbols": [
+            "parseAst"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../baseEnvironment",
+          "target": "packages/vite/src/node/baseEnvironment.ts",
+          "kind": "type",
+          "symbols": [
+            "PartialEnvironment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../constants",
+          "target": "packages/vite/src/node/constants.ts",
+          "kind": "value",
+          "symbols": [
+            "CLIENT_ENTRY"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../environment",
+          "target": "packages/vite/src/node/environment.ts",
+          "kind": "type",
+          "symbols": [
+            "Environment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../environment",
+          "target": "packages/vite/src/node/environment.ts",
+          "kind": "value",
+          "symbols": [
+            "perEnvironmentState"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../idResolver",
+          "target": "packages/vite/src/node/idResolver.ts",
+          "kind": "value",
+          "symbols": [
+            "createBackCompatIdResolver"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../plugin",
+          "target": "packages/vite/src/node/plugin.ts",
+          "kind": "type",
+          "symbols": [
+            "Plugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "createFilter",
+            "normalizePath",
+            "rawRE",
+            "requestQueryMaybeEscapedSplitRE",
+            "requestQuerySplitRE",
+            "transformStableResult",
+            "urlRE"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./importAnalysis",
+          "target": "packages/vite/src/node/plugins/importAnalysis.ts",
+          "kind": "value",
+          "symbols": [
+            "hasViteIgnoreRE"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./resolve",
+          "target": "packages/vite/src/node/plugins/resolve.ts",
+          "kind": "value",
+          "symbols": [
+            "resolveSubpathImports"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./worker",
+          "target": "packages/vite/src/node/plugins/worker.ts",
+          "kind": "value",
+          "symbols": [
+            "workerOrSharedWorkerRE"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "dynamicImportHelperId",
+        "dynamicImportVarsPlugin",
+        "transformDynamicImport"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/plugins/esbuild.ts",
+      "imports": [
+        "node:path",
+        "@jridgewell/remapping",
+        "picocolors",
+        "rolldown",
+        "rolldown/experimental",
+        "rolldown/utils",
+        "#dep-types/chokidar",
+        "#types/internal/esbuildOptions",
+        "../../shared/utils",
+        "../config",
+        "../plugin",
+        "../server",
+        "../utils",
+        "esbuild"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "@jridgewell/remapping",
+          "kind": "type",
+          "symbols": [
+            "RawSourceMap"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "picocolors",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown",
+          "kind": "type",
+          "symbols": [
+            "InternalModuleFormat",
+            "SourceMap"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown/experimental",
+          "kind": "value",
+          "symbols": [
+            "resolveTsconfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown/utils",
+          "kind": "value",
+          "symbols": [
+            "TsconfigCache"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "#dep-types/chokidar",
+          "target": "packages/vite/src/types/chokidar.ts",
+          "kind": "type",
+          "symbols": [
+            "FSWatcher"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "#types/internal/esbuildOptions",
+          "target": "packages/vite/types/internal/esbuildOptions.ts",
+          "kind": "type",
+          "symbols": [
+            "EsbuildLoader",
+            "EsbuildMessage",
+            "EsbuildTransformOptions",
+            "EsbuildTransformResult"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../../shared/utils",
+          "target": "packages/vite/src/shared/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "cleanUrl"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../plugin",
+          "target": "packages/vite/src/node/plugin.ts",
+          "kind": "type",
+          "symbols": [
+            "Plugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../server",
+          "target": "packages/vite/src/node/server/index.ts",
+          "kind": "type",
+          "symbols": [
+            "ViteDevServer"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "combineSourcemaps",
+            "createDebugger",
+            "ensureWatchedFile",
+            "generateCodeFrame"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "esbuild",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "ESBuildOptions",
+        "ESBuildTransformResult",
+        "TSCompilerOptions",
+        "buildEsbuildPlugin",
+        "defaultEsbuildSupported",
+        "getTSConfigResolutionCache",
+        "injectEsbuildHelpers",
+        "reloadOnTsconfigChange",
+        "resolveEsbuildTranspileOptions",
+        "transformWithEsbuild"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/plugins/esbuildBannerFooterCompatPlugin.ts",
+      "imports": [
+        "magic-string",
+        "../../shared/utils",
+        "../config",
+        "../plugin",
+        "../utils"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "magic-string",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../../shared/utils",
+          "target": "packages/vite/src/shared/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "cleanUrl"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../plugin",
+          "target": "packages/vite/src/node/plugin.ts",
+          "kind": "type",
+          "symbols": [
+            "Plugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "createFilter"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "esbuildBannerFooterCompatPlugin"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/plugins/worker.ts",
+      "imports": [
+        "node:path",
+        "es-module-lexer",
+        "magic-string",
+        "picocolors",
+        "rolldown",
+        "rolldown/experimental",
+        "../../shared/utils",
+        "../build",
+        "../config",
+        "../constants",
+        "../environment",
+        "../logger",
+        "../plugin",
+        "../utils",
+        "./asset"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "es-module-lexer",
+          "kind": "type",
+          "symbols": [
+            "ImportSpecifier"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "es-module-lexer",
+          "kind": "value",
+          "symbols": [
+            "init",
+            "parse"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "magic-string",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "picocolors",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown",
+          "kind": "type",
+          "symbols": [
+            "OutputAsset",
+            "OutputChunk",
+            "PluginContext",
+            "RolldownOutput",
+            "RollupError"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown/experimental",
+          "kind": "value",
+          "symbols": [
+            "viteWebWorkerPostPlugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../../shared/utils",
+          "target": "packages/vite/src/shared/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "cleanUrl",
+            "splitFileAndPostfix"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../build",
+          "target": "packages/vite/src/node/build.ts",
+          "kind": "value",
+          "symbols": [
+            "BuildEnvironment",
+            "ChunkMetadataMap",
+            "injectEnvironmentToHooks",
+            "onRollupLog"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../constants",
+          "target": "packages/vite/src/node/constants.ts",
+          "kind": "value",
+          "symbols": [
+            "ENV_ENTRY",
+            "ENV_PUBLIC_PATH"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../environment",
+          "target": "packages/vite/src/node/environment.ts",
+          "kind": "type",
+          "symbols": [
+            "Environment"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../logger",
+          "target": "packages/vite/src/node/logger.ts",
+          "kind": "type",
+          "symbols": [
+            "Logger"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../plugin",
+          "target": "packages/vite/src/node/plugin.ts",
+          "kind": "type",
+          "symbols": [
+            "Plugin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../utils",
+          "target": "packages/vite/src/node/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "injectQuery",
+            "normalizePath",
+            "prettifyUrl",
+            "trailingSeparatorRE",
+            "urlRE"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./asset",
+          "target": "packages/vite/src/node/plugins/asset.ts",
+          "kind": "value",
+          "symbols": [
+            "fileToUrl",
+            "toOutputFilePathInJSForBundledDev"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [
+        "WORKER_FILE_ID",
+        "WorkerType",
+        "emitWorkerAssetsForBundledDev",
+        "generateWorkerEntryUrlExpr",
+        "recordWorkerReference",
+        "splitWorkerRequest",
+        "webWorkerPlugin",
+        "webWorkerPostPlugin",
+        "workerFileToUrl",
+        "workerOrSharedWorkerRE"
+      ],
+      "isTest": false,
+      "isSurface": true,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "packages/vite/src/node/utils.ts",
+      "imports": [
+        "node:child_process",
+        "node:crypto",
+        "node:dns",
+        "node:fs",
+        "node:fs/promises",
+        "node:https",
+        "node:module",
+        "node:net",
+        "node:os",
+        "node:path",
+        "node:perf_hooks",
+        "node:url",
+        "@jridgewell/remapping",
+        "@type-challenges/utils",
+        "magic-string",
+        "obug",
+        "picocolors",
+        "@rollup/pluginutils",
+        "rolldown",
+        "#dep-types/alias",
+        "#dep-types/chokidar",
+        "../shared/builtin",
+        "../shared/constants",
+        "../shared/utils",
+        "./build",
+        "./config",
+        "./constants",
+        "./optimizer",
+        "./packages",
+        "./preview",
+        "./server",
+        ".",
+        "rolldown/filter"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "node:child_process",
+          "kind": "value",
+          "symbols": [
+            "exec"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:crypto",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:dns",
+          "kind": "value",
+          "symbols": [
+            "promises"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:fs",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:fs/promises",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:https",
+          "kind": "type",
+          "symbols": [
+            "ServerOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:module",
+          "kind": "value",
+          "symbols": [
+            "builtinModules"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:net",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:net",
+          "kind": "type",
+          "symbols": [
+            "AddressInfo",
+            "Server"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:os",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:perf_hooks",
+          "kind": "value",
+          "symbols": [
+            "performance"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:url",
+          "kind": "value",
+          "symbols": [
+            "fileURLToPath"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "@jridgewell/remapping",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "@jridgewell/remapping",
+          "kind": "type",
+          "symbols": [
+            "DecodedSourceMap",
+            "RawSourceMap"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "@type-challenges/utils",
+          "kind": "type",
+          "symbols": [
+            "Equal"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "magic-string",
+          "kind": "type",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "obug",
+          "kind": "type",
+          "symbols": [
+            "Debugger"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "obug",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "picocolors",
+          "kind": "value",
+          "symbols": [
+            "default"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "@rollup/pluginutils",
+          "kind": "value",
+          "symbols": [
+            "createFilter"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown",
+          "kind": "type",
+          "symbols": [
+            "InputOption",
+            "TransformResult"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "#dep-types/alias",
+          "target": "packages/vite/src/types/alias.ts",
+          "kind": "type",
+          "symbols": [
+            "Alias",
+            "AliasOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "#dep-types/chokidar",
+          "target": "packages/vite/src/types/chokidar.ts",
+          "kind": "type",
+          "symbols": [
+            "FSWatcher"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../shared/builtin",
+          "target": "packages/vite/src/shared/builtin.ts",
+          "kind": "value",
+          "symbols": [
+            "createIsBuiltin"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../shared/constants",
+          "target": "packages/vite/src/shared/constants.ts",
+          "kind": "value",
+          "symbols": [
+            "VALID_ID_PREFIX"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../shared/utils",
+          "target": "packages/vite/src/shared/utils.ts",
+          "kind": "value",
+          "symbols": [
+            "cleanUrl",
+            "isWindows",
+            "slash",
+            "splitFileAndPostfix",
+            "withTrailingSlash"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./build",
+          "target": "packages/vite/src/node/build.ts",
+          "kind": "type",
+          "symbols": [
+            "BuildEnvironmentOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./config",
+          "target": "packages/vite/src/node/config.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedConfig"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./constants",
+          "target": "packages/vite/src/node/constants.ts",
+          "kind": "value",
+          "symbols": [
+            "CLIENT_ENTRY",
+            "CLIENT_PUBLIC_PATH",
+            "CSS_LANGS_RE",
+            "ENV_PUBLIC_PATH",
+            "FS_PREFIX",
+            "OPTIMIZABLE_ENTRY_RE",
+            "loopbackHosts",
+            "wildcardHosts"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./optimizer",
+          "target": "packages/vite/src/node/optimizer/index.ts",
+          "kind": "type",
+          "symbols": [
+            "DepOptimizationOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./packages",
+          "target": "packages/vite/src/node/packages.ts",
+          "kind": "type",
+          "symbols": [
+            "PackageCache"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./packages",
+          "target": "packages/vite/src/node/packages.ts",
+          "kind": "value",
+          "symbols": [
+            "findNearestPackageData"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./preview",
+          "target": "packages/vite/src/node/preview.ts",
+          "kind": "type",
+          "symbols": [
+            "PreviewServer"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./server",
+          "target": "packages/vite/src/node/server/index.ts",
+          "kind": "type",
+          "symbols": [
+            "ResolvedServerUrls",
+            "ServerOptions",
+            "ViteDevServer"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": ".",
+          "target": "packages/vite/src/node/index.ts",
+          "kind": "type",
+          "symbols": [
+            "CommonServerOptions"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "rolldown/filter",
+          "kind": "value",
+          "symbols": [
+            "withFilter"
+          ],
+          "isReExport": true
+        },
+        {
+          "specifier": "rolldown",
+          "kind": "value",
+          "symbols": [
+            "VERSION"
+          ],
+          "isReExport": true
+        }
+      ],
+      "exportedSymbols": [
+        "ERR_SYMLINK_IN_RECURSIVE_READDIR",
+        "FilterPattern",
+        "Hostname",
+        "ViteDebugScope",
+        "_dirname",
+        "arraify",
+        "arrayEqual",
+        "asyncFlatten",
+        "asyncReplace",
+        "bareImportRE",
+        "blankReplacer",
+        "combineSourcemaps",
+        "copyDir",
+        "createDebugger",
+        "createFilter",
+        "createSerialPromiseQueue",
+        "dataUrlRE",
+        "decodeURIIfPossible",
+        "deepClone",
+        "deepImportRE",
+        "diffDnsOrderChange",
+        "displayTime",
+        "emptyCssComments",
+        "emptyDir",
+        "encodeURIPath",
+        "ensureWatchedFile",
+        "escapeRegex",
+        "evalValue",
+        "externalRE",
+        "extractHostnamesFromCerts",
+        "extractHostnamesFromSubjectAltName",
+        "flattenId",
+        "formatAndTruncateFileList",
+        "fsPathFromId",
+        "fsPathFromUrl",
+        "generateCodeFrame",
+        "getFileStartIndex",
+        "getHash",
+        "getLocalhostAddressIfDiffersFromDNS",
+        "getNpmPackageName",
+        "getPackageManagerCommand",
+        "getPkgName",
+        "getServerUrlByHost",
+        "hasBothRollupOptionsAndRolldownOptions",
+        "injectQuery",
+        "isBuiltin",
+        "isCSSRequest",
+        "isCaseInsensitiveFS",
+        "isDataUrl",
+        "isDefined",
+        "isDevServer",
+        "isExternalUrl",
+        "isFilePathESM",
+        "isFilePathFormatExplicit",
+        "isFileReadable",
+        "isImportRequest",
+        "isInNodeModules",
+        "isInternalRequest",
+        "isJSRequest",
+        "isNodeBuiltin",
+        "isNodeLikeBuiltin",
+        "isObject",
+        "isOptimizable",
+        "isParentDirectory",
+        "isSameFilePath",
+        "joinUrlSegments",
+        "lineTerminatorRE",
+        "lookupFile",
+        "mergeAlias",
+        "mergeConfig",
+        "mergeWithDefaults",
+        "moduleListContains",
+        "monotonicDateNow",
+        "multilineCommentsRE",
+        "nodeLikeBuiltins",
+        "normalizeAlias",
+        "normalizeId",
+        "normalizePath",
+        "numberToPos",
+        "pad",
+        "parseSrcset",
+        "partialEncodeURIPath",
+        "posToNumber",
+        "prettifyUrl",
+        "processSrcSet",
+        "processSrcSetSync",
+        "rawRE",
+        "recursiveReaddir",
+        "removeDirectQuery",
+        "removeImportQuery",
+        "removeLeadingSlash",
+        "removeTimestampQuery",
+        "removeUrlQuery",
+        "requestQueryMaybeEscapedSplitRE",
+        "requestQuerySplitRE",
+        "resolveHostname",
+        "resolveServerUrls",
+        "rolldownVersion",
+        "rollupVersion",
+        "safeRealpathSync",
+        "setupHmrWsOptionCompat",
+        "setupRollupOptionCompat",
+        "setupSIGTERMListener",
+        "shouldServeFile",
+        "singlelineCommentsRE",
+        "sortObjectKeys",
+        "splitRE",
+        "stripBase",
+        "stripBomTag",
+        "teardownSIGTERMListener",
+        "timeFrom",
+        "trailingSeparatorRE",
+        "transformStableResult",
+        "tryStatSync",
+        "unique",
+        "urlRE",
+        "virtualModulePrefix",
+        "virtualModuleRE",
+        "withFilter"
+      ],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    }
+  ],
+  "options": {
+    "aliases": {},
+    "baseUrl": "",
+    "externalPackages": [
+      "@e18e/eslint-plugin",
+      "@eslint/js",
+      "@type-challenges/utils",
+      "@types/babel__core",
+      "@types/babel__preset-env",
+      "@types/convert-source-map",
+      "@types/cross-spawn",
+      "@types/etag",
+      "@types/less",
+      "@types/node",
+      "@types/picomatch",
+      "@types/stylus",
+      "@types/ws",
+      "@vitejs/release-scripts",
+      "eslint",
+      "eslint-plugin-import-x",
+      "eslint-plugin-n",
+      "eslint-plugin-regexp",
+      "execa",
+      "globals",
+      "lint-staged",
+      "oxfmt",
+      "picocolors",
+      "playwright-chromium",
+      "rolldown",
+      "rollup",
+      "simple-git-hooks",
+      "tsx",
+      "typescript",
+      "typescript-eslint",
+      "vite",
+      "vitest"
+    ]
+  }
+}

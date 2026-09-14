@@ -1,0 +1,492 @@
+{
+  "policyVersion": "rank-v1",
+  "sha256": "61e70ed213845677097bd578f37f168a1a7cf41d9a45881af7aea23848a3a8e3",
+  "result": {
+    "policyVersion": "rank-v1",
+    "confidence": 0.8791666666666667,
+    "changedFiles": [
+      {
+        "path": "lib/request.js",
+        "additions": 1,
+        "deletions": 1,
+        "changeType": "modified"
+      }
+    ],
+    "nodes": [
+      {
+        "id": "examples/auth/index.js",
+        "label": "index.js",
+        "path": "examples/auth/index.js",
+        "kind": "risk",
+        "depth": 3
+      },
+      {
+        "id": "examples/cookie-sessions/index.js",
+        "label": "index.js",
+        "path": "examples/cookie-sessions/index.js",
+        "kind": "risk",
+        "depth": 3
+      },
+      {
+        "id": "examples/session/index.js",
+        "label": "index.js",
+        "path": "examples/session/index.js",
+        "kind": "risk",
+        "depth": 3
+      },
+      {
+        "id": "examples/session/redis.js",
+        "label": "redis.js",
+        "path": "examples/session/redis.js",
+        "kind": "risk",
+        "depth": 3
+      },
+      {
+        "id": "lib/request.js",
+        "label": "request.js",
+        "path": "lib/request.js",
+        "kind": "changed",
+        "depth": 0
+      },
+      {
+        "id": "examples/multi-router/controllers/api_v1.js",
+        "label": "api_v1.js",
+        "path": "examples/multi-router/controllers/api_v1.js",
+        "kind": "surface",
+        "depth": 3
+      },
+      {
+        "id": "examples/multi-router/controllers/api_v2.js",
+        "label": "api_v2.js",
+        "path": "examples/multi-router/controllers/api_v2.js",
+        "kind": "surface",
+        "depth": 3
+      },
+      {
+        "id": "lib/express.js",
+        "label": "express.js",
+        "path": "lib/express.js",
+        "kind": "dependent",
+        "depth": 1
+      },
+      {
+        "id": "examples/route-map/index.js",
+        "label": "index.js",
+        "path": "examples/route-map/index.js",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "examples/route-middleware/index.js",
+        "label": "index.js",
+        "path": "examples/route-middleware/index.js",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "index.js",
+        "label": "index.js",
+        "path": "index.js",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "examples/content-negotiation/index.js",
+        "label": "index.js",
+        "path": "examples/content-negotiation/index.js",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "examples/cookies/index.js",
+        "label": "index.js",
+        "path": "examples/cookies/index.js",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "examples/downloads/index.js",
+        "label": "index.js",
+        "path": "examples/downloads/index.js",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "examples/ejs/index.js",
+        "label": "index.js",
+        "path": "examples/ejs/index.js",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "examples/error-pages/index.js",
+        "label": "index.js",
+        "path": "examples/error-pages/index.js",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "examples/error/index.js",
+        "label": "index.js",
+        "path": "examples/error/index.js",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "examples/hello-world/index.js",
+        "label": "index.js",
+        "path": "examples/hello-world/index.js",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "examples/markdown/index.js",
+        "label": "index.js",
+        "path": "examples/markdown/index.js",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "examples/multi-router/index.js",
+        "label": "index.js",
+        "path": "examples/multi-router/index.js",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "examples/mvc/index.js",
+        "label": "index.js",
+        "path": "examples/mvc/index.js",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "examples/mvc/lib/boot.js",
+        "label": "boot.js",
+        "path": "examples/mvc/lib/boot.js",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "examples/online/index.js",
+        "label": "index.js",
+        "path": "examples/online/index.js",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "examples/params/index.js",
+        "label": "index.js",
+        "path": "examples/params/index.js",
+        "kind": "dependent",
+        "depth": 3
+      }
+    ],
+    "edges": [
+      {
+        "from": "index.js",
+        "to": "examples/auth/index.js",
+        "evidence": "index.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/content-negotiation/index.js",
+        "evidence": "index.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/cookie-sessions/index.js",
+        "evidence": "index.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/cookies/index.js",
+        "evidence": "index.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/downloads/index.js",
+        "evidence": "index.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/ejs/index.js",
+        "evidence": "index.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/error-pages/index.js",
+        "evidence": "index.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/error/index.js",
+        "evidence": "index.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/hello-world/index.js",
+        "evidence": "index.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/markdown/index.js",
+        "evidence": "index.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/multi-router/controllers/api_v1.js",
+        "evidence": "api_v1.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/multi-router/controllers/api_v2.js",
+        "evidence": "api_v2.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/multi-router/index.js",
+        "evidence": "index.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "examples/multi-router/controllers/api_v1.js",
+        "to": "examples/multi-router/index.js",
+        "evidence": "index.js imports api_v1.js",
+        "kind": "value"
+      },
+      {
+        "from": "examples/multi-router/controllers/api_v2.js",
+        "to": "examples/multi-router/index.js",
+        "evidence": "index.js imports api_v2.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/mvc/index.js",
+        "evidence": "index.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "examples/mvc/lib/boot.js",
+        "to": "examples/mvc/index.js",
+        "evidence": "index.js imports boot.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/mvc/lib/boot.js",
+        "evidence": "boot.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/online/index.js",
+        "evidence": "index.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/params/index.js",
+        "evidence": "index.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "lib/express.js",
+        "to": "examples/route-map/index.js",
+        "evidence": "index.js imports express.js",
+        "kind": "value"
+      },
+      {
+        "from": "lib/express.js",
+        "to": "examples/route-middleware/index.js",
+        "evidence": "index.js imports express.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/session/index.js",
+        "evidence": "index.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "index.js",
+        "to": "examples/session/redis.js",
+        "evidence": "redis.js imports index.js",
+        "kind": "value"
+      },
+      {
+        "from": "lib/express.js",
+        "to": "index.js",
+        "evidence": "index.js imports express.js",
+        "kind": "value"
+      },
+      {
+        "from": "lib/request.js",
+        "to": "lib/express.js",
+        "evidence": "express.js imports request.js",
+        "kind": "value"
+      }
+    ],
+    "factors": [
+      {
+        "label": "Change size",
+        "signal": "context",
+        "explanation": "2 changed lines across 1 file"
+      },
+      {
+        "label": "Dependency fan-out",
+        "signal": "attention",
+        "explanation": "23 downstream files within three hops"
+      },
+      {
+        "label": "Sensitive paths",
+        "signal": "context",
+        "explanation": "No changed paths matched the configured sensitive domains"
+      },
+      {
+        "label": "Related tests",
+        "signal": "attention",
+        "explanation": "No related tests were found in the supplied repository map"
+      },
+      {
+        "label": "Sensitive dependents without tests",
+        "signal": "attention",
+        "explanation": "4 sensitive downstream files had no matching test evidence"
+      },
+      {
+        "label": "Verification added",
+        "signal": "context",
+        "explanation": "The diff does not include a test change"
+      },
+      {
+        "label": "Configuration reach",
+        "signal": "context",
+        "explanation": "No configuration or schema changes detected"
+      }
+    ],
+    "reviewOrder": [
+      {
+        "rank": 1,
+        "path": "examples/auth/index.js",
+        "kind": "risk",
+        "reasons": [
+          "Sensitive downstream path with no matching test evidence",
+          "Review-sensitive path term"
+        ]
+      },
+      {
+        "rank": 2,
+        "path": "examples/cookie-sessions/index.js",
+        "kind": "risk",
+        "reasons": [
+          "Sensitive downstream path with no matching test evidence",
+          "Review-sensitive path term"
+        ]
+      },
+      {
+        "rank": 3,
+        "path": "examples/session/index.js",
+        "kind": "risk",
+        "reasons": [
+          "Sensitive downstream path with no matching test evidence",
+          "Review-sensitive path term"
+        ]
+      },
+      {
+        "rank": 4,
+        "path": "examples/session/redis.js",
+        "kind": "risk",
+        "reasons": [
+          "Sensitive downstream path with no matching test evidence",
+          "Review-sensitive path term"
+        ]
+      },
+      {
+        "rank": 5,
+        "path": "lib/request.js",
+        "kind": "changed",
+        "reasons": [
+          "modified file with 2 changed lines"
+        ]
+      },
+      {
+        "rank": 6,
+        "path": "examples/multi-router/controllers/api_v1.js",
+        "kind": "surface",
+        "reasons": [
+          "Exposed surface reached by the dependency graph"
+        ]
+      },
+      {
+        "rank": 7,
+        "path": "examples/multi-router/controllers/api_v2.js",
+        "kind": "surface",
+        "reasons": [
+          "Exposed surface reached by the dependency graph"
+        ]
+      },
+      {
+        "rank": 8,
+        "path": "lib/express.js",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 1"
+        ]
+      },
+      {
+        "rank": 9,
+        "path": "examples/route-map/index.js",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "rank": 10,
+        "path": "examples/route-middleware/index.js",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      }
+    ],
+    "verificationPlan": [
+      "Add a regression test for the changed behavior",
+      "Exercise the unpaired path through examples/auth/index.js",
+      "Verify the user-facing behavior at examples/multi-router/controllers/api_v1.js"
+    ],
+    "brief": "1 changed file reach 23 downstream modules and 2 user-facing surfaces. examples/auth/index.js is the highest-value review target because it is sensitive and has no matching test evidence.",
+    "narrativeSource": "evidence-engine",
+    "unknowns": [
+      "3 relative imports could not be resolved."
+    ],
+    "stats": {
+      "additions": 1,
+      "deletions": 1,
+      "impactedFiles": 23,
+      "impactedSurfaces": 2,
+      "impactedTests": 0,
+      "totalImports": 72,
+      "resolvedImports": 26,
+      "unresolvedImports": 3,
+      "ignoredExternalImports": 43,
+      "ignoredAssetImports": 0,
+      "typeOnlyImports": 0,
+      "symbolFilteredImports": 0,
+      "truncatedNodes": 0
+    }
+  }
+}

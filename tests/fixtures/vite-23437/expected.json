@@ -1,0 +1,557 @@
+{
+  "policyVersion": "rank-v1",
+  "sha256": "43030148bcaf6ea96700092c6501115d5116cf8fba7ca2e006474a5e29797003",
+  "result": {
+    "policyVersion": "rank-v1",
+    "confidence": 0.6476984126984127,
+    "changedFiles": [
+      {
+        "path": "packages/vite/src/node/__tests__/utils.spec.ts",
+        "additions": 24,
+        "deletions": 0,
+        "changeType": "modified"
+      },
+      {
+        "path": "packages/vite/src/node/utils.ts",
+        "additions": 3,
+        "deletions": 1,
+        "changeType": "modified"
+      }
+    ],
+    "nodes": [
+      {
+        "id": "packages/vite/src/node/__tests__/utils.spec.ts",
+        "label": "utils.spec.ts",
+        "path": "packages/vite/src/node/__tests__/utils.spec.ts",
+        "kind": "changed",
+        "depth": 0
+      },
+      {
+        "id": "packages/vite/src/node/utils.ts",
+        "label": "utils.ts",
+        "path": "packages/vite/src/node/utils.ts",
+        "kind": "changed",
+        "depth": 0
+      },
+      {
+        "id": "packages/vite/src/node/plugins/worker.ts",
+        "label": "worker.ts",
+        "path": "packages/vite/src/node/plugins/worker.ts",
+        "kind": "surface",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/config.ts",
+        "label": "config.ts",
+        "path": "packages/vite/src/node/config.ts",
+        "kind": "dependent",
+        "depth": 1
+      },
+      {
+        "id": "packages/vite/src/node/optimizer/rolldownDepPlugin.ts",
+        "label": "rolldownDepPlugin.ts",
+        "path": "packages/vite/src/node/optimizer/rolldownDepPlugin.ts",
+        "kind": "dependent",
+        "depth": 1
+      },
+      {
+        "id": "packages/vite/src/node/__tests_dts__/config.ts",
+        "label": "config.ts",
+        "path": "packages/vite/src/node/__tests_dts__/config.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/baseEnvironment.ts",
+        "label": "baseEnvironment.ts",
+        "path": "packages/vite/src/node/baseEnvironment.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/build.ts",
+        "label": "build.ts",
+        "path": "packages/vite/src/node/build.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/cli.ts",
+        "label": "cli.ts",
+        "path": "packages/vite/src/node/cli.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/deprecations.ts",
+        "label": "deprecations.ts",
+        "path": "packages/vite/src/node/deprecations.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/env.ts",
+        "label": "env.ts",
+        "path": "packages/vite/src/node/env.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/idResolver.ts",
+        "label": "idResolver.ts",
+        "path": "packages/vite/src/node/idResolver.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/index.ts",
+        "label": "index.ts",
+        "path": "packages/vite/src/node/index.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/optimizer/index.ts",
+        "label": "index.ts",
+        "path": "packages/vite/src/node/optimizer/index.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/optimizer/resolve.ts",
+        "label": "resolve.ts",
+        "path": "packages/vite/src/node/optimizer/resolve.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/plugin.ts",
+        "label": "plugin.ts",
+        "path": "packages/vite/src/node/plugin.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/plugins/asset.ts",
+        "label": "asset.ts",
+        "path": "packages/vite/src/node/plugins/asset.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/plugins/assetImportMetaUrl.ts",
+        "label": "assetImportMetaUrl.ts",
+        "path": "packages/vite/src/node/plugins/assetImportMetaUrl.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/plugins/clientInjections.ts",
+        "label": "clientInjections.ts",
+        "path": "packages/vite/src/node/plugins/clientInjections.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/plugins/css.ts",
+        "label": "css.ts",
+        "path": "packages/vite/src/node/plugins/css.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/plugins/define.ts",
+        "label": "define.ts",
+        "path": "packages/vite/src/node/plugins/define.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/plugins/dynamicImportVars.ts",
+        "label": "dynamicImportVars.ts",
+        "path": "packages/vite/src/node/plugins/dynamicImportVars.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/plugins/esbuild.ts",
+        "label": "esbuild.ts",
+        "path": "packages/vite/src/node/plugins/esbuild.ts",
+        "kind": "dependent",
+        "depth": 2
+      },
+      {
+        "id": "packages/vite/src/node/plugins/esbuildBannerFooterCompatPlugin.ts",
+        "label": "esbuildBannerFooterCompatPlugin.ts",
+        "path": "packages/vite/src/node/plugins/esbuildBannerFooterCompatPlugin.ts",
+        "kind": "dependent",
+        "depth": 2
+      }
+    ],
+    "edges": [
+      {
+        "from": "packages/vite/src/node/index.ts",
+        "to": "packages/vite/src/node/__tests__/utils.spec.ts",
+        "evidence": "utils.spec.ts imports types from index.ts (CommonServerOptions, ResolvedServerUrls)",
+        "kind": "type"
+      },
+      {
+        "from": "packages/vite/src/node/utils.ts",
+        "to": "packages/vite/src/node/__tests__/utils.spec.ts",
+        "evidence": "utils.spec.ts imports utils.ts (asyncFlatten, bareImportRE, combineSourcemaps, extractHostnamesFromCerts, extractHostnamesFromSubjectAltName, flattenId, generateCodeFrame, getFileStartIndex, getHash, getLocalhostAddressIfDiffersFromDNS, getServerUrlByHost, injectQuery, isFileReadable, isParentDirectory, mergeWithDefaults, normalizePath, numberToPos, posToNumber, processSrcSetSync, removeTimestampQuery, resolveHostname, resolveServerUrls)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/config.ts",
+        "to": "packages/vite/src/node/__tests_dts__/config.ts",
+        "evidence": "config.ts imports types from config.ts (UserConfig, UserConfigExport, UserConfigFn, UserConfigFnObject, UserConfigFnPromise)",
+        "kind": "type"
+      },
+      {
+        "from": "packages/vite/src/node/config.ts",
+        "to": "packages/vite/src/node/__tests_dts__/config.ts",
+        "evidence": "config.ts imports config.ts (defineConfig)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/utils.ts",
+        "to": "packages/vite/src/node/__tests_dts__/config.ts",
+        "evidence": "config.ts imports utils.ts (mergeConfig)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/config.ts",
+        "to": "packages/vite/src/node/baseEnvironment.ts",
+        "evidence": "baseEnvironment.ts imports types from config.ts (ResolvedConfig, ResolvedEnvironmentOptions)",
+        "kind": "type"
+      },
+      {
+        "from": "packages/vite/src/node/plugin.ts",
+        "to": "packages/vite/src/node/baseEnvironment.ts",
+        "evidence": "baseEnvironment.ts imports types from plugin.ts (Plugin)",
+        "kind": "type"
+      },
+      {
+        "from": "packages/vite/src/node/baseEnvironment.ts",
+        "to": "packages/vite/src/node/build.ts",
+        "evidence": "build.ts imports types from baseEnvironment.ts (PartialEnvironment)",
+        "kind": "type"
+      },
+      {
+        "from": "packages/vite/src/node/baseEnvironment.ts",
+        "to": "packages/vite/src/node/build.ts",
+        "evidence": "build.ts imports baseEnvironment.ts (BaseEnvironment)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/config.ts",
+        "to": "packages/vite/src/node/build.ts",
+        "evidence": "build.ts imports types from config.ts (EnvironmentOptions, InlineConfig, ResolvedConfig, ResolvedEnvironmentOptions)",
+        "kind": "type"
+      },
+      {
+        "from": "packages/vite/src/node/config.ts",
+        "to": "packages/vite/src/node/build.ts",
+        "evidence": "build.ts imports config.ts (resolveConfig)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/deprecations.ts",
+        "to": "packages/vite/src/node/build.ts",
+        "evidence": "build.ts imports deprecations.ts (isFutureDeprecationEnabled, warnFutureDeprecation)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/plugin.ts",
+        "to": "packages/vite/src/node/build.ts",
+        "evidence": "build.ts imports plugin.ts (perEnvironmentPlugin)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/plugin.ts",
+        "to": "packages/vite/src/node/build.ts",
+        "evidence": "build.ts imports types from plugin.ts (MinimalPluginContextWithoutEnvironment, Plugin)",
+        "kind": "type"
+      },
+      {
+        "from": "packages/vite/src/node/plugins/esbuild.ts",
+        "to": "packages/vite/src/node/build.ts",
+        "evidence": "build.ts imports esbuild.ts (buildEsbuildPlugin)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/plugins/worker.ts",
+        "to": "packages/vite/src/node/build.ts",
+        "evidence": "build.ts imports worker.ts (webWorkerPostPlugin)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/utils.ts",
+        "to": "packages/vite/src/node/build.ts",
+        "evidence": "build.ts imports utils.ts (arraify, asyncFlatten, createDebugger, displayTime, getPkgName, joinUrlSegments, mergeConfig, mergeWithDefaults, partialEncodeURIPath, setupRollupOptionCompat, unique)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/build.ts",
+        "to": "packages/vite/src/node/cli.ts",
+        "evidence": "cli.ts imports build.ts (createBuilder)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/build.ts",
+        "to": "packages/vite/src/node/cli.ts",
+        "evidence": "cli.ts imports types from build.ts (BuildEnvironmentOptions)",
+        "kind": "type"
+      },
+      {
+        "from": "packages/vite/src/node/config.ts",
+        "to": "packages/vite/src/node/cli.ts",
+        "evidence": "cli.ts imports types from config.ts (InlineConfig)",
+        "kind": "type"
+      },
+      {
+        "from": "packages/vite/src/node/config.ts",
+        "to": "packages/vite/src/node/cli.ts",
+        "evidence": "cli.ts imports config.ts",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/optimizer/index.ts",
+        "to": "packages/vite/src/node/cli.ts",
+        "evidence": "cli.ts imports index.ts",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/baseEnvironment.ts",
+        "to": "packages/vite/src/node/config.ts",
+        "evidence": "config.ts imports baseEnvironment.ts (PartialEnvironment)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/build.ts",
+        "to": "packages/vite/src/node/config.ts",
+        "evidence": "config.ts imports types from build.ts (BuildEnvironmentOptions, BuilderOptions, RenderBuiltAssetUrl, ResolvedBuildEnvironmentOptions, ResolvedBuildOptions, ResolvedBuilderOptions)",
+        "kind": "type"
+      },
+      {
+        "from": "packages/vite/src/node/build.ts",
+        "to": "packages/vite/src/node/config.ts",
+        "evidence": "config.ts imports build.ts (buildEnvironmentOptionsDefaults, builderOptionsDefaults, resolveBuildEnvironmentOptions, resolveBuilderOptions)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/env.ts",
+        "to": "packages/vite/src/node/config.ts",
+        "evidence": "config.ts imports env.ts (loadEnv, resolveEnvPrefix)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/idResolver.ts",
+        "to": "packages/vite/src/node/config.ts",
+        "evidence": "config.ts imports idResolver.ts (createIdResolver)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/optimizer/index.ts",
+        "to": "packages/vite/src/node/config.ts",
+        "evidence": "config.ts imports types from index.ts (DepOptimizationOptions)",
+        "kind": "type"
+      },
+      {
+        "from": "packages/vite/src/node/plugin.ts",
+        "to": "packages/vite/src/node/config.ts",
+        "evidence": "config.ts imports plugin.ts (resolveEnvironmentPlugins)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/plugin.ts",
+        "to": "packages/vite/src/node/config.ts",
+        "evidence": "config.ts imports types from plugin.ts (FalsyPlugin, HookHandler, Plugin, PluginOption, PluginWithRequiredHook)",
+        "kind": "type"
+      },
+      {
+        "from": "packages/vite/src/node/plugins/css.ts",
+        "to": "packages/vite/src/node/config.ts",
+        "evidence": "config.ts imports types from css.ts (CSSOptions, ResolvedCSSOptions)",
+        "kind": "type"
+      },
+      {
+        "from": "packages/vite/src/node/plugins/css.ts",
+        "to": "packages/vite/src/node/config.ts",
+        "evidence": "config.ts imports css.ts (cssConfigDefaults, resolveCSSOptions)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/plugins/esbuild.ts",
+        "to": "packages/vite/src/node/config.ts",
+        "evidence": "config.ts imports types from esbuild.ts (ESBuildOptions)",
+        "kind": "type"
+      },
+      {
+        "from": "packages/vite/src/node/utils.ts",
+        "to": "packages/vite/src/node/config.ts",
+        "evidence": "config.ts imports utils.ts (arraify, asyncFlatten, createDebugger, createFilter, deepClone, getFileStartIndex, hasBothRollupOptionsAndRolldownOptions, isExternalUrl, isFilePathESM, isInNodeModules, isNodeBuiltin, isNodeLikeBuiltin, isObject, isParentDirectory, lineTerminatorRE, mergeAlias, mergeConfig, mergeWithDefaults, nodeLikeBuiltins, normalizeAlias, normalizePath, safeRealpathSync, setupRollupOptionCompat)",
+        "kind": "value"
+      },
+      {
+        "from": "packages/vite/src/node/config.ts",
+        "to": "packages/vite/src/node/deprecations.ts",
+        "evidence": "deprecations.ts imports types from config.ts (FutureOptions, ResolvedConfig)",
+        "kind": "type"
+      },
+      {
+        "from": "packages/vite/src/node/config.ts",
+        "to": "packages/vite/src/node/env.ts",
+        "evidence": "env.ts imports types from config.ts (UserConfig)",
+        "kind": "type"
+      }
+    ],
+    "factors": [
+      {
+        "label": "Change size",
+        "signal": "context",
+        "explanation": "28 changed lines across 2 files"
+      },
+      {
+        "label": "Dependency fan-out",
+        "signal": "attention",
+        "explanation": "22 downstream files within three hops"
+      },
+      {
+        "label": "Sensitive paths",
+        "signal": "context",
+        "explanation": "No changed paths matched the configured sensitive domains"
+      },
+      {
+        "label": "Related tests",
+        "signal": "mitigation",
+        "explanation": "1 related test found by import or exact filename evidence"
+      },
+      {
+        "label": "Sensitive dependents without tests",
+        "signal": "context",
+        "explanation": "No sensitive downstream files lacked matching test evidence"
+      },
+      {
+        "label": "Verification added",
+        "signal": "mitigation",
+        "explanation": "1 test file changed with the implementation"
+      },
+      {
+        "label": "Configuration reach",
+        "signal": "context",
+        "explanation": "No configuration or schema changes detected"
+      }
+    ],
+    "reviewOrder": [
+      {
+        "rank": 1,
+        "path": "packages/vite/src/node/utils.ts",
+        "kind": "changed",
+        "reasons": [
+          "modified file with 4 changed lines"
+        ]
+      },
+      {
+        "rank": 2,
+        "path": "packages/vite/src/node/plugins/worker.ts",
+        "kind": "surface",
+        "reasons": [
+          "Exposed surface reached by the dependency graph"
+        ]
+      },
+      {
+        "rank": 3,
+        "path": "packages/vite/src/node/config.ts",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 1",
+          "Configuration or schema reach"
+        ]
+      },
+      {
+        "rank": 4,
+        "path": "packages/vite/src/node/optimizer/rolldownDepPlugin.ts",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 1"
+        ]
+      },
+      {
+        "rank": 5,
+        "path": "packages/vite/src/node/__tests_dts__/config.ts",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 2",
+          "Configuration or schema reach"
+        ]
+      },
+      {
+        "rank": 6,
+        "path": "packages/vite/src/node/baseEnvironment.ts",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "rank": 7,
+        "path": "packages/vite/src/node/build.ts",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "rank": 8,
+        "path": "packages/vite/src/node/cli.ts",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "rank": 9,
+        "path": "packages/vite/src/node/deprecations.ts",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "rank": 10,
+        "path": "packages/vite/src/node/env.ts",
+        "kind": "dependent",
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      }
+    ],
+    "verificationPlan": [
+      "Run packages/vite/src/node/__tests__/utils.spec.ts",
+      "Verify the user-facing behavior at packages/vite/src/node/plugins/worker.ts"
+    ],
+    "brief": "2 changed files reach 22 downstream modules and 1 user-facing surface. Start with packages/vite/src/node/plugins/worker.ts; related test evidence exists, but the impact path still needs human confirmation.",
+    "narrativeSource": "evidence-engine",
+    "unknowns": [
+      "184 relative imports could not be resolved.",
+      "30 of 504 import specifiers used an unrecognized path alias and were not followed. The downstream graph is incomplete.",
+      "2 files use dynamic imports that static mapping may miss."
+    ],
+    "stats": {
+      "additions": 27,
+      "deletions": 1,
+      "impactedFiles": 22,
+      "impactedSurfaces": 1,
+      "impactedTests": 1,
+      "totalImports": 504,
+      "resolvedImports": 121,
+      "unresolvedImports": 214,
+      "ignoredExternalImports": 169,
+      "ignoredAssetImports": 0,
+      "typeOnlyImports": 204,
+      "symbolFilteredImports": 17,
+      "truncatedNodes": 0
+    }
+  }
+}

@@ -1,0 +1,995 @@
+{
+  "files": [
+    {
+      "path": "examples/auth/index.js",
+      "imports": [
+        "../..",
+        "pbkdf2-password",
+        "node:path",
+        "express-session"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../..",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "pbkdf2-password",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "express-session",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/content-negotiation/index.js",
+      "imports": [
+        "../../",
+        "./db"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../../",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./db",
+          "target": "examples/content-negotiation/db.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/cookie-sessions/index.js",
+      "imports": [
+        "cookie-session",
+        "../../"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "cookie-session",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../../",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/cookies/index.js",
+      "imports": [
+        "../../",
+        "morgan",
+        "cookie-parser"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../../",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "morgan",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "cookie-parser",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/downloads/index.js",
+      "imports": [
+        "../../",
+        "node:path"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../../",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/ejs/index.js",
+      "imports": [
+        "../../",
+        "node:path",
+        "ejs"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../../",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "ejs",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/error-pages/index.js",
+      "imports": [
+        "../../",
+        "node:path",
+        "morgan"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../../",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "morgan",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/error/index.js",
+      "imports": [
+        "../../",
+        "morgan"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../../",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "morgan",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/hello-world/index.js",
+      "imports": [
+        "../../"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../../",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/markdown/index.js",
+      "imports": [
+        "escape-html",
+        "../..",
+        "node:fs",
+        "marked",
+        "node:path"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "escape-html",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../..",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:fs",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "marked",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/multi-router/controllers/api_v1.js",
+      "imports": [
+        "../../.."
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../../..",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": true,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/multi-router/controllers/api_v2.js",
+      "imports": [
+        "../../.."
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../../..",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": true,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/multi-router/index.js",
+      "imports": [
+        "../..",
+        "./controllers/api_v1",
+        "./controllers/api_v2"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../..",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./controllers/api_v1",
+          "target": "examples/multi-router/controllers/api_v1.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./controllers/api_v2",
+          "target": "examples/multi-router/controllers/api_v2.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/mvc/index.js",
+      "imports": [
+        "../..",
+        "morgan",
+        "node:path",
+        "express-session",
+        "method-override",
+        "./lib/boot"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../..",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "morgan",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "express-session",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "method-override",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./lib/boot",
+          "target": "examples/mvc/lib/boot.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/mvc/lib/boot.js",
+      "imports": [
+        "../../..",
+        "node:fs",
+        "node:path"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../../..",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:fs",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:path",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/online/index.js",
+      "imports": [
+        "../..",
+        "online",
+        "redis"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../..",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "online",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "redis",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/params/index.js",
+      "imports": [
+        "http-errors",
+        "../../"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "http-errors",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../../",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/route-map/index.js",
+      "imports": [
+        "escape-html",
+        "../../lib/express"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "escape-html",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "../../lib/express",
+          "target": "lib/express.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/route-middleware/index.js",
+      "imports": [
+        "../../lib/express"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../../lib/express",
+          "target": "lib/express.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/session/index.js",
+      "imports": [
+        "../..",
+        "express-session"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../..",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "express-session",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "examples/session/redis.js",
+      "imports": [
+        "../..",
+        "morgan",
+        "express-session",
+        "connect-redis"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "../..",
+          "target": "index.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "morgan",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "express-session",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "connect-redis",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "index.js",
+      "imports": [
+        "./lib/express"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "./lib/express",
+          "target": "lib/express.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "lib/express.js",
+      "imports": [
+        "body-parser",
+        "node:events",
+        "merge-descriptors",
+        "./application",
+        "router",
+        "./request",
+        "./response",
+        "serve-static"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "body-parser",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:events",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "merge-descriptors",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./application",
+          "target": "lib/application.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "router",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./request",
+          "target": "lib/request.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "./response",
+          "target": "lib/response.js",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "serve-static",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    },
+    {
+      "path": "lib/request.js",
+      "imports": [
+        "accepts",
+        "node:net",
+        "type-is",
+        "node:http",
+        "fresh",
+        "range-parser",
+        "parseurl",
+        "proxy-addr"
+      ],
+      "importMetadata": [
+        {
+          "specifier": "accepts",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:net",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "type-is",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "node:http",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "fresh",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "range-parser",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "parseurl",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        },
+        {
+          "specifier": "proxy-addr",
+          "kind": "value",
+          "symbols": [
+            "*"
+          ],
+          "isReExport": false
+        }
+      ],
+      "exportedSymbols": [],
+      "isTest": false,
+      "isSurface": false,
+      "hasDynamicImport": false
+    }
+  ],
+  "options": {
+    "aliases": {},
+    "baseUrl": "",
+    "externalPackages": [
+      "accepts",
+      "after",
+      "body-parser",
+      "connect-redis",
+      "content-disposition",
+      "content-type",
+      "cookie",
+      "cookie-parser",
+      "cookie-session",
+      "cookie-signature",
+      "debug",
+      "depd",
+      "ejs",
+      "encodeurl",
+      "escape-html",
+      "eslint",
+      "etag",
+      "express-session",
+      "finalhandler",
+      "fresh",
+      "hbs",
+      "http-errors",
+      "marked",
+      "merge-descriptors",
+      "method-override",
+      "mime-types",
+      "mocha",
+      "morgan",
+      "nyc",
+      "on-finished",
+      "once",
+      "parseurl",
+      "pbkdf2-password",
+      "proxy-addr",
+      "qs",
+      "range-parser",
+      "router",
+      "send",
+      "serve-static",
+      "statuses",
+      "supertest",
+      "type-is",
+      "vary",
+      "vhost"
+    ]
+  }
+}
