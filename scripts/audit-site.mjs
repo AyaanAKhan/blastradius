@@ -46,10 +46,10 @@ for (const file of htmlFiles) {
   if (!title) failures.push(`${file}: missing title`);
   if (/\b(vite|react)\b/i.test(title)) failures.push(`${file}: framework name leaked into title`);
   if (!/<meta name="description" content="[^"]+"/.test(html)) failures.push(`${file}: missing meta description`);
-  if (!/<link rel="canonical" href="https:\/\/ayaankhan\.github\.io\/blastradius\//.test(html)) {
+  if (!/<link rel="canonical" href="https:\/\/ayaanakhan\.github\.io\/blastradius\//.test(html)) {
     failures.push(`${file}: missing deployment canonical`);
   }
-  if (!/<meta property="og:image" content="https:\/\/ayaankhan\.github\.io\/blastradius\/og\.png"/.test(html)) {
+  if (!/<meta property="og:image" content="https:\/\/ayaanakhan\.github\.io\/blastradius\/og\.png"/.test(html)) {
     failures.push(`${file}: missing social image`);
   }
   for (const tag of html.match(/<img\b[^>]*>/g) ?? []) {

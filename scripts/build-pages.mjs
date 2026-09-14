@@ -6,7 +6,7 @@ const projectRoot = path.resolve(import.meta.dirname, "..");
 const environment = {
   ...process.env,
   PAGES_BUILD: "1",
-  NEXT_PUBLIC_SITE_URL: "https://ayaankhan.github.io",
+  NEXT_PUBLIC_SITE_URL: "https://ayaanakhan.github.io",
   NEXT_PUBLIC_BASE_PATH: "/blastradius",
 };
 const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";

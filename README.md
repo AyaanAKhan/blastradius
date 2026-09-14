@@ -3,7 +3,7 @@
 [![Node 22](https://img.shields.io/badge/node-22%2B-1f6f43)](https://nodejs.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1d4ed8)](LICENSE)
 
-[Live demo](https://ayaankhan.github.io/blastradius/) · [Evaluation](evaluation/README.md) · [Architecture](docs/architecture.md)
+[Live demo](https://ayaanakhan.github.io/blastradius/) · [Evaluation](evaluation/README.md) · [Architecture](docs/architecture.md)
 
 BlastRadius turns a pull request into an explainable review order. It parses the diff, follows reverse imports, identifies exposed surfaces and related tests, and names uncertainty instead of inventing certainty.
 
