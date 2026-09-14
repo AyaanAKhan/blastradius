@@ -41,7 +41,7 @@ function parseArguments(values: string[]): CliOptions {
       process.exit(0);
     }
     if (argument === "--version" || argument === "-v") {
-      process.stdout.write("1.1.0\n");
+      process.stdout.write("1.1.1\n");
       process.exit(0);
     }
     const value = values[index + 1];
