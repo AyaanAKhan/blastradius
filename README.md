@@ -3,163 +3,50 @@
 [![Node 22](https://img.shields.io/badge/node-22%2B-1f6f43)](https://nodejs.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1d4ed8)](LICENSE)
 
-**Explainable pull-request impact analysis for engineers who need to know where review time matters most.**
+[Live demo](https://ayaankhan.github.io/blastradius/) · [Evaluation](evaluation/README.md) · [Architecture](docs/architecture.md)
 
-![BlastRadius dependency path from changed file to exposed surface](public/og.png)
+BlastRadius turns a pull request into an explainable review order. It parses the diff, follows reverse imports, identifies exposed surfaces and related tests, and names uncertainty instead of inventing certainty.
 
-BlastRadius accepts a unified diff and an optional local repository map, follows reverse imports for up to three hops, finds exposed surfaces and related tests, then produces a prioritized review plan. Every score contribution is visible. Every missing signal is named.
+![BlastRadius analyzer showing dependency edges from a changed pricing module to dependents, routes, and a related test](public/readme-graph.png)
 
-The score measures **review attention**, not defect probability. BlastRadius never claims that a file is broken or vulnerable.
+## Measured result
 
-## Why it is different
+The reproducible harness fetched 300 merged pull requests from each of Vite, Flask, and Express. A positive label is a changed file with an inline human review comment, excluding bots and the pull request author.
 
-Many developer tools stop at a generated summary. BlastRadius keeps the reasoning path inspectable:
+| Held-out repository | n | Random P@1 | Churn P@1 | Dependents P@1 | BlastRadius P@1 | BlastRadius R@3 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| vitejs/vite | 12 | 46.4% | 66.7% | 75.0% | 75.0% | 58.3% |
+| pallets/flask | 2 | 28.8% | 100.0% | 100.0% | 100.0% | 100.0% |
+| expressjs/express | 12 | 81.9% | 83.3% | 91.7% | 91.7% | 100.0% |
 
-- **Deterministic analysis:** parsing, graph traversal, matching, scoring, and confidence are ordinary tested code.
-- **Evidence before narrative:** an optional local model can summarize results, but it cannot create graph edges or alter the score.
-- **Privacy-conscious ingestion:** repository files are read in the browser. The API receives file paths and import metadata, not source contents.
-- **Explicit uncertainty:** unresolved imports, dynamic imports, missing repository context, and absent runtime data lower confidence or appear as unknowns.
-- **Actionable output:** the result is a review order and verification plan, not another block of prose.
+The result is mixed. BlastRadius improves Precision@1 over churn on Vite and Express, ties the dependents baseline, and loses to churn on Vite Recall@3. Flask is too small for a stable conclusion. [Read the full methodology, MRR, development split, and limits](evaluation/README.md).
 
-## Product flow
+## How it works
 
-1. Paste a unified Git diff.
-2. Optionally select a TypeScript, JavaScript, or Python folder.
-3. The browser extracts supported paths, static imports, test markers, and exposed-surface markers.
-4. The API parses the diff, resolves imports, and walks the reverse dependency graph.
-5. BlastRadius ranks review attention and explains each contribution.
-6. The result names the best review target, suggested checks, confidence, and unknowns.
+- A pure TypeScript core emits the versioned `rank-v1` result.
+- The web app analyzes bounded folder metadata in a Web Worker. Nothing is uploaded.
+- The CLI uses the TypeScript compiler for aliases, barrels, type-only edges, and imported symbols.
+- A composite pull request action publishes one sticky, evidence-backed review plan.
 
-## Engineering highlights
+Self-analysis of commit `20babdc` ranked `packages/core/src/compiler-adapter.ts` first because it reached three downstream files. It resolved 49 imports, reported zero unresolved imports, and assigned 0.68 evidence confidence. That run also exposed a prose-versus-rank mismatch, fixed in `86e2b20` with a regression test.
 
-| Concern | Implementation |
-| --- | --- |
-| Graph analysis | Reverse dependency traversal bounded to three hops |
-| Explainability | Per-factor values, contributions, and plain-language evidence |
-| Input safety | Request size, file count, path length, and import count limits |
-| Graceful degradation | Deterministic output remains available without a local model |
-| Privacy | Metadata-only server boundary; source text stays in the browser |
-| Performance | Route-level client isolation and no production browser source maps |
-| Quality | Eight unit tests, strict TypeScript, linting, production build, and one-command verification |
-| Discoverability | Page metadata, canonical links, structured data, sitemap, robots, and llms.txt |
-
-## Architecture
-
-```mermaid
-flowchart LR
-  A[Unified diff] --> C[Analysis API]
-  B[Browser repository mapper] --> C
-  C --> D[Diff parser]
-  C --> E[Import resolver]
-  E --> F[Reverse graph traversal]
-  D --> G[Evidence scoring]
-  F --> G
-  G --> H[Review plan and confidence]
-  H -. optional evidence summary .-> I[Local model]
-```
-
-The analyzer is a pure TypeScript module. The route handler validates the transport boundary and optionally calls a local model adapter. The interface renders the returned graph, score factors, verification steps, and uncertainty without hiding the underlying evidence.
-
-Read the [architecture guide](docs/architecture.md), [ranking model](docs/ranking-model.md), and [deterministic-core decision record](docs/decisions/0001-deterministic-core.md) for the deeper engineering rationale.
-
-## Run locally
-
-Requirements: Node.js 22.13 or newer.
+## Run
 
 ```bash
-git clone https://github.com/AyaanAKhan/blastradius.git
-cd blastradius
 npm ci
 npm run dev
-```
-
-Open `http://localhost:3000`.
-
-### Optional local model
-
-The complete analyzer works without a model or paid API. To add a short evidence summary, run [Ollama](https://docs.ollama.com/quickstart) locally and copy `.env.example` to `.env.local`:
-
-```dotenv
-OLLAMA_URL=http://127.0.0.1:11434
-OLLAMA_MODEL=qwen2.5:3b
-```
-
-If the model is unavailable or times out, the deterministic result is returned unchanged.
-
-## API contract
-
-`POST /api/analyze`
-
-```json
-{
-  "diff": "diff --git a/src/refund.ts b/src/refund.ts\n...",
-  "files": [
-    {
-      "path": "src/refund.ts",
-      "imports": ["./ledger"],
-      "isTest": false,
-      "isSurface": false
-    }
-  ]
-}
-```
-
-The response includes changed files, graph nodes and edges, score factors, confidence, a verification plan, a brief, unknowns, and summary statistics. See [docs/architecture.md](docs/architecture.md) for limits and trust boundaries.
-
-## Verification
-
-Run the complete quality gate:
-
-```bash
+npm run cli -- --base main --head HEAD
 npm run check
 ```
 
-The test fixtures cover:
+The optional local model rewrites only the brief and never changes graph edges or rank. It uses a loopback Ollama endpoint, requires no paid API, and is unavailable in the hosted build.
 
-- unified-diff counting
-- reverse-import traversal and the three-hop bound
-- surface and test discovery
-- score reduction when tests change
-- confidence degradation without repository context
-- unresolved-import reporting
-- configuration-change evidence
-- deterministic repeatability
+## Honest limits
 
-## Repository map
+- Review comments are an attention proxy, not defect labels.
+- The browser mapper is lighter than the compiler-backed CLI.
+- Static analysis misses reflection, dependency injection, and runtime routing.
+- Exact filename test matching is association evidence, not coverage proof.
+- Historical evaluation excludes reviews without inline comments.
 
-```text
-app/                         Next.js routes and analysis endpoint
-components/                  Product interface and accessible navigation
-lib/analyzer.ts              Pure analysis and scoring engine
-lib/site.ts                  Shared metadata configuration
-tests/analyzer.test.ts       Deterministic fixtures
-docs/                        Architecture, scoring, and decisions
-public/                      Product favicon and social card
-```
-
-## Honest limitations
-
-- Regex import extraction is an MVP tradeoff. A production parser should use Tree-sitter or language-native compiler APIs.
-- Package aliases, barrel exports, reflection, dependency injection, and runtime routing can hide edges.
-- Test-name matching is evidence of association, not proof of behavioral coverage.
-- Score weights are review policy choices, not a trained defect model.
-- Runtime traces, code ownership, and historical incident labels are outside this version.
-- Python relative-import support is intentionally basic.
-
-## Roadmap
-
-1. Replace regex extraction with a TypeScript compiler adapter.
-2. Import Istanbul coverage and connect tests to executed source files.
-3. Add a metadata-only CI artifact for pull requests.
-4. Evaluate the top three review targets on labeled merged changes.
-5. Add runtime evidence only after static-impact quality is measured.
-
-## Documentation
-
-- [Architecture](docs/architecture.md)
-- [Ranking model](docs/ranking-model.md)
-- [Contributing](CONTRIBUTING.md)
-
-## License
-
-MIT, see [LICENSE](LICENSE).
+See the [ranking policy](docs/ranking-model.md), [decision record](docs/decisions/0001-deterministic-core.md), and [contribution guide](CONTRIBUTING.md).
