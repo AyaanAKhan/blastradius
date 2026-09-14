@@ -1,6 +1,23 @@
 {
   "name": "@blastradius/cli",
-  "version": "1.1.1",
-  "private": true,
-  "type": "module"
+  "version": "1.2.0",
+  "description": "Command-line change-impact analysis for pull-request review.",
+  "type": "module",
+  "bin": {
+    "blastradius": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "dependencies": {
+    "@blastradius/core": "1.2.0"
+  },
+  "license": "MIT"
 }

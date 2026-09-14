@@ -1,22 +1,21 @@
 # Ranking model
 
-BlastRadius version `rank-v1` produces an ordinal review queue. It does not publish a defect probability, severity band, or calibrated risk score.
+BlastRadius version `rank-v2` produces an ordinal changed-file review queue and a separate unchanged-file impact watchlist. It does not publish a defect probability, severity band, or calibrated risk score.
 
 ## Ordering policy
 
-Files are ordered by the strongest visible reason for human attention:
+Only files present in the parsed diff enter the review queue. They are ordered by this exact comparator:
 
-| Order | Target | Evidence |
+| Order | Comparator | Direction |
 | ---: | --- | --- |
-| 1 | Uncovered sensitive dependent | A downstream sensitive path has no matching test evidence |
-| 2 | Sensitive changed file | A changed path matches an auth, billing, security, or permission term |
-| 3 | Configuration changed file | A changed path is a schema, migration, lockfile, environment, or config file |
-| 4 | Other changed file | The file appears directly in the parsed diff |
-| 5 | Exposed surface | A route, page, worker, controller, or handler is reached by the graph |
-| 6 | Other dependent | A downstream file is reached within three import hops |
-| 7 | Changed test | Verification code changed with the implementation |
+| 1 | Lockfile status | Source, test, and configuration files before lockfiles |
+| 2 | Reverse-import reach | More reached downstream files first |
+| 3 | Churn | More added and deleted lines first |
+| 4 | Path | Lexical order for a deterministic final tie-break |
 
-Ties are resolved by graph depth and then lexical path order. The response includes `policyVersion` so output from different ranking policies is never compared silently.
+Sensitive-path and configuration signals remain visible evidence, but they are not ranking buckets in `rank-v2`. This change follows the development-only ablation. The original bucketed `rank-v1` policy underperformed the simpler dependents baseline in the first evaluation.
+
+Unchanged dependents, exposed surfaces, and related tests appear in `impactWatchlist`, not `reviewOrder`. This keeps the measured changed-file ranking aligned with what the interface and CLI show. The response includes `policyVersion` so different policies are never compared silently.
 
 ## Evidence factors
 
@@ -34,6 +33,6 @@ Each factor is labeled as attention, mitigation, or context. There are no numeri
 
 ## Confidence
 
-Confidence measures evidence completeness. It rises when changed paths map into the repository and imports resolve. It falls when aliases, relative imports, or dynamic imports cannot be followed. A repository map with more than five files and zero resolved edges is capped at 0.35. An unparseable diff is fixed at 0.20.
+Confidence measures evidence completeness for the current change. It uses supported changed paths, mapped changed paths, imports resolved from changed files, incident dependency edges, downstream reach, repository availability, and dynamic-import penalties. A nontrivial repository map with zero resolved edges is capped at 0.35. A mapped change with no downstream reach is capped at 0.55. An unparseable diff is fixed at 0.10.
 
 The current confidence formula is a product policy, not an empirical probability. Evaluation should test the ranking against human review comments before any calibrated claim is introduced.

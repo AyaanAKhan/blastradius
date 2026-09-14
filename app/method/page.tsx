@@ -13,12 +13,10 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const factors = [
-  ["Uncovered sensitive path", "Sensitive downstream file without test evidence", "First"],
-  ["Sensitive changed path", "Auth, billing, security, or permission path", "Second"],
-  ["Configuration reach", "Schema, lockfile, migration, or config change", "Third"],
-  ["Other changed path", "Directly modified implementation file", "Fourth"],
-  ["Exposed surface", "Route, page, worker, controller, or handler", "Fifth"],
-  ["Other dependent", "Downstream file reached within three hops", "Sixth"],
+  ["Lockfile status", "Source, test, and configuration files before lockfiles", "First"],
+  ["Reverse-import reach", "More downstream files reached from this changed file", "Second"],
+  ["Changed-line count", "More additions and deletions", "Third"],
+  ["Repository path", "Lexical ordering for a stable final tie-break", "Fourth"],
 ] as const;
 
 export default function MethodPage() {
@@ -28,7 +26,7 @@ export default function MethodPage() {
       <main className="inner-page article-page">
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Method" }]} />
         <header className="article-hero">
-          <p className="eyebrow">METHOD / VERSION 0.1</p>
+          <p className="eyebrow">METHOD / VERSION 1.2</p>
           <h1>How the analyzer reaches a review plan.</h1>
           <p>BlastRadius deliberately separates measurable structure from generated language. The graph, review order, and verification steps are deterministic; a local model may only rewrite the evidence into a shorter brief.</p>
         </header>
@@ -38,8 +36,8 @@ export default function MethodPage() {
           <ol>
             <li><b>01</b><div><h3>Parse the patch</h3><p>Read unified diff headers, normalize paths, and count additions and deletions without treating file markers as changed lines.</p></div></li>
             <li><b>02</b><div><h3>Build a reverse graph</h3><p>Resolve relative, configured alias, and base URL imports from the locally extracted repository map, then invert those relationships so a changed module points to its dependents.</p></div></li>
-            <li><b>03</b><div><h3>Walk the impact radius</h3><p>Traverse at most three hops, label exposed routes and workers, and match tests by path and source name.</p></div></li>
-            <li><b>04</b><div><h3>Rank visible evidence</h3><p>Apply a published ordinal policy. Every target keeps its reasons so the result can be reproduced and challenged without an uncalibrated number.</p></div></li>
+            <li><b>03</b><div><h3>Walk the impact radius</h3><p>Traverse the configured hop limit, label exposed routes and workers, and match tests by path and source name.</p></div></li>
+            <li><b>04</b><div><h3>Separate rank from context</h3><p>Rank every changed file with the published ordinal policy, then place unchanged dependents in a distinct watchlist. Every item keeps its reasons.</p></div></li>
             <li><b>05</b><div><h3>Name what is missing</h3><p>Lower confidence for unresolved and dynamic imports. Runtime behavior, ownership, and incident history stay explicit known unknowns.</p></div></li>
           </ol>
         </section>
@@ -48,7 +46,7 @@ export default function MethodPage() {
           <div>
             <p className="eyebrow">TRANSPARENT BY DESIGN</p>
             <h2 id="factors-heading">The output is an ordinal queue, not a verdict.</h2>
-            <p>Version <code>rank-v1</code> orders files by visible evidence. It does not publish a probability or severity band before those values can be calibrated against real review outcomes.</p>
+            <p>Version <code>rank-v2</code> ranks changed files by downstream reach, churn, and path, with lockfiles last. Sensitive and configuration signals remain visible evidence rather than opaque priority buckets.</p>
           </div>
           <div className="factor-table" role="table" aria-label="Review ordering policy">
             <div role="row" className="factor-table-head"><span role="columnheader">Signal</span><span role="columnheader">Evidence</span><span role="columnheader">Order</span></div>
@@ -76,7 +74,7 @@ export default function MethodPage() {
           <h2 id="limits-heading">MVP limits worth improving</h2>
           <ul>
             <li>Configured aliases are resolved, but workspace package rules and conditional exports remain incomplete.</li>
-            <li>TypeScript, JavaScript, and Python still receive lightweight parsing rather than compiler-grade syntax analysis.</li>
+            <li>Python receives lightweight import parsing rather than compiler-grade syntax analysis.</li>
             <li>Exact filename matches and import edges do not prove behavioral test coverage.</li>
             <li>Runtime call paths and code ownership are absent from the current evidence set.</li>
           </ul>

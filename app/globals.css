@@ -305,6 +305,8 @@ button:focus-visible, a:focus-visible, textarea:focus-visible, [role="tab"]:focu
 .path-label { overflow: hidden; text-overflow: ellipsis; font-family: var(--mono); white-space: nowrap; }
 .review-section li em { padding: 3px 5px; color: var(--muted); background: var(--wash); font: 700 12px/1.2 var(--mono); font-style: normal; text-transform: uppercase; }
 .review-section li em[data-kind="risk"] { color: var(--red); background: var(--red-soft); }
+.watchlist-section { grid-column: 1 / -1; }
+.empty-watchlist { grid-template-columns: 28px minmax(0, 1fr) !important; color: var(--muted); }
 .priority-block { padding: 17px 0 22px; border-bottom: 1px solid var(--line); }
 .priority-block > span, .brief-block header, .unknowns-block header { font-size: 12px; font-weight: 700; }
 .priority-line { display: flex; align-items: baseline; justify-content: space-between; margin-top: 7px; }

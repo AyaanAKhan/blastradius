@@ -71,3 +71,16 @@ test("symbol evidence filters consumers that import an unchanged export", (conte
   assert.equal(result.stats.symbolFilteredImports, 2);
   assert.equal(result.stats.typeOnlyImports, 1);
 });
+
+test("compiler adapter never inherits a config from outside the repository root", (context) => {
+  const parent = fs.mkdtempSync(path.join(os.tmpdir(), "blastradius-parent-"));
+  context.after(() => fs.rmSync(parent, { recursive: true, force: true }));
+  fs.writeFileSync(path.join(parent, "tsconfig.json"), JSON.stringify({ files: [] }));
+  const repository = path.join(parent, "repository");
+  fs.mkdirSync(repository);
+  fs.writeFileSync(path.join(repository, "index.ts"), "export const mapped = true;\n");
+
+  const mapping = mapTypeScriptRepository(repository);
+  assert.equal(mapping.configPath, undefined);
+  assert.ok(mapping.files.some((file) => file.path === "index.ts"));
+});

@@ -83,9 +83,15 @@ test("repository options include aliases, baseUrl, and external packages", () =>
       path: "project/package.json",
       source: JSON.stringify({ dependencies: { react: "19.0.0" }, devDependencies: { typescript: "5.0.0" } }),
     },
+    {
+      path: "project/blastradius.config.json",
+      source: JSON.stringify({ hopLimit: 5, sensitiveTerms: ["ledger"] }),
+    },
   ]);
 
   assert.deepEqual(options.aliases, { "@/": "", "@core/": "src/core" });
   assert.equal(options.baseUrl, "");
   assert.deepEqual(options.externalPackages, ["react", "typescript"]);
+  assert.equal(options.hopLimit, 5);
+  assert.deepEqual(options.sensitiveTerms, ["ledger"]);
 });

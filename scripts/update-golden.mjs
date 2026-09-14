@@ -4,8 +4,8 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-import { analyzeChange } from "../dist/core/src/analyzer.js";
-import { mapTypeScriptRepository } from "../dist/core/src/compiler-adapter.js";
+import { analyzeChange } from "../packages/core/dist/analyzer.js";
+import { mapTypeScriptRepository } from "../packages/core/dist/compiler-adapter.js";
 
 const repositoryRoot = path.resolve(import.meta.dirname, "..");
 const fixtureRoot = path.join(repositoryRoot, "tests", "fixtures");

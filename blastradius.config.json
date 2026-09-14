@@ -1,0 +1,9 @@
+{
+  "rankingPolicy": "rank-v2",
+  "hopLimit": 3,
+  "ignore": [
+    "tests/fixtures/**"
+  ],
+  "format": "markdown",
+  "failOn": "never"
+}

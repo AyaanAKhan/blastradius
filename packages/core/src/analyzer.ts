@@ -51,14 +51,29 @@ export type ReviewTarget = {
   reasons: string[];
 };
 
+export type ImpactTarget = {
+  path: string;
+  kind: Exclude<ImpactNode["kind"], "changed">;
+  depth: number;
+  reasons: string[];
+};
+
+export type RankingPolicy =
+  | "rank-v1"
+  | "rank-v2"
+  | "no-buckets"
+  | "buckets-only"
+  | "churn-only";
+
 export type AnalysisResult = {
-  policyVersion: "rank-v1";
+  policyVersion: RankingPolicy;
   confidence: number;
   changedFiles: ChangeFile[];
   nodes: ImpactNode[];
   edges: ImpactEdge[];
   factors: EvidenceFactor[];
   reviewOrder: ReviewTarget[];
+  impactWatchlist: ImpactTarget[];
   verificationPlan: string[];
   brief: string;
   narrativeSource: "evidence-engine" | "local-model";
@@ -77,6 +92,11 @@ export type AnalysisResult = {
     typeOnlyImports: number;
     symbolFilteredImports: number;
     truncatedNodes: number;
+    supportedChangedFiles: number;
+    mappedChangedFiles: number;
+    changedResolvedImports: number;
+    changedUnresolvedImports: number;
+    changedIncidentEdges: number;
   };
 };
 
@@ -84,6 +104,9 @@ export type AnalysisOptions = {
   aliases?: Record<string, string>;
   baseUrl?: string;
   externalPackages?: string[];
+  hopLimit?: number;
+  rankingPolicy?: RankingPolicy;
+  sensitiveTerms?: string[];
 };
 
 const SOURCE_EXTENSIONS = [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".py"];
@@ -103,7 +126,7 @@ const NON_SOURCE_EXTENSIONS = [
   ".gql",
   ".md",
 ];
-const SENSITIVE_PARTS = [
+export const DEFAULT_SENSITIVE_TERMS = [
   "auth",
   "permission",
   "security",
@@ -114,7 +137,38 @@ const SENSITIVE_PARTS = [
   "token",
   "session",
   "secret",
-];
+] as const;
+
+const LOCKFILE_NAMES = new Set([
+  "package-lock.json",
+  "pnpm-lock.yaml",
+  "yarn.lock",
+  "bun.lock",
+  "bun.lockb",
+]);
+
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+export function matchesSensitivePath(
+  path: string,
+  terms: readonly string[] = DEFAULT_SENSITIVE_TERMS,
+) {
+  return terms.some((term) => {
+    const normalized = term.trim();
+    if (!normalized) return false;
+    return new RegExp(`(?:^|[^a-z0-9])${escapeRegExp(normalized)}(?:[^a-z0-9]|$)`, "i").test(path);
+  });
+}
+
+function isLockfilePath(path: string) {
+  return LOCKFILE_NAMES.has(basename(path).toLowerCase());
+}
+
+function isConfigurationPath(path: string) {
+  return !isLockfilePath(path) && /(^|[/_.-])(\.env|config|schema|migration)([/_.-]|$)/i.test(path);
+}
 
 function normalizePath(value: string) {
   const parts: string[] = [];
@@ -419,6 +473,11 @@ export function analyzeChange(
   options: AnalysisOptions = {},
 ): AnalysisResult {
   const changedFiles = parseUnifiedDiff(diff);
+  const changedPaths = changedFiles.map((file) => normalizePath(file.path));
+  const changedPathSet = new Set(changedPaths);
+  const rankingPolicy = options.rankingPolicy ?? "rank-v2";
+  const sensitiveTerms = options.sensitiveTerms ?? [...DEFAULT_SENSITIVE_TERMS];
+  const hopLimit = clamp(Math.round(options.hopLimit ?? 3), 1, 10);
   const normalizedFiles = repositoryFiles.map((file) => ({
     ...file,
     path: normalizePath(file.path),
@@ -434,6 +493,9 @@ export function analyzeChange(
   let ignoredAssetImports = 0;
   let typeOnlyImports = 0;
   let symbolFilteredImports = 0;
+  let changedResolvableImports = 0;
+  let changedResolvedImports = 0;
+  let changedUnresolvedImports = 0;
 
   for (const file of normalizedFiles) {
     const imports = file.importMetadata?.length
@@ -445,6 +507,7 @@ export function analyzeChange(
         }));
     for (const entry of imports) {
       const specifier = entry.specifier;
+      const isChangedImporter = changedPathSet.has(file.path);
       totalImports += 1;
       if (entry.kind === "type") typeOnlyImports += 1;
       if (hasNonSourceExtension(specifier)) {
@@ -457,12 +520,17 @@ export function analyzeChange(
       const resolution = target
         ? { kind: "relative" as const, target }
         : resolveImport(file.path, specifier, knownPaths, options);
+      if (isChangedImporter && resolution.kind !== "external") {
+        changedResolvableImports += 1;
+      }
       if (!resolution.target) {
         if (resolution.kind === "relative") unresolvedRelativeImports += 1;
         if (resolution.kind === "alias") unresolvedAliasImports += 1;
         if (resolution.kind === "external") ignoredExternalImports += 1;
+        if (isChangedImporter && resolution.kind !== "external") changedUnresolvedImports += 1;
         continue;
       }
+      if (isChangedImporter) changedResolvedImports += 1;
       if (!reverseGraph.has(resolution.target)) reverseGraph.set(resolution.target, []);
       const dependency = { importer: file.path, kind: entry.kind, symbols: entry.symbols };
       if (!reverseGraph.get(resolution.target)?.some((edge) =>
@@ -483,8 +551,6 @@ export function analyzeChange(
     }
   }
 
-  const changedPaths = changedFiles.map((file) => normalizePath(file.path));
-  const changedPathSet = new Set(changedPaths);
   const changedSymbols = changedSymbolsByPath(diff);
   const reachByChanged = new Map<string, number>();
   for (const root of changedPaths) {
@@ -492,7 +558,7 @@ export function analyzeChange(
     const work: Array<{ path: string; depth: number }> = [{ path: root, depth: 0 }];
     while (work.length) {
       const current = work.shift();
-      if (!current || current.depth >= 3) continue;
+      if (!current || current.depth >= hopLimit) continue;
       for (const dependency of reverseGraph.get(current.path) ?? []) {
         if (changedPathSet.has(dependency.importer) || seen.has(dependency.importer)) continue;
         const symbols = changedSymbols.get(root);
@@ -514,7 +580,7 @@ export function analyzeChange(
 
   while (queue.length) {
     const current = queue.shift();
-    if (!current || current.depth >= 3) continue;
+    if (!current || current.depth >= hopLimit) continue;
     for (const dependency of reverseGraph.get(current.path) ?? []) {
       const dependent = dependency.importer;
       if (changedPathSet.has(dependent)) continue;
@@ -562,7 +628,7 @@ export function analyzeChange(
       !isChanged &&
       !metadata?.isTest &&
       !metadata?.isSurface &&
-      SENSITIVE_PARTS.some((part) => path.toLowerCase().includes(part)) &&
+      matchesSensitivePath(path, sensitiveTerms) &&
       !matchedTests.some((test) => testMatchesSource(test.path, path))
     ) {
       kind = "risk";
@@ -614,11 +680,10 @@ export function analyzeChange(
   const sensitiveChanged = changedPaths.filter(
     (path) =>
       !isTestPath(path) &&
-      SENSITIVE_PARTS.some((part) => path.toLowerCase().includes(part)),
+      matchesSensitivePath(path, sensitiveTerms),
   ).length;
-  const configChanged = changedPaths.filter((path) =>
-    /(package-lock|pnpm-lock|yarn\.lock|\.env|config|schema|migration)/i.test(path),
-  ).length;
+  const configChanged = changedPaths.filter(isConfigurationPath).length;
+  const lockfilesChanged = changedPaths.filter(isLockfilePath).length;
   const uncoveredImpact = nodes.filter((node) => node.kind === "risk").length;
   const testsChanged = changedPaths.filter(isTestPath).length;
 
@@ -631,7 +696,7 @@ export function analyzeChange(
     {
       label: "Dependency fan-out",
       signal: discovered.size > 4 ? "attention" : "context",
-      explanation: `${discovered.size} downstream file${discovered.size === 1 ? "" : "s"} within three hops`,
+      explanation: `${discovered.size} downstream file${discovered.size === 1 ? "" : "s"} within ${hopLimit} hop${hopLimit === 1 ? "" : "s"}`,
     },
     {
       label: "Sensitive paths",
@@ -663,34 +728,70 @@ export function analyzeChange(
     },
     {
       label: "Configuration reach",
-      signal: configChanged ? "attention" : "context",
-      explanation: configChanged
-        ? `${configChanged} configuration, schema, or lockfile change${configChanged === 1 ? "" : "s"}`
+      signal: configChanged || lockfilesChanged ? "attention" : "context",
+      explanation: configChanged || lockfilesChanged
+        ? `${configChanged} configuration or schema change${configChanged === 1 ? "" : "s"}; ${lockfilesChanged} lockfile change${lockfilesChanged === 1 ? "" : "s"}`
         : "No configuration or schema changes detected",
     },
   ];
-  const mappedChanged = changedPaths.filter((path) => knownPaths.has(path)).length;
-  const dynamicImports = normalizedFiles.filter((file) => file.hasDynamicImport).length;
+  const supportedChangedPaths = changedPaths.filter((changedPath) =>
+    SOURCE_EXTENSIONS.some((extension) => changedPath.toLowerCase().endsWith(extension)),
+  );
+  const mappedChanged = supportedChangedPaths.filter((changedPath) => knownPaths.has(changedPath)).length;
+  const unsupportedChanged = changedPaths.length - supportedChangedPaths.length;
+  const unmappedSupportedChanged = supportedChangedPaths.length - mappedChanged;
+  const changedDynamicImports = normalizedFiles.filter(
+    (file) => changedPathSet.has(file.path) && file.hasDynamicImport,
+  ).length;
   const unresolvedImports = unresolvedRelativeImports + unresolvedAliasImports;
-  const unresolvedRatio = totalImports ? unresolvedImports / totalImports : 0;
+  const supportRatio = changedPaths.length ? supportedChangedPaths.length / changedPaths.length : 0;
+  const mappingRatio = supportedChangedPaths.length ? mappedChanged / supportedChangedPaths.length : 0;
+  const changedResolutionRatio = changedResolvableImports
+    ? changedResolvedImports / changedResolvableImports
+    : mappedChanged
+      ? 1
+      : 0;
+  const changedIncidentEdges = resolvedEdges.filter(
+    (edge) => changedPathSet.has(edge.from) || changedPathSet.has(edge.to),
+  ).length;
   let confidence = clamp(
-    0.3 +
-      (repositoryFiles.length ? 0.2 : 0) +
-      (changedPaths.length ? (mappedChanged / changedPaths.length) * 0.25 : 0) +
-      (resolvedEdges.length ? 0.15 : 0) -
-      Math.min(0.3, unresolvedRatio * 0.5) -
-      Math.min(0.1, dynamicImports * 0.02),
-    0.2,
+    0.1 +
+      supportRatio * 0.2 +
+      mappingRatio * 0.25 +
+      changedResolutionRatio * 0.15 +
+      Math.min(0.1, changedIncidentEdges * 0.05) +
+      (discovered.size ? 0.1 : 0) +
+      (repositoryFiles.length ? 0.05 : 0) -
+      Math.min(0.15, changedDynamicImports * 0.03),
+    0.1,
     0.9,
   );
   if (repositoryFiles.length > 5 && resolvedEdges.length === 0) {
     confidence = Math.min(confidence, 0.35);
   }
-  if (!changedFiles.length) confidence = 0.2;
+  if (repositoryFiles.length > 5 && discovered.size === 0) {
+    confidence = Math.min(confidence, 0.55);
+  }
+  if (!changedFiles.length) confidence = 0.1;
 
   const unknowns: string[] = [];
   if (!changedFiles.length) unknowns.push("The diff could not be parsed; no repository path was invented.");
   if (!repositoryFiles.length) unknowns.push("No repository map was supplied; downstream impact is incomplete.");
+  if (unsupportedChanged) {
+    unknowns.push(
+      `${unsupportedChanged} of ${changedPaths.length} changed path${changedPaths.length === 1 ? "" : "s"} used unsupported file types and were not analyzed.`,
+    );
+  }
+  if (unmappedSupportedChanged) {
+    unknowns.push(
+      `${unmappedSupportedChanged} of ${supportedChangedPaths.length} supported changed file${supportedChangedPaths.length === 1 ? "" : "s"} were absent from the repository map.`,
+    );
+  }
+  if (changedUnresolvedImports) {
+    unknowns.push(
+      `${changedUnresolvedImports} import${changedUnresolvedImports === 1 ? "" : "s"} from changed files could not be resolved.`,
+    );
+  }
   if (unresolvedRelativeImports) {
     unknowns.push(`${unresolvedRelativeImports} relative import${unresolvedRelativeImports === 1 ? "" : "s"} could not be resolved.`);
   }
@@ -702,47 +803,69 @@ export function analyzeChange(
   if (repositoryFiles.length > 5 && resolvedEdges.length === 0) {
     unknowns.push("The repository map produced no dependency edges, so confidence is capped at 0.35.");
   }
-  if (dynamicImports) unknowns.push(`${dynamicImports} file${dynamicImports === 1 ? "" : "s"} use dynamic imports that static mapping may miss.`);
+  if (repositoryFiles.length > 5 && discovered.size === 0 && resolvedEdges.length > 0) {
+    unknowns.push("No downstream files were reached from changed paths, so confidence is capped at 0.55.");
+  }
+  if (changedDynamicImports) {
+    unknowns.push(`${changedDynamicImports} changed file${changedDynamicImports === 1 ? "" : "s"} use dynamic imports that static mapping may miss.`);
+  }
 
   const highestRisk = orderedNodes.find((node) => node.kind === "risk");
   const firstSurface = impactedSurfaces[0];
+  const changeByPath = new Map(changedFiles.map((file) => [file.path, file]));
+  const churnFor = (path: string) => {
+    const change = changeByPath.get(path);
+    return change ? change.additions + change.deletions : 0;
+  };
+  const bucketFor = (path: string) => {
+    if (!isTestPath(path) && matchesSensitivePath(path, sensitiveTerms)) return 0;
+    if (isConfigurationPath(path) || isLockfilePath(path)) return 1;
+    if (!isTestPath(path)) return 2;
+    return 3;
+  };
+  const compareReachChurnPath = (left: ImpactNode, right: ImpactNode) =>
+    (reachByChanged.get(right.path) ?? 0) - (reachByChanged.get(left.path) ?? 0) ||
+    churnFor(right.path) - churnFor(left.path) ||
+    left.path.localeCompare(right.path);
+  const compareChanged = (left: ImpactNode, right: ImpactNode) => {
+    if (rankingPolicy === "rank-v1") {
+      return bucketFor(left.path) - bucketFor(right.path) || compareReachChurnPath(left, right);
+    }
+    if (rankingPolicy === "buckets-only") {
+      return bucketFor(left.path) - bucketFor(right.path) || left.path.localeCompare(right.path);
+    }
+    if (rankingPolicy === "churn-only") {
+      return churnFor(right.path) - churnFor(left.path) || left.path.localeCompare(right.path);
+    }
+    if (rankingPolicy === "rank-v2") {
+      return Number(isLockfilePath(left.path)) - Number(isLockfilePath(right.path)) ||
+        compareReachChurnPath(left, right);
+    }
+    return compareReachChurnPath(left, right);
+  };
   const reviewOrder = [...orderedNodes]
-    .filter((node) => node.kind !== "test")
-    .sort((left, right) => {
-      const priority = (node: ImpactNode) => {
-        if (node.kind === "risk") return 0;
-        if (node.kind === "changed" && SENSITIVE_PARTS.some((part) => node.path.toLowerCase().includes(part))) return 1;
-        if (node.kind === "changed" && /(package-lock|pnpm-lock|yarn\.lock|\.env|config|schema|migration)/i.test(node.path)) return 2;
-        if (node.kind === "changed" && !isTestPath(node.path)) return 3;
-        if (node.kind === "surface") return 4;
-        if (node.kind === "dependent") return 5;
-        return 6;
-      };
-      const leftChange = changedFiles.find((file) => file.path === left.path);
-      const rightChange = changedFiles.find((file) => file.path === right.path);
-      const leftChurn = leftChange ? leftChange.additions + leftChange.deletions : 0;
-      const rightChurn = rightChange ? rightChange.additions + rightChange.deletions : 0;
-      return (
-        priority(left) - priority(right) ||
-        (reachByChanged.get(right.path) ?? 0) - (reachByChanged.get(left.path) ?? 0) ||
-        rightChurn - leftChurn ||
-        left.depth - right.depth ||
-        left.path.localeCompare(right.path)
-      );
-    })
-    .slice(0, 10)
+    .filter((node) => node.kind === "changed")
+    .sort(compareChanged)
     .map((node, index): ReviewTarget => {
       const reasons: string[] = [];
-      const change = changedFiles.find((file) => file.path === node.path);
+      const change = changeByPath.get(node.path);
+      if (change) reasons.push(`${change.changeType} file with ${change.additions + change.deletions} changed lines`);
+      const downstreamReach = reachByChanged.get(node.path) ?? 0;
+      if (downstreamReach) reasons.push(`${downstreamReach} downstream file${downstreamReach === 1 ? "" : "s"} within ${hopLimit} hop${hopLimit === 1 ? "" : "s"}`);
+      if (matchesSensitivePath(node.path, sensitiveTerms)) reasons.push("Review-sensitive path term");
+      if (isConfigurationPath(node.path)) reasons.push("Configuration or schema path");
+      if (isLockfilePath(node.path)) reasons.push("Lockfile ranked after source and test changes");
+      return { rank: index + 1, path: node.path, kind: node.kind, reasons };
+    });
+  const impactWatchlist = orderedNodes
+    .filter((node): node is ImpactNode & { kind: Exclude<ImpactNode["kind"], "changed"> } => node.kind !== "changed")
+    .map((node): ImpactTarget => {
+      const reasons: string[] = [];
       if (node.kind === "risk") reasons.push("Sensitive downstream path with no matching test evidence");
       if (node.kind === "surface") reasons.push("Exposed surface reached by the dependency graph");
       if (node.kind === "dependent") reasons.push(`Downstream dependency at hop ${node.depth}`);
-      if (change) reasons.push(`${change.changeType} file with ${change.additions + change.deletions} changed lines`);
-      const downstreamReach = reachByChanged.get(node.path) ?? 0;
-      if (downstreamReach) reasons.push(`${downstreamReach} downstream file${downstreamReach === 1 ? "" : "s"} within three hops`);
-      if (SENSITIVE_PARTS.some((part) => node.path.toLowerCase().includes(part))) reasons.push("Review-sensitive path term");
-      if (/(package-lock|pnpm-lock|yarn\.lock|\.env|config|schema|migration)/i.test(node.path)) reasons.push("Configuration or schema reach");
-      return { rank: index + 1, path: node.path, kind: node.kind, reasons };
+      if (node.kind === "test") reasons.push("Related test evidence");
+      return { path: node.path, kind: node.kind, depth: node.depth, reasons };
     });
   const verificationPlan = [
     ...(matchedTests.length
@@ -753,23 +876,25 @@ export function analyzeChange(
     ...(configChanged ? ["Validate configuration and schema compatibility"] : []),
   ].slice(0, 4);
 
-  const focus = reviewOrder[0]?.path ?? highestRisk?.path ?? firstSurface?.path ?? changedPaths[0] ?? "the change";
+  const focus = reviewOrder[0]?.path ?? changedPaths[0] ?? "the change";
   const brief =
     `${changedFiles.length} changed file${changedFiles.length === 1 ? "" : "s"} reach ${discovered.size} downstream module${discovered.size === 1 ? "" : "s"} and ${impactedSurfaces.length} user-facing surface${impactedSurfaces.length === 1 ? "" : "s"}. ` +
+    `Start with ${focus}. ` +
     (highestRisk
-      ? `${focus} is the highest-value review target because it is sensitive and has no matching test evidence.`
+      ? `${highestRisk.path} is an untested sensitive downstream watch target.`
       : matchedTests.length
-        ? `Start with ${focus}; related test evidence exists, but the impact path still needs human confirmation.`
-        : `Start with ${focus}; no related test evidence was found.`);
+        ? "Related test evidence exists, but the impact path still needs human confirmation."
+        : "No related test evidence was found.");
 
   return {
-    policyVersion: "rank-v1",
+    policyVersion: rankingPolicy,
     confidence,
     changedFiles,
     nodes: visibleNodes,
     edges: edges.slice(0, 36),
     factors,
     reviewOrder,
+    impactWatchlist,
     verificationPlan,
     brief,
     narrativeSource: "evidence-engine",
@@ -788,6 +913,11 @@ export function analyzeChange(
       typeOnlyImports,
       symbolFilteredImports,
       truncatedNodes: Math.max(0, nodes.length - visibleNodes.length),
+      supportedChangedFiles: supportedChangedPaths.length,
+      mappedChangedFiles: mappedChanged,
+      changedResolvedImports,
+      changedUnresolvedImports,
+      changedIncidentEdges,
     },
   };
 }
@@ -797,6 +927,7 @@ export function summarizeForLocalModel(result: AnalysisResult) {
     policyVersion: result.policyVersion,
     changedFiles: result.changedFiles.map((file) => file.path),
     reviewOrder: result.reviewOrder.slice(0, 5),
+    impactWatchlist: result.impactWatchlist.slice(0, 5),
     impactedFiles: result.nodes.map((node) => ({ path: node.path, kind: node.kind })),
     factors: result.factors.map((factor) => ({
       label: factor.label,

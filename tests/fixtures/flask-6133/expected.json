@@ -1,9 +1,9 @@
 {
-  "policyVersion": "rank-v1",
-  "sha256": "ae2474899db5f6fa4e4863e53a7cacf76fb53d3b3b43f71f2e015416deb7c8ea",
+  "policyVersion": "rank-v2",
+  "sha256": "bfcf06f06a7d57f5b7212ce5935511044b376944799fc19e51001414b9ede132",
   "result": {
-    "policyVersion": "rank-v1",
-    "confidence": 0.6813926940639269,
+    "policyVersion": "rank-v2",
+    "confidence": 0.7547619047619047,
     "changedFiles": [
       {
         "path": "CHANGES.rst",
@@ -25,13 +25,6 @@
       }
     ],
     "nodes": [
-      {
-        "id": "src/flask/sessions.py",
-        "label": "sessions.py",
-        "path": "src/flask/sessions.py",
-        "kind": "risk",
-        "depth": 3
-      },
       {
         "id": "CHANGES.rst",
         "label": "CHANGES.rst",
@@ -162,6 +155,13 @@
         "id": "src/flask/json/__init__.py",
         "label": "__init__.py",
         "path": "src/flask/json/__init__.py",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "src/flask/sessions.py",
+        "label": "sessions.py",
+        "path": "src/flask/sessions.py",
         "kind": "dependent",
         "depth": 3
       },
@@ -421,7 +421,7 @@
       {
         "label": "Dependency fan-out",
         "signal": "attention",
-        "explanation": "18 downstream files within three hops"
+        "explanation": "18 downstream files within 3 hops"
       },
       {
         "label": "Sensitive paths",
@@ -435,8 +435,8 @@
       },
       {
         "label": "Sensitive dependents without tests",
-        "signal": "attention",
-        "explanation": "1 sensitive downstream file had no matching test evidence"
+        "signal": "context",
+        "explanation": "No sensitive downstream files lacked matching test evidence"
       },
       {
         "label": "Verification added",
@@ -452,20 +452,19 @@
     "reviewOrder": [
       {
         "rank": 1,
-        "path": "src/flask/sessions.py",
-        "kind": "risk",
-        "reasons": [
-          "Sensitive downstream path with no matching test evidence",
-          "Review-sensitive path term"
-        ]
-      },
-      {
-        "rank": 2,
         "path": "src/flask/sansio/scaffold.py",
         "kind": "changed",
         "reasons": [
           "modified file with 8 changed lines",
-          "18 downstream files within three hops"
+          "18 downstream files within 3 hops"
+        ]
+      },
+      {
+        "rank": 2,
+        "path": "tests/test_basic.py",
+        "kind": "changed",
+        "reasons": [
+          "modified file with 7 changed lines"
         ]
       },
       {
@@ -475,72 +474,187 @@
         "reasons": [
           "modified file with 1 changed lines"
         ]
-      },
+      }
+    ],
+    "impactWatchlist": [
       {
-        "rank": 4,
         "path": "src/flask/blueprints.py",
         "kind": "dependent",
+        "depth": 1,
         "reasons": [
           "Downstream dependency at hop 1"
         ]
       },
       {
-        "rank": 5,
         "path": "src/flask/debughelpers.py",
         "kind": "dependent",
+        "depth": 1,
         "reasons": [
           "Downstream dependency at hop 1"
         ]
       },
       {
-        "rank": 6,
         "path": "src/flask/sansio/app.py",
         "kind": "dependent",
+        "depth": 1,
         "reasons": [
           "Downstream dependency at hop 1"
         ]
       },
       {
-        "rank": 7,
         "path": "src/flask/sansio/blueprints.py",
         "kind": "dependent",
+        "depth": 1,
         "reasons": [
           "Downstream dependency at hop 1"
         ]
       },
       {
-        "rank": 8,
         "path": "src/flask/templating.py",
         "kind": "dependent",
+        "depth": 1,
         "reasons": [
           "Downstream dependency at hop 1"
         ]
       },
       {
-        "rank": 9,
         "path": "src/flask/__init__.py",
         "kind": "dependent",
+        "depth": 2,
         "reasons": [
           "Downstream dependency at hop 2"
         ]
       },
       {
-        "rank": 10,
         "path": "src/flask/app.py",
         "kind": "dependent",
+        "depth": 2,
         "reasons": [
           "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "src/flask/config.py",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "src/flask/json/provider.py",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "src/flask/logging.py",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "src/flask/wrappers.py",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "src/flask/cli.py",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "src/flask/ctx.py",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "src/flask/globals.py",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "src/flask/helpers.py",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "src/flask/json/__init__.py",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "src/flask/sessions.py",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "src/flask/testing.py",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "tests/test_apps/blueprintapp/__init__.py",
+        "kind": "test",
+        "depth": 3,
+        "reasons": [
+          "Related test evidence"
+        ]
+      },
+      {
+        "path": "tests/test_apps/blueprintapp/apps/__init__.py",
+        "kind": "test",
+        "depth": 3,
+        "reasons": [
+          "Related test evidence"
+        ]
+      },
+      {
+        "path": "tests/test_apps/blueprintapp/apps/admin/__init__.py",
+        "kind": "test",
+        "depth": 3,
+        "reasons": [
+          "Related test evidence"
         ]
       }
     ],
     "verificationPlan": [
       "Run tests/test_apps/blueprintapp/apps/admin/__init__.py",
-      "Run tests/test_apps/blueprintapp/apps/__init__.py",
-      "Exercise the unpaired path through src/flask/sessions.py"
+      "Run tests/test_apps/blueprintapp/apps/__init__.py"
     ],
-    "brief": "3 changed files reach 18 downstream modules and 0 user-facing surfaces. src/flask/sessions.py is the highest-value review target because it is sensitive and has no matching test evidence.",
+    "brief": "3 changed files reach 18 downstream modules and 0 user-facing surfaces. Start with src/flask/sansio/scaffold.py. Related test evidence exists, but the impact path still needs human confirmation.",
     "narrativeSource": "evidence-engine",
     "unknowns": [
+      "1 of 3 changed paths used unsupported file types and were not analyzed.",
+      "12 imports from changed files could not be resolved.",
       "16 relative imports could not be resolved.",
       "63 of 292 import specifiers used an unrecognized path alias and were not followed. The downstream graph is incomplete."
     ],
@@ -557,7 +671,12 @@
       "ignoredAssetImports": 0,
       "typeOnlyImports": 0,
       "symbolFilteredImports": 0,
-      "truncatedNodes": 0
+      "truncatedNodes": 0,
+      "supportedChangedFiles": 2,
+      "mappedChangedFiles": 2,
+      "changedResolvedImports": 2,
+      "changedUnresolvedImports": 12,
+      "changedIncidentEdges": 7
     }
   }
 }

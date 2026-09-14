@@ -10,6 +10,7 @@ Thank you for helping improve BlastRadius. Changes should preserve the central c
 4. Create a focused branch.
 5. Add or update fixtures for analysis behavior.
 6. Run `npm run check` before opening a pull request.
+7. If evaluation output changes, run `npm run evaluate` and commit `evaluation/examples.json`, `evaluation/results.json`, and `evaluation/README.md` together.
 
 ## Pull requests
 
@@ -22,6 +23,7 @@ Keep changes small enough to review. Explain the behavior change, tests, tradeof
 - Bound new traversal and input work.
 - Surface unresolved evidence instead of silently discarding it.
 - Document ranking-policy changes in `docs/ranking-model.md`.
+- Tune policy changes on the development split only. Do not inspect held-out results while choosing a policy.
 
 ## Commit style
 

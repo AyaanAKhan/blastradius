@@ -1,4 +1,5 @@
-import type { AnalysisOptions, RepositoryFile } from "./analyzer";
+import type { AnalysisOptions, RepositoryFile } from "./analyzer.ts";
+import { mergeAnalysisOptions, parseBlastRadiusConfig } from "./analyzer.ts";
 
 export const SOURCE_FILE_PATTERN = /\.(tsx?|jsx?|mjs|cjs|py)$/i;
 export const IGNORED_DIRECTORY_PATTERN =
@@ -139,7 +140,7 @@ export function extractRepositoryOptions(configSources: RepositoryConfigSource[]
   const tsconfigSource = configSources
     .filter((file) => /(^|\/)(tsconfig|jsconfig)\.json$/i.test(repositoryRelativePath(file.path)))
     .sort((left, right) => left.path.length - right.path.length)[0];
-  if (!tsconfigSource) return options;
+  if (!tsconfigSource) return mergeProjectConfig(options, configSources);
 
   try {
     const config = parseJsonConfig(tsconfigSource.source);
@@ -156,7 +157,18 @@ export function extractRepositoryOptions(configSources: RepositoryConfigSource[]
       }
     }
   } catch {
-    return options;
+    return mergeProjectConfig(options, configSources);
   }
-  return options;
+  return mergeProjectConfig(options, configSources);
+}
+
+function mergeProjectConfig(
+  options: AnalysisOptions,
+  configSources: RepositoryConfigSource[],
+) {
+  const source = configSources.find(
+    (file) => repositoryRelativePath(file.path) === "blastradius.config.json",
+  );
+  if (!source) return options;
+  return mergeAnalysisOptions(options, parseBlastRadiusConfig(source.source));
 }

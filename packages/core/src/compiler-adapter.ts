@@ -239,8 +239,13 @@ export function mapTypeScriptRepository(
   mapOptions: CompilerMapOptions = {},
 ): CompilerMap {
   const root = path.resolve(rootDirectory);
-  const configPath = ts.findConfigFile(root, ts.sys.fileExists, "tsconfig.json")
-    ?? ts.findConfigFile(root, ts.sys.fileExists, "jsconfig.json");
+  const typeScriptConfig = path.join(root, "tsconfig.json");
+  const javaScriptConfig = path.join(root, "jsconfig.json");
+  const configPath = ts.sys.fileExists(typeScriptConfig)
+    ? typeScriptConfig
+    : ts.sys.fileExists(javaScriptConfig)
+      ? javaScriptConfig
+      : undefined;
   const parsed = compilerOptionsFor(root, configPath);
   const program = ts.createProgram({ rootNames: parsed.fileNames, options: parsed.options });
   const files: RepositoryFile[] = [];

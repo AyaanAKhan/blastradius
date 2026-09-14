@@ -11,24 +11,26 @@ BlastRadius turns a pull request into an explainable review order. It parses the
 
 ## Measured result
 
-The reproducible harness fetched 300 merged pull requests from each of Vite, Flask, and Express. A positive label is a changed file with an inline human review comment, excluding bots and the pull request author.
+The honest result is that dependency reach is useful, but neither published policy beats the graph-only dependents baseline on held-out data. The original hand-written buckets reduced development MRR from 0.832 without buckets to 0.800. rank-v2 removed those buckets and was selected only on the development split, where it reached 0.837 MRR, but it still trails dependents on the pooled held-out split.
 
-| Held-out repository | n | Random P@1 | Churn P@1 | Dependents P@1 | BlastRadius P@1 | BlastRadius R@3 |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| vitejs/vite | 12 | 46.4% | 66.7% | 75.0% | 75.0% | 58.3% |
-| pallets/flask | 2 | 28.8% | 100.0% | 100.0% | 100.0% | 100.0% |
-| expressjs/express | 12 | 81.9% | 83.3% | 91.7% | 91.7% | 100.0% |
+| Pooled held-out method | n | Precision@1 | Recall@3 | MRR |
+| --- | ---: | ---: | ---: | ---: |
+| Random expected value | 26 | 61.5% | 79.3% | 0.755 |
+| Churn | 26 | 76.9% | 89.7% | 0.863 |
+| Dependents | 26 | 84.6% | 82.0% | 0.892 |
+| Published rank-v1 | 26 | 84.6% | 80.8% | 0.884 |
+| BlastRadius rank-v2 | 26 | 73.1% | 82.0% | 0.832 |
 
-The result is mixed. BlastRadius improves Precision@1 over churn on Vite and Express, ties the dependents baseline, and loses to churn on Vite Recall@3. Flask is too small for a stable conclusion. [Read the full methodology, MRR, development split, and limits](evaluation/README.md).
+The paired mean MRR delta for rank-v2 versus dependents is -0.059 with a 95 percent bootstrap interval of [-0.135, -0.002]. That negative result is the roadmap, not something hidden behind a demo. All 121 per-example measurements are committed, and `npm run evaluation:report` reproduces the aggregate tables, 10,000-resample intervals, normalized lift, hard subset, ablation, and Wilcoxon test without network access in about two seconds. [Read the full methodology and limits](evaluation/README.md).
 
 ## How it works
 
-- A pure TypeScript core emits the versioned `rank-v1` result.
+- A deterministic TypeScript core emits the versioned `rank-v2` changed-file queue and a separate unchanged-file watchlist.
 - The web app analyzes bounded folder metadata in a Web Worker. Nothing is uploaded.
-- The CLI uses the TypeScript compiler for aliases, barrels, type-only edges, and imported symbols.
-- A composite pull request action publishes one sticky, evidence-backed review plan.
+- The CLI combines compiler-backed TypeScript and JavaScript analysis with a tested Python import adapter.
+- A prebuilt composite action publishes one sticky, evidence-backed review plan without installing the web application.
 
-Self-analysis of commit `20babdc` ranked `packages/core/src/compiler-adapter.ts` first because it reached three downstream files. It resolved 49 imports, reported zero unresolved imports, and assigned 0.68 evidence confidence. That run also exposed a prose-versus-rank mismatch, fixed in `86e2b20` with a regression test.
+The project is deliberately stronger as an engineering artifact than as a product claim: a real workspace split, package exports, configuration validation, Markdown/JSON/SARIF output, content-hash mapping cache, exact ranking tests, enforced coverage, reproducible evaluation, and explicit failure modes.
 
 ## Run
 
@@ -36,6 +38,7 @@ Self-analysis of commit `20babdc` ranked `packages/core/src/compiler-adapter.ts`
 npm ci
 npm run dev
 npm run cli -- --base main --head HEAD
+npm run evaluation:report
 npm run check
 ```
 
@@ -49,4 +52,4 @@ The optional local model rewrites only the brief and never changes graph edges o
 - Exact filename test matching is association evidence, not coverage proof.
 - Historical evaluation excludes reviews without inline comments.
 
-See the [ranking policy](docs/ranking-model.md), [decision record](docs/decisions/0001-deterministic-core.md), and [contribution guide](CONTRIBUTING.md).
+See the [ranking policy](docs/ranking-model.md), [configuration reference](docs/configuration.md), [mapping benchmarks](docs/benchmarks.md), [architecture](docs/architecture.md), [decision record](docs/decisions/0001-deterministic-core.md), and [contribution guide](CONTRIBUTING.md).

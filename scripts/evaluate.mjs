@@ -3,8 +3,10 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-import { analyzeChange } from "../dist/core/src/analyzer.js";
-import { mapTypeScriptRepository } from "../dist/core/src/compiler-adapter.js";
+import { analyzeChange } from "../packages/core/dist/analyzer.js";
+import { mapTypeScriptRepository } from "../packages/core/dist/compiler-adapter.js";
+import { mapPythonRepository } from "../packages/core/dist/python-adapter.js";
+import { buildEvaluationArtifacts } from "./evaluation-report.mjs";
 
 const projectRoot = path.resolve(import.meta.dirname, "..");
 const evaluationRoot = path.join(projectRoot, "evaluation");
@@ -18,10 +20,6 @@ fs.mkdirSync(cacheRoot, { recursive: true });
 
 function slug(repository) {
   return repository.replace("/", "-");
-}
-
-function slash(value) {
-  return value.replaceAll("\\", "/");
 }
 
 function writeJson(file, value) {
@@ -152,48 +150,6 @@ function diffFor(files) {
   }).join("\n");
 }
 
-function pythonSpecifier(raw) {
-  const match = raw.match(/^(\.*)(.*)$/);
-  const dots = match?.[1].length ?? 0;
-  const modulePath = (match?.[2] ?? raw).replaceAll(".", "/");
-  if (!dots) return modulePath;
-  if (dots === 1) return `./${modulePath}`;
-  return `${"../".repeat(dots - 1)}${modulePath}`;
-}
-
-function mapPythonRepository(root) {
-  const files = [];
-  const visit = (directory) => {
-    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-      const absolute = path.join(directory, entry.name);
-      const relative = slash(path.relative(root, absolute));
-      if (entry.isDirectory()) {
-        if (!/(^|\/)(\.git|node_modules|\.venv|venv|__pycache__|dist|build)(\/|$)/.test(relative)) visit(absolute);
-        continue;
-      }
-      if (!entry.isFile() || !relative.endsWith(".py") || fs.statSync(absolute).size > 512_000) continue;
-      const source = fs.readFileSync(absolute, "utf8");
-      const imports = new Set();
-      for (const match of source.matchAll(/^\s*from\s+([.\w]+)\s+import\s+/gm)) imports.add(pythonSpecifier(match[1]));
-      for (const match of source.matchAll(/^\s*import\s+([^\n#]+)/gm)) {
-        for (const item of match[1].split(",")) {
-          const moduleName = item.trim().split(/\s+as\s+/, 1)[0];
-          if (moduleName) imports.add(pythonSpecifier(moduleName));
-        }
-      }
-      files.push({
-        path: relative,
-        imports: [...imports].slice(0, 80),
-        isTest: /(^|\/)(test|tests)(\/|$)|test_.*\.py$/.test(relative),
-        isSurface: /(^|\/)(routes?|views?|controllers?|handlers?)(\/|\.|$)/i.test(relative),
-        hasDynamicImport: /\bimport_module\s*\(/.test(source),
-      });
-    }
-  };
-  visit(root);
-  return { files, options: { aliases: {}, externalPackages: [] }, diagnostics: [] };
-}
-
 function bareRepository(repository) {
   const destination = path.join(cacheRoot, slug(repository), "history-full.git");
   if (!fs.existsSync(destination)) {
@@ -209,15 +165,28 @@ function bareRepository(repository) {
 
 function repositoryMapAtPull(configuration, pull) {
   const repository = configuration.repository;
+  const mappingFile = path.join(cacheRoot, slug(repository), "mappings-v2", `${pull.headSha}.json`);
+  if (fs.existsSync(mappingFile)) return readJson(mappingFile);
   const bare = bareRepository(repository);
   const ref = `refs/evaluation/${pull.number}`;
   const checkout = fs.mkdtempSync(path.join(os.tmpdir(), `${slug(repository)}-${pull.number}-`));
   try {
-    execFileSync(
-      "git",
-      [`--git-dir=${bare}`, "fetch", "--quiet", "--depth", "1", "origin", `refs/pull/${pull.number}/head:${ref}`],
-      { timeout: 180_000 },
-    );
+    let cachedSha = "";
+    try {
+      cachedSha = execFileSync("git", [`--git-dir=${bare}`, "rev-parse", ref], {
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "ignore"],
+      }).trim();
+    } catch {
+      cachedSha = "";
+    }
+    if (cachedSha !== pull.headSha) {
+      execFileSync(
+        "git",
+        [`--git-dir=${bare}`, "fetch", "--quiet", "--depth", "1", "origin", `+refs/pull/${pull.number}/head:${ref}`],
+        { timeout: 180_000 },
+      );
+    }
     execFileSync(
       "git",
       [`--git-dir=${bare}`, `--work-tree=${checkout}`, "checkout", "--force", ref, "--", "."],
@@ -226,13 +195,15 @@ function repositoryMapAtPull(configuration, pull) {
     const mapping = configuration.mapper === "python"
       ? mapPythonRepository(checkout)
       : mapTypeScriptRepository(checkout, { collectDiagnostics: false });
-    return {
+    const result = {
       snapshotSha: execFileSync("git", [`--git-dir=${bare}`, "rev-parse", ref], { encoding: "utf8" }).trim(),
       configPath: mapping.configPath,
       diagnostics: mapping.diagnostics.slice(0, 10),
       files: mapping.files,
       options: mapping.options,
     };
+    writeJson(mappingFile, result);
+    return result;
   } finally {
     fs.rmSync(checkout, { recursive: true, force: true });
   }
@@ -271,10 +242,6 @@ function rankByDependents(files, mapping, cache) {
     .map((file) => file.path);
 }
 
-function emptyMetrics() {
-  return { precisionAt1: 0, recallAt3: 0, meanReciprocalRank: 0 };
-}
-
 function orderedMetrics(order, labels) {
   const first = order.findIndex((file) => labels.has(file));
   return {
@@ -300,28 +267,7 @@ function randomMetrics(candidateCount, labelCount) {
   };
 }
 
-function average(values) {
-  if (!values.length) return emptyMetrics();
-  return {
-    precisionAt1: values.reduce((sum, value) => sum + value.precisionAt1, 0) / values.length,
-    recallAt3: values.reduce((sum, value) => sum + value.recallAt3, 0) / values.length,
-    meanReciprocalRank: values.reduce((sum, value) => sum + value.meanReciprocalRank, 0) / values.length,
-  };
-}
-
-function roundMetrics(metrics) {
-  return Object.fromEntries(Object.entries(metrics).map(([key, value]) => [key, Number(value.toFixed(4))]));
-}
-
-function evaluateExamples(examples) {
-  const baselines = ["random", "churn", "dependents", "blastradius"];
-  return Object.fromEntries(baselines.map((baseline) => [
-    baseline,
-    roundMetrics(average(examples.map((example) => example.metrics[baseline]))),
-  ]));
-}
-
-const results = [];
+const allExamples = [];
 const manifest = [];
 for (const configuration of repositories) {
   const repository = configuration.repository;
@@ -341,10 +287,10 @@ for (const configuration of repositories) {
     return labels.size && pull.files.length;
   });
   for (const [index, pull] of labeledEvidence.entries()) {
-    const metricFile = path.join(cacheRoot, slug(repository), "historical-rank-v1", `${pull.number}.json`);
+    const metricFile = path.join(cacheRoot, slug(repository), "historical-rank-v2", `${pull.number}.json`);
     if (fs.existsSync(metricFile)) {
       const cachedExample = readJson(metricFile);
-      if (cachedExample.headSha === pull.headSha) {
+      if (cachedExample.headSha === pull.headSha && cachedExample.sourceMetrics) {
         examples.push(cachedExample);
         continue;
       }
@@ -356,7 +302,18 @@ for (const configuration of repositories) {
       throw new Error(`Historical checkout mismatch for ${repository}#${pull.number}`);
     }
     const knownPaths = new Set(mapping.files.map((file) => file.path));
-    const analysis = analyzeChange(diffFor(pull.files), mapping.files, mapping.options);
+    const diff = diffFor(pull.files);
+    const policies = {
+      rankV1: "rank-v1",
+      noBuckets: "no-buckets",
+      bucketsOnly: "buckets-only",
+      churnOnly: "churn-only",
+      rankV2: "rank-v2",
+    };
+    const analyses = Object.fromEntries(Object.entries(policies).map(([name, rankingPolicy]) => [
+      name,
+      analyzeChange(diff, mapping.files, { ...mapping.options, rankingPolicy }),
+    ]));
     const reachCache = new Map();
     const orders = {
       churn: [...pull.files]
@@ -365,23 +322,47 @@ for (const configuration of repositories) {
           left.path.localeCompare(right.path))
         .map((file) => file.path),
       dependents: rankByDependents(pull.files, mapping, reachCache),
-      blastradius: changedOrder(analysis, pull.files),
+      ...Object.fromEntries(Object.entries(analyses).map(([name, analysis]) => [
+        name,
+        changedOrder(analysis, pull.files),
+      ])),
     };
+    const publishedFile = path.join(cacheRoot, slug(repository), "historical-rank-v1", `${pull.number}.json`);
+    const published = fs.existsSync(publishedFile) ? readJson(publishedFile) : undefined;
+    const sourceFiles = pull.files.filter((file) => knownPaths.has(file.path));
+    const sourceLabels = new Set([...labels].filter((file) => knownPaths.has(file)));
+    const metricsFor = (order) => orderedMetrics(order.filter((file) => knownPaths.has(file)), sourceLabels);
     const example = {
+      repository,
       number: pull.number,
+      url: pull.url,
       mergedAt: pull.mergedAt,
       headSha: pull.headSha,
       mappedSha: mapping.snapshotSha,
       files: pull.files.length,
       labeledFiles: labels.size,
+      candidateFiles: pull.files.map((file) => file.path),
+      labeledPaths: [...labels].sort(),
       mappedFiles: pull.files.filter((file) => knownPaths.has(file.path)).length,
+      mappedLabeledFiles: sourceLabels.size,
       compilerDiagnostics: mapping.diagnostics.length,
       metrics: {
         random: randomMetrics(pull.files.length, labels.size),
         churn: orderedMetrics(orders.churn, labels),
         dependents: orderedMetrics(orders.dependents, labels),
-        blastradius: orderedMetrics(orders.blastradius, labels),
+        rankV1Published: published?.metrics?.blastradius ?? orderedMetrics(orders.rankV1, labels),
+        rankV1: orderedMetrics(orders.rankV1, labels),
+        noBuckets: orderedMetrics(orders.noBuckets, labels),
+        bucketsOnly: orderedMetrics(orders.bucketsOnly, labels),
+        churnOnly: orderedMetrics(orders.churnOnly, labels),
+        rankV2: orderedMetrics(orders.rankV2, labels),
       },
+      sourceMetrics: sourceFiles.length && sourceLabels.size ? {
+        random: randomMetrics(sourceFiles.length, sourceLabels.size),
+        churn: metricsFor(orders.churn),
+        dependents: metricsFor(orders.dependents),
+        rankV2: metricsFor(orders.rankV2),
+      } : undefined,
     };
     writeJson(metricFile, example);
     examples.push(example);
@@ -391,25 +372,10 @@ for (const configuration of repositories) {
   }
   examples.sort((left, right) => left.mergedAt.localeCompare(right.mergedAt));
   const split = Math.floor(examples.length * 0.8);
-  const development = examples.slice(0, split);
-  const heldOut = examples.slice(split);
-  const mappedFiles = examples.reduce((sum, example) => sum + example.mappedFiles, 0);
-  const totalFiles = examples.reduce((sum, example) => sum + example.files, 0);
-  results.push({
-    repository,
-    graphSnapshots: "pull-request head commits",
-    pulled: pulls.length,
-    labeled: examples.length,
-    development: {
-      pullRequests: development.length,
-      metrics: evaluateExamples(development),
-    },
-    heldOut: {
-      pullRequests: heldOut.length,
-      metrics: evaluateExamples(heldOut),
-    },
-    mappingCoverage: totalFiles ? Number((mappedFiles / totalFiles).toFixed(4)) : 0,
-  });
+  allExamples.push(...examples.map((example, index) => ({
+    ...example,
+    split: index < split ? "development" : "held-out",
+  })));
   manifest.push({
     repository,
     pullRequests: evidence.map((pull) => ({
@@ -419,52 +385,10 @@ for (const configuration of repositories) {
       url: pull.url,
     })),
   });
-  process.stdout.write(`${repository}: ${examples.length} labeled, ${heldOut.length} held out\n`);
+  process.stdout.write(`${repository}: ${examples.length} labeled, ${examples.length - split} held out\n`);
 }
 
-const output = {
-  policyVersion: "rank-v1",
-  requestedPullRequestsPerRepository: requestedLimit,
-  totalPullRequests: results.reduce((sum, result) => sum + result.pulled, 0),
-  totalLabeledPullRequests: results.reduce((sum, result) => sum + result.labeled, 0),
-  totalHeldOutPullRequests: results.reduce((sum, result) => sum + result.heldOut.pullRequests, 0),
-  label: "Changed file with at least one inline human review comment, excluding the pull request author and bots.",
-  split: "Oldest 80 percent development, newest 20 percent held out.",
-  results,
-};
-writeJson(path.join(evaluationRoot, "results.json"), output);
+writeJson(path.join(evaluationRoot, "examples.json"), allExamples);
 writeJson(path.join(evaluationRoot, "dataset-manifest.json"), manifest);
-
-const percent = (value) => `${(value * 100).toFixed(1)}%`;
-const rows = results.flatMap((result) =>
-  Object.entries(result.heldOut.metrics).map(([baseline, metrics]) =>
-    `| ${result.repository} | ${result.heldOut.pullRequests} | ${baseline} | ${percent(metrics.precisionAt1)} | ${percent(metrics.recallAt3)} | ${metrics.meanReciprocalRank.toFixed(3)} |`,
-  ),
-).join("\n");
-const details = results.map((result) =>
-  `- ${result.repository}: ${result.pulled} merged pull requests fetched, ${result.labeled} had eligible review comments, ${result.heldOut.pullRequests} held out, ${percent(result.mappingCoverage)} of changed paths were supported source files present at the pull request head commit.`,
-).join("\n");
-const report = `# Evaluation
-
-BlastRadius is evaluated as a changed-file review-ranking system. A positive label is a changed file that received at least one inline human review comment. Comments from bots and the pull request author are excluded.
-
-## Held-out results
-
-| Repository | n | Method | Precision@1 | Recall@3 | MRR |
-| --- | ---: | --- | ---: | ---: | ---: |
-${rows}
-
-On Vite, BlastRadius ties the dependents baseline for Precision@1 but loses to churn on Recall@3 and loses narrowly to both churn and dependents on MRR. On Express, it ties dependents and leads churn on Precision@1. Flask has only two held-out labeled pull requests, so its 100 percent values are not a stable estimate.
-
-## Dataset
-
-${details}
-
-The oldest 80 percent of labeled pull requests form the development split. The newest 20 percent are held out. Random is reported as its exact expected value. Churn orders files by changed lines. Dependents orders files by three-hop reverse-import reach at each pull request head commit, then churn. BlastRadius uses the published \`rank-v1\` policy.
-
-## Limits
-
-Inline comments are an observable proxy for reviewer attention, not ground truth for defects. Reviews without inline comments are excluded. Deleted files and unsupported non-source files do not appear in the repository graph. The Flask held-out split is only two pull requests and its percentages are not stable estimates. The manifest pins every pull request and head SHA, and the local cache can be rebuilt with \`npm run evaluate\`.
-`;
-fs.writeFileSync(path.join(evaluationRoot, "README.md"), report, "utf8");
-process.stdout.write(`Wrote evaluation/results.json for ${results.length} repositories\n`);
+buildEvaluationArtifacts(allExamples, evaluationRoot, { requestedLimit });
+process.stdout.write(`Wrote evaluation artifacts for ${allExamples.length} labeled pull requests\n`);

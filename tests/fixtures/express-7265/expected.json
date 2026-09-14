@@ -1,9 +1,9 @@
 {
-  "policyVersion": "rank-v1",
-  "sha256": "899bc4ed805adf4e378023eea89fc872ba025dd514724dc00bb24bb978746dda",
+  "policyVersion": "rank-v2",
+  "sha256": "4773cc03be6ac2eb4287c6d756fd2b9c60734d8a0873d353531cc0a82bc2e54b",
   "result": {
-    "policyVersion": "rank-v1",
-    "confidence": 0.8791666666666667,
+    "policyVersion": "rank-v2",
+    "confidence": 0.9,
     "changedFiles": [
       {
         "path": "lib/request.js",
@@ -17,13 +17,6 @@
         "id": "examples/auth/index.js",
         "label": "index.js",
         "path": "examples/auth/index.js",
-        "kind": "risk",
-        "depth": 3
-      },
-      {
-        "id": "examples/cookie-sessions/index.js",
-        "label": "index.js",
-        "path": "examples/cookie-sessions/index.js",
         "kind": "risk",
         "depth": 3
       },
@@ -94,6 +87,13 @@
         "id": "examples/content-negotiation/index.js",
         "label": "index.js",
         "path": "examples/content-negotiation/index.js",
+        "kind": "dependent",
+        "depth": 3
+      },
+      {
+        "id": "examples/cookie-sessions/index.js",
+        "label": "index.js",
+        "path": "examples/cookie-sessions/index.js",
         "kind": "dependent",
         "depth": 3
       },
@@ -349,7 +349,7 @@
       {
         "label": "Dependency fan-out",
         "signal": "attention",
-        "explanation": "23 downstream files within three hops"
+        "explanation": "23 downstream files within 3 hops"
       },
       {
         "label": "Sensitive paths",
@@ -364,7 +364,7 @@
       {
         "label": "Sensitive dependents without tests",
         "signal": "attention",
-        "explanation": "4 sensitive downstream files had no matching test evidence"
+        "explanation": "3 sensitive downstream files had no matching test evidence"
       },
       {
         "label": "Verification added",
@@ -380,87 +380,197 @@
     "reviewOrder": [
       {
         "rank": 1,
-        "path": "examples/auth/index.js",
-        "kind": "risk",
-        "reasons": [
-          "Sensitive downstream path with no matching test evidence",
-          "Review-sensitive path term"
-        ]
-      },
-      {
-        "rank": 2,
-        "path": "examples/cookie-sessions/index.js",
-        "kind": "risk",
-        "reasons": [
-          "Sensitive downstream path with no matching test evidence",
-          "Review-sensitive path term"
-        ]
-      },
-      {
-        "rank": 3,
-        "path": "examples/session/index.js",
-        "kind": "risk",
-        "reasons": [
-          "Sensitive downstream path with no matching test evidence",
-          "Review-sensitive path term"
-        ]
-      },
-      {
-        "rank": 4,
-        "path": "examples/session/redis.js",
-        "kind": "risk",
-        "reasons": [
-          "Sensitive downstream path with no matching test evidence",
-          "Review-sensitive path term"
-        ]
-      },
-      {
-        "rank": 5,
         "path": "lib/request.js",
         "kind": "changed",
         "reasons": [
           "modified file with 2 changed lines",
-          "23 downstream files within three hops"
+          "23 downstream files within 3 hops"
+        ]
+      }
+    ],
+    "impactWatchlist": [
+      {
+        "path": "examples/auth/index.js",
+        "kind": "risk",
+        "depth": 3,
+        "reasons": [
+          "Sensitive downstream path with no matching test evidence"
         ]
       },
       {
-        "rank": 6,
+        "path": "examples/session/index.js",
+        "kind": "risk",
+        "depth": 3,
+        "reasons": [
+          "Sensitive downstream path with no matching test evidence"
+        ]
+      },
+      {
+        "path": "examples/session/redis.js",
+        "kind": "risk",
+        "depth": 3,
+        "reasons": [
+          "Sensitive downstream path with no matching test evidence"
+        ]
+      },
+      {
         "path": "examples/multi-router/controllers/api_v1.js",
         "kind": "surface",
+        "depth": 3,
         "reasons": [
           "Exposed surface reached by the dependency graph"
         ]
       },
       {
-        "rank": 7,
         "path": "examples/multi-router/controllers/api_v2.js",
         "kind": "surface",
+        "depth": 3,
         "reasons": [
           "Exposed surface reached by the dependency graph"
         ]
       },
       {
-        "rank": 8,
         "path": "lib/express.js",
         "kind": "dependent",
+        "depth": 1,
         "reasons": [
           "Downstream dependency at hop 1"
         ]
       },
       {
-        "rank": 9,
         "path": "examples/route-map/index.js",
         "kind": "dependent",
+        "depth": 2,
         "reasons": [
           "Downstream dependency at hop 2"
         ]
       },
       {
-        "rank": 10,
         "path": "examples/route-middleware/index.js",
         "kind": "dependent",
+        "depth": 2,
         "reasons": [
           "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "index.js",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "examples/content-negotiation/index.js",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "examples/cookie-sessions/index.js",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "examples/cookies/index.js",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "examples/downloads/index.js",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "examples/ejs/index.js",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "examples/error-pages/index.js",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "examples/error/index.js",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "examples/hello-world/index.js",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "examples/markdown/index.js",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "examples/multi-router/index.js",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "examples/mvc/index.js",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "examples/mvc/lib/boot.js",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "examples/online/index.js",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
+        ]
+      },
+      {
+        "path": "examples/params/index.js",
+        "kind": "dependent",
+        "depth": 3,
+        "reasons": [
+          "Downstream dependency at hop 3"
         ]
       }
     ],
@@ -469,7 +579,7 @@
       "Exercise the unpaired path through examples/auth/index.js",
       "Verify the user-facing behavior at examples/multi-router/controllers/api_v1.js"
     ],
-    "brief": "1 changed file reach 23 downstream modules and 2 user-facing surfaces. examples/auth/index.js is the highest-value review target because it is sensitive and has no matching test evidence.",
+    "brief": "1 changed file reach 23 downstream modules and 2 user-facing surfaces. Start with lib/request.js. examples/auth/index.js is an untested sensitive downstream watch target.",
     "narrativeSource": "evidence-engine",
     "unknowns": [
       "3 relative imports could not be resolved."
@@ -487,7 +597,12 @@
       "ignoredAssetImports": 0,
       "typeOnlyImports": 0,
       "symbolFilteredImports": 0,
-      "truncatedNodes": 0
+      "truncatedNodes": 0,
+      "supportedChangedFiles": 1,
+      "mappedChangedFiles": 1,
+      "changedResolvedImports": 0,
+      "changedUnresolvedImports": 0,
+      "changedIncidentEdges": 1
     }
   }
 }

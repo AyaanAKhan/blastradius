@@ -300,7 +300,7 @@ export function BlastRadiusWorkspace() {
         return (
           file.size <= 256_000 &&
           !IGNORED_DIRECTORY_PATTERN.test(pathFor(file)) &&
-          (path === "package.json" || /(^|\/)(tsconfig|jsconfig)\.json$/i.test(path))
+          (path === "package.json" || path === "blastradius.config.json" || /(^|\/)(tsconfig|jsconfig)\.json$/i.test(path))
         );
       });
       const configSources = await Promise.all(
@@ -380,6 +380,7 @@ export function BlastRadiusWorkspace() {
           policyVersion: result.policyVersion,
           confidence: result.confidence,
           reviewOrder: result.reviewOrder,
+          impactWatchlist: result.impactWatchlist,
           verificationPlan: result.verificationPlan,
         };
       },
@@ -545,6 +546,27 @@ export function BlastRadiusWorkspace() {
                       <em data-kind={target.kind}>{target.kind}</em>
                     </li>
                   ))}
+              </ol>
+            </section>
+            <section className="review-section watchlist-section">
+              <header>
+                <span>Downstream watchlist</span>
+                <small>context outside the changed-file queue</small>
+              </header>
+              <ol>
+                {analysis.impactWatchlist.slice(0, 6).map((target, index) => (
+                  <li key={target.path} title={target.reasons.join("; ")}>
+                    <b>{String(index + 1).padStart(2, "0")}</b>
+                    <span className="path-label">{target.path}</span>
+                    <em data-kind={target.kind}>{target.kind}</em>
+                  </li>
+                ))}
+                {!analysis.impactWatchlist.length ? (
+                  <li className="empty-watchlist">
+                    <b>OK</b>
+                    <span>No unchanged downstream files were reached.</span>
+                  </li>
+                ) : null}
               </ol>
             </section>
           </div>

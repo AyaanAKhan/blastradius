@@ -1,182 +1,718 @@
 {
-  "policyVersion": "rank-v1",
-  "requestedPullRequestsPerRepository": 300,
-  "totalPullRequests": 900,
+  "policyVersion": "rank-v2",
+  "generatedFrom": "evaluation/examples.json",
+  "bootstrapResamples": 10000,
   "totalLabeledPullRequests": 121,
   "totalHeldOutPullRequests": 26,
   "label": "Changed file with at least one inline human review comment, excluding the pull request author and bots.",
-  "split": "Oldest 80 percent development, newest 20 percent held out.",
-  "results": [
-    {
-      "repository": "vitejs/vite",
-      "graphSnapshots": "pull-request head commits",
-      "pulled": 300,
-      "labeled": 56,
-      "development": {
-        "pullRequests": 44,
-        "metrics": {
-          "random": {
-            "precisionAt1": 0.4844,
-            "recallAt3": 0.7314,
-            "meanReciprocalRank": 0.6598
-          },
-          "churn": {
-            "precisionAt1": 0.6136,
-            "recallAt3": 0.8947,
-            "meanReciprocalRank": 0.7727
-          },
-          "dependents": {
-            "precisionAt1": 0.6364,
-            "recallAt3": 0.9023,
-            "meanReciprocalRank": 0.8049
-          },
-          "blastradius": {
-            "precisionAt1": 0.5682,
-            "recallAt3": 0.8379,
-            "meanReciprocalRank": 0.7362
-          }
-        }
-      },
-      "heldOut": {
-        "pullRequests": 12,
-        "metrics": {
-          "random": {
-            "precisionAt1": 0.4644,
-            "recallAt3": 0.6165,
-            "meanReciprocalRank": 0.6469
-          },
-          "churn": {
-            "precisionAt1": 0.6667,
-            "recallAt3": 0.7778,
-            "meanReciprocalRank": 0.8
-          },
-          "dependents": {
-            "precisionAt1": 0.75,
-            "recallAt3": 0.6111,
-            "meanReciprocalRank": 0.8069
-          },
-          "blastradius": {
-            "precisionAt1": 0.75,
-            "recallAt3": 0.5833,
-            "meanReciprocalRank": 0.7911
-          }
-        }
-      },
-      "mappingCoverage": 0.7043
+  "split": "Within each repository, oldest 80 percent development and newest 20 percent held out.",
+  "methods": {
+    "random": "Random expected value",
+    "churn": "Churn",
+    "dependents": "Dependents",
+    "rankV1Published": "Published rank-v1",
+    "rankV1": "Full-list rank-v1",
+    "noBuckets": "No buckets",
+    "bucketsOnly": "Buckets only",
+    "churnOnly": "Churn-only policy",
+    "rankV2": "BlastRadius rank-v2"
+  },
+  "candidateFiles": {
+    "min": 1,
+    "p25": 1,
+    "median": 2,
+    "p75": 5,
+    "max": 40
+  },
+  "candidateFilesByRepository": {
+    "expressjs/express": {
+      "min": 1,
+      "p25": 1,
+      "median": 2,
+      "p75": 3,
+      "max": 22
     },
-    {
-      "repository": "pallets/flask",
-      "graphSnapshots": "pull-request head commits",
-      "pulled": 300,
-      "labeled": 8,
-      "development": {
-        "pullRequests": 6,
-        "metrics": {
-          "random": {
-            "precisionAt1": 0.3673,
-            "recallAt3": 0.6435,
-            "meanReciprocalRank": 0.5435
-          },
-          "churn": {
-            "precisionAt1": 0.1667,
-            "recallAt3": 1,
-            "meanReciprocalRank": 0.5833
-          },
-          "dependents": {
-            "precisionAt1": 0.6667,
-            "recallAt3": 1,
-            "meanReciprocalRank": 0.8333
-          },
-          "blastradius": {
-            "precisionAt1": 0.5,
-            "recallAt3": 0.8333,
-            "meanReciprocalRank": 0.6905
-          }
-        }
-      },
-      "heldOut": {
-        "pullRequests": 2,
-        "metrics": {
-          "random": {
-            "precisionAt1": 0.2885,
-            "recallAt3": 0.6154,
-            "meanReciprocalRank": 0.4973
-          },
-          "churn": {
-            "precisionAt1": 1,
-            "recallAt3": 1,
-            "meanReciprocalRank": 1
-          },
-          "dependents": {
-            "precisionAt1": 1,
-            "recallAt3": 1,
-            "meanReciprocalRank": 1
-          },
-          "blastradius": {
-            "precisionAt1": 1,
-            "recallAt3": 1,
-            "meanReciprocalRank": 1
-          }
-        }
-      },
-      "mappingCoverage": 0.6923
+    "pallets/flask": {
+      "min": 2,
+      "p25": 3,
+      "median": 4,
+      "p75": 13,
+      "max": 23
     },
-    {
-      "repository": "expressjs/express",
-      "graphSnapshots": "pull-request head commits",
-      "pulled": 300,
-      "labeled": 57,
-      "development": {
-        "pullRequests": 45,
-        "metrics": {
-          "random": {
-            "precisionAt1": 0.7263,
-            "recallAt3": 0.9055,
-            "meanReciprocalRank": 0.8325
-          },
-          "churn": {
-            "precisionAt1": 0.7556,
-            "recallAt3": 0.8981,
-            "meanReciprocalRank": 0.8474
-          },
-          "dependents": {
-            "precisionAt1": 0.8,
-            "recallAt3": 0.9426,
-            "meanReciprocalRank": 0.888
-          },
-          "blastradius": {
-            "precisionAt1": 0.7778,
-            "recallAt3": 0.9093,
-            "meanReciprocalRank": 0.8654
-          }
-        }
-      },
-      "heldOut": {
-        "pullRequests": 12,
-        "metrics": {
-          "random": {
-            "precisionAt1": 0.8194,
-            "recallAt3": 1,
-            "meanReciprocalRank": 0.9051
-          },
-          "churn": {
-            "precisionAt1": 0.8333,
-            "recallAt3": 1,
-            "meanReciprocalRank": 0.9028
-          },
-          "dependents": {
-            "precisionAt1": 0.9167,
-            "recallAt3": 1,
-            "meanReciprocalRank": 0.9583
-          },
-          "blastradius": {
-            "precisionAt1": 0.9167,
-            "recallAt3": 1,
-            "meanReciprocalRank": 0.9583
-          }
-        }
-      },
-      "mappingCoverage": 0.3525
+    "vitejs/vite": {
+      "min": 1,
+      "p25": 2,
+      "median": 3.5,
+      "p75": 7.5,
+      "max": 40
     }
-  ]
+  },
+  "mappingCoverage": 0.6138,
+  "developmentSensitiveSignal": {
+    "files": 424,
+    "matchedFiles": 5,
+    "firingRate": 0.0118,
+    "precisionWhenMatched": 0.4,
+    "overallLabelRate": 0.2995
+  },
+  "heldOut": {
+    "n": 26,
+    "metrics": {
+      "random": {
+        "precisionAt1": {
+          "value": 0.6148,
+          "ci95": [
+            0.4876,
+            0.7435
+          ]
+        },
+        "recallAt3": {
+          "value": 0.7934,
+          "ci95": [
+            0.6696,
+            0.9089
+          ]
+        },
+        "meanReciprocalRank": {
+          "value": 0.7546,
+          "ci95": [
+            0.6574,
+            0.845
+          ]
+        }
+      },
+      "churn": {
+        "precisionAt1": {
+          "value": 0.7692,
+          "ci95": [
+            0.6154,
+            0.9231
+          ]
+        },
+        "recallAt3": {
+          "value": 0.8974,
+          "ci95": [
+            0.7885,
+            0.9808
+          ]
+        },
+        "meanReciprocalRank": {
+          "value": 0.8628,
+          "ci95": [
+            0.7551,
+            0.9551
+          ]
+        }
+      },
+      "dependents": {
+        "precisionAt1": {
+          "value": 0.8462,
+          "ci95": [
+            0.6923,
+            0.9615
+          ]
+        },
+        "recallAt3": {
+          "value": 0.8205,
+          "ci95": [
+            0.6859,
+            0.9359
+          ]
+        },
+        "meanReciprocalRank": {
+          "value": 0.8917,
+          "ci95": [
+            0.7788,
+            0.9808
+          ]
+        }
+      },
+      "rankV1Published": {
+        "precisionAt1": {
+          "value": 0.8462,
+          "ci95": [
+            0.6923,
+            0.9615
+          ]
+        },
+        "recallAt3": {
+          "value": 0.8077,
+          "ci95": [
+            0.6667,
+            0.9295
+          ]
+        },
+        "meanReciprocalRank": {
+          "value": 0.8844,
+          "ci95": [
+            0.7685,
+            0.9808
+          ]
+        }
+      },
+      "rankV2": {
+        "precisionAt1": {
+          "value": 0.7308,
+          "ci95": [
+            0.5385,
+            0.8846
+          ]
+        },
+        "recallAt3": {
+          "value": 0.8205,
+          "ci95": [
+            0.6859,
+            0.9359
+          ]
+        },
+        "meanReciprocalRank": {
+          "value": 0.8323,
+          "ci95": [
+            0.7137,
+            0.9359
+          ]
+        }
+      }
+    }
+  },
+  "hardSubset": {
+    "definition": "At least four candidate files and one or two labeled files.",
+    "n": 6,
+    "metrics": {
+      "random": {
+        "precisionAt1": {
+          "value": 0.2066,
+          "ci95": [
+            0.1113,
+            0.3343
+          ]
+        },
+        "recallAt3": {
+          "value": 0.4309,
+          "ci95": [
+            0.2448,
+            0.6169
+          ]
+        },
+        "meanReciprocalRank": {
+          "value": 0.4191,
+          "ci95": [
+            0.2978,
+            0.5629
+          ]
+        }
+      },
+      "churn": {
+        "precisionAt1": {
+          "value": 0.8333,
+          "ci95": [
+            0.5,
+            1
+          ]
+        },
+        "recallAt3": {
+          "value": 0.8333,
+          "ci95": [
+            0.5,
+            1
+          ]
+        },
+        "meanReciprocalRank": {
+          "value": 0.8519,
+          "ci95": [
+            0.5556,
+            1
+          ]
+        }
+      },
+      "dependents": {
+        "precisionAt1": {
+          "value": 0.5,
+          "ci95": [
+            0.1667,
+            0.8333
+          ]
+        },
+        "recallAt3": {
+          "value": 0.5833,
+          "ci95": [
+            0.25,
+            0.9167
+          ]
+        },
+        "meanReciprocalRank": {
+          "value": 0.6139,
+          "ci95": [
+            0.3139,
+            0.8889
+          ]
+        }
+      },
+      "rankV2": {
+        "precisionAt1": {
+          "value": 0.3333,
+          "ci95": [
+            0,
+            0.6667
+          ]
+        },
+        "recallAt3": {
+          "value": 0.5833,
+          "ci95": [
+            0.25,
+            0.9167
+          ]
+        },
+        "meanReciprocalRank": {
+          "value": 0.5231,
+          "ci95": [
+            0.2454,
+            0.8056
+          ]
+        }
+      }
+    }
+  },
+  "pairedAgainstDependents": {
+    "n": 26,
+    "rankV2": {
+      "precisionAt1": {
+        "meanDifference": {
+          "value": -0.1154,
+          "ci95": [
+            -0.2692,
+            0
+          ]
+        },
+        "medianDifference": {
+          "value": 0,
+          "ci95": [
+            0,
+            0
+          ],
+          "statistic": "median"
+        },
+        "wilcoxon": {
+          "n": 3,
+          "statistic": 0,
+          "pValue": 0.1088
+        }
+      },
+      "recallAt3": {
+        "meanDifference": {
+          "value": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        },
+        "medianDifference": {
+          "value": 0,
+          "ci95": [
+            0,
+            0
+          ],
+          "statistic": "median"
+        },
+        "wilcoxon": {
+          "n": 0,
+          "statistic": 0,
+          "pValue": 1
+        }
+      },
+      "meanReciprocalRank": {
+        "meanDifference": {
+          "value": -0.0594,
+          "ci95": [
+            -0.1346,
+            -0.0017
+          ]
+        },
+        "medianDifference": {
+          "value": 0,
+          "ci95": [
+            0,
+            0
+          ],
+          "statistic": "median"
+        },
+        "wilcoxon": {
+          "n": 4,
+          "statistic": 0,
+          "pValue": 0.0679
+        }
+      }
+    },
+    "liftOverRandom": {
+      "precisionAt1": {
+        "value": 0.3011,
+        "ci95": [
+          -0.1347,
+          0.6949
+        ],
+        "statistic": "normalized lift"
+      },
+      "recallAt3": {
+        "value": 0.1311,
+        "ci95": [
+          -0.3352,
+          0.5348
+        ],
+        "statistic": "normalized lift"
+      },
+      "meanReciprocalRank": {
+        "value": 0.3166,
+        "ci95": [
+          -0.1116,
+          0.698
+        ],
+        "statistic": "normalized lift"
+      }
+    }
+  },
+  "developmentAblation": {
+    "n": 95,
+    "metrics": {
+      "rankV1Published": {
+        "precisionAt1": {
+          "value": 0.6632,
+          "ci95": [
+            0.5684,
+            0.7579
+          ]
+        },
+        "recallAt3": {
+          "value": 0.8714,
+          "ci95": [
+            0.8089,
+            0.9258
+          ]
+        },
+        "meanReciprocalRank": {
+          "value": 0.7945,
+          "ci95": [
+            0.7331,
+            0.8539
+          ]
+        }
+      },
+      "rankV1": {
+        "precisionAt1": {
+          "value": 0.6737,
+          "ci95": [
+            0.5789,
+            0.7684
+          ]
+        },
+        "recallAt3": {
+          "value": 0.8749,
+          "ci95": [
+            0.8114,
+            0.9325
+          ]
+        },
+        "meanReciprocalRank": {
+          "value": 0.8001,
+          "ci95": [
+            0.7392,
+            0.8588
+          ]
+        }
+      },
+      "noBuckets": {
+        "precisionAt1": {
+          "value": 0.7053,
+          "ci95": [
+            0.6105,
+            0.8
+          ]
+        },
+        "recallAt3": {
+          "value": 0.9293,
+          "ci95": [
+            0.8828,
+            0.9688
+          ]
+        },
+        "meanReciprocalRank": {
+          "value": 0.832,
+          "ci95": [
+            0.7772,
+            0.8847
+          ]
+        }
+      },
+      "bucketsOnly": {
+        "precisionAt1": {
+          "value": 0.6105,
+          "ci95": [
+            0.5158,
+            0.7053
+          ]
+        },
+        "recallAt3": {
+          "value": 0.8398,
+          "ci95": [
+            0.7688,
+            0.9044
+          ]
+        },
+        "meanReciprocalRank": {
+          "value": 0.7606,
+          "ci95": [
+            0.6978,
+            0.8221
+          ]
+        }
+      },
+      "churnOnly": {
+        "precisionAt1": {
+          "value": 0.6526,
+          "ci95": [
+            0.5579,
+            0.7474
+          ]
+        },
+        "recallAt3": {
+          "value": 0.903,
+          "ci95": [
+            0.8465,
+            0.9526
+          ]
+        },
+        "meanReciprocalRank": {
+          "value": 0.7961,
+          "ci95": [
+            0.7355,
+            0.8536
+          ]
+        }
+      },
+      "rankV2": {
+        "precisionAt1": {
+          "value": 0.7158,
+          "ci95": [
+            0.6211,
+            0.8
+          ]
+        },
+        "recallAt3": {
+          "value": 0.9293,
+          "ci95": [
+            0.8826,
+            0.9688
+          ]
+        },
+        "meanReciprocalRank": {
+          "value": 0.8373,
+          "ci95": [
+            0.7816,
+            0.8882
+          ]
+        }
+      }
+    }
+  },
+  "byRepository": {
+    "expressjs/express": {
+      "n": 12,
+      "stableForHeadline": true,
+      "metrics": {
+        "random": {
+          "precisionAt1": {
+            "value": 0.8194,
+            "ci95": [
+              0.6667,
+              0.9583
+            ]
+          },
+          "recallAt3": {
+            "value": 1,
+            "ci95": [
+              1,
+              1
+            ]
+          },
+          "meanReciprocalRank": {
+            "value": 0.9051,
+            "ci95": [
+              0.8218,
+              0.9792
+            ]
+          }
+        },
+        "churn": {
+          "precisionAt1": {
+            "value": 0.8333,
+            "ci95": [
+              0.5833,
+              1
+            ]
+          },
+          "recallAt3": {
+            "value": 1,
+            "ci95": [
+              1,
+              1
+            ]
+          },
+          "meanReciprocalRank": {
+            "value": 0.9028,
+            "ci95": [
+              0.7639,
+              1
+            ]
+          }
+        },
+        "dependents": {
+          "precisionAt1": {
+            "value": 0.9167,
+            "ci95": [
+              0.75,
+              1
+            ]
+          },
+          "recallAt3": {
+            "value": 1,
+            "ci95": [
+              1,
+              1
+            ]
+          },
+          "meanReciprocalRank": {
+            "value": 0.9583,
+            "ci95": [
+              0.875,
+              1
+            ]
+          }
+        },
+        "rankV2": {
+          "precisionAt1": {
+            "value": 0.9167,
+            "ci95": [
+              0.75,
+              1
+            ]
+          },
+          "recallAt3": {
+            "value": 1,
+            "ci95": [
+              1,
+              1
+            ]
+          },
+          "meanReciprocalRank": {
+            "value": 0.9583,
+            "ci95": [
+              0.875,
+              1
+            ]
+          }
+        }
+      }
+    },
+    "pallets/flask": {
+      "n": 2,
+      "stableForHeadline": false
+    },
+    "vitejs/vite": {
+      "n": 12,
+      "stableForHeadline": true,
+      "metrics": {
+        "random": {
+          "precisionAt1": {
+            "value": 0.4644,
+            "ci95": [
+              0.3097,
+              0.6391
+            ]
+          },
+          "recallAt3": {
+            "value": 0.6165,
+            "ci95": [
+              0.4308,
+              0.8
+            ]
+          },
+          "meanReciprocalRank": {
+            "value": 0.6469,
+            "ci95": [
+              0.5145,
+              0.7761
+            ]
+          }
+        },
+        "churn": {
+          "precisionAt1": {
+            "value": 0.6667,
+            "ci95": [
+              0.4167,
+              0.9167
+            ]
+          },
+          "recallAt3": {
+            "value": 0.7778,
+            "ci95": [
+              0.5694,
+              0.9583
+            ]
+          },
+          "meanReciprocalRank": {
+            "value": 0.8,
+            "ci95": [
+              0.6167,
+              0.9583
+            ]
+          }
+        },
+        "dependents": {
+          "precisionAt1": {
+            "value": 0.75,
+            "ci95": [
+              0.5,
+              1
+            ]
+          },
+          "recallAt3": {
+            "value": 0.6111,
+            "ci95": [
+              0.3889,
+              0.8194
+            ]
+          },
+          "meanReciprocalRank": {
+            "value": 0.8069,
+            "ci95": [
+              0.6014,
+              1
+            ]
+          }
+        },
+        "rankV2": {
+          "precisionAt1": {
+            "value": 0.5,
+            "ci95": [
+              0.25,
+              0.75
+            ]
+          },
+          "recallAt3": {
+            "value": 0.6111,
+            "ci95": [
+              0.3889,
+              0.8194
+            ]
+          },
+          "meanReciprocalRank": {
+            "value": 0.6782,
+            "ci95": [
+              0.4792,
+              0.875
+            ]
+          }
+        }
+      }
+    }
+  }
 }

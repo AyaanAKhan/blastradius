@@ -21,9 +21,6 @@ outputs:
 runs:
   using: composite
   steps:
-    - name: Install analyzer dependencies
-      shell: bash
-      run: npm ci --prefix "$GITHUB_ACTION_PATH" --ignore-scripts
     - name: Build review plan
       id: analyze
       shell: bash
@@ -33,14 +30,13 @@ runs:
         EVENT_BASE: ${{ github.event.pull_request.base.sha }}
         EVENT_HEAD: ${{ github.event.pull_request.head.sha }}
       run: |
-        npm --prefix "$GITHUB_ACTION_PATH" run build:cli
         base="${INPUT_BASE:-$EVENT_BASE}"
         head="${INPUT_HEAD:-$EVENT_HEAD}"
         report="$RUNNER_TEMP/blastradius-report.md"
-        node "$GITHUB_ACTION_PATH/dist/cli/src/index.js" --repo "$GITHUB_WORKSPACE" --base "$base" --head "$head" --output "$report"
+        node "$GITHUB_ACTION_PATH/action/cli.cjs" --repo "$GITHUB_WORKSPACE" --base "$base" --head "$head" --output "$report" --no-color
         echo "report=$report" >> "$GITHUB_OUTPUT"
     - name: Publish sticky pull request comment
-      uses: actions/github-script@v7
+      uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b
       env:
         REPORT_PATH: ${{ steps.analyze.outputs.report }}
       with:

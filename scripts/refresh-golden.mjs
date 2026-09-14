@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
-import { analyzeChange } from "../dist/core/src/analyzer.js";
+import { analyzeChange } from "../packages/core/dist/analyzer.js";
 
 const fixtureRoot = path.resolve(import.meta.dirname, "..", "tests", "fixtures");
 const sources = JSON.parse(fs.readFileSync(path.join(fixtureRoot, "sources.json"), "utf8"));

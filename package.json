@@ -1,11 +1,11 @@
 {
   "name": "blastradius",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Explainable pull-request impact analysis for engineering teams.",
   "private": true,
-  "bin": {
-    "blastradius": "dist/cli/src/index.js"
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "engines": {
     "node": ">=22.13.0"
   },
@@ -13,17 +13,20 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "node --test tests/*.test.ts",
+    "test": "node --experimental-test-coverage --test-coverage-lines=90 --test-coverage-branches=85 --test tests/*.test.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "build:cli": "tsc -p packages/cli/tsconfig.json",
-    "cli": "npm run build:cli && node dist/cli/src/index.js",
+    "build:cli": "tsc -b packages/core packages/cli",
+    "cli": "npm run build:cli && node packages/cli/dist/index.js",
     "fixtures:update": "npm run build:cli && node scripts/update-golden.mjs",
     "fixtures:refresh": "npm run build:cli && node scripts/refresh-golden.mjs",
     "evaluate": "npm run build:cli && node scripts/evaluate.mjs",
+    "evaluation:report": "node scripts/report.mjs",
+    "build:action": "esbuild packages/cli/src/index.ts --bundle --platform=node --format=cjs --target=node22 --minify --legal-comments=none --outfile=action/cli.cjs",
     "pages:build": "node scripts/build-pages.mjs",
     "audit:site": "node scripts/audit-site.mjs",
-    "check": "npm run test && npm run typecheck && npm run lint && npm run build:cli && npm run build"
+    "audit:source": "node scripts/audit-source.mjs",
+    "check": "npm run test && npm run typecheck && npm run lint && npm run audit:source && npm run build:cli && npm run build:action && npm run build"
   },
   "dependencies": {
     "@fontsource/source-sans-3": "^5.2.8",
@@ -37,7 +40,8 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.3.4"
+    "eslint-config-next": "16.3.4",
+    "esbuild": "0.25.10"
   },
   "type": "module"
 }

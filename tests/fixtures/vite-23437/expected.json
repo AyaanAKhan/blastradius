@@ -1,9 +1,9 @@
 {
-  "policyVersion": "rank-v1",
-  "sha256": "f7642d3e28ac9e9237323000b07795a5bd1b783784759f4652adf6c4cef6e3bb",
+  "policyVersion": "rank-v2",
+  "sha256": "4c9250e80c498094f03acbd56b618414b993aefd9841ac82c7f9ae68387c6a3a",
   "result": {
-    "policyVersion": "rank-v1",
-    "confidence": 0.6476984126984127,
+    "policyVersion": "rank-v2",
+    "confidence": 0.8529411764705883,
     "changedFiles": [
       {
         "path": "packages/vite/src/node/__tests__/utils.spec.ts",
@@ -415,7 +415,7 @@
       {
         "label": "Dependency fan-out",
         "signal": "attention",
-        "explanation": "22 downstream files within three hops"
+        "explanation": "22 downstream files within 3 hops"
       },
       {
         "label": "Sensitive paths",
@@ -450,79 +450,191 @@
         "kind": "changed",
         "reasons": [
           "modified file with 4 changed lines",
-          "22 downstream files within three hops"
+          "22 downstream files within 3 hops"
         ]
       },
       {
         "rank": 2,
+        "path": "packages/vite/src/node/__tests__/utils.spec.ts",
+        "kind": "changed",
+        "reasons": [
+          "modified file with 24 changed lines"
+        ]
+      }
+    ],
+    "impactWatchlist": [
+      {
         "path": "packages/vite/src/node/plugins/worker.ts",
         "kind": "surface",
+        "depth": 2,
         "reasons": [
           "Exposed surface reached by the dependency graph"
         ]
       },
       {
-        "rank": 3,
         "path": "packages/vite/src/node/config.ts",
         "kind": "dependent",
-        "reasons": [
-          "Downstream dependency at hop 1",
-          "Configuration or schema reach"
-        ]
-      },
-      {
-        "rank": 4,
-        "path": "packages/vite/src/node/optimizer/rolldownDepPlugin.ts",
-        "kind": "dependent",
+        "depth": 1,
         "reasons": [
           "Downstream dependency at hop 1"
         ]
       },
       {
-        "rank": 5,
+        "path": "packages/vite/src/node/optimizer/rolldownDepPlugin.ts",
+        "kind": "dependent",
+        "depth": 1,
+        "reasons": [
+          "Downstream dependency at hop 1"
+        ]
+      },
+      {
         "path": "packages/vite/src/node/__tests_dts__/config.ts",
         "kind": "dependent",
+        "depth": 2,
         "reasons": [
-          "Downstream dependency at hop 2",
-          "Configuration or schema reach"
+          "Downstream dependency at hop 2"
         ]
       },
       {
-        "rank": 6,
         "path": "packages/vite/src/node/baseEnvironment.ts",
         "kind": "dependent",
+        "depth": 2,
         "reasons": [
           "Downstream dependency at hop 2"
         ]
       },
       {
-        "rank": 7,
         "path": "packages/vite/src/node/build.ts",
         "kind": "dependent",
+        "depth": 2,
         "reasons": [
           "Downstream dependency at hop 2"
         ]
       },
       {
-        "rank": 8,
         "path": "packages/vite/src/node/cli.ts",
         "kind": "dependent",
+        "depth": 2,
         "reasons": [
           "Downstream dependency at hop 2"
         ]
       },
       {
-        "rank": 9,
         "path": "packages/vite/src/node/deprecations.ts",
         "kind": "dependent",
+        "depth": 2,
         "reasons": [
           "Downstream dependency at hop 2"
         ]
       },
       {
-        "rank": 10,
         "path": "packages/vite/src/node/env.ts",
         "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "packages/vite/src/node/idResolver.ts",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "packages/vite/src/node/index.ts",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "packages/vite/src/node/optimizer/index.ts",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "packages/vite/src/node/optimizer/resolve.ts",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "packages/vite/src/node/plugin.ts",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "packages/vite/src/node/plugins/asset.ts",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "packages/vite/src/node/plugins/assetImportMetaUrl.ts",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "packages/vite/src/node/plugins/clientInjections.ts",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "packages/vite/src/node/plugins/css.ts",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "packages/vite/src/node/plugins/define.ts",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "packages/vite/src/node/plugins/dynamicImportVars.ts",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "packages/vite/src/node/plugins/esbuild.ts",
+        "kind": "dependent",
+        "depth": 2,
+        "reasons": [
+          "Downstream dependency at hop 2"
+        ]
+      },
+      {
+        "path": "packages/vite/src/node/plugins/esbuildBannerFooterCompatPlugin.ts",
+        "kind": "dependent",
+        "depth": 2,
         "reasons": [
           "Downstream dependency at hop 2"
         ]
@@ -532,12 +644,12 @@
       "Run packages/vite/src/node/__tests__/utils.spec.ts",
       "Verify the user-facing behavior at packages/vite/src/node/plugins/worker.ts"
     ],
-    "brief": "2 changed files reach 22 downstream modules and 1 user-facing surface. Start with packages/vite/src/node/utils.ts; related test evidence exists, but the impact path still needs human confirmation.",
+    "brief": "2 changed files reach 22 downstream modules and 1 user-facing surface. Start with packages/vite/src/node/utils.ts. Related test evidence exists, but the impact path still needs human confirmation.",
     "narrativeSource": "evidence-engine",
     "unknowns": [
+      "11 imports from changed files could not be resolved.",
       "184 relative imports could not be resolved.",
-      "30 of 504 import specifiers used an unrecognized path alias and were not followed. The downstream graph is incomplete.",
-      "2 files use dynamic imports that static mapping may miss."
+      "30 of 504 import specifiers used an unrecognized path alias and were not followed. The downstream graph is incomplete."
     ],
     "stats": {
       "additions": 27,
@@ -552,7 +664,12 @@
       "ignoredAssetImports": 0,
       "typeOnlyImports": 204,
       "symbolFilteredImports": 17,
-      "truncatedNodes": 0
+      "truncatedNodes": 0,
+      "supportedChangedFiles": 2,
+      "mappedChangedFiles": 2,
+      "changedResolvedImports": 6,
+      "changedUnresolvedImports": 11,
+      "changedIncidentEdges": 25
     }
   }
 }

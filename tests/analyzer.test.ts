@@ -5,6 +5,7 @@ import {
   analyzeChange,
   applyAlias,
   classifySpecifier,
+  matchesSensitivePath,
   parseUnifiedDiff,
   testMatchesSource,
   type RepositoryFile,
@@ -116,7 +117,7 @@ test("reverse traversal stops after three dependency hops", () => {
   assert.equal(result.nodes.some((node) => node.path === "src/e.ts"), false);
 });
 
-test("unresolved relative imports are reported and reduce confidence", () => {
+test("unresolved imports outside the change are reported without changing confidence", () => {
   const unresolvedRepository: RepositoryFile[] = [
     ...repository,
     {
@@ -130,7 +131,7 @@ test("unresolved relative imports are reported and reduce confidence", () => {
   const incomplete = analyzeChange(diff, unresolvedRepository);
 
   assert.ok(incomplete.unknowns.some((unknown) => unknown.includes("could not be resolved")));
-  assert.ok(incomplete.confidence < complete.confidence);
+  assert.equal(incomplete.confidence, complete.confidence);
 });
 
 test("configuration changes contribute explicit review evidence", () => {
@@ -154,13 +155,16 @@ test("the same evidence always produces the same result", () => {
   assert.deepEqual(analyzeChange(diff, repository), analyzeChange(diff, repository));
 });
 
-test("rank-v1 orders review targets by evidence instead of a numeric score", () => {
+test("rank-v2 returns changed review targets and a separate impact watchlist", () => {
   const result = analyzeChange(diff, repository);
 
-  assert.equal(result.policyVersion, "rank-v1");
+  assert.equal(result.policyVersion, "rank-v2");
   assert.equal(result.reviewOrder[0]?.rank, 1);
   assert.equal(result.reviewOrder[0]?.path, "src/core/auth.ts");
   assert.ok(result.reviewOrder[0]?.reasons.some((reason) => reason.includes("Review-sensitive")));
+  assert.ok(result.reviewOrder.every((target) => result.changedFiles.some((file) => file.path === target.path)));
+  assert.ok(result.impactWatchlist.some((target) => target.path === "src/app/api/session/route.ts"));
+  assert.ok(result.impactWatchlist.every((target) => !result.changedFiles.some((file) => file.path === target.path)));
   assert.deepEqual(
     result.reviewOrder.map((target) => target.rank),
     result.reviewOrder.map((_, index) => index + 1),
@@ -322,4 +326,168 @@ test("dependency cycles do not count changed files as downstream impact", () => 
   assert.equal(result.stats.impactedFiles, 1);
   assert.match(result.brief, /reach 1 downstream module/);
   assert.equal(result.nodes.filter((node) => node.path === "src/a.ts").length, 1);
+});
+
+test("review order is complete for large diffs", () => {
+  const files = Array.from({ length: 30 }, (_, index): RepositoryFile => ({
+    path: `src/file-${String(index).padStart(2, "0")}.ts`,
+    imports: [],
+    isTest: false,
+    isSurface: false,
+  }));
+  const change = files.map((file) => `diff --git a/${file.path} b/${file.path}
+--- a/${file.path}
++++ b/${file.path}
+@@ -1 +1 @@
+-export const value = 1
++export const value = 2`).join("\n");
+  const result = analyzeChange(change, files);
+
+  assert.equal(result.reviewOrder.length, 30);
+  assert.deepEqual(result.reviewOrder.map((target) => target.rank), Array.from({ length: 30 }, (_, index) => index + 1));
+});
+
+test("rank-v2 demotes lockfiles below source and test changes", () => {
+  const files: RepositoryFile[] = [
+    { path: "src/change.ts", imports: [], isTest: false, isSurface: false },
+    { path: "src/change.test.ts", imports: ["./change"], isTest: true, isSurface: false },
+  ];
+  const change = `diff --git a/package-lock.json b/package-lock.json
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -1 +1,4 @@
+-{}
++{
++  "changed": true
++}
++
+diff --git a/src/change.test.ts b/src/change.test.ts
+--- a/src/change.test.ts
++++ b/src/change.test.ts
+@@ -1 +1 @@
+-test("old", () => {})
++test("new", () => {})
+diff --git a/src/change.ts b/src/change.ts
+--- a/src/change.ts
++++ b/src/change.ts
+@@ -1 +1 @@
+-export const value = 1
++export const value = 2`;
+  const result = analyzeChange(change, files);
+
+  assert.equal(result.reviewOrder.at(-1)?.path, "package-lock.json");
+  assert.ok(result.reviewOrder.at(-1)?.reasons.some((reason) => reason.includes("Lockfile ranked after")));
+});
+
+test("rank-v2 tiebreaks by reach, churn, then path", () => {
+  const files: RepositoryFile[] = [
+    ...["a", "b", "c", "d"].map((name): RepositoryFile => ({
+      path: `src/${name}.ts`, imports: [], isTest: false, isSurface: false,
+    })),
+    { path: "src/b-consumer.ts", imports: ["./b"], isTest: false, isSurface: false },
+  ];
+  const oneLine = (name: string) => `diff --git a/src/${name}.ts b/src/${name}.ts
+--- a/src/${name}.ts
++++ b/src/${name}.ts
+@@ -1 +1 @@
+-export const value = 1
++export const value = 2`;
+  const larger = `diff --git a/src/c.ts b/src/c.ts
+--- a/src/c.ts
++++ b/src/c.ts
+@@ -1 +1,2 @@
+-export const value = 1
++export const value = 2
++export const extra = 3`;
+  const result = analyzeChange([oneLine("a"), oneLine("b"), larger, oneLine("d")].join("\n"), files);
+
+  assert.deepEqual(result.reviewOrder.map((target) => target.path), [
+    "src/b.ts",
+    "src/c.ts",
+    "src/a.ts",
+    "src/d.ts",
+  ]);
+});
+
+test("sensitive terms match path words rather than substrings", () => {
+  assert.equal(matchesSensitivePath("lib/authors.ts"), false);
+  assert.equal(matchesSensitivePath("src/tokenizer.ts"), false);
+  assert.equal(matchesSensitivePath("src/auth/session.ts"), true);
+  assert.equal(matchesSensitivePath("src/ledger/post.ts", ["ledger"]), true);
+});
+
+test("confidence follows coverage of the changed paths", () => {
+  const change = `diff --git a/src/a.ts b/src/a.ts
+--- a/src/a.ts
++++ b/src/a.ts
+@@ -1 +1 @@
+-export const a = 1
++export const a = 2
+diff --git a/src/b.ts b/src/b.ts
+--- a/src/b.ts
++++ b/src/b.ts
+@@ -1 +1 @@
+-export const b = 1
++export const b = 2`;
+  const unrelated = Array.from({ length: 6 }, (_, index): RepositoryFile => ({
+    path: `src/unrelated-${index}.ts`,
+    imports: index ? [`./unrelated-${index - 1}`] : [],
+    isTest: false,
+    isSurface: false,
+  }));
+  const partial: RepositoryFile[] = [
+    { path: "src/a.ts", imports: [], isTest: false, isSurface: false },
+    { path: "src/a-consumer.ts", imports: ["./a"], isTest: false, isSurface: false },
+    ...unrelated,
+  ];
+  const full: RepositoryFile[] = [
+    ...partial,
+    { path: "src/b.ts", imports: [], isTest: false, isSurface: false },
+    { path: "src/b-consumer.ts", imports: ["./b"], isTest: false, isSurface: false },
+  ];
+  const unmappedResult = analyzeChange(change, unrelated);
+  const partialResult = analyzeChange(change, partial);
+  const fullResult = analyzeChange(change, full);
+
+  assert.ok(unmappedResult.confidence < partialResult.confidence);
+  assert.ok(partialResult.confidence < fullResult.confidence);
+  assert.ok(unmappedResult.unknowns.some((unknown) => unknown.includes("absent from the repository map")));
+  assert.equal(fullResult.stats.mappedChangedFiles, 2);
+});
+
+test("unresolved imports in a changed file reduce confidence", () => {
+  const baseFiles: RepositoryFile[] = [
+    { path: "src/helper.ts", imports: [], isTest: false, isSurface: false },
+    { path: "src/consumer.ts", imports: ["./core/auth"], isTest: false, isSurface: false },
+  ];
+  const complete = analyzeChange(diff, [
+    { path: "src/core/auth.ts", imports: ["../helper"], isTest: false, isSurface: false },
+    ...baseFiles,
+  ]);
+  const incomplete = analyzeChange(diff, [
+    { path: "src/core/auth.ts", imports: ["../missing"], isTest: false, isSurface: false },
+    ...baseFiles,
+  ]);
+
+  assert.ok(incomplete.confidence < complete.confidence);
+  assert.equal(incomplete.stats.changedUnresolvedImports, 1);
+  assert.ok(incomplete.unknowns.some((unknown) => unknown.includes("from changed files")));
+});
+
+test("configured hop limit bounds downstream traversal", () => {
+  const files: RepositoryFile[] = [
+    { path: "src/a.ts", imports: [], isTest: false, isSurface: false },
+    { path: "src/b.ts", imports: ["./a"], isTest: false, isSurface: false },
+    { path: "src/c.ts", imports: ["./b"], isTest: false, isSurface: false },
+  ];
+  const change = `diff --git a/src/a.ts b/src/a.ts
+--- a/src/a.ts
++++ b/src/a.ts
+@@ -1 +1 @@
+-export const value = 1
++export const value = 2`;
+  const result = analyzeChange(change, files, { hopLimit: 1 });
+
+  assert.equal(result.nodes.some((node) => node.path === "src/b.ts"), true);
+  assert.equal(result.nodes.some((node) => node.path === "src/c.ts"), false);
 });
