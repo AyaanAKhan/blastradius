@@ -31,6 +31,11 @@ The paired mean MRR delta for rank-v2 versus dependents is -0.059 with a 95 perc
 - A prebuilt composite action publishes one sticky, evidence-backed review plan without installing the web application.
 
 The project is deliberately stronger as an engineering artifact than as a product claim: a real workspace split, package exports, configuration validation, Markdown/JSON/SARIF output, content-hash mapping cache, exact ranking tests, enforced coverage, reproducible evaluation, and explicit failure modes.
+## Launch video
+
+A 21-second walkthrough of the sample commerce service: a three-line pricing change traced through its dependents to an untested worker, then ranked into a review order.
+
+[![BlastRadius launch video](docs/brag.jpg)](docs/brag.mp4)
 
 ## Run
 
