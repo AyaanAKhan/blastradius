@@ -36,7 +36,7 @@ runs:
         node "$GITHUB_ACTION_PATH/action/cli.cjs" --repo "$GITHUB_WORKSPACE" --base "$base" --head "$head" --output "$report" --no-color
         echo "report=$report" >> "$GITHUB_OUTPUT"
     - name: Publish sticky pull request comment
-      uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b
+      uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
       env:
         REPORT_PATH: ${{ steps.analyze.outputs.report }}
       with:
